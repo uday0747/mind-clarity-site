@@ -50,7 +50,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2324574d'/%3E%3Cpath d='M18 42c8-20 20-20 28 0M22 30c7 5 13 5 20 0' fill='none' stroke='%23f4d9a6' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E"
     />
-    <style>
+  <style>
       :root {
         --green: #24574d;
         --deep: #183d36;
@@ -315,11 +315,16 @@
       .button {
         box-shadow: 0 8px 18px rgba(36, 87, 77, 0.15);
       }
-    </style>
-  </head>
+  </style>
+  <style>
+    .menu-toggle { display:none; border:1px solid var(--green); background:transparent; color:var(--green); border-radius:999px; padding:8px 14px; font-weight:bold; font-size:14px; }
+    @media(max-width:760px){ header { position:sticky; top:0; } .menu-toggle { display:block; } header nav { display:none; width:100%; justify-content:flex-start; padding-top:4px; } header nav.is-open { display:flex; } }
+  </style>
+</head>
   <body>
     <header>
       <a class="brand" href="index.html">Mind Clarity</a>
+      <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
       <nav>
         <a href="philosophy.html">Philosophy</a
         ><a href="services.html">Services</a><a href="about.html">About Uday</a
@@ -442,6 +447,6 @@
         <div><a href="privacy.html">Privacy</a> · <a href="consultation-info.html">Consultation information</a> · <a href="#top">Back to top</a></div>
       </div>
     </footer>
-  <script src="whatsapp.js" defer></script>
+  <script src="menu.js" defer></script><script src="whatsapp.js" defer></script>
   </body>
 </html>
