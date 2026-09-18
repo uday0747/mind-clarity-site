@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+.pnpm-store/
+.sites-runtime/
+.imported-site/
+dist-bundle/
+dist-home/
+.env
+.env.*
+!.env.example
+*.log
