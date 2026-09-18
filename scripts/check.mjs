@@ -18,7 +18,7 @@ for (const page of pages) {
   assert.match(html, /name="description" content="[^"]+"/, `${page}: description`);
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);
-  assert.equal((html.match(/aria-current="page"/g) || []).length, ['privacy', 'consultation-info'].includes(page) ? 0 : 1, `${page}: active navigation`);
+  assert.equal((html.match(/aria-current="page"/g) || []).length, ['privacy', 'consultation-info', 'services', 'about'].includes(page) ? 0 : 1, `${page}: active navigation`);
   assert.doesNotMatch(html, /src="(?:app|page-app)\.js"/, `${page}: production bundle`);
   for (const [, url] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (/^(?:https?:|mailto:|tel:|data:|#)/.test(url)) continue;

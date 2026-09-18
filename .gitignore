@@ -9,3 +9,4 @@ dist-home/
 .env.*
 !.env.example
 *.log
+/references/

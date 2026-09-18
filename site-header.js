@@ -6,8 +6,6 @@ const e = React.createElement;
 const links = [
   ['home', 'Home', '/index.html'],
   ['philosophy', 'Philosophy', '/philosophy.html'],
-  ['services', 'Services', '/services.html'],
-  ['about', 'About Uday', '/about.html'],
   ['faq', 'FAQ', '/faq.html'],
   ['contact', 'Contact', '/contact.html']
 ];
