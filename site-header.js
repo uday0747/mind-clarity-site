@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { createContext, useContext, useRef, useState } from 'react';
+
+export const PagePathContext = createContext(null);
 
 const e = React.createElement;
 const links = [
@@ -24,7 +26,8 @@ export function pageFromPath(pathname) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const toggle = useRef(null);
-  const page = pageFromPath(location.pathname);
+  const providedPath = useContext(PagePathContext);
+  const page = pageFromPath(providedPath ?? (typeof location === 'undefined' ? '/' : location.pathname));
   const pageLabel = pageLabels[page] || 'Mind Clarity';
   const secondaryPage = !links.some(([id]) => id === page);
 

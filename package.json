@@ -2,7 +2,12 @@
   "name": "mind-clarity-site",
   "private": true,
   "type": "module",
-  "scripts": {"build": "vite build"},
+  "scripts": {
+    "dev": "vite --config vite.dev.config.js",
+    "build": "node scripts/build.mjs",
+    "preview": "vite preview --config vite.dev.config.js",
+    "check": "node scripts/check.mjs"
+  },
   "dependencies": {"@vitejs/plugin-react": "latest", "vite": "latest", "react": "latest", "react-dom": "latest"},
   "devDependencies": {}
 }

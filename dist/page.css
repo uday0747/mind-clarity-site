@@ -7,6 +7,21 @@
 @media(min-width:761px){.brand-image img,.brand-photo img{content:url("assets-brand-desktop.png")}}
 @media(min-width:761px){.brand::before{background-image:url("mind-clarity-mark-desktop.png")}}
 .site-header{flex-wrap:wrap}
+.eyebrow{font-size:.875rem;color:#795b2b}
+.brand-image figcaption{font-size:.875rem;max-width:calc(100% - 36px)}
+main a:not(.button){color:var(--green);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+.skip-link{position:fixed;top:8px;left:8px;z-index:30;transform:translateY(-200%);background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px}
+.skip-link:focus{transform:none}
+main{scroll-margin-top:170px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.button{max-width:100%;text-align:center;min-height:44px}
+.button.secondary{background:transparent;color:var(--green);border:1px solid var(--green);box-shadow:none}
+.button:hover{background:var(--deep);color:#fff}
+.button.secondary:hover{background:#e8f0e9;color:var(--deep)}
+main p,main a{overflow-wrap:anywhere}
+.card h3{margin-top:0}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 .site-header .brand{flex:none;white-space:nowrap}
 .site-header nav{flex:1;min-width:0;gap:8px}
 .site-header nav a{min-height:44px;display:flex;align-items:center;justify-content:center}
