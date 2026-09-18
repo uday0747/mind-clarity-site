@@ -30,11 +30,14 @@ If `node` is not on the command's PATH, prepend its containing directory for tha
 - `site-header.js`: shared navigation and current-page labels.
 - `page.css` and `react-home.css`: styling.
 - Root HTML files: document heads, descriptions, canonicals and analytics; their development entrypoints load React.
-- `scripts/build.mjs`: builds both browser bundles and prerenders complete HTML from the same React components.
-- `mount.js`: hydrates production HTML or mounts the development view.
+- `scripts/build.mjs`: renders complete static HTML from React at build time and bundles only the small navigation enhancement for visitors.
+- `site-ui.js` and `site-entry.js`: progressive menu behavior, Escape/focus handling and header-aware fragment spacing. React uses the same enhancement during development.
+- `scripts/metadata.mjs`: completes consistent search/social text and WebSite/WebPage structured data from each HTML template's title, description and canonical. Existing social images are retained.
+- `assets/`: committed, optimized responsive artwork, logo and icons; originals remain at the root. `scripts/optimize-images.mjs` can regenerate these with Sharp (optionally pass its installed package path); normal builds need no image-processing dependency.
+- `mount.js`: mounts the React development view; production does not hydrate or download React.
 - `dist/`: generated public output. Do not hand-edit it; rebuild after source changes.
 
-The build replaces `dist/` only after both browser bundles succeed. It copies an explicit public asset list and adds content-based cache versions. Text, navigation and links are present before JavaScript executes; mobile navigation remains available with JavaScript disabled.
+The build creates a staging directory, validates all pages and assets, and only then replaces `dist/`. It copies an explicit public asset list and adds content-based CSS and JavaScript cache versions. Text, navigation, links and native expandable examples work without JavaScript. The menu is collapsed only after enhancement succeeds, so navigation remains available if the script is blocked or fails to download. Do not add interactive React state to public pages without implementing a production enhancement.
 
 ## Publishing
 
@@ -73,6 +76,10 @@ The organized philosophy reference is [Uday_Philosophy.docx](Uday_Philosophy.doc
 ## Verification
 
 `pnpm check` validates complete HTML, one main heading, local and cross-page fragment links, image/CSS references, canonicals, analytics loaders, navigation state, legacy redirects, learning-first main content and the sitemap. Check desktop and mobile reading layouts, menu keyboard behaviour, contents links and expandable examples before publishing.
+
+18 September 2026 optimization pass: browser checks covered all seven production pages at 320, 375, 768 and 1280 px with no horizontal overflow. Four learning pages also passed 200% text enlargement at 320, 768 and 1280 px. Verified keyboard menu/ Escape focus return, outside-click closure, practice anchor clearance, native worked examples and FAQ disclosure, and visible navigation when the enhancement script is absent. The production check now enforces matching social/canonical metadata, parseable structured data, responsive-image references, a 5 KB navigation-script budget and a 150 KB optimized-image budget.
+
+Measured asset sizes (uncompressed files, excluding third-party analytics): the old 225–255 KB React browser bundles are replaced by about 1.5 KB of navigation code; desktop artwork is 37–64 KB rather than about 2 MB; mobile artwork is 24–61 KB rather than about 1.2 MB; the displayed logo is under 5 KB rather than about 586 KB on desktop. These are asset-size measurements, not Lighthouse scores or field Core Web Vitals. Google Analytics, payment and enquiry services were not end-to-end tested.
 
 18 September 2026 verification: production preview checked at 1280px and 375px; mobile menu/Escape, keyboard-expandable questions, worked examples, philosophy contents links (including Mula Siddhanta), retired About redirect, all seven page headings and mobile overflow passed. Browser console showed no errors. The updated nine-page philosophy document was rendered and all pages visually reviewed.
 

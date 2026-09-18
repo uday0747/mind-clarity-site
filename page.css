@@ -1,11 +1,12 @@
 :root{--green:#24574d;--deep:#183d36;--ink:#26332e;--cream:#faf8f2;--gold:#795b2b;--line:#d9e4dc;--muted:#53645b;--soft:#edf2ec}
 *{box-sizing:border-box}
-html{scroll-padding-top:115px}
-body{margin:0;color:var(--ink);background:var(--cream);font:17px/1.75 Arial,sans-serif}
+html{color-scheme:light}
+html{scroll-padding-top:calc(var(--header-height,95px) + 20px)}
+body{margin:0;color:var(--ink);background:var(--cream);font:1.0625rem/1.75 Arial,sans-serif;overflow-wrap:break-word}
 a{color:var(--green);text-underline-offset:4px;overflow-wrap:anywhere}
 a:hover{text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--green);outline-offset:5px}
-h1,h2,h3{font-family:Georgia,serif;color:var(--deep);font-weight:400;line-height:1.2}
+h1,h2,h3{font-family:Georgia,serif;color:var(--deep);font-weight:400;line-height:1.2;overflow-wrap:break-word;text-wrap:balance}
 h1{font-size:clamp(2.5rem,5.2vw,4.5rem);letter-spacing:-.035em;margin:14px 0 24px;max-width:950px}
 h2{font-size:clamp(1.8rem,3.2vw,2.7rem);margin:0 0 22px;letter-spacing:-.02em}
 h3{font-size:1.45rem;margin:28px 0 12px}
@@ -15,12 +16,13 @@ main:focus{outline:none}
 .intro{font-size:1.2rem;line-height:1.7;max-width:760px;margin-bottom:32px}
 .eyebrow{font-size:.875rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
 .site-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;max-width:1280px;margin:auto;padding:18px 40px;background:var(--cream);border-bottom:1px solid var(--line)}
-.brand{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font:700 1.45rem Georgia,serif;color:var(--deep);text-decoration:none}
-.brand:before{content:"";width:34px;height:34px;border-radius:50%;background:url("mind-clarity-mark.png") center/cover}
+.brand{display:inline-flex;align-items:center;gap:10px;max-width:100%;min-width:0;font:700 1.45rem Georgia,serif;color:var(--deep);text-decoration:none}
+.brand:before{content:"";width:34px;height:34px;flex-shrink:0;border-radius:50%;background:url("/assets/mark-68.png") center/cover}
 .site-header nav{display:flex;justify-content:flex-end;gap:6px;margin-left:auto}
 .site-header nav a{display:flex;align-items:center;min-height:44px;padding:6px 14px;font-size:1rem;text-decoration:none;border-radius:4px}
 .site-header nav a[aria-current="page"]{font-weight:bold;background:var(--soft);box-shadow:inset 0 -2px var(--green)}
 .site-header nav a:hover{background:var(--soft)}
+.site-header nav a:active,.button:active{transform:translateY(1px)}
 .menu-toggle{display:none;margin-left:auto;min-width:74px;min-height:44px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:4px;padding:8px 14px;font:700 1rem Arial,sans-serif}
 .mobile-page{display:none}
 .skip-link{position:fixed;top:8px;left:8px;z-index:30;transform:translateY(-200%);background:var(--deep);color:white;padding:10px 16px}
@@ -45,13 +47,14 @@ main:focus{outline:none}
 .topic-link:hover strong{text-decoration:underline;text-underline-offset:4px}
 .topic-index,.lesson-number{color:var(--gold);font-size:.875rem;letter-spacing:.08em}
 .philosophy-intro{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
+.first-practice>*,.topic-grid>*,.philosophy-intro>*,.concept-pair>*{min-width:0}
 .reflection{background:var(--soft);border-left:3px solid var(--green);padding:22px 25px;margin:28px 0;font-size:1rem}
 .reflection p:last-child{margin-bottom:0}
 .reading-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:55px;align-items:start;margin-top:44px}
-.reading-contents{position:sticky;top:108px;border-top:1px solid var(--line);padding-top:22px;max-height:calc(100vh - 130px);overflow-y:auto}
+.reading-contents{position:sticky;top:calc(var(--header-height,88px) + 20px);border-top:1px solid var(--line);padding-top:22px;max-height:calc(100vh - var(--header-height,88px) - 42px);overflow-y:auto}
 .reading-contents ol{padding-left:21px;margin:0;font-size:.95rem;line-height:1.5}
-.reading-contents li{padding-left:3px;margin-bottom:14px}
-.reading-contents a{text-decoration:none}.reading-contents a:hover{text-decoration:underline}
+.reading-contents li{padding-left:3px;margin-bottom:4px}
+.reading-contents a{display:block;padding:5px 0;min-height:32px;text-decoration:none}.reading-contents a:hover{text-decoration:underline}
 .reading-body{min-width:0;max-width:70ch}
 .lesson{padding:0 0 38px;margin:0 0 34px;border-bottom:1px solid var(--line)}
 .lesson-number{display:block;margin-bottom:12px}
@@ -67,7 +70,7 @@ blockquote cite{display:block;margin-top:16px;font:400 .875rem/1.5 Arial,sans-se
 .example{padding:20px 0;border-top:1px solid var(--line)}
 .example h3{margin-top:0}
 details{border-top:1px solid var(--line);padding:20px 0}
-summary{cursor:pointer;font-size:1.12rem;font-weight:700;color:var(--deep)}
+summary{cursor:pointer;font-size:1.12rem;font-weight:700;color:var(--deep);min-height:44px;padding:5px 0}
 details[open]>summary{margin-bottom:18px}
 details p{font-size:1rem}
 details p:last-child{margin-bottom:0}
@@ -78,14 +81,14 @@ details p:last-child{margin-bottom:0}
 .site-footer>p{font:400 1.15rem Georgia,serif;color:var(--deep);margin-bottom:18px}
 .footer-purpose{display:block;font:400 .9rem/1.6 Arial,sans-serif;margin-top:7px;color:var(--muted)}
 .footer-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:18px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px}
 .site-footer small{font-size:.875rem}
-@media(min-width:761px){.brand:before{background-image:url("mind-clarity-mark-desktop.png")}}
 @media(max-width:850px){.site-header{padding:14px 22px;gap:15px}.site-header nav a{padding:6px 9px}.reading-grid{grid-template-columns:180px minmax(0,1fr);gap:28px}}
 @media(max-width:760px){
- html{scroll-padding-top:140px}
- main{padding:28px 22px 50px}h1{font-size:2.7rem}.intro{font-size:1.1rem}
- .site-header{flex-wrap:wrap;gap:8px 12px}.menu-toggle{display:block}.site-header nav{display:none;width:100%;margin:0;order:3;max-height:45vh;overflow-y:auto}
- .site-header nav.is-open{display:grid;grid-template-columns:1fr 1fr}
+ main{padding:28px 22px 50px}h1{font-size:clamp(2rem,6vw + .5rem,2.7rem)}.intro{font-size:1.1rem}
+ .site-header{flex-wrap:wrap;gap:8px 12px}.site-header.is-enhanced .menu-toggle{display:block}.site-header nav{display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0;order:3;max-height:45vh;overflow-y:auto}
+ .site-header.is-enhanced nav:not(.is-open){display:none}
+ .site-header:not(.is-enhanced){position:static}
  .mobile-page{display:block;width:100%;margin:0;color:var(--muted);font-size:.875rem}
  .first-practice{display:block;padding:24px;margin-top:25px}.practice-image{margin-top:28px}.practice-image img{height:190px}
  .topic-grid,.philosophy-intro,.concept-pair{grid-template-columns:1fr}
@@ -94,5 +97,17 @@ details p:last-child{margin-bottom:0}
  .reading-contents ol{columns:2;column-gap:25px}.reading-contents li{break-inside:avoid}
  .reflection{padding:20px}.site-footer{padding:28px 22px}
 }
+@media(prefers-reduced-motion:reduce){
+ *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 @media(max-width:400px){.reading-contents ol{columns:1}}
-@media print{.site-header,.site-footer,.reading-contents,.skip-link{display:none}.reading-grid{display:block}main{padding:0}.reflection{break-inside:avoid}details{display:block}}
+@media(max-height:500px){.site-header,.reading-contents{position:static}.reading-contents{max-height:none}html{scroll-padding-top:20px}}
+@media print{
+ .site-header,.site-footer,.reading-contents,.skip-link{display:none}
+ body{background:white;color:black;font-size:11pt}
+ .reading-grid{display:block}.reading-body{max-width:none}main{padding:0;max-width:none}
+ h1,h2,h3{break-after:avoid}.reflection{break-inside:avoid}a{color:inherit}
+ details,details>*,details::details-content{display:block;content-visibility:visible!important}
+ summary{list-style:none}summary::marker{content:""}
+ .lesson{break-inside:auto}.practice-image{display:none}.first-practice{display:block}
+}

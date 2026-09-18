@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useRef, useState } from 'react';
+import React, { createContext, useContext, useEffect, useRef } from 'react';
+import { enhanceNavigation } from './site-ui.js';
 export const PagePathContext = createContext(null);
 const e = React.createElement;
 const links = [
@@ -13,18 +14,15 @@ export function pageFromPath(pathname) {
   return !page || page === 'index' ? 'home' : page;
 }
 export default function Header() {
-  const [open,setOpen] = useState(false);
-  const toggle = useRef(null);
+  const header = useRef(null);
+  useEffect(() => enhanceNavigation(header.current), []);
   const provided = useContext(PagePathContext);
   const page = pageFromPath(provided ?? (typeof location === 'undefined' ? '/' : location.pathname));
-  return e('header', { className: 'site-header', onKeyDown: event => {
-    if (event.key === 'Escape' && open) { setOpen(false); toggle.current?.focus(); }
-  } },
+  return e('header', { className: 'site-header', ref: header },
     e('a', { className: 'brand', href: '/index.html' }, 'Mind Clarity'),
-    e('button', { className: 'menu-toggle', ref: toggle, type: 'button', 'aria-expanded': open,
-      'aria-label': open ? 'Close menu' : 'Menu',
-      'aria-controls': 'primary-navigation', onClick: ()=>setOpen(!open) }, open ? 'Close' : 'Menu'),
-    e('nav', { id: 'primary-navigation', 'aria-label': 'Main navigation', className: open ? 'is-open' : '' },
-      links.map(([id,label,href])=>e('a', { key:id, href, 'aria-current': id===page?'page':undefined, onClick:()=>setOpen(false) },label))),
+    e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,
+      'aria-label': 'Open menu', 'aria-controls': 'primary-navigation' }, 'Menu'),
+    e('nav', { id: 'primary-navigation', 'aria-label': 'Main navigation' },
+      links.map(([id,label,href])=>e('a', { key:id, href, 'aria-current': id===page?'page':undefined },label))),
     e('p', { className: 'mobile-page' }, labels[page] || 'Mind Clarity'));
 }
