@@ -14,7 +14,7 @@ Use Node.js 24 and pnpm 11. Install the exact dependencies with `pnpm install --
 ```sh
 pnpm dev       # Source preview with live reload: http://127.0.0.1:5173
 pnpm build     # Regenerate the complete dist directory
-pnpm check     # Validate all eight built pages and their assets
+pnpm check     # Validate seven pages, legacy redirects and assets
 pnpm preview   # Preview the production output: http://127.0.0.1:4173
 ```
 
@@ -24,7 +24,9 @@ If `node` is not on the command's PATH, prepend its containing directory for tha
 ## Where to edit
 
 - `app.js`: homepage content.
-- `page-app.js`: seven other page components and booking/contact details.
+- `page-app.js`: secondary page routing, learning questions and quiet support/contact details.
+- `philosophy-content.js` and `practice.js`: the full core philosophy, reflective lessons and worked examples.
+- `site-layout.js`: shared reading layout, reflection prompts and quiet footer.
 - `site-header.js`: shared navigation and current-page labels.
 - `page.css` and `react-home.css`: styling.
 - Root HTML files: document heads, descriptions, canonicals and analytics; their development entrypoints load React.
@@ -52,8 +54,13 @@ The organized philosophy reference is [Uday_Philosophy.docx](Uday_Philosophy.doc
 
 ### Current website scope
 
-- Brand: calm, professional spiritual reflection and practical conversations about self-understanding, witnessing, compassion and responsibility.
-- Pages: Home, Philosophy, Services, About Uday, FAQ, Contact, Consultation information and Privacy.
+- Governing principle (Uday, 18 September 2026): “The website should enlighten them with the website itself without my help. That should be the design language of the website.” This supersedes older consultation-led plans and is recorded in section 7 of `Uday_Philosophy.docx`, version 1.1.
+- The website is a self-guided learning experience, not a consultation funnel. Primary navigation: Begin here, Philosophy, Daily practice, Questions.
+- Each main lesson should connect an idea to an ordinary example, a reflection and an actionable next step. Test: can the visitor understand, reflect and act without contacting Uday?
+- Keep the full core philosophy readable, including the exact original Mula Siddhanta, all ten supplied scriptural pointers, practical responsibility, and the Beautiful World/technology vision. Attribute metaphysics as spiritual perspective, not established science or a guarantee of enlightenment.
+- Design language: calm, readable editorial pages; an immediate useful reflection; mobile-friendly typography; in-page contents; accessible menus and expandable worked examples. No registration, payment or sharing personal details required for learning.
+- Pages: Begin here, Philosophy, Daily practice, Questions, Contact, Optional personal conversation and Privacy. Old About and Services addresses redirect, preserving bookmarks without separate promotional pages.
+- Email and optional conversation remain quiet footer links, not primary calls to action. No About Me emphasis. Do not add donations now; if requested later, place a subdued link at the very bottom.
 - Introductory conversation: ₹500, 30 minutes; phone, Zoom, WhatsApp call or offline by arrangement.
 - Enquiries: WhatsApp +91 9989766517 and pudaykumar12@gmail.com. Arrange a time before payment.
 - Existing availability: 9 am–10 pm, expressed in IST. Existing Razorpay payment link: https://rzp.io/rzp/8BpoM63h.
@@ -65,6 +72,8 @@ The organized philosophy reference is [Uday_Philosophy.docx](Uday_Philosophy.doc
 
 ## Verification
 
-`pnpm check` validates complete HTML, one main heading, local links and fragments, image/CSS references, canonicals, analytics loaders, navigation state and the sitemap. The production preview was also checked at 375px and 1280px widths across all eight pages, including the mobile menu, Escape key and the enquiry journey.
+`pnpm check` validates complete HTML, one main heading, local and cross-page fragment links, image/CSS references, canonicals, analytics loaders, navigation state, legacy redirects, learning-first main content and the sitemap. Check desktop and mobile reading layouts, menu keyboard behaviour, contents links and expandable examples before publishing.
+
+18 September 2026 verification: production preview checked at 1280px and 375px; mobile menu/Escape, keyboard-expandable questions, worked examples, philosophy contents links (including Mula Siddhanta), retired About redirect, all seven page headings and mobile overflow passed. Browser console showed no errors. The updated nine-page philosophy document was rendered and all pages visually reviewed.
 
 Payment processing, enquiry delivery, availability and analytics reporting require their respective external services. Local link checks do not constitute a payment or message test.

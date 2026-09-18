@@ -1,26 +1,39 @@
 import React from 'react';
 import { mount } from './mount.js';
-import Header from './site-header.js';
+import { Page, Reflection, TopicLinks } from './site-layout.js';
 const e = React.createElement;
-function Card({ title, children, link, linkText }) { return e('article', { className: 'card' }, e('h3', null, title), e('p', null, children), link && e('a', { href: link }, linkText)); }
-export function App() { return e(React.Fragment, null,
-  e('a', { className: 'skip-link', href: '#main-content' }, 'Skip to content'), e(Header),
-  e('main', { id: 'main-content', tabIndex: -1 },
-    e('section', { className: 'hero' }, e('div', null,
-      e('div', { className: 'eyebrow' }, 'Self-understanding · Compassion · Responsibility'),
-      e('h1', null, 'A clearer mind.', e('br'), 'A kinder way to live.'),
-      e('p', null, 'Mind Clarity is a place to pause, understand your experience, and discover a more responsible way forward.'),
-      e('div', { className: 'actions' }, e('a', { className: 'button primary', href: 'philosophy.html' }, 'Begin with the philosophy'), e('a', { className: 'button secondary', href: '#practice' }, 'Try a reflection')),
-      e('p', { className: 'intro' }, 'You do not need to consult anyone to begin. Read, reflect, question, and find your own next step.')
-    ), e('figure', { className: 'orb brand-photo' }, e('img', { src: 'assets-brand.png', alt: 'A person meditating beside a lotus pond at dawn' }))),
-    e('section', { className: 'band' }, e('div', { className: 'wrap' }, e('div', { className: 'eyebrow' }, 'A place to begin'), e('h2', null, 'Clarity that participates in life'), e('p', { className: 'intro' }, 'The aim is not to escape everyday life. It is to see thoughts, feelings, relationships and circumstances more clearly, then respond with care.'), e('div', { className: 'cards' },
-      e(Card, { title: 'Notice what is happening' }, 'Pause before the automatic reaction. Observe the thought, feeling, expectation or story shaping the moment.'),
-      e(Card, { title: 'Make space for perspective' }, 'Witness your experience without needing to suppress it or immediately believe every thought.'),
-      e(Card, { title: 'Choose a responsible response' }, 'Bring insight into relationships, decisions, boundaries, repair and practical action.')))),
-    e('section', { id: 'practice' }, e('div', { className: 'wrap' }, e('div', { className: 'eyebrow' }, 'A small practice'), e('h2', null, 'One question for today'), e('p', { className: 'intro' }, 'Think of one situation you want to make more beautiful. Ask: “What am I feeling? What is actually happening? What response would reduce avoidable harm?”'), e('p', null, 'You can write for five minutes, sit quietly, or have a respectful conversation. Keep what is useful and question what is not.'), e('div', { className: 'cards' },
-      e(Card, { title: 'Explore the philosophy', link: 'philosophy.html', linkText: 'Read the perspective →' }, 'Learn about one Shakti, witnessing, surrender, compassion and responsibility.'),
-      e(Card, { title: 'Read common questions', link: 'faq.html', linkText: 'Open the FAQ →' }, 'Find clear answers about reflection, personal responsibility and support.'),
-      e(Card, { title: 'Keep your own discernment', link: 'privacy.html', linkText: 'Read the boundaries →' }, 'Spiritual ideas are invitations to explore, not substitutes for professional care or your own judgment.')))),
-    e('section', { className: 'band' }, e('div', { className: 'wrap' }, e('div', { className: 'eyebrow' }, 'A wider intention'), e('h2', null, 'A beautiful world'), e('p', { className: 'intro' }, 'A beautiful world includes inner clarity, kind relationships, protected nature, accessible learning and technology that reduces unnecessary burdens so people have more time for awareness, creativity and joy.'), e('a', { className: 'button secondary', href: 'philosophy.html#beautiful-world' }, 'Explore the vision'))),
-    e('footer', null, e('div', { className: 'wrap' }, e('div', null, '© 2026 Mind Clarity', e('br'), e('small', null, 'For reflection and education. Not a substitute for professional care.')), e('div', null, e('a', { href: 'privacy.html' }, 'Privacy'), ' · ', e('a', { href: 'contact.html' }, 'Email'), ' · ', e('a', { href: 'consultation-info.html' }, 'Personal conversation')))))); }
-mount(App);
+export function App() {
+  return e(Page, { home: true, eyebrow: 'Begin with your own experience',
+    title: 'Pause. What do you notice?', intro: 'A thought appears. A feeling follows. Before you respond, there is a moment to see more clearly. Begin there.' },
+    e('section', { className: 'first-practice', 'aria-labelledby': 'first-practice-title' },
+      e('div', null, e('p', { className: 'eyebrow' }, 'One minute of reflection'),
+        e('h2', { id: 'first-practice-title' }, 'Bring one small situation to mind.'),
+        e('ol', { className: 'practice-steps' },
+          e('li', null, e('strong', null, 'Notice.'), ' Name the feeling or thought, without needing to push it away.'),
+          e('li', null, e('strong', null, 'Look again.'), ' What do you know happened? What are you assuming?'),
+          e('li', null, e('strong', null, 'Choose.'), ' What is one kind, responsible action you can take?')),
+        e('a', { className: 'button', href: '/practice.html#five-minutes' }, 'Continue the five-minute practice')),
+      e('figure', { className: 'practice-image' },
+        e('picture', null,
+          e('source', { media: '(min-width: 761px)', srcSet: 'assets-brand-desktop.png' }),
+          e('img', { src: 'assets-brand.png', alt: 'A quiet moment beside a lotus pond', width: 600, height: 400 })),
+        e('figcaption', null, 'Let understanding begin in an ordinary moment.'))),
+    e('section', { id: 'practice', className: 'home-section' },
+      e('p', { className: 'eyebrow' }, 'Bring clarity into everyday life'),
+      e('h2', null, 'Start with what is on your mind.'),
+      e(TopicLinks)),
+    e('section', { className: 'home-section philosophy-intro' },
+      e('div', null, e('p', { className: 'eyebrow' }, 'Explore the philosophy'),
+        e('h2', null, 'One Shakti. Many expressions of life.'),
+        e('p', null, 'Mind Clarity begins with the understanding that one source appears as every being and experience. Witnessing is noticing what moves through us; compassion is recognising the same life in another; responsibility is how we act.'),
+        e('a', { className: 'text-link', href: '/philosophy.html' }, 'Read the complete philosophy →')),
+      e(Reflection, null, 'Remember a disagreement. Can you recognise the other person’s humanity and still be clear about the action or boundary that is needed?')),
+    e('section', { className: 'home-section' },
+      e('p', { className: 'eyebrow' }, 'From understanding to action'),
+      e('h2', null, 'Make one part of today more beautiful.'),
+      e('p', null, 'Listen without interrupting. Repair a mistake. Care for a shared place. Choose one act you can carry out today, then notice what changes.'),
+      e('div', { className: 'reading-links' },
+        e('a', { href: '/philosophy.html#beautiful-world' }, 'The Beautiful World vision'),
+        e('a', { href: '/faq.html' }, 'Questions while exploring'))));
+}
+if (typeof document !== 'undefined') mount(App);

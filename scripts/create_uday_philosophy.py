@@ -18,6 +18,8 @@ for name,size in [('Title',30),('Heading 1',19),('Heading 2',14),('Heading 3',11
     st=styles[name]; st.font.name='Aptos Display' if name in ('Title','Heading 1') else 'Aptos'
     st._element.rPr.rFonts.set(qn('w:eastAsia'),st.font.name); st.font.size=Pt(size); st.font.bold=True; st.font.color.rgb=RGBColor(0,0,0)
     st.paragraph_format.space_before=Pt(15 if name=='Heading 1' else 9); st.paragraph_format.space_after=Pt(5)
+    for border in st._element.xpath('./w:pPr/w:pBdr'):
+        border.getparent().remove(border)
 quote=styles.add_style('Uday Quote',WD_STYLE_TYPE.PARAGRAPH); quote.base_style=styles['Normal']; quote.font.name='Aptos'; quote.font.size=Pt(11); quote.font.italic=True; quote.font.color.rgb=RGBColor(55,55,55); quote.paragraph_format.left_indent=Inches(.28); quote.paragraph_format.space_before=Pt(6); quote.paragraph_format.space_after=Pt(8)
 small=styles.add_style('Small Note',WD_STYLE_TYPE.PARAGRAPH); small.base_style=styles['Normal']; small.font.size=Pt(9); small.font.color.rgb=RGBColor(90,90,90)
 for s in doc.sections:
@@ -63,14 +65,14 @@ p('“Energy” is spiritual and metaphysical language in this philosophy. It sh
 h('What remains possible within the design',2)
 p('The belief that the total design cannot be changed does not require passivity in ordinary life. Within time, people still learn, ask for help, prevent harm, apologize, repair relationships, seek treatment, change habits, build institutions, protect nature, and experience the consequences of choices. From the role-level perspective, these actions matter. Responsibility is part of the unfolding rather than an escape from it.')
 
-h('Upanishadic foundations for the identity of Atman and Brahman', 2)
+h('Vedic and Upanishadic foundations', 2)
 p('The following passages are the Vedanta-oriented foundations Uday associates with the intuition that the one energy present in all beings is Brahman and that the deepest Self is not separate from it. They should be presented as scriptural and contemplative evidence within an Advaita/Vedanta interpretation, not as scientific proof. Textual translations and traditional interpretations can vary.')
 for item in [
     'Prajñānam Brahma — “Consciousness is Brahman.” (Aitareya Upanishad 3.1.3; associated with the Rig Veda)',
     'Aham Brahmāsmi — “I am Brahman.” (Brihadaranyaka Upanishad 1.4.10; associated with the Yajur Veda)',
     'Tat Tvam Asi — “That thou art” / “You are that ultimate reality.” (Chandogya Upanishad 6.8.7; associated with the Sama Veda)',
     'Ayam Ātmā Brahma — “This Self is Brahman.” (Mandukya Upanishad 2; associated with the Atharva Veda)',
-    'So’ham — “I am That.” (Aham-Sa / So’ham language associated with the Isha tradition and broader Upanishadic usage; translations and verse references should be checked before formal publication)',
+    'So’ham Asmi — “That person there—I am he.” (Isha Upanishad 16; Shukla Yajur Veda 40.16)',
     'Aham Rudrebhir Vasubhiś Carāmi — “I move with the Rudras and the Vasus,” expressing the all-pervading divine power speaking through the Devi Sukta. (Rig Veda 10.125.1)',
     'Sarvam Khalvidam Brahma — “All this is indeed Brahman.” (Chandogya Upanishad 3.14.1; associated with the Sama Veda)',
     'Aham Manur Abhavam Sūryaś Ca — “I became Manu; I became the Sun,” expressing an expansive realization of identity with cosmic life. (Rig Veda 4.26.1)',
@@ -122,7 +124,14 @@ bullets(['Examine direct experience: what is happening in the body, mind, and si
 h('A possible 30-day experiment',2)
 p('A proposed pilot could involve 5–8 willing adults. Week one listens and prepares. Week two holds one 45-minute circle: purpose and permission to pass; personal examples; noticing reactions; respectful responses; and one chosen action. Week three offers three short lessons. Week four follows up and reviews. Permission should be obtained before recording or sharing anything. Measures can include attendance, actions taken, quality of conversations, return participation, time, enjoyment, and energy. This is a learning experiment, not clinical proof.')
 h('Current website relationship',2)
-p('The Mind Clarity website is the practical public doorway for this philosophy. The philosophy page should communicate the central ideas with warmth and clarity, while service pages should describe actual offerings accurately. Future programmes, proposed technologies, historical experiments, scientific claims, and established beliefs must remain clearly separated.')
+p('The Mind Clarity website is itself a place of learning and enquiry, not primarily a doorway to Uday’s services. Its purpose is to support understanding and the aspiration toward enlightenment through the website itself. Visitors should be able to read the full philosophy, examine an everyday difficulty, practise independently, and choose a responsible next step without Uday’s personal help. This describes the purpose of the experience, not a guaranteed spiritual outcome.')
+h('Governing website principle — 18 September 2026',2)
+p('“The website should enlighten them with the website itself without my help. That should be the design language of the website.”','Uday Quote')
+label('Uday’s current direction; takes precedence over earlier consultation-led website plans')
+bullets(['Lead with the visitor’s experience, not a personal profile or consultation offer. Begin with a useful reflection that can be tried immediately.','Use a clear learning path: notice an experience, understand the relevant idea, examine an ordinary example, try an action, and review what changed. Every main lesson should connect understanding with practice.','Make the complete core philosophy freely readable on the page: the original Mula Siddhanta, one Shakti, the two levels, witnessing, surrender, Bhakti and Jnana, discernment, scriptural pointers, responsibility, and the Beautiful World vision.','Use calm, readable, mobile-friendly pages, meaningful headings, contents links, concrete examples, reflection prompts, and clear next steps. The design should feel like a learning companion rather than a sales page.','Visitors must not need to book, pay, register, submit personal information, or contact Uday to benefit from the learning content. Preserve independent judgment and freedom to disagree.','Remove consultation priority, promotional booking calls to action, and a separate About Me focus. Keep email unobtrusive in the footer; any personal conversation is a quiet, optional last step.','Do not add a donation button now. If requested later, place it quietly at the very bottom without competing with the learning experience.','Keep proposals, beliefs, practical observations, and evidence-based claims distinct. Support care, accountability, boundaries, and appropriate professional help; do not promise cures or guaranteed enlightenment.'])
+h('Design acceptance test',2)
+p('Can a visitor understand an idea, reflect on their own situation, and identify one constructive next action without contacting Uday? If a page only describes the philosophy or promotes a conversation but does not help the visitor use the understanding, it is incomplete. Primary navigation and prominent links should lead to learning and practice, not booking.')
+p('The public learning exercises are editorial applications of the reference philosophy, not claimed historical teachings or proof of outcomes. Future programmes, proposed technologies, historical experiments, scientific claims, and established beliefs must remain clearly separated.')
 
 h('8. Practical experiments and communication')
 h('Android-first working method',2)
@@ -144,7 +153,7 @@ p('There is one ultimate energy or Shakti, expressed as all existence and all ro
 h('Open questions for future work',2)
 bullets(['How can the philosophy be communicated across religious and non-religious audiences without collapsing important differences?','What small practices create observable value for willing participants?','How can ecological limits, fairness, governance, and access shape the technology vision?','Which website claims are personal philosophy, which are service descriptions, and which need external evidence?','What feedback would show that the work is becoming clearer, kinder, and more useful?'])
 h('Source and version note',2)
-p('Primary source: Uday Kumar, “A Beautiful World,” Mind Clarity Consultant, version 2, 16 September 2026, including the supplied Mula Siddhanta and benefit guardrails. This organized document also incorporates the Mind Clarity website context developed in ChatGPT Work and Codex. Version 1.0 • 18 September 2026.')
+p('Primary source: Uday Kumar, “A Beautiful World,” Mind Clarity Consultant, version 2, 16 September 2026, including the supplied Mula Siddhanta and benefit guardrails. This organized document also incorporates the Mind Clarity website context developed in ChatGPT Work and Codex. Version 1.1 • 18 September 2026. This revision records Uday’s explicit self-guided website principle, design language, and consultation/deferred-donation priorities in section 7; the original root principle remains unchanged. The So’ham Asmi reference is clarified to Isha Upanishad 16; text reference: https://sri-aurobindo.co.in/workings/sa/12/isha_e.pdf.')
 doc.core_properties.title='Uday Philosophy'; doc.core_properties.author='Uday Kumar'; doc.core_properties.subject='Mind Clarity, Mula Siddhanta, and Beautiful World vision'
 doc.save(OUT)
 print(OUT)

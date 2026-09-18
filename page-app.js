@@ -1,65 +1,52 @@
 import React from 'react';
 import { mount } from './mount.js';
-import Header, { pageFromPath } from './site-header.js';
-const { createElement: h } = React;
-const e = h;
-const whatsapp = 'https://wa.me/919989766517?text=Hello%20Uday%2C%20I%20would%20like%20to%20ask%20about%20a%20Mind%20Clarity%20session.';
-const pay = 'https://rzp.io/rzp/8BpoM63h';
-function Layout({eyebrow,title,children,caption='A gentle place to begin'}){return e(React.Fragment,null,e('a',{className:'skip-link',href:'#main-content'},'Skip to content'),e(Header),e('main',{id:'main-content',tabIndex:-1},e('figure',{className:'brand-image'},e('img',{src:'assets-brand.png',alt:'Meditating person beside a lotus pond'}),e('figcaption',null,caption)),e('div',{className:'eyebrow'},eyebrow),e('h1',null,title),children),e('footer',null,'© 2026 Mind Clarity · ',e('a',{href:'index.html'},'Home'),' · ',e('a',{href:'privacy.html'},'Privacy'),' · ',e('a',{href:'contact.html'},'Email'),' · ',e('a',{href:'consultation-info.html'},'Personal conversation')));}
-function Card({title,children}){return e('article',{className:'card'},e('h3',null,title),e('p',null,children));}
-function Services(){return e(Layout,{eyebrow:'Optional personal support',title:'A conversation, only if it is useful.',caption:'The work begins with you'},e('p',{className:'intro'},'The website is designed to offer reflection and practical ways forward without requiring a consultation. If, after exploring the ideas, you still prefer a personal conversation, this option is available.'),e('div',{className:'cards'},e(Card,{title:'Introductory conversation'},'A 30-minute reflection conversation about a question or recurring pattern. ₹500. Phone, Zoom, WhatsApp call or offline by arrangement.'),e(Card,{title:'Individual reflection'},'A focused conversation for examining a concern, reaction or practical next step.'),e(Card,{title:'Group conversation'},'A respectful group format can be discussed case by case.')),e('p',{className:'intro'},'Please message before paying to arrange a suitable time. This is for reflection and personal development, not therapy or crisis support.'),e('div',{className:'actions'},e('a',{className:'button secondary',href:whatsapp,target:'_blank',rel:'noopener'},'Ask about availability'),e('a',{className:'button secondary',href:pay,target:'_blank',rel:'noopener'},'Payment information')));}
-function About(){return e(Layout,{eyebrow:'The person behind the project',title:'The work is bigger than one person.'},e('p',{className:'intro'},'Mind Clarity grows from Uday Kumar’s enquiry into identity, self-understanding and the nature of experience, but the website is not centered on a personality.'),e('p',null,'The invitation is to explore the ideas, question them, keep your own discernment and discover what helps you respond to life with greater clarity, kindness and responsibility.'),e('p',null,'Personal support is available only as an optional final step, not as the purpose of the website.'));}
-function Philosophy(){return e(Layout,{eyebrow:'The Mind Clarity philosophy',title:'One Shakti. Many expressions of life.',caption:'Pause, observe, and see clearly'},
-  e('p',{className:'intro'},'This page is a complete introduction to the philosophy behind Mind Clarity. It is an invitation to examine experience, not a demand to accept a belief. Read slowly, question it, and keep your own discernment.'),
-  e('h2',null,'The central intention'),
-  e('p',null,'My main goal is to make this world a beautiful place to live in, so that in that beautiful place I can live happily.'),
-  e('p',null,'That intention joins inner clarity with practical care: clearer understanding, kinder relationships, responsible action, protection of nature, and technology that reduces unnecessary burdens.'),
-  e('h2',null,'Mula Siddhanta: the root principle'),
-  e('p',null,'When none of this existed, there was only one energy—Brahman, Parabrahman, Ishwara, Paramatman, Allah, God, Yahweh. That energy is capable of creating anything. That energy is us. Being alone, we decided to play a game and created this entire existence: the game of experiences. Having already decided how this game should unfold before stepping into it, we cannot make changes midway.'),
-  e('p',null,'In this view, existence is created by one ultimate energy, and all beings, roles and experiences arise within it. The “game” is not meant to trivialize pain. It describes the total field in which life unfolds.'),
-  e('h2',null,'One Shakti, many forms'),
-  e('p',null,'One Shakti appears as the many forms of life. The same source is present through joy, fear, success, confusion, helpfulness and harm. Seeing this can soften pride, hatred and separation, while still allowing us to name harmful actions and protect people from them.'),
-  e('h2',null,'The two levels of experience'),
-  e('p',null,'At the Shakti level, existence is one movement: complete, interconnected and not finally separate. At the role level, ordinary life is real. Pain is real. Choices have consequences. Responsibility, consent, moral distinctions, repair and boundaries matter.'),
-  e('p',null,'These two levels must be held together. “All is one” must never be used to excuse abuse, dismiss grief, silence someone in pain or avoid accountability.'),
-  e('h2',null,'Witnessing with responsibility'),
-  e('p',null,'Witnessing means noticing thoughts, feelings, sensations and reactions without being completely captured by them. Instead of immediately obeying fear, anger, desire or self-judgment, we create a little space to see what is happening.'),
-  e('p',null,'The purpose is not to become passive or detached from life. Clearer witnessing can help us participate more wisely: speak honestly, listen better, ask for help, set a boundary, repair harm or choose a different action.'),
-  e('h2',null,'Surrender, Bhakti and Jnana'),
-  e('p',null,'Surrender is trusting the larger unfolding while meeting the present moment honestly. Jnana is seeing clearly. Bhakti is devotion, love and reverence. In Mind Clarity these meet in a practical movement: see the same source in every person, understand the situation as clearly as possible, and respond appropriately.'),
-  e('p',null,'Surrender is not resignation, carelessness or obedience to another person’s demands. It does not remove the need to prevent harm or seek practical help.'),
-  e('h2',null,'The experiencer and the experience'),
-  e('p',null,'The philosophy understands the one energy as both the source of existence and the deepest experiencer within life. Thoughts, emotions, bodies, relationships and events are changing expressions within that larger reality. The spiritual question is not only “What is happening to me?” but also “Who is aware of this experience?”'),
-  e('p',null,'This is a contemplative interpretation, not a scientific claim about a measurable energy field. Intuition and inner clarity should still be tested through evidence, consequences, experience and other perspectives.'),
-  e('h2',null,'Ten Upanishadic pointers'),
-  e('p',null,'Within a Vedanta-oriented reading, the following passages point toward the identity or non-separation of Atman and Brahman. Translations and traditional interpretations vary; these are scriptural and contemplative foundations, not laboratory proofs.'),
-  e('div',{className:'cards'},
-    e(Card,{title:'Prajñānam Brahma'},'Consciousness is Brahman. Aitareya Upanishad 3.1.3.'),
-    e(Card,{title:'Aham Brahmāsmi'},'I am Brahman. Brihadaranyaka Upanishad 1.4.10.'),
-    e(Card,{title:'Tat Tvam Asi'},'That thou art. Chandogya Upanishad 6.8.7.'),
-    e(Card,{title:'Ayam Ātmā Brahma'},'This Self is Brahman. Mandukya Upanishad 2.'),
-    e(Card,{title:'So’ham'},'I am That—the inner identity with the supreme reality, expressed across Upanishadic traditions.'),
-    e(Card,{title:'Sarvam Khalvidam Brahma'},'All this is indeed Brahman. Chandogya Upanishad 3.14.1.'),
-    e(Card,{title:'Aham Rudrebhir Vasubhiś Carāmi'},'The divine power speaks as moving through the cosmic forces. Rig Veda 10.125.1.'),
-    e(Card,{title:'Aham Manur Abhavam Sūryaś Ca'},'An expansive realization of identity with cosmic life. Rig Veda 4.26.1.'),
-    e(Card,{title:'Yad Eveha Tad Amutra'},'What is here is there; what is there is here. Katha Upanishad 2.1.10.'),
-    e(Card,{title:'Sa Eṣo’ṇimā'},'That subtle essence is the Self of all this. Chandogya Upanishad 6.8.7.')
-  ),
-  e('h2',null,'How to respond in ordinary life'),
-  e('p',null,'When something difficult happens, pause and notice the reaction. Recognize the humanity of the people involved without denying the facts. Name the harm, need, boundary or responsibility. Choose the response that reduces avoidable harm and supports repair where possible. Then learn from what happened without repetitive self-condemnation.'),
-  e('h2',{id:'beautiful-world'},'A beautiful world'),
-  e('p',null,'A beautiful world is not only a change in thoughts. It includes clean surroundings, protected forests and ecosystems, accessible learning, useful support, respectful conversation and systems that reduce avoidable suffering.'),
-  e('p',null,'AI and robots may one day assist with production, farming, healthcare, logistics and other necessary work. The purpose is to reduce survival burdens and free time for awareness, creativity, care, exploration and joy. Any such future must also be tested for ecological impact, fairness, access, governance and unintended consequences.'),
-  e('h2',null,'A simple practice'),
-  e('p',null,'Choose one situation you want to make more beautiful. Ask: “What am I feeling? What is actually happening? What story am I adding? What response would reduce avoidable harm?” Write for five minutes, sit quietly, or have a respectful conversation. Keep what is useful and question what is not.'),
-  e('p',null,'You do not need to accept this philosophy to practise clarity, compassion or responsibility. The value of the work is shown in how it changes the way we meet life.'),
-  e('p',{className:'small-note'},'Mind Clarity offers spiritual reflection and education, not medical or psychological treatment. If you are in danger or facing an urgent mental-health concern, contact local emergency services or qualified professional support.'),
-  e('a',{className:'button secondary',href:'faq.html'},'Read common questions'))}
-function FAQ(){return e(Layout,{eyebrow:'Questions people ask',title:'A simple, open conversation',caption:'Questions welcome'},e('div',{className:'cards'},e(Card,{title:'Is this therapy?'},'No. Mind Clarity is spiritual reflection and personal-development conversation, not medical or psychological treatment.'),e(Card,{title:'Do I need to accept the philosophy?'},'No. You can explore the ideas, ask questions and keep your own beliefs and conclusions.'),e(Card,{title:'What happens in a session?'},'You share what is on your mind; we clarify the situation, examine your perspective and identify a constructive next step.'),e(Card,{title:'How is the first conversation arranged?'},'The introductory conversation lasts 30 minutes and costs ₹500. Message Uday first to arrange a time between 9 am and 10 pm (IST) and choose phone, Zoom, WhatsApp call or offline format.'),e(Card,{title:'Are individual or group sessions available?'},'Yes. Individual and group sessions are discussed case by case based on the question and the people involved.')),e('p',{className:'intro'},'Have a question that is not answered here?'),e('a',{className:'button',href:'contact.html'},'Ask about a conversation'));}
-function Contact(){return e(Layout,{eyebrow:'Contact',title:'Questions are welcome.',caption:'Keep your own discernment'},e('p',{className:'intro'},'The website is meant to stand on its own as a place for reflection. If you have a question about the ideas or need to share a practical note, you can reach Mind Clarity by email or WhatsApp.'),e('div',{className:'card'},e('h3',null,'Contact details'),e('p',null,'Email: ',e('a',{href:'mailto:pudaykumar12@gmail.com'},'pudaykumar12@gmail.com')),e('p',null,'WhatsApp: ',e('a',{href:'https://wa.me/919989766517',target:'_blank',rel:'noopener'},'+91 9989766517')),e('p',null,'Personal conversation is available only if, after exploring the website, you feel it would be useful. For urgent mental-health or safety concerns, contact local emergency services or a qualified crisis service.')));}
-function Consultation(){return e(Layout,{eyebrow:'Before you begin',title:'Consultation information',caption:'Arrive as you are'},e('h2',null,'Arrange a time'),e('p',null,'Please message Uday on WhatsApp before paying so a suitable time can be discussed. Availability is 9 am–10 pm (IST). The available formats are phone call, Zoom, WhatsApp call and offline conversation, depending on what is arranged.'),e('h2',null,'Introductory conversation'),e('p',null,'The introductory conversation is 30 minutes and is listed at ₹500.'),e('a',{className:'button secondary',href:pay,target:'_blank',rel:'noopener'},'Pay ₹500 for the introductory conversation'),e('h2',null,'Payment support'),e('p',null,'If you have already paid, send your Razorpay payment reference on WhatsApp. Do not include card numbers, bank details, OTPs or passwords.'),e('h2',null,'Duplicate payments'),e('p',null,'If the same customer accidentally pays twice for the same introductory conversation, the duplicate payment will be refunded within 1–2 days.'),e('p',null,'For urgent mental-health or safety concerns, contact local emergency services or a qualified crisis service.'));}
-function Privacy(){return e(Layout,{eyebrow:'Your information',title:'Privacy and payment information',caption:'Clear and careful'},e('h2',null,'Information you choose to send'),e('p',null,'Mind Clarity receives information that you choose to share through WhatsApp or email. Please do not send card numbers, bank details, OTPs or passwords.'),e('h2',null,'Analytics'),e('p',null,'This website uses Google Analytics to understand general visitor activity. It is not used to provide medical or psychological profiling.'),e('h2',null,'Payments'),e('p',null,'Payments are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),e('h2',null,'Questions'),e('p',null,'For privacy questions, contact ',e('a',{href:'mailto:pudaykumar12@gmail.com'},'pudaykumar12@gmail.com'),'.'));}
-export const pages = { services: Services, about: About, philosophy: Philosophy, faq: FAQ, contact: Contact, 'consultation-info': Consultation, privacy: Privacy };
+import { pageFromPath } from './site-header.js';
+import { Page } from './site-layout.js';
+import Philosophy from './philosophy-content.js';
+import Practice from './practice.js';
+const e = React.createElement;
+const p = (text) => e('p', null, text);
+const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
+const questions = [
+  ['Do I have to accept the philosophy to benefit from the practices?', 'No. Begin with what you can observe: a thought, a feeling, an assumption, and a response. You can practise attention and responsibility while holding a different spiritual view or none at all.'],
+  ['What does enlightenment mean here?', 'It is the aspiration toward clearer understanding of self and experience, expressed in the way we live. A website cannot certify or guarantee awakening. Reading is a beginning; honest enquiry, practical care, and your own discernment matter.'],
+  ['If everything is already designed, why make an effort?', 'In this philosophy, effort, learning, and change are themselves part of the unfolding. We do not know the future. Within ordinary life, choices have consequences, so preventing harm, seeking help, and making repair remain meaningful.'],
+  ['Does seeing oneness mean accepting harmful behaviour?', 'No. Recognizing someone’s humanity is different from agreeing with an action. You can be compassionate and still say no, set a boundary, leave an unsafe situation, or seek protection.'],
+  ['Is witnessing the same as ignoring feelings?', 'No. Notice the feeling without demanding that it disappear. Then examine the situation and choose a response. Witnessing is clearer participation, not numbness, suppression, or withdrawal.'],
+  ['What if my mind will not become quiet?', 'You do not need a silent mind to begin. Notice one thought, one sensation, or one sound. If a practice is uncomfortable or overwhelming, stop and return to an ordinary activity. There is no test to pass.'],
+  ['How can I tell whether the practice is useful?', 'Look for ordinary changes: did you check an assumption, listen more carefully, keep a boundary, or repair a mistake? Review what actually happened. A useful experience does not have to prove the whole worldview.'],
+  ['Can this solve every problem or replace therapy?', 'No. These are educational reflections, not medical or psychological treatment. Some difficulties need practical, social, legal, or professional support. Seeking suitable help is consistent with responsibility, not a failure of understanding.'],
+  ['Where should I begin?', 'Choose one small, current difficulty and use the five-minute practice. Try one action, notice its effect, and return to the relevant philosophy section when you want to understand the idea more deeply.']
+];
+function FAQ() {
+  return e(Page, { eyebrow: 'Questions for understanding', title: 'Keep your questions open.', intro: 'These answers help connect the philosophy with ordinary life. You are welcome to question the ideas and reach your own conclusions.' },
+    e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
+      e('div', { className: 'reading-links' }, e('a', { href: '/practice.html' }, 'Try a daily practice'), e('a', { href: '/philosophy.html' }, 'Read the complete philosophy'))));
+}
+function Contact() {
+  return e(Page, { eyebrow: 'A quiet way to reach us', title: 'Contact', intro: 'The lessons and practices are here to use independently. For a question about the website, a correction, or a practical note, you can send an email.' },
+    e('div', { className: 'compact-reading' }, e('p', null, email()), p('There is no requirement to introduce yourself, book a conversation, or share a personal story to use this website.'), e('a', { href: '/practice.html' }, 'Return to the practices')));
+}
+function Consultation() {
+  return e(Page, { eyebrow: 'An optional last step', title: 'A personal conversation', intro: 'The philosophy, examples, and practices are available without a consultation. If you have explored them and still prefer a conversation, the existing option is described here.' },
+    e('div', { className: 'compact-reading' },
+      e('h2', null, 'Practical details'), p('An introductory reflection conversation is 30 minutes and ₹500. The available formats are phone, Zoom, WhatsApp call, or offline by arrangement. Availability is 9 am–10 pm (IST). Individual or group conversations can be discussed case by case.'),
+      e('p', null, 'Arrange a suitable time before paying: ', email(), ' or ', e('a', { href: 'https://wa.me/919989766517' }, 'WhatsApp +91 9989766517'), '.'),
+      p('This is spiritual reflection and personal development, not therapy or crisis support.'),
+      e('h2', null, 'Payment information'), e('p', null, 'After arranging the conversation, the existing ', e('a', { href: 'https://rzp.io/rzp/8BpoM63h' }, 'Razorpay payment page'), ' is available. If you have paid, share only your payment reference. Never send card numbers, bank details, OTPs, or passwords.'),
+      p('If the same customer accidentally pays twice for the same introductory conversation, the duplicate payment will be refunded within 1–2 days.'),
+      e('a', { href: '/practice.html' }, 'Continue learning independently')));
+}
+function Privacy() {
+  return e(Page, { eyebrow: 'Your information', title: 'Privacy information' },
+    e('div', { className: 'compact-reading' },
+      e('h2', null, 'Reading and reflection'), p('The learning pages require no account, booking, or submission. The reflection prompts do not collect or store your answers. If you choose to write, use your own notebook or a tool of your choice.'),
+      e('h2', null, 'Information you choose to send'), p('Mind Clarity receives information you choose to share by email or WhatsApp. Please do not send card numbers, bank details, OTPs, or passwords.'),
+      e('h2', null, 'Analytics'), p('This website uses Google Analytics to understand general visitor activity. It is not used to provide medical or psychological profiling.'),
+      e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
+      e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
+}
+export const pages = { philosophy: Philosophy, practice: Practice, faq: FAQ, contact: Contact, 'consultation-info': Consultation, privacy: Privacy };
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

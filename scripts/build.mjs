@@ -37,4 +37,5 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const html = `<!doctype html>\n<html lang="en"><head>${head}</head><body><div id="root">${markup}</div><script defer src="${bundle}?v=${await revision(bundle)}"></script><noscript><style>.site-header nav{display:flex!important;flex-wrap:wrap}.menu-toggle{display:none!important}</style></noscript></body></html>\n`;
   await writeFile(path.join(dist, `${page}.html`), html);
 }
-console.log('Built all 8 pages with complete HTML, assets and browser bundles.');
+for (const legacy of ['about.html', 'services.html']) await cp(path.join(root, legacy), path.join(dist, legacy));
+console.log('Built 7 complete learning/support pages and 2 legacy redirects.');
