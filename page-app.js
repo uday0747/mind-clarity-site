@@ -8,14 +8,14 @@ const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
 const questions = [
-  ['Do I have to accept the philosophy to benefit from the practices?', 'No. Begin with what you can observe: a thought, a feeling, an assumption, and a response. You can practise attention and responsibility while holding a different spiritual view or none at all.'],
+  ['Do I have to accept the philosophy to benefit from the practices?', 'The central invitation is to examine the possibility that we are the creators inside a game we created for experience. Begin with what you can observe: a thought, a feeling, an assumption, and a response.'],
   ['What does enlightenment mean here?', 'It is the aspiration toward clearer understanding of self and experience, expressed in the way we live. A website cannot certify or guarantee awakening. Reading is a beginning; honest enquiry, practical care, and your own discernment matter.'],
   ['If everything is already designed, why make an effort?', 'In this philosophy, effort, learning, and change are themselves part of the unfolding. We do not know the future. Within ordinary life, choices have consequences, so preventing harm, seeking help, and making repair remain meaningful.'],
   ['Does seeing oneness mean accepting harmful behaviour?', 'No. Recognizing someone’s humanity is different from agreeing with an action. You can be compassionate and still say no, set a boundary, leave an unsafe situation, or seek protection.'],
   ['Is witnessing the same as ignoring feelings?', 'No. Notice the feeling without demanding that it disappear. Then examine the situation and choose a response. Witnessing is clearer participation, not numbness, suppression, or withdrawal.'],
   ['What if my mind will not become quiet?', 'You do not need a silent mind to begin. Notice one thought, one sensation, or one sound. If a practice is uncomfortable or overwhelming, stop and return to an ordinary activity. There is no test to pass.'],
   ['How can I tell whether the practice is useful?', 'Look for ordinary changes: did you check an assumption, listen more carefully, keep a boundary, or repair a mistake? Review what actually happened. A useful experience does not have to prove the whole worldview.'],
-  ['Can this solve every problem or replace therapy?', 'No. These are educational reflections, not medical or psychological treatment. Some difficulties need practical, social, legal, or professional support. Seeking suitable help is consistent with responsibility, not a failure of understanding.'],
+  ['Can this solve every problem or replace therapy?', 'No. These are educational reflections, not medical or psychological treatment. Some difficulties need practical, social, legal, or professional support. Creator-awareness is a spiritual perspective, not a guarantee that every difficulty disappears.'],
   ['Where should I begin?', 'Choose one small, current difficulty and use the five-minute practice. Try one action, notice its effect, and return to the relevant philosophy section when you want to understand the idea more deeply.']
 ];
 function FAQ() {

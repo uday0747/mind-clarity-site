@@ -15,7 +15,7 @@ export default function Practice() {
           e('li', null, e('strong', null, 'Notice. '), 'Feel your feet on the ground. Name the emotion or sensation present: “There is frustration,” or “My shoulders feel tense.” You do not have to make it disappear.'),
           e('li', null, e('strong', null, 'Separate fact from story. '), 'What would a camera record? What meaning are you adding? “The reply has not arrived” is an observation; “I am being rejected” is an interpretation.'),
           e('li', null, e('strong', null, 'Recognize what matters. '), 'Is there a need for rest, information, honesty, safety, a boundary, or repair? Include the other person’s humanity without pretending to know their thoughts.'),
-          e('li', null, e('strong', null, 'Choose one action. '), 'Find a small, responsible step within your influence. Ask a clear question, finish one task, take a break, apologize, or state a boundary.'),
+          e('li', null, e('strong', null, 'Remember the creator. '), 'You are inside the game you created. From that awareness, let the next clear action arise: ask a question, finish a task, rest, repair, or set a boundary.'),
           e('li', null, e('strong', null, 'Let the result teach you. '), 'Later, ask what happened and what you learned. You are practising a response, not guaranteeing an outcome.')),
         e(Reflection, null, 'Complete this sentence: “What I know is ___. The story I am adding is ___. My next useful action is ___.”'),
         p('If reflection becomes overwhelming, stop. Look around, return to an ordinary activity, and seek suitable support if needed. Clarity does not require pushing through distress.')),
@@ -54,7 +54,7 @@ export default function Practice() {
       e(Lesson, { id: 'daily', number: '06', title: 'Carry it into the day' },
         p('Choose one practice, not a complete personal transformation. Repeat it in an ordinary moment: before replying, after a mistake, or while making a small decision.'),
         e('h3', null, 'An evening reflection'),
-        e('ul', null, ...['What did I notice that I usually miss?', 'Where did I react automatically?', 'Did my action bring more honesty, care, or responsibility?', 'What is one adjustment for tomorrow?'].map(x => e('li', { key: x }, x))),
+        e('ul', null, ...['What did I notice that I usually miss?', 'Where did I react automatically?', 'Did I remember that I am the creator inside the game?', 'What became clear when the mind became quieter?'].map(x => e('li', { key: x }, x))),
         p('A difficult day is not a failed practice. Return without adding another layer of judgment. Notice what helps in your own experience; keep questioning what does not.'),
         e('div', { className: 'reading-links' }, e('a', { href: '/philosophy.html' }, 'Understand the philosophy'), e('a', { href: '/faq.html' }, 'Explore common questions')),
         e('p', { className: 'quiet-note' }, 'These exercises are for everyday reflection and learning, not diagnosis, therapy, or a substitute for professional care.')))));

@@ -2,7 +2,7 @@ import React from 'react';
 import { Page, Contents, Lesson, Reflection } from './site-layout.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
-const sections = [['intention','The central intention'],['four-paths','Four paths to freedom'],['mula-siddhanta','Mula Siddhanta'],['one-shakti','One Shakti, many forms'],['two-levels','Oneness and responsibility'],['witnessing','Witnessing experience'],['surrender','Surrender, Bhakti and Jnana'],['intelligence','Intelligence and discernment'],['scripture','Ten scriptural pointers'],['beautiful-world','A Beautiful World'],['living','Living the understanding']];
+const sections = [['intention','The central intention'],['four-paths','Paths to creator-awareness'],['mula-siddhanta','Mula Siddhanta'],['one-shakti','One creator, many forms'],['two-levels','Creator-awareness and natural care'],['witnessing','Witnessing the game'],['surrender','Surrender, Bhakti and Jnana'],['intelligence','When the mind becomes silent'],['scripture','Ten scriptural pointers'],['beautiful-world','A Beautiful World'],['living','Living as the creator']];
 const sources = [
   ['ప్రజ్ఞానం బ్రహ్మ','Prajñānam Brahma','Consciousness is Brahman.','Aitareya Upanishad 3.1.3 · Rig Veda tradition'],
   ['అహం బ్రహ్మాస్మి','Aham Brahmāsmi','I am Brahman.','Brihadaranyaka Upanishad 1.4.10 · Yajur Veda tradition'],
@@ -16,7 +16,7 @@ const sources = [
   ['స ఏషోఽణిమా ఏతదాత్మ్యమిదం సర్వమ్','Sa Eṣo’ṇimā Etad Ātmyam Idaṁ Sarvam','That subtle essence is the Self of all this.','Chandogya Upanishad 6.8.7 · the same passage as Tat Tvam Asi']
 ];
 export default function Philosophy() {
-  return e(Page, { eyebrow: 'The philosophy', title: 'One Shakti. Many expressions of life.', intro: 'An invitation to understand who we are, remember that we are the creators inside the game we created, and live with the clarity that naturally follows. Read one section at a time. The questions are as important as the explanations.' },
+  return e(Page, { eyebrow: 'The philosophy', title: 'We are the creators inside the game.', intro: 'The central teaching of Mind Clarity is simple: one Shakti created this game of experiences, and we are that creator experiencing it through every life and role. Everything else—relationships, clarity, care, intelligence, and a beautiful world—develops from remembering this.' },
     e('p', { className: 'quiet-note' }, 'This is the complete core philosophy recorded for Mind Clarity: Uday Kumar’s Mula Siddhanta, its practical meaning, its scriptural connections, and the Beautiful World vision. It is a spiritual perspective to examine, not a belief you must accept.'),
     e('div', { className: 'reading-grid' }, e(Contents, { items: sections }), e('div', { className: 'reading-body' },
       e(Lesson, { id: 'intention', number: '01', title: 'The central intention' },
@@ -24,7 +24,7 @@ export default function Philosophy() {
         p('This intention brings inner clarity and outer care together. Our happiness is connected with the lives around us: the way we speak, the systems we build, and the condition of the natural world. A beautiful world is not merely a pleasant state of mind.'),
         p('The website is meant to be a place where understanding can happen directly—through reading, questioning, noticing, and practising. A teacher or personal conversation is not a requirement for beginning.'),
         e(Reflection, null, 'Choose one ordinary place in your life: a room, a conversation, or a shared task. What would make it more caring or clear today? Name one action you can take.')),
-      e(Lesson, { id: 'four-paths', number: '02', title: 'Four paths to freedom' },
+      e(Lesson, { id: 'four-paths', number: '02', title: 'Paths to creator-awareness' },
         e('blockquote', null, p('“The solution to all problems is to know who we are. Bhakti, Jnana, Dhyana, and Karma can help us discover it.”')),
         p('People are drawn toward liberation through different temperaments. The paths are distinct ways of loosening the ego, not competing identities or rigid categories.'),
         e('div', { className: 'path-grid' },
@@ -43,18 +43,18 @@ export default function Philosophy() {
         p('No separate individual stands outside the whole to rewrite it. Yet from within life, learning, choosing, preventing harm, seeking help, and repairing mistakes still happen and still matter. Effort is part of the unfolding, not a contradiction of it. You do not know the future in advance, so this view is not a reason to give up.'),
         p('“Energy” is spiritual language here, not a measured physical quantity. The religious names express a personal synthesis; their meanings are not identical in every tradition. The root principle is not offered as experimentally proven cosmology.'),
         e(Reflection, null, 'Notice one strong reaction. Can you remember, “I am the creator inside this game,” and allow clarity to return before the reaction carries you?')),
-      e(Lesson, { id: 'one-shakti', number: '04', title: 'One Shakti, many forms' },
+      e(Lesson, { id: 'one-shakti', number: '04', title: 'One creator, many forms' },
         p('Shakti is the word used here for the one source expressing itself as all of life. Joy, fear, success, confusion, helpfulness, and harm arise within the same existence. The person who praises you and the person who disagrees with you are not outside it.'),
         p('This understanding invites humility: success need not become superiority, and disagreement need not become hatred. Seeing the same source in another person does not mean that every action is equally wise or acceptable.'),
         p('For example, a colleague may act carelessly. You can address the mistake directly without reducing the whole person to that one act. Recognizing shared humanity and asking for accountability belong together.'),
         e(Reflection, null, 'Bring to mind someone you disagree with. Can you describe the specific action that concerns you without turning it into a judgment about their entire worth?')),
-      e(Lesson, { id: 'two-levels', number: '05', title: 'Oneness and responsibility' },
+      e(Lesson, { id: 'two-levels', number: '05', title: 'Creator-awareness and natural care' },
         e('blockquote', null, p('“Do not hate anyone. To hate another is to hate yourself. There is no separate ‘other’ outside; everything is connected.”')),
         e('div', { className: 'concept-pair' }, e('div', null, e('h3', null, 'The Shakti level'), p('Existence is understood as one movement: complete and not finally separate. This is the contemplative view of the whole.')), e('div', null, e('h3', null, 'The role level'), p('We live as people with needs, commitments, choices, and consequences. Pain, consent, fairness, protection, and repair matter here.'))),
         p('Hold both levels together. “All is one” must not be used to excuse abuse, dismiss grief, silence someone who is hurting, or hide from consequences. When creator-awareness is clear, care and accountability arise naturally rather than needing to be demanded.'),
         p('If you hurt someone, oneness is not an explanation that replaces an apology. Name what happened, listen to its effect, repair what you can, and change your behaviour. If someone harms you, compassion does not remove your right to a boundary or to leave.'),
         e(Reflection, null, 'Where is a kind but firm response needed? State both parts: “I recognize your humanity, and this action still needs to change.” What does that require in practice?')),
-      e(Lesson, { id: 'witnessing', number: '06', title: 'Witnessing experience' },
+      e(Lesson, { id: 'witnessing', number: '06', title: 'Witnessing the game' },
         p('Witnessing means noticing thoughts, feelings, sensations, and impulses without being completely captured by them. “Anger is present” creates a little space that “I must act on this anger” does not.'),
         p('Notice what is actually happening, then notice the story added to it. A delayed reply is an event. “Nobody values me” is a conclusion. The feeling deserves attention, while the conclusion deserves examination.'),
         p('The deeper question is: “Who is aware of this changing experience?” In this philosophy, the one reality is both the source of appearances and their deepest experiencer. Observing a thought can open that enquiry; the observation alone does not prove the entire worldview.'),
@@ -69,7 +69,7 @@ export default function Philosophy() {
         p('Imagine that a plan changes unexpectedly. Resistance may add “This should never happen to me.” Surrender acknowledges the change; discernment checks the alternatives; care considers everyone affected. You still make a new plan.'),
         p('Surrender is not resignation, carelessness, or obedience to someone else’s demands. Neither spiritual language nor devotion should remove your judgment, consent, or freedom to question.'),
         e(Reflection, null, 'When an emotion arises, try: “I am the creator inside the game I created.” What changes when you remember this without suppressing what you feel?')),
-      e(Lesson, { id: 'intelligence', number: '08', title: 'Intelligence and discernment' },
+      e(Lesson, { id: 'intelligence', number: '08', title: 'When the mind becomes silent' },
         p('The philosophy describes intelligence as flowing through the body-mind. When resistance and entanglement soften, understanding or intuition may feel more available. This is a description of spiritual experience, not proof of a universal intelligence field.'),
         p('Calm does not make every impression correct. Check an intuition against facts, consequences, lived experience, and other perspectives. A feeling can invite investigation without settling the answer.'),
         p('For example, if you feel that someone is upset with you, ask respectfully instead of deciding that your intuition has read their mind. Clarity includes the ability to say, “I do not know yet.”'),
@@ -91,7 +91,7 @@ export default function Philosophy() {
         e('h3', null, 'Begin where life already is'),
         p('A beautiful world begins with a small act of care alongside an inner practice. Reduce waste, restore a shared space, make learning easier for someone, or resolve a misunderstanding respectfully. The journey should leave room for happiness, not postpone living until an ideal future arrives.'),
         e(Reflection, null, 'Choose one inner practice and one outward act of care for this week. Keep them small enough to do. Afterwards, ask who benefited and what you learned.')),
-      e(Lesson, { id: 'living', number: '11', title: 'Living the understanding' },
+      e(Lesson, { id: 'living', number: '11', title: 'Living as the creator' },
         p('The intended direction is less repetitive self-condemnation, more room to reflect, steadier choices, kinder relationships, and less rigid attachment to success or failure. These are possibilities to explore, not guaranteed results or a promise that every problem will disappear.'),
         p('Remorse can lead to repair; shame repeated endlessly often does not. Children, young people, and adults alike deserve care that is not conditional on performance. Spiritual understanding must not replace safeguarding, professional care, or practical help when it is needed.'),
         e('ol', null, ...['Pause and notice the reaction.', 'Remember that you are the creator inside the game you created.', 'Separate the event from the story added to it.', 'Let clarity return before the emotion carries you.', 'Take the action that naturally follows from seeing clearly.'].map(x => e('li', { key: x }, x))),
