@@ -65,6 +65,11 @@ blockquote{font:400 1.2rem/1.8 Georgia,serif;margin:26px 0;padding-left:24px;bor
 blockquote p{margin:0}
 blockquote cite{display:block;margin-top:16px;font:400 .875rem/1.5 Arial,sans-serif;color:var(--muted)}
 .concept-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0 26px}
+.path-grid>div{background:var(--cream);padding:22px 24px}
+.path-grid h3{margin:0 0 8px;font-size:1.22rem}
+.path-grid p{margin:0}
+.lotus-practice{margin:28px 0;padding:18px 22px;border-left:2px solid var(--gold);background:var(--soft);font-size:1.05rem}
 .concept-pair h3{margin-top:6px}
 .reading-links{display:flex;flex-wrap:wrap;gap:15px 28px;margin:28px 0 0}
 .example{padding:20px 0;border-top:1px solid var(--line)}
@@ -91,7 +96,7 @@ details p:last-child{margin-bottom:0}
  .site-header:not(.is-enhanced){position:static}
  .mobile-page{display:block;width:100%;margin:0;color:var(--muted);font-size:.875rem}
  .first-practice{display:block;padding:24px;margin-top:25px}.practice-image{margin-top:28px}.practice-image img{height:190px}
- .topic-grid,.philosophy-intro,.concept-pair{grid-template-columns:1fr}
+ .topic-grid,.philosophy-intro,.concept-pair,.path-grid{grid-template-columns:1fr}
  .philosophy-intro{gap:0}.home-section{padding-top:44px}
  .reading-grid{display:block;margin-top:28px}.reading-contents{position:static;max-height:none;margin-bottom:32px;padding:22px;background:var(--soft);border:0}
  .reading-contents ol{columns:2;column-gap:25px}.reading-contents li{break-inside:avoid}
