@@ -1,9 +1,10 @@
 import React from 'react';
 import Header from './site-header.js';
+import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 export function Footer() {
   return e('footer', { className: 'site-footer' },
-    e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, 'Understanding that becomes a way of living.')),
+    e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, 'Remembering the Creator within the game of experiences.')),
     e('div', { className: 'footer-links' },
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'Email'),
       e('a', { href: '/privacy.html' }, 'Privacy'),
@@ -35,12 +36,7 @@ export function Contents({ items }) {
     e('p', { className: 'eyebrow' }, 'On this page'),
     e('ol', null, items.map(([id,title]) => e('li', { key: id }, e('a', { href: '#'+id }, title)))));
 }
-export const topics = [
-  ['overthinking', 'When thoughts keep circling', 'Separate what happened from what you are imagining.'],
-  ['conflict', 'When a conversation hurts', 'Understand the reaction and choose a clear response.'],
-  ['self-judgment', 'When you judge yourself', 'Make room for learning, repair and a fresh action.'],
-  ['decision', 'When a decision feels difficult', 'Look at the facts, your values and what you can do.']
-];
+export const topics = teaching.cases.map(({ id, title, description }) => [id, title, description]);
 export function TopicLinks({ samePage = false }) {
   return e('div', { className: 'topic-grid' }, topics.map(([id,title,description],i) =>
     e('a', { className: 'topic-link', key: id, href: (samePage ? '' : '/practice.html')+'#'+id },

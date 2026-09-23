@@ -1,61 +1,36 @@
 import React from 'react';
-import { Page, Contents, Lesson, Reflection, topics } from './site-layout.js';
+import { Page, Contents, Lesson, Reflection } from './site-layout.js';
+import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
-const p = (text) => e('p', null, text);
-function Example({ title, children }) {
-  return e('details', null, e('summary', null, title), children);
-}
+const p = text => e('p', null, text);
 export default function Practice() {
-  const contents = [['five-minutes', 'A five-minute practice'], ...topics.map(([id,title]) => [id,title]), ['daily', 'Carry it into the day']];
-  return e(Page, { eyebrow: 'Daily practice', title: 'From understanding to one clear action.', intro: 'Choose an ordinary difficulty, not your most overwhelming experience. Work through it at your own pace. You do not need to believe anything, share anything, or contact anyone to begin.' },
-    e('div', { className: 'reading-grid' }, e(Contents, { items: contents }), e('div', { className: 'reading-body' },
-      e(Lesson, { id: 'five-minutes', number: '01', title: 'A five-minute practice' },
-        p('You can reflect silently or use your own notebook. There are no right words and nothing to submit. Keep your eyes open if that is more comfortable.'),
-        e('ol', { className: 'practice-steps' },
-          e('li', null, e('strong', null, 'Notice. '), 'Feel your feet on the ground. Name the emotion or sensation present: “There is frustration,” or “My shoulders feel tense.” You do not have to make it disappear.'),
-          e('li', null, e('strong', null, 'Separate fact from story. '), 'What would a camera record? What meaning are you adding? “The reply has not arrived” is an observation; “I am being rejected” is an interpretation.'),
-          e('li', null, e('strong', null, 'Recognize what matters. '), 'Is there a need for rest, information, honesty, safety, a boundary, or repair? Include the other person’s humanity without pretending to know their thoughts.'),
-          e('li', null, e('strong', null, 'Remember the creator. '), 'You are inside the game you created. From that awareness, let the next clear action arise: ask a question, finish a task, rest, repair, or set a boundary.'),
-          e('li', null, e('strong', null, 'Let the result teach you. '), 'Later, ask what happened and what you learned. You are practising a response, not guaranteeing an outcome.')),
-        e(Reflection, null, 'Complete this sentence: “What I know is ___. The story I am adding is ___. My next useful action is ___.”'),
-        p('If reflection becomes overwhelming, stop. Look around, return to an ordinary activity, and seek suitable support if needed. Clarity does not require pushing through distress.')),
-      e(Lesson, { id: 'overthinking', number: '02', title: 'When thoughts keep circling' },
-        p('A thought can be important without being a fact. Witnessing begins when you notice a repeated story instead of automatically treating it as the whole situation.'),
-        e(Example, { title: 'Worked example: a message has no reply' },
-          p('Situation: you sent a message this morning and there is no answer yet. The mind says, “They do not care about me.”'),
-          p('Look again: you know that no reply has arrived. You do not yet know why. Disinterest is one possibility; being busy, tired, or away from the phone are others. None is established.'),
-          p('Next action: if the matter is time-sensitive, send one clear follow-up with the time you need an answer. Otherwise, choose when you will check again and return to the activity in front of you.')),
-        e(Reflection, null, 'Write one fact and one interpretation separately. Is there missing information you can obtain? If not, what useful activity can receive your attention now?'),
-        p('The aim is not to force positive thinking. It is to give uncertainty its proper place and stop demanding a conclusion before you have the information.')),
-      e(Lesson, { id: 'conflict', number: '03', title: 'When a conversation hurts' },
-        p('Seeing shared humanity does not mean agreeing with an action. You can recognize your reaction, listen for what matters, and still be direct about a boundary.'),
-        e(Example, { title: 'Worked example: you are interrupted repeatedly' },
-          p('Situation: someone interrupts you twice while you explain a concern. Anger rises and the story becomes, “They never respect me.”'),
-          p('Look again: repeated interruption is the observable issue. You can address it without proving what kind of person they are.'),
-          p('Next action: “I would like to finish this point, then I will listen to yours.” If interruption continues: “Let us pause and come back when we can both speak.”')),
-        e(Reflection, null, 'What specific behaviour needs to change? Put your request into one sentence: “When ___ happens, I need ___. If it continues, I will ___.” Choose a boundary you can actually keep.'),
-        p('Where there is intimidation or danger, prioritize safety and suitable help. Compassion does not require staying in an unsafe conversation or relationship.')),
-      e(Lesson, { id: 'self-judgment', number: '04', title: 'When you judge yourself' },
-        p('“I made a mistake” leaves room for learning. “I am a failure” turns an event into an identity. Responsibility is more useful than repeatedly condemning yourself.'),
-        e(Example, { title: 'Worked example: you forgot a commitment' },
-          p('Situation: you forgot to call when you said you would. Someone was inconvenienced. Acknowledging that matters; deciding you are worthless does not repair it.'),
-          p('Look again: separate the missed action from your entire identity. What effect did it have, and what repair is possible?'),
-          p('Next action: acknowledge the missed commitment without excuses, apologize, and agree on a realistic next step. Add a reminder or change the promise so the same pattern is less likely.')),
-        e(Reflection, null, 'Replace a label about yourself with a description of what happened. Then name one repair and one thing you will do differently.'),
-        p('Your worth is not a score for productivity, academic results, or social standing. Learning still includes accepting consequences and respecting another person’s response.')),
-      e(Lesson, { id: 'decision', number: '05', title: 'When a decision feels difficult' },
-        p('Clarity does not always give certainty. It can help you distinguish what is known, what matters, and what can be tried without pretending to control every result.'),
-        e(Example, { title: 'Worked example: should you accept another commitment?' },
-          p('Situation: you are invited to help organize an event. You want to contribute, but your week is already full.'),
-          p('Look again: list the time required, your existing promises, and what is still unclear. Kindness matters, and so does keeping realistic commitments. A strong feeling is information, not the only evidence.'),
-          p('Next action: ask about the actual work. Offer one limited task if it fits, or decline clearly if it does not. “I can help for one hour on Saturday, but I cannot coordinate the event.”')),
-        e(Reflection, null, 'What are the facts, the unknowns, and the value you want to honour? What is the smallest reversible step that will teach you something?'),
-        p('For decisions requiring specialist knowledge, get appropriate advice. Surrender means letting go of the demand to control everything, not abandoning careful judgment.')),
-      e(Lesson, { id: 'daily', number: '06', title: 'Carry it into the day' },
-        p('Choose one practice, not a complete personal transformation. Repeat it in an ordinary moment: before replying, after a mistake, or while making a small decision.'),
+  const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['daily', 'Return throughout the day']];
+  return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement },
+    p('Each exercise explores this same understanding in a different scene. Begin with a small, ordinary event. The invitation is to understand the teaching and examine your experience honestly; words repeated without understanding are only words.'),
+    e('div', { className: 'reading-links' }, e('a', { href: '/philosophy.html#mula-siddhanta' }, 'Read the root statement and its meaning')),
+    e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
+      e(Lesson, { id: 'five-minutes', number: '01', title: 'A five-minute return to the teaching' },
+        p(teaching.meaning),
+        e('ol', { className: 'practice-steps' }, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
+        e(Reflection, null, teaching.practiceReflection),
+        p('You can reflect silently or write privately. If the exercise becomes overwhelming, stop and return to an ordinary activity or suitable support. No particular feeling has to appear for the reflection to be honest.')),
+      ...teaching.cases.map((item, i) => e(Lesson, { key:item.id, id:item.id, number:String(i + 2).padStart(2, '0'), title:item.title },
+        p(item.connection),
+        e('details', null, e('summary', null, 'Worked example: ' + item.example),
+          e('h3', null, 'The scene'), p(item.scene),
+          e('h3', null, 'Remembering the Creator'), p(item.remember),
+          e('h3', null, 'Participating within the game'), p(item.participation)),
+        e(Reflection, null, item.reflection))),
+      e(Lesson, { id:'daily', number:'08', title:'Return throughout the day' },
+        p('The intended state is remembrance of the Creator while the game continues. A conversation, a mistake, or a quiet moment can be an occasion to return to the whole statement. The practice belongs within the unfolding; it does not rewrite the design.'),
         e('h3', null, 'An evening reflection'),
-        e('ul', null, ...['What did I notice that I usually miss?', 'Where did I react automatically?', 'Did I remember that I am the creator inside the game?', 'What became clear when the mind became quieter?'].map(x => e('li', { key: x }, x))),
-        p('A difficult day is not a failed practice. Return without adding another layer of judgment. Notice what helps in your own experience; keep questioning what does not.'),
-        e('div', { className: 'reading-links' }, e('a', { href: '/philosophy.html' }, 'Understand the philosophy'), e('a', { href: '/faq.html' }, 'Explore common questions')),
-        e('p', { className: 'quiet-note' }, 'These exercises are for everyday reflection and learning, not diagnosis, therapy, or a substitute for professional care.')))));
+        e('ul', null, ...[
+          'Which scene absorbed me so completely that a passing role became my whole identity?',
+          'Where did I demand that the game unfold differently, and what did remembering its fixed design mean to me?',
+          'Did I recognize the same Creator in another person? How did that affect the relationship?',
+          'When I returned to the central understanding, what changed in my experience—and what did not?'
+        ].map(text => e('li', {key:text}, text))),
+        p('Return to the teaching without turning the day into a score. Its intended movement is from remembrance toward natural care. A difficult emotion or an unresolved question is something to examine, not evidence of personal failure.'),
+        e('div', {className:'reading-links'}, e('a', {href:'/philosophy.html#living'}, 'Living with the understanding'), e('a', {href:'/faq.html'}, 'Questions about the game')),
+        e('p', {className:'quiet-note'}, 'These are spiritual reflections, not treatment or a promise of particular outcomes. Appropriate professional support remains available when needed.')))));
 }

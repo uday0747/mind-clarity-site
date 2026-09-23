@@ -1,3 +1,5 @@
+import { questions } from '../questions.js';
+
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
 export function completeMetadata(head) {
   const title = head.match(/<title>([^<]+)<\/title>/)?.[1];
@@ -23,11 +25,7 @@ export function completeMetadata(head) {
   };
   const faq = canonical.endsWith('/faq') ? {
     '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: [
-      { '@type': 'Question', name: 'Do I have to accept the philosophy to benefit from the practices?', acceptedAnswer: { '@type': 'Answer', text: 'The invitation is to examine the possibility that we are the creators inside a game we created for experience, beginning with what can be observed directly.' } },
-      { '@type': 'Question', name: 'What if my mind will not become quiet?', acceptedAnswer: { '@type': 'Answer', text: 'You do not need a silent mind to begin. Notice one thought, sensation, or sound and return gently to the present.' } },
-      { '@type': 'Question', name: 'Can this solve every problem or replace therapy?', acceptedAnswer: { '@type': 'Answer', text: 'No. These are educational reflections, not medical or psychological treatment. Creator-awareness is a spiritual perspective, not a guarantee that every difficulty disappears.' } }
-    ]
+    mainEntity: questions.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } }))
   } : null;
   const schemas = [`<script type="application/ld+json">${JSON.stringify(graph).replaceAll('<', '\\u003c')}</script>`];
   if (faq) schemas.push(`<script type="application/ld+json">${JSON.stringify(faq).replaceAll('<', '\\u003c')}</script>`);

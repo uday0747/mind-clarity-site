@@ -4,31 +4,22 @@ import { pageFromPath } from './site-header.js';
 import { Page } from './site-layout.js';
 import Philosophy from './philosophy-content.js';
 import Practice from './practice.js';
+import teaching from './teaching-content.json' with { type: 'json' };
+import { questions } from './questions.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
-const questions = [
-  ['Do I have to accept the philosophy to benefit from the practices?', 'The central invitation is to examine the possibility that we are the creators inside a game we created for experience. Begin with what you can observe: a thought, a feeling, an assumption, and a response.'],
-  ['What does enlightenment mean here?', 'It is the aspiration toward clearer understanding of self and experience, expressed in the way we live. A website cannot certify or guarantee awakening. Reading is a beginning; honest enquiry, practical care, and your own discernment matter.'],
-  ['If everything is already designed, why make an effort?', 'In this philosophy, effort, learning, and change are themselves part of the unfolding. We do not know the future. Within ordinary life, choices have consequences, so preventing harm, seeking help, and making repair remain meaningful.'],
-  ['Does seeing oneness mean accepting harmful behaviour?', 'No. Recognizing someone’s humanity is different from agreeing with an action. You can be compassionate and still say no, set a boundary, leave an unsafe situation, or seek protection.'],
-  ['Is witnessing the same as ignoring feelings?', 'No. Notice the feeling without demanding that it disappear. Then examine the situation and choose a response. Witnessing is clearer participation, not numbness, suppression, or withdrawal.'],
-  ['What if my mind will not become quiet?', 'You do not need a silent mind to begin. Notice one thought, one sensation, or one sound. If a practice is uncomfortable or overwhelming, stop and return to an ordinary activity. There is no test to pass.'],
-  ['How can I tell whether the practice is useful?', 'Look for ordinary changes: did you check an assumption, listen more carefully, keep a boundary, or repair a mistake? Review what actually happened. A useful experience does not have to prove the whole worldview.'],
-  ['Can this solve every problem or replace therapy?', 'No. These are educational reflections, not medical or psychological treatment. Some difficulties need practical, social, legal, or professional support. Creator-awareness is a spiritual perspective, not a guarantee that every difficulty disappears.'],
-  ['Where should I begin?', 'Choose one small, current difficulty and use the five-minute practice. Try one action, notice its effect, and return to the relevant philosophy section when you want to understand the idea more deeply.']
-];
 function FAQ() {
-  return e(Page, { eyebrow: 'Questions for understanding', title: 'Keep your questions open.', intro: 'These answers help connect the philosophy with ordinary life. You are welcome to question the ideas and reach your own conclusions.' },
+  return e(Page, { eyebrow: 'Questions about the teaching', title: 'Understanding the Creator and the game.', intro: teaching.statement },
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
-      e('div', { className: 'reading-links' }, e('a', { href: '/practice.html' }, 'Try a daily practice'), e('a', { href: '/philosophy.html' }, 'Read the complete philosophy'))));
+      e('div', { className: 'reading-links' }, e('a', { href: '/practice.html' }, 'Try a daily practice'), e('a', { href: '/philosophy.html#mula-siddhanta' }, 'Read the root statement'))));
 }
 function Contact() {
   return e(Page, { eyebrow: 'A quiet way to reach us', title: 'Contact', intro: 'The lessons and practices are here to use independently. For a question about the website, a correction, or a practical note, you can send an email.' },
     e('div', { className: 'compact-reading' }, e('p', null, email()), p('There is no requirement to introduce yourself, book a conversation, or share a personal story to use this website.'), e('a', { href: '/practice.html' }, 'Return to the practices')));
 }
 function Consultation() {
-  return e(Page, { eyebrow: 'An optional last step', title: 'A personal conversation', intro: 'The philosophy, examples, and practices are available without a consultation. If you have explored them and still prefer a conversation, the existing option is described here.' },
+  return e(Page, { eyebrow: 'An optional last step', title: 'A personal conversation', intro: 'The teaching centres on the Creator within the game of experiences. Its explanations and practices are freely available here. If you have explored them and still prefer a personal conversation, the existing option is described below.' },
     e('div', { className: 'compact-reading' },
       e('h2', null, 'Practical details'), p('An introductory reflection conversation is 30 minutes and ₹500. The available formats are phone, Zoom, WhatsApp call, or offline by arrangement. Availability is 9 am–10 pm (IST). Individual or group conversations can be discussed case by case.'),
       e('p', null, 'Arrange a suitable time before paying: ', email(), ' or ', e('a', { href: 'https://wa.me/919989766517' }, 'WhatsApp +91 9989766517'), '.'),
