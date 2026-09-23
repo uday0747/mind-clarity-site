@@ -21,6 +21,15 @@ export function completeMetadata(head) {
       { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: 'en', isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
-  return head + '\n' + tags.map(([attribute, key, value]) => `<meta ${attribute}="${key}" content="${value}" />`).join('\n') +
-    `\n<script type="application/ld+json">${JSON.stringify(graph).replaceAll('<', '\\u003c')}</script>\n`;
+  const faq = canonical.endsWith('/faq') ? {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'Do I have to accept the philosophy to benefit from the practices?', acceptedAnswer: { '@type': 'Answer', text: 'The invitation is to examine the possibility that we are the creators inside a game we created for experience, beginning with what can be observed directly.' } },
+      { '@type': 'Question', name: 'What if my mind will not become quiet?', acceptedAnswer: { '@type': 'Answer', text: 'You do not need a silent mind to begin. Notice one thought, sensation, or sound and return gently to the present.' } },
+      { '@type': 'Question', name: 'Can this solve every problem or replace therapy?', acceptedAnswer: { '@type': 'Answer', text: 'No. These are educational reflections, not medical or psychological treatment. Creator-awareness is a spiritual perspective, not a guarantee that every difficulty disappears.' } }
+    ]
+  } : null;
+  const schemas = [`<script type="application/ld+json">${JSON.stringify(graph).replaceAll('<', '\\u003c')}</script>`];
+  if (faq) schemas.push(`<script type="application/ld+json">${JSON.stringify(faq).replaceAll('<', '\\u003c')}</script>`);
+  return head + '\n' + tags.map(([attribute, key, value]) => `<meta ${attribute}="${key}" content="${value}" />`).join('\n') + '\n' + schemas.join('\n') + '\n';
 }
