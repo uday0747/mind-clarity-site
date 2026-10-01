@@ -2,11 +2,13 @@ import React from 'react';
 import { mount } from './mount.js';
 import { Page, Reflection, TopicLinks } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
+import { EnquiryLinks } from './enquiry-pages.js';
 const e = React.createElement;
 export function App() {
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
     title: 'We are the Creator.', intro: teaching.statement },
     e('p', { className: 'quiet-note' }, teaching.meaning),
+    e(EnquiryLinks),
     e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Understand the root statement'), e('a', { href: '/practice#movie-lotus' }, 'Explore the movie and lotus')),
     e('section', { className: 'first-practice', 'aria-labelledby': 'first-practice-title' },
       e('div', null, e('p', { className: 'eyebrow' }, 'One minute of reflection'),

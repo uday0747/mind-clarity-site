@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useRef } from 'react';
 import { enhanceNavigation } from './site-ui.js';
+import { enquiryTopics } from './enquiry-topics.js';
 export const PagePathContext = createContext(null);
 const e = React.createElement;
 const links = [
@@ -17,7 +18,8 @@ export default function Header() {
   const header = useRef(null);
   useEffect(() => enhanceNavigation(header.current), []);
   const provided = useContext(PagePathContext);
-  const page = pageFromPath(provided ?? (typeof location === 'undefined' ? '/' : location.pathname));
+  const current = pageFromPath(provided ?? (typeof location === 'undefined' ? '/' : location.pathname));
+  const page = enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   return e('header', { className: 'site-header', ref: header },
     e('a', { className: 'brand', href: '/' }, 'Mind Clarity'),
     e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,

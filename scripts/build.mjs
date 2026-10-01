@@ -10,6 +10,7 @@ import { App } from '../app.js';
 import { pages } from '../page-app.js';
 import { PagePathContext } from '../site-header.js';
 import { completeMetadata } from './metadata.mjs';
+import { enquiryTopics } from '../enquiry-topics.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 await build({ configFile: path.join(root, 'vite.config.js'), root });
@@ -22,7 +23,14 @@ await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
-  const template = await readFile(path.join(root, `${page}.html`), 'utf8');
+  const topic = enquiryTopics.find(topic => topic.slug === page);
+  let template = await readFile(path.join(root, `${topic ? 'faq' : page}.html`), 'utf8');
+  if (topic) {
+    const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+    template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(topic.title)} | Mind Clarity</title>`)
+      .replace(/name="description" content="[^"]+"/, `name="description" content="${escape(topic.description)}"`)
+      .replace('rel="canonical" href="https://mindclarity.co.in/faq"', `rel="canonical" href="https://mindclarity.co.in/${topic.slug}"`);
+  }
   let head = template.match(/<head>([\s\S]*?)<\/head>/i)?.[1];
   if (!head) throw new Error(`Missing head: ${page}.html`);
   head = completeMetadata(head);
@@ -58,4 +66,4 @@ const serverSource = await readFile(path.join(root, 'site-server.js'), 'utf8');
 await writeFile(path.join(dist, 'server/index.js'), `${serverSource}\nexport default createSiteServer(${JSON.stringify(serverAssets)}, ${JSON.stringify(redirects)});\n`);
 await rm(path.join(root, 'dist'), { recursive: true, force: true });
 await rename(dist, path.join(root, 'dist'));
-console.log('Built 6 complete learning/support pages and 2 legacy redirects; Contact is retired.');
+console.log(`Built ${1 + Object.keys(pages).length} complete learning/support pages and 2 legacy redirects; Contact is retired.`);

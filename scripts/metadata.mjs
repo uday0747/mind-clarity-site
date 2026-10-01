@@ -1,4 +1,5 @@
-import { questions } from '../questions.js';
+import { questions, enquiryGroups } from '../questions.js';
+import { enquiryTopics } from '../enquiry-topics.js';
 
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
 export function completeMetadata(head) {
@@ -23,9 +24,23 @@ export function completeMetadata(head) {
       { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: 'en', isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
+  const topic = enquiryTopics.find(topic => canonical.endsWith('/' + topic.slug));
+  const author = { '@type': 'Person', '@id': 'https://mindclarity.co.in/#uday-kumar', name: 'Uday Kumar' };
+  graph['@graph'][1].author = author;
+  if (topic) {
+    graph['@graph'].push({ '@type': 'Article', '@id': `${canonical}#article`, headline: topic.title,
+      description: topic.description, author, datePublished: '2026-10-01', dateModified: '2026-10-01',
+      mainEntityOfPage: { '@id': `${canonical}#webpage` }, inLanguage: 'en' });
+    graph['@graph'].push({ '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Mind Clarity', item: 'https://mindclarity.co.in/' },
+      { '@type': 'ListItem', position: 2, name: 'Questions and answers', item: 'https://mindclarity.co.in/faq' },
+      { '@type': 'ListItem', position: 3, name: topic.title, item: canonical }
+    ] });
+  }
   const faq = canonical.endsWith('/faq') ? {
     '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: questions.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } }))
+    // Semantic description of visible answers, not a promise of Google FAQ rich results.
+    mainEntity: [...questions, ...enquiryGroups.flatMap(group => group.entries)].map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } }))
   } : null;
   const schemas = [`<script type="application/ld+json">${JSON.stringify(graph).replaceAll('<', '\\u003c')}</script>`];
   if (faq) schemas.push(`<script type="application/ld+json">${JSON.stringify(faq).replaceAll('<', '\\u003c')}</script>`);
