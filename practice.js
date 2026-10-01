@@ -6,14 +6,14 @@ const p = text => e('p', null, text);
 export default function Practice() {
   const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['daily', 'Return throughout the day']];
   return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement },
-    p('Each exercise explores this same understanding in a different scene. Begin with a small, ordinary event. The invitation is to understand the teaching and examine your experience honestly; words repeated without understanding are only words.'),
+    p('Begin with the motivation to know who you are. Ask “Who am I?” and let ordinary life invite enquiry. No journal, checklist, prescribed observation, or timetable is required. The examples below are optional ways to explore the teaching, not conditions for realization.'),
     e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
       e(Lesson, { id: 'five-minutes', number: '01', title: 'A five-minute return to the teaching' },
         p(teaching.meaning),
         e('ol', { className: 'practice-steps' }, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
         e(Reflection, null, teaching.practiceReflection),
-        p('You can reflect silently or write privately. If the exercise becomes overwhelming, stop and return to an ordinary activity or suitable support. No particular feeling has to appear for the reflection to be honest.')),
+        p('This five-minute example is optional, not a required routine. You do not need to write anything. If reflection becomes overwhelming, stop and return to an ordinary activity or suitable support. No particular feeling has to appear for enquiry to be honest.')),
       ...teaching.cases.map((item, i) => e(Lesson, { key:item.id, id:item.id, number:String(i + 2).padStart(2, '0'), title:item.title },
         p(item.connection),
         e('details', null, e('summary', null, 'Worked example: ' + item.example),

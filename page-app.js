@@ -5,13 +5,21 @@ import { Page } from './site-layout.js';
 import Philosophy from './philosophy-content.js';
 import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
-import { questions } from './questions.js';
+import { questions, enquiryGroups } from './questions.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
 function FAQ() {
   return e(Page, { eyebrow: 'Questions about the teaching', title: 'Understanding the Creator and the game.', intro: teaching.statement },
+    e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
+      e('h2', { id: 'enquiry-title' }, 'Start with your question'),
+      p('No journal or prescribed timetable is needed. Bring your curiosity: Who am I? What does this teaching mean? These answers are edited from Uday Kumar’s discussions; you are welcome to question them.'),
+      e('label', { htmlFor: 'enquiry-input' }, 'Find an answer in the teaching'),
+      e('input', { id: 'enquiry-input', type: 'search', maxLength: 300, placeholder: 'Try: surrender, astrology, guilt, health…', 'aria-describedby': 'enquiry-help' }),
+      e('p', { id: 'enquiry-help', className: 'quiet-note' }, 'This is a local answer finder, not a generative AI chatbot. Your search stays in this page and is not saved or sent to a model.'),
+      e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite' })),
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
+      ...enquiryGroups.map(group => e('section', { key: group.title }, e('h2', null, group.title), ...group.entries.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))))),
       e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))));
 }
 function Consultation() {
@@ -28,6 +36,7 @@ function Privacy() {
   return e(Page, { eyebrow: 'Your information', title: 'Privacy information' },
     e('div', { className: 'compact-reading' },
       e('h2', null, 'Reading and reflection'), p('The learning pages require no account, booking, or submission. The reflection prompts do not collect or store your answers. If you choose to write, use your own notebook or a tool of your choice.'),
+      e('h2', null, 'Question finder'), p('The question finder filters answers in your browser. Its text is not saved, placed in the URL, sent to a model, or included in analytics events by this tool. It is not a live AI conversation. General website analytics still operate as described below.'),
       e('h2', null, 'Information you choose to send'), p('Mind Clarity receives information you choose to share by email or WhatsApp. Please do not send card numbers, bank details, OTPs, or passwords.'),
       e('h2', null, 'Analytics'), p('This website uses Google Analytics to understand general visitor activity. It is not used to provide medical or psychological profiling.'),
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),

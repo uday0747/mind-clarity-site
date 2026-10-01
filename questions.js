@@ -13,5 +13,39 @@ export const questions = [
   ['Does seeing the same Creator mean accepting harm?', 'No. Protecting a life, setting a boundary, and repairing harm also concern the shared creation. These actions occur within the game. Creator-awareness does not erase consent or consequences, and does not require anyone to remain in danger.'],
   ['What if the mind does not become silent?', 'The teaching connects a quieter mind with releasing the role’s demand to control the whole game. Begin with one ordinary scene and examine that demand gently. Silence cannot be forced by repeating “I am the Creator.” If reflection becomes uncomfortable or overwhelming, stop and return to ordinary activity or suitable support.'],
   ['Does this prove we created the universe or guarantee success?', 'No. These pages explain Uday’s spiritual philosophy. Analogies, scriptural interpretations, and reflections can help examine it, but do not independently prove a predetermined universe. Remembering the Creator is the intended focus; particular emotional, financial, or health outcomes are not guaranteed.'],
-  ['Where should I begin?', 'Read the root statement, including the part about being unable to rewrite the game from inside. Then take one small event through the five-minute practice. Examine how remembering the Creator relates to the role, emotion, and response within that scene, and record what changed or did not change.']
+  ['Where should I begin?', 'Begin with the motivation to know who you are. Uday offers “we are the Creator” as a direction for enquiry: Who am I? How could this be true? You do not need a journal, a timetable, or a prescribed observation. Notice life as you are, question the teaching, and explore at your own pace. The examples on this website are optional aids, not conditions for realization.']
+];
+
+// Editorial adaptations of Uday’s recorded statements, not verbatim quotations.
+export const enquiryGroups = [
+  { title: 'Starting the enquiry', entries: [
+    ['Must I write down observations?', 'No. Uday’s latest clarification is that writing is not required. Motivation to know who you are is the starting point. Earlier references to logging describe his own enquiry, not a compulsory method for everyone.'],
+    ['Is “I am the Creator” an affirmation I must repeat?', 'Uday intends it to motivate questions: How am I the Creator? What does this mean? Repetition is not a test of realization, and an answer arising internally remains something you can examine.'],
+    ['May I question the teacher and this website?', 'Yes. Uday describes his explanations as a guide, not a substitute for your own enquiry. Respectful questions and sincere disagreement are welcome. You do not have to profess a belief you do not hold.'],
+    ['Is there a deadline for enlightenment?', 'No. There is no required timetable or guarantee that these pages will produce realization. Continue ordinary life and explore without turning enquiry into pressure.']
+  ] },
+  { title: 'Identity and the design', entries: [
+    ['Does being the Creator mean I have supernatural powers?', 'No. In Uday’s account, the shared Creator entered embodied life for experience without direct control over the whole design. The statement concerns identity, not personal omnipotence or superiority.'],
+    ['Is surrender the same as doing nothing?', 'No. In this teaching, surrender concerns the total design, not submission to another person. Work, protection, learning, and repair remain part of life. Do what is reasonably in your hands without demanding control of every outcome.'],
+    ['Can we know everything that will happen?', 'Uday says we do not know the next scene. He describes uncertainty as part of the experience. These pages do not offer certain predictions of your future.'],
+    ['How does Uday understand past lives?', 'In these recorded statements, Uday rejects past-life explanations and places experience in the present unfolding of the design. This is his position; the website does not present it as the position of every Indian spiritual tradition.'],
+    ['Why does the design include painful experiences?', 'Uday describes the game as containing contrasting experiences, not only pleasant ones. This explanation is not permission to dismiss suffering: help, protection, and compassionate action also belong within the experience.']
+  ] },
+  { title: 'Meditation, health, and astrology', entries: [
+    ['What is meditation’s place in this enquiry?', 'Uday describes meditation as an opportunity for unstrained attention, comfortable breathing, and enquiry into identity and creation. Sit comfortably; no rigid posture, forced breathing, or particular sensation is required by this website.'],
+    ['Does enlightenment guarantee perfect health or wealth?', 'No guarantee is made here. Uday’s later clarification allows illness, accidents, death, and uncertainty within the design. He describes stability and clarity as intended benefits, not immunity or a substitute for healthcare.'],
+    ['What does “full oxygen” mean in these discussions?', 'Uday uses this expression when describing easier breathing, energy, and clarity during meditation. A feeling is not a measurement of blood oxygen. These pages do not prescribe breath retention or treatment for breathing problems.'],
+    ['Why does Uday discuss planets and chakras?', 'His framework links planetary influence, chakras, time, and readiness for understanding. This is presented as his spiritual and astrological interpretation, not an established medical mechanism or a diagnosis.'],
+    ['Do I need to become an astrology expert?', 'No. Uday says an overall understanding, rather than an in-depth study, is what he considers relevant to his teaching. You may investigate that claim and remain unconvinced.'],
+    ['What if I sincerely disagree about astrology?', 'You are welcome to continue reading, asking questions, or simply living your life. Disagreement is not a personal defect. This website does not diagnose your planetary condition or judge your worth from agreement.']
+  ] },
+  { title: 'Care, responsibility, and everyday life', entries: [
+    ['Should I accept harm because everything is designed?', 'No. Uday clarified that resisting harm means appropriate, lawful action—not retaliation. Set boundaries, seek help, and protect yourself and others. Surrender does not require staying in danger.'],
+    ['What if I have hurt someone?', 'Acknowledge what happened, apologize where appropriate, and make reasonable repair. Uday distinguishes action from prolonged self-condemnation. Acceptance of the design does not erase another person’s needs or justify repeating harm.'],
+    ['Does calling life a game make suffering unreal?', 'No. “Game” is the teaching’s way of describing creation and experience, not a reason to trivialize pain, consent, or consequences. Other lives deserve care.'],
+    ['How does this teaching relate to animals?', 'Uday’s intended direction is greater sensitivity and care for all life. His discussion of food and natural events is not a license for cruelty or neglect.'],
+    ['How does Uday understand Bhakti?', 'He emphasizes respecting oneself and other people as expressions of the shared Creator and acting without bargaining for control of the future. This is his interpretation, not a definition of all devotional traditions.'],
+    ['What is the place of money and service?', 'Uday connects work and service with respect for others. Money meets practical needs but does not define the shared identity in his teaching. Respect and clarity do not guarantee financial success.'],
+    ['What is this website trying to achieve?', 'Its purpose is to make Uday’s explanations accessible, motivate self-enquiry, and support understanding and compassionate participation in life. It offers a guide, not a certificate of enlightenment or a promise to change everyone.']
+  ] }
 ];
