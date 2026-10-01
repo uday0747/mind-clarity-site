@@ -7,8 +7,8 @@ export function Footer() {
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, 'Remembering the Creator within the game of experiences.')),
     e('div', { className: 'footer-links' },
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'Email'),
-      e('a', { href: '/privacy.html' }, 'Privacy'),
-      e('a', { href: '/consultation-info.html' }, 'Optional conversation')),
+      e('a', { href: '/privacy' }, 'Privacy'),
+      e('a', { href: '/consultation-info' }, 'Optional conversation')),
     e('small', null, '© 2026 Mind Clarity · Spiritual reflection and education.'));
 }
 export function Page({ eyebrow, title, intro, children, home = false }) {
@@ -39,7 +39,7 @@ export function Contents({ items }) {
 export const topics = teaching.cases.map(({ id, title, description }) => [id, title, description]);
 export function TopicLinks({ samePage = false }) {
   return e('div', { className: 'topic-grid' }, topics.map(([id,title,description],i) =>
-    e('a', { className: 'topic-link', key: id, href: (samePage ? '' : '/practice.html')+'#'+id },
+    e('a', { className: 'topic-link', key: id, href: (samePage ? '' : '/practice')+'#'+id },
       e('span', { className: 'topic-index', 'aria-hidden': true }, '0'+(i+1)),
       e('span', null, e('strong', null, title), e('span', null, description)),
       e('span', { 'aria-hidden': true }, '↗'))));

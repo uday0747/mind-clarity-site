@@ -3,10 +3,10 @@ import { enhanceNavigation } from './site-ui.js';
 export const PagePathContext = createContext(null);
 const e = React.createElement;
 const links = [
-  ['home', 'Begin here', '/index.html'],
-  ['philosophy', 'Philosophy', '/philosophy.html'],
-  ['practice', 'Daily practice', '/practice.html'],
-  ['faq', 'Questions', '/faq.html']
+  ['home', 'Begin here', '/'],
+  ['philosophy', 'Philosophy', '/philosophy'],
+  ['practice', 'Daily practice', '/practice'],
+  ['faq', 'Questions', '/faq']
 ];
 const labels = { ...Object.fromEntries(links.map(([id,label])=>[id,label])), contact: 'Contact', privacy: 'Privacy', 'consultation-info': 'Optional conversation' };
 export function pageFromPath(pathname) {
@@ -19,7 +19,7 @@ export default function Header() {
   const provided = useContext(PagePathContext);
   const page = pageFromPath(provided ?? (typeof location === 'undefined' ? '/' : location.pathname));
   return e('header', { className: 'site-header', ref: header },
-    e('a', { className: 'brand', href: '/index.html' }, 'Mind Clarity'),
+    e('a', { className: 'brand', href: '/' }, 'Mind Clarity'),
     e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,
       'aria-label': 'Open menu', 'aria-controls': 'primary-navigation' }, 'Menu'),
     e('nav', { id: 'primary-navigation', 'aria-label': 'Main navigation' },

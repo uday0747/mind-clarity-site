@@ -48,7 +48,7 @@ export default function Philosophy() {
         p('Surrender follows the same root: the role releases its demand to rewrite the game. If a plan changes, remembering the Creator can make room to meet the scene and examine the available alternatives. Making another plan, too, occurs within the unfolding.'),
         p('Bhakti brings devotion to the Creator present throughout the game; Jnana enquires into the identity of that Creator and the passing role. A sacred image can support this remembrance. Uday’s criticism is of worship that becomes mechanical while awareness of the divine in living people is forgotten.'),
         e(Reflection, null, 'Choose a small event that absorbed you like a movie scene. Recall the Creator who entered the already-designed game. What does the lotus image mean in that moment? Feel what is present and examine whether remembrance changes your attachment to it.'),
-        e('a', {href:'/practice.html#movie-lotus'}, 'Try the movie and lotus exercise')),
+        e('a', {href:'/practice#movie-lotus'}, 'Try the movie and lotus exercise')),
       e(Lesson, {id:'four-paths', number:'05', title:'Four paths to the same recognition'},
         e('blockquote', null, p('“The solution to all problems is to know who we are. Bhakti, Jnana, Dhyana, and Karma can help us discover it.”'), e('cite', null, 'Uday’s expression of the purpose of the teaching')),
         p('Here, knowing who we are means recognizing the Creator within the game of experiences. Uday connects the four paths to that one aim. They approach the understanding through different temperaments.'),
@@ -76,7 +76,7 @@ export default function Philosophy() {
         p('From this perspective, relationships can regain importance because the other person expresses the same Creator. A damaged possession may still need repair, but its price need not become the measure of a person’s worth.'),
         p('The game’s fixed design cannot be rewritten to guarantee that every possession stays or every loss is reversed. Earning, planning, and addressing practical needs remain experiences within it. The enquiry concerns attachment and identity; it does not ask anyone to ignore their material needs.'),
         e(Reflection, null, 'Choose one possession or status you fear losing. What has it come to mean about your role? Remember the Creator within the already-designed game. How does seeing it as a small part of creation affect a relationship you value?'),
-        e('a', {href:'/practice.html#money-relationships'}, 'Explore the possessions and relationships example')),
+        e('a', {href:'/practice#money-relationships'}, 'Explore the possessions and relationships example')),
       e(Lesson, {id:'intelligence', number:'09', title:'Silence and intelligence'},
         p('In Uday’s account, the mind becomes quieter as the role stops demanding control of the whole game. Remembering the Creator and the completed design can soften the struggle with every scene. He describes intelligence becoming more available in that quiet.'),
         p('This connection is a spiritual account of experience. Quietness does not make every impression correct or reveal the predetermined future. Learning and checking what we think remain part of the Creator’s experience within the game.'),
@@ -108,6 +108,6 @@ export default function Philosophy() {
         p('Within Uday’s teaching, natural care follows as this recognition becomes clear. It is the reason for returning to the root in every exercise. Repeating a sentence or feeling calm once does not establish the cosmology or guarantee success. The invitation is continuing enquiry and honest attention to life.'),
         e('ol', {className:'practice-steps'}, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
         e(Reflection, null, teaching.practiceReflection),
-        e('a', {className:'button', href:'/practice.html#five-minutes'}, 'Explore the teaching in a daily experience'),
+        e('a', {className:'button', href:'/practice#five-minutes'}, 'Explore the teaching in a daily experience'),
         e('p', {className:'quiet-note'}, 'Spiritual reflection does not replace appropriate practical or professional help. Seeking help, too, can be part of participation in life.')))));
 }

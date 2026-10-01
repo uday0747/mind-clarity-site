@@ -7,7 +7,7 @@ export default function Practice() {
   const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['daily', 'Return throughout the day']];
   return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement },
     p('Each exercise explores this same understanding in a different scene. Begin with a small, ordinary event. The invitation is to understand the teaching and examine your experience honestly; words repeated without understanding are only words.'),
-    e('div', { className: 'reading-links' }, e('a', { href: '/philosophy.html#mula-siddhanta' }, 'Read the root statement and its meaning')),
+    e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
       e(Lesson, { id: 'five-minutes', number: '01', title: 'A five-minute return to the teaching' },
         p(teaching.meaning),
@@ -31,6 +31,6 @@ export default function Practice() {
           'When I returned to the central understanding, what changed in my experience—and what did not?'
         ].map(text => e('li', {key:text}, text))),
         p('Return to the teaching without turning the day into a score. Its intended movement is from remembrance toward natural care. A difficult emotion or an unresolved question is something to examine, not evidence of personal failure.'),
-        e('div', {className:'reading-links'}, e('a', {href:'/philosophy.html#living'}, 'Living with the understanding'), e('a', {href:'/faq.html'}, 'Questions about the game')),
+        e('div', {className:'reading-links'}, e('a', {href:'/philosophy#living'}, 'Living with the understanding'), e('a', {href:'/faq'}, 'Questions about the game')),
         e('p', {className:'quiet-note'}, 'These are spiritual reflections, not treatment or a promise of particular outcomes. Appropriate professional support remains available when needed.')))));
 }

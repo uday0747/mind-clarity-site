@@ -19,6 +19,7 @@ for (const page of pages) {
   assert.match(html, /<title>[^<]+<\/title>/, `${page}: title`);
   assert.match(html, /name="description" content="[^"]+"/, `${page}: description`);
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
+  assert.doesNotMatch(html, /href="\/[^"#?]*\.html(?:["#?])/, `${page}: navigation uses canonical paths`);
   const canonical = `https://mindclarity.co.in/${page === 'index' ? '' : page}`;
   assert.ok(html.includes(`rel="canonical" href="${canonical}"`), `${page}: correct canonical`);
   const title = html.match(/<title>([^<]+)<\/title>/)[1];
@@ -53,8 +54,14 @@ for (const page of pages) {
 }
 for (const [legacy, destination] of [['about','philosophy'],['services','consultation-info']]) {
   const html = readFileSync(path.join(dist, `${legacy}.html`), 'utf8');
-  assert.ok(html.includes(`content="0;url=/${destination}.html"`) && html.includes('noindex'), `${legacy}: legacy redirect`);
+  assert.ok(html.includes(`content="0;url=/${destination}"`) && html.includes('noindex'), `${legacy}: legacy redirect fallback`);
 }
+const redirects = readFileSync(path.join(dist, '_redirects'), 'utf8');
+for (const [legacy, destination] of [['about', 'philosophy'], ['services', 'consultation-info']]) {
+  for (const suffix of ['', '.html', '/']) assert.ok(redirects.split('\n').includes(`/${legacy}${suffix} /${destination} 301`), `${legacy}${suffix}: permanent redirect`);
+}
+for (const page of pages) assert.ok(redirects.split('\n').includes(`/${page}.html /${page === 'index' ? '' : page} 301`), `${page}: permanent canonical redirect`);
+assert.match(readFileSync(path.join(dist, '404.html'), 'utf8'), /name="robots" content="noindex"/, 'Missing pages stay out of search');
 for (const css of ['page.css', 'react-home.css']) {
   for (const [, url] of readFileSync(path.join(dist, css), 'utf8').matchAll(/url\(["']?([^"')]+)["']?\)/g)) {
     assert.ok(resolveLocal(url), `CSS: missing ${url}`);

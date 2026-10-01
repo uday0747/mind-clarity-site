@@ -16,7 +16,7 @@ await build({ configFile: path.join(root, 'vite.config.js'), root });
 await mkdir(path.join(root, '.sites-runtime'), { recursive: true });
 const dist = await mkdtemp(path.join(root, '.sites-runtime/build-'));
 const assets = ['page.css', 'react-home.css', 'assets-brand.png', 'assets-brand-desktop.png',
-  'mind-clarity-mark.png', 'mind-clarity-mark-desktop.png', 'assets', 'robots.txt', 'sitemap.xml'];
+  'mind-clarity-mark.png', 'mind-clarity-mark-desktop.png', 'assets', 'robots.txt', 'sitemap.xml', '_redirects', '404.html'];
 for (const asset of assets) await cp(path.join(root, asset), path.join(dist, asset), { recursive: true });
 await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 
