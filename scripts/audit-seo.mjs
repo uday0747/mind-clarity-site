@@ -23,7 +23,10 @@ for (const [oldPath, target] of [['about', 'philosophy'], ['services', 'consulta
   }
 }
 for (const host of ['mindclarity.co.in', 'www.mindclarity.co.in']) {
-  for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}/contact${suffix}?ref=google`, 410]);
+  for (const path of ['contact', 'blank-1', 'blank-2', 'blank-3', 'blank-4', 'blog', 'book-online']) {
+    for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}/${path}${suffix}?ref=google`, 410]);
+  }
+  cases.push([`https://${host}/blog/old-article`, 410]);
 }
 for (const path of ['/404', '/404.html', '/nonexistent-seo-audit', '/server/index.js', '/.env']) cases.push([`${origin}${path}`, 404]);
 let checked = 0;
