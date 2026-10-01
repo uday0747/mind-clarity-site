@@ -58,4 +58,4 @@ const serverSource = await readFile(path.join(root, 'site-server.js'), 'utf8');
 await writeFile(path.join(dist, 'server/index.js'), `${serverSource}\nexport default createSiteServer(${JSON.stringify(serverAssets)}, ${JSON.stringify(redirects)});\n`);
 await rm(path.join(root, 'dist'), { recursive: true, force: true });
 await rename(dist, path.join(root, 'dist'));
-console.log('Built 7 complete learning/support pages and 2 legacy redirects.');
+console.log('Built 6 complete learning/support pages and 2 legacy redirects; Contact is retired.');

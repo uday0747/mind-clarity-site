@@ -14,10 +14,6 @@ function FAQ() {
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
       e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))));
 }
-function Contact() {
-  return e(Page, { eyebrow: 'A quiet way to reach us', title: 'Contact', intro: 'The lessons and practices are here to use independently. For a question about the website, a correction, or a practical note, you can send an email.' },
-    e('div', { className: 'compact-reading' }, e('p', null, email()), p('There is no requirement to introduce yourself, book a conversation, or share a personal story to use this website.'), e('a', { href: '/practice' }, 'Return to the practices')));
-}
 function Consultation() {
   return e(Page, { eyebrow: 'An optional last step', title: 'A personal conversation', intro: 'The teaching centres on the Creator within the game of experiences. Its explanations and practices are freely available here. If you have explored them and still prefer a personal conversation, the existing option is described below.' },
     e('div', { className: 'compact-reading' },
@@ -37,7 +33,7 @@ function Privacy() {
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { philosophy: Philosophy, practice: Practice, faq: FAQ, contact: Contact, 'consultation-info': Consultation, privacy: Privacy };
+export const pages = { philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy };
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

@@ -4,7 +4,8 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
-const pages = ['index', 'philosophy', 'practice', 'faq', 'contact', 'consultation-info', 'privacy'];
+const pages = ['index', 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy'];
+assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
   const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;
   const file = path.join(dist, pathname === '/' ? 'index.html' : pathname.replace(/^\//, ''));
@@ -20,6 +21,7 @@ for (const page of pages) {
   assert.match(html, /name="description" content="[^"]+"/, `${page}: description`);
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
   assert.doesNotMatch(html, /href="\/[^"#?]*\.html(?:["#?])/, `${page}: navigation uses canonical paths`);
+  assert.doesNotMatch(html, /href="\/contact(?:["/#?]|\.html)/, `${page}: no links to retired Contact page`);
   const canonical = `https://mindclarity.co.in/${page === 'index' ? '' : page}`;
   assert.ok(html.includes(`rel="canonical" href="${canonical}"`), `${page}: correct canonical`);
   const title = html.match(/<title>([^<]+)<\/title>/)[1];
@@ -68,6 +70,7 @@ for (const css of ['page.css', 'react-home.css']) {
   }
 }
 const sitemap = readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
+assert.ok(!sitemap.includes('/contact'), 'Retired Contact page is absent from sitemap');
 assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length);
 for (const page of pages) assert.ok(sitemap.includes(`https://mindclarity.co.in/${page === 'index' ? '' : page}</loc>`));
 assert.ok(!readdirSync(dist).some((file) => ['app.js', 'page-app.js', 'node_modules', '.env'].includes(file)), 'No raw source or private files in the public output');
@@ -75,4 +78,4 @@ assert.ok(readFileSync(path.join(dist, 'site.js')).length < 5000, 'Navigation Ja
 for (const file of readdirSync(path.join(dist, 'assets'))) {
   assert.ok(readFileSync(path.join(dist, 'assets', file)).length < 150000, `${file}: optimized image stays below 150 KB`);
 }
-console.log('PASS: 7 complete pages, 2 redirects, navigation, cross-page fragments, learning-first CTAs, assets, metadata, analytics and sitemap.');
+console.log('PASS: 6 complete pages, retired Contact page absent, 2 redirects, navigation, fragments, assets, metadata, analytics and sitemap.');
