@@ -22,6 +22,14 @@ function FAQ() {
       e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite' })),
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
       ...enquiryGroups.map(group => e('section', { key: group.title }, e('h2', null, group.title), ...group.entries.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))))),
+      e('section', { 'aria-labelledby': 'evidence-notes' },
+        e('h2', { id: 'evidence-notes' }, 'Research and its limits'),
+        p('Spiritual teaching, personal experience, and research answer different kinds of questions. The sources below support specific findings; they do not establish that we created the universe or that enlightenment guarantees health, wealth, or correct decisions.'),
+        e('p', null, e('a', { href: 'https://www.insead.edu/faculty-research/publications/journal-articles/debiasing-mind-through-meditation-mindfulness-and' }, 'Mindfulness and sunk-cost bias — INSEAD'), ': four studies suggest that mindfulness can reduce the tendency to let unrecoverable past costs drive a present decision. This is a specific decision-making benefit, not proof that every choice will be right.'),
+        e('p', null, e('a', { href: 'https://bear.warrington.ufl.edu/brenner/mar7588/Papers/kahneman-klein-2009.pdf' }, 'Conditions for intuitive expertise — Kahneman and Klein (PDF)'), ': skilled intuition depends on opportunities to learn reliable patterns. Subjective certainty alone does not establish accuracy.'),
+        e('p', null, e('a', { href: 'https://isha.sadhguru.org/yoga/meditations/science-of-meditation/' }, 'Sadhguru’s meditation account'), ' is a first-person account, separate from the ', e('a', { href: 'https://public-isha.sadhguru.org/research-center/publications/Shambhavi-EEG.pdf' }, 'EEG study of nine Isha practitioners (PDF)'), '. The study reported changes in electrical activity, not clinical brain death or a validated measure of enlightenment.'),
+        e('p', null, e('a', { href: 'https://www.nccih.nih.gov/health/meditation-and-mindfulness-effectiveness-and-safety' }, 'Meditation: effectiveness and safety — NCCIH'), ': some practices may help with stress and other symptoms, but evidence and individual experiences vary. Meditation is not a replacement for appropriate healthcare.'),
+        p('Found a factual error or a misattributed quotation? Please share the passage and a source by email so it can be checked.'), e('p', null, email())),
       e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))));
 }
 function Consultation() {

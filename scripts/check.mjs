@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { enquiryTopics } from '../enquiry-topics.js';
+import { questions, enquiryGroups } from '../questions.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
 const pages = ['index', 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
@@ -30,6 +31,15 @@ for (const page of pages) {
   assert.ok(html.includes(`property="og:url" content="${canonical}"`), `${page}: social URL matches canonical`);
   assert.equal((html.match(/property="og:title"/g) || []).length, 1, `${page}: no duplicate metadata`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
+  if (page === 'faq') {
+    const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
+    const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
+      .map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
+    assert.equal((html.match(/<details[ >]/g) || []).length, entries.length, 'Every FAQ answer is rendered');
+    assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries, 'FAQ structured data matches the reviewed answers');
+    assert.equal(new Set(entries.map(([question]) => question)).size, entries.length, 'FAQ questions are unique');
+    assert.ok(html.includes('id="evidence-notes"'), 'FAQ research notes are rendered');
+  }
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);
   assert.equal((html.match(/aria-current="page"/g) || []).length, ['privacy', 'consultation-info', 'contact'].includes(page) ? 0 : 1, `${page}: active navigation`);
