@@ -3,6 +3,7 @@ import { mount } from './mount.js';
 import { pageFromPath } from './site-header.js';
 import { Page } from './site-layout.js';
 import Philosophy from './philosophy-content.js';
+import AIReflection from './ai-reflection.js';
 import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import { questions, enquiryGroups } from './questions.js';
@@ -13,6 +14,7 @@ const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykuma
 function FAQ() {
   return e(Page, { eyebrow: 'Questions about the teaching', title: 'Self-enquiry and enlightenment: questions and answers', intro: teaching.statement },
     e(EnquiryLinks),
+    e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')),
     e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
       e('h2', { id: 'enquiry-title' }, 'Start with your question'),
       p('No journal or prescribed timetable is needed. Bring your curiosity: Who am I? What does this teaching mean? These answers are edited from Uday Kumar’s discussions; you are welcome to question them.'),
@@ -52,7 +54,7 @@ function Privacy() {
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages };
+export const pages = { 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages };
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

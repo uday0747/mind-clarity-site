@@ -19,7 +19,7 @@ export default function Header() {
   useEffect(() => enhanceNavigation(header.current), []);
   const provided = useContext(PagePathContext);
   const current = pageFromPath(provided ?? (typeof location === 'undefined' ? '/' : location.pathname));
-  const page = enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = current === 'ai-fear-and-clarity' ? 'faq' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   return e('header', { className: 'site-header', ref: header },
     e('a', { className: 'brand', href: '/' }, 'Mind Clarity'),
     e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,
