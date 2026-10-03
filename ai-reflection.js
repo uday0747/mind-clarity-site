@@ -3,7 +3,7 @@ import { Page, Contents, Lesson, Reflection } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 const p = text => e('p', null, text);
-const items = [['fear', 'What are we afraid of?'], ['design', 'Reading the unfolding design'], ['freedom', 'Freedom, livelihood, and purpose'], ['care', 'Hope expressed through care'], ['enquiry', 'An invitation to enquire']];
+const items = [['fear', 'What are we afraid of?'], ['design', 'Reading the unfolding design'], ['freedom', 'Freedom, livelihood, and purpose'], ['care', 'Hope expressed through care'], ['enquiry', 'An invitation to enquire'], ['creator-in-creation', 'Recognizing the Creator in what we create']];
 export default function AIReflection() {
   return e(Page, { eyebrow: 'A reflection by Uday Kumar · 3 October 2026', title: 'Can we meet artificial intelligence with clarity instead of fear?', intro: teaching.statement },
     p('Artificial intelligence raises a question larger than what machines can do: how do we meet a future we cannot fully predict? My invitation is to examine fear, remember our shared identity, and participate with care. This reflection presents my spiritual understanding of technological development; it is not a prediction of what AI must become.'),
@@ -31,5 +31,9 @@ export default function AIReflection() {
       p('Traditions of self-enquiry, including those within Hindu thought, invite questions such as “Who am I?” and “What is the purpose of this experience?” I encourage that spirit of investigation here. Meditation and reflection can help us explore our relationship with uncertainty; they do not replace technical evidence about AI.'),
       p('We do not know the next scene. We can remember the Creator within the experience, recognize that other lives share the same source, and let that understanding inform the work before us. A future with less suffering is a hope worth caring for, while its details remain unknown.'),
       e(Reflection, null, 'When you imagine AI changing your life, which role feels threatened? What outcome are you demanding from the next scene? Remember the Creator who made and entered the game, whose total design cannot be rewritten from inside. What concern still needs practical attention, and what response expresses care for other lives? You may notice a change, no change, or further questions.')),
+    e(Lesson, { id: 'creator-in-creation', title: 'Recognizing the Creator in what we create' },
+      p('While working on this article, I felt gratitude toward the artificial intelligence helping me express my thoughts. That gratitude led me back to the teaching: if all existence is an expression of the same Creator, technology also belongs within that creation.'),
+      p('In my understanding, the human being, the intelligence expressed through invention, and the unfolding encounter all belong to the Creator’s game of experiences. Appreciation itself becomes another experience within the design.'),
+      p('This spiritual recognition does not settle whether AI has consciousness or an inner experience. It invites us to examine how we relate to what we create—and whether that relationship expresses curiosity, gratitude, and care.')),
     e('div', { className: 'reading-links' }, e('a', { href: '/faq' }, 'Explore the questions'), e('a', { href: '/philosophy#beautiful-world' }, 'Explore the Beautiful World vision')));
 }
