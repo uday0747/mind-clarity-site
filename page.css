@@ -122,3 +122,5 @@ details p:last-child{margin-bottom:0}
  summary{list-style:none}summary::marker{content:""}
  .lesson{break-inside:auto}.practice-image{display:none}.first-practice{display:block}
 }
+
+main[lang="te"]{line-height:1.9}main[lang="te"] h1,main[lang="te"] h2{line-height:1.55;letter-spacing:normal}main[lang="te"] .eyebrow{letter-spacing:normal}

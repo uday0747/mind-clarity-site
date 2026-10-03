@@ -4,6 +4,7 @@ import { pageFromPath } from './site-header.js';
 import { Page } from './site-layout.js';
 import Philosophy from './philosophy-content.js';
 import AIReflection from './ai-reflection.js';
+import TeluguAIReflection from './ai-reflection-te.js';
 import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import { questions, enquiryGroups } from './questions.js';
@@ -18,7 +19,7 @@ function Reflections() {
       e('p', { className: 'eyebrow' }, '3 October 2026 · Technology and spiritual enquiry'),
       e('h2', null, e('a', { href: '/ai-fear-and-clarity' }, 'Can we meet artificial intelligence with clarity instead of fear?')),
       p('A reflection on the Creator’s unfolding design, worries about work, the hope of reducing hardship, and gratitude for the intelligence expressed through invention.'),
-      e('a', { className: 'text-link', href: '/ai-fear-and-clarity' }, 'Read the article')));
+      e('a', { className: 'text-link', href: '/ai-fear-and-clarity' }, 'Read the article'), e('p', null, e('a', { href: '/ai-fear-and-clarity-telugu', lang: 'te', hrefLang: 'te' }, 'తెలుగులో చదవండి'))));
 }
 function FAQ() {
   return e(Page, { eyebrow: 'Questions about the teaching', title: 'Self-enquiry and enlightenment: questions and answers', intro: teaching.statement },
@@ -63,7 +64,7 @@ function Privacy() {
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages };
+export const pages = { 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages };
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

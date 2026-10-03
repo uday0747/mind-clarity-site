@@ -11,11 +11,11 @@ export function Footer() {
       e('a', { href: '/consultation-info' }, 'Optional conversation')),
     e('small', null, '© 2026 Mind Clarity · Spiritual reflection and education.'));
 }
-export function Page({ eyebrow, title, intro, children, home = false }) {
+export function Page({ eyebrow, title, intro, children, home = false, lang }) {
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content' }, 'Skip to content'),
     e(Header),
-    e('main', { id: 'main-content', tabIndex: -1, className: home ? 'home-main' : 'reading-main' },
+    e('main', { id: 'main-content', lang, tabIndex: -1, className: home ? 'home-main' : 'reading-main' },
       eyebrow && e('p', { className: 'eyebrow' }, eyebrow),
       e('h1', null, title),
       intro && e('p', { className: 'intro' }, intro),
@@ -31,9 +31,9 @@ export function Lesson({ id, number, title, children }) {
     number && e('span', { className: 'lesson-number', 'aria-hidden': true }, number),
     e('h2', null, title), children);
 }
-export function Contents({ items }) {
-  return e('nav', { className: 'reading-contents', 'aria-label': 'On this page' },
-    e('p', { className: 'eyebrow' }, 'On this page'),
+export function Contents({ items, label = 'On this page' }) {
+  return e('nav', { className: 'reading-contents', 'aria-label': label },
+    e('p', { className: 'eyebrow' }, label),
     e('ol', null, items.map(([id,title]) => e('li', { key: id }, e('a', { href: '#'+id }, title)))));
 }
 export const topics = teaching.cases.map(({ id, title, description }) => [id, title, description]);

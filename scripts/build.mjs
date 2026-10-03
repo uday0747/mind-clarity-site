@@ -43,7 +43,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   }
   const pathname = page === 'index' ? '/' : `/${page}`;
   const markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(Component)));
-  const html = `<!doctype html>\n<html lang="en"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
+  const html = `<!doctype html>\n<html lang="${page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en'}"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
   await writeFile(path.join(dist, `${page}.html`), html);
 }
 for (const legacy of ['about.html', 'services.html']) await cp(path.join(root, legacy), path.join(dist, legacy));
