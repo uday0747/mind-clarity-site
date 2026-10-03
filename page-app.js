@@ -11,6 +11,15 @@ import { enquiryPages, EnquiryLinks } from './enquiry-pages.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
+function Reflections() {
+  return e(Page, { eyebrow: 'Reflections by Uday Kumar', title: 'Reflections on life and the Creator', intro: teaching.statement },
+    p('Explore contemporary questions through the Creator-and-game teaching. These articles invite enquiry into life, technology, uncertainty, and our connection with one another.'),
+    e('section', { className: 'compact-reading' },
+      e('p', { className: 'eyebrow' }, '3 October 2026 · Technology and spiritual enquiry'),
+      e('h2', null, e('a', { href: '/ai-fear-and-clarity' }, 'Can we meet artificial intelligence with clarity instead of fear?')),
+      p('A reflection on the Creator’s unfolding design, worries about work, the hope of reducing hardship, and gratitude for the intelligence expressed through invention.'),
+      e('a', { className: 'text-link', href: '/ai-fear-and-clarity' }, 'Read the article')));
+}
 function FAQ() {
   return e(Page, { eyebrow: 'Questions about the teaching', title: 'Self-enquiry and enlightenment: questions and answers', intro: teaching.statement },
     e(EnquiryLinks),
@@ -54,7 +63,7 @@ function Privacy() {
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages };
+export const pages = { reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages };
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

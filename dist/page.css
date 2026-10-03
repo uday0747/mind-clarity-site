@@ -90,7 +90,7 @@ details p:last-child{margin-bottom:0}
 .footer-links a{display:inline-flex;align-items:center;min-height:44px}
 .site-footer small{font-size:.875rem}
 @media(max-width:850px){.site-header{padding:14px 22px;gap:15px}.site-header nav a{padding:6px 9px}.reading-grid{grid-template-columns:180px minmax(0,1fr);gap:28px}}
-@media(max-width:760px){
+@media(max-width:900px){
  main{padding:28px 22px 50px}h1{font-size:clamp(2rem,6vw + .5rem,2.7rem)}.intro{font-size:1.1rem}
  .site-header{flex-wrap:wrap;gap:8px 12px}.site-header.is-enhanced .menu-toggle{display:block}.site-header nav{display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0;order:3;max-height:45vh;overflow-y:auto}
  .site-header.is-enhanced nav:not(.is-open){display:none}

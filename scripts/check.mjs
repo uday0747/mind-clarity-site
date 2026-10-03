@@ -6,7 +6,7 @@ import { enquiryTopics } from '../enquiry-topics.js';
 import { questions, enquiryGroups } from '../questions.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
-const pages = ['ai-fear-and-clarity', 'index', 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['reflections', 'ai-fear-and-clarity', 'index', 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
   const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;

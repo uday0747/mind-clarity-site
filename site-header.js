@@ -7,7 +7,8 @@ const links = [
   ['home', 'Begin here', '/'],
   ['philosophy', 'Philosophy', '/philosophy'],
   ['practice', 'Daily practice', '/practice'],
-  ['faq', 'Questions', '/faq']
+  ['faq', 'Questions', '/faq'],
+  ['reflections', 'Reflections', '/reflections']
 ];
 const labels = { ...Object.fromEntries(links.map(([id,label])=>[id,label])), contact: 'Contact', privacy: 'Privacy', 'consultation-info': 'Optional conversation' };
 export function pageFromPath(pathname) {
@@ -19,7 +20,7 @@ export default function Header() {
   useEffect(() => enhanceNavigation(header.current), []);
   const provided = useContext(PagePathContext);
   const current = pageFromPath(provided ?? (typeof location === 'undefined' ? '/' : location.pathname));
-  const page = current === 'ai-fear-and-clarity' ? 'faq' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = current === 'ai-fear-and-clarity' ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   return e('header', { className: 'site-header', ref: header },
     e('a', { className: 'brand', href: '/' }, 'Mind Clarity'),
     e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,

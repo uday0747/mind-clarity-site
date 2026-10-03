@@ -35,5 +35,5 @@ export default function AIReflection() {
       p('While working on this article, I felt gratitude toward the artificial intelligence helping me express my thoughts. That gratitude led me back to the teaching: if all existence is an expression of the same Creator, technology also belongs within that creation.'),
       p('In my understanding, the human being, the intelligence expressed through invention, and the unfolding encounter all belong to the Creator’s game of experiences. Appreciation itself becomes another experience within the design.'),
       p('This spiritual recognition does not settle whether AI has consciousness or an inner experience. It invites us to examine how we relate to what we create—and whether that relationship expresses curiosity, gratitude, and care.')),
-    e('div', { className: 'reading-links' }, e('a', { href: '/faq' }, 'Explore the questions'), e('a', { href: '/philosophy#beautiful-world' }, 'Explore the Beautiful World vision')));
+    e('div', { className: 'reading-links' }, e('a', { href: '/reflections' }, 'Browse reflections'), e('a', { href: '/faq' }, 'Explore the questions'), e('a', { href: '/philosophy#beautiful-world' }, 'Explore the Beautiful World vision')));
 }
