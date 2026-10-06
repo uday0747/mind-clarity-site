@@ -3,7 +3,7 @@ import Header from './site-header.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 export function Footer() {
-  return e('footer', { className: 'site-footer' },
+  return e('footer', { className: 'site-footer', lang: 'en' },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, 'Remembering the Creator within the game of experiences.')),
     e('div', { className: 'footer-links' },
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'Email'),
@@ -13,7 +13,7 @@ export function Footer() {
 }
 export function Page({ eyebrow, title, intro, children, home = false, lang }) {
   return e(React.Fragment, null,
-    e('a', { className: 'skip-link', href: '#main-content' }, 'Skip to content'),
+    e('a', { className: 'skip-link', href: '#main-content', lang: 'en' }, 'Skip to content'),
     e(Header),
     e('main', { id: 'main-content', lang, tabIndex: -1, className: home ? 'home-main' : 'reading-main' },
       eyebrow && e('p', { className: 'eyebrow' }, eyebrow),

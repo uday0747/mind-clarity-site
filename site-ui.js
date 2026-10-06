@@ -3,7 +3,9 @@ export function enhanceNavigation(header) {
   if (!header || header.classList.contains('is-enhanced')) return;
   const button = header.querySelector('.menu-toggle');
   const nav = header.querySelector('nav');
-  const mobile = window.matchMedia('(max-width: 760px)');
+  const mobile = window.matchMedia('(max-width: 900px)');
+  let lastFocused = document.activeElement;
+  const rememberFocus = event => { lastFocused = event.target; };
   const setOpen = (open) => {
     button.setAttribute('aria-expanded', String(open));
     button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
@@ -23,7 +25,10 @@ export function enhanceNavigation(header) {
   };
   const navigate = (event) => { if (event.target.closest('a')) setOpen(false); };
   const resize = () => {
-    if (mobile.matches && nav.contains(document.activeElement)) button.focus();
+    // Some browsers blur a newly hidden element before firing the media change.
+    const focused = document.activeElement === document.body ? lastFocused : document.activeElement;
+    if (mobile.matches && nav.contains(focused)) button.focus();
+    else if (!mobile.matches && focused === button) nav.querySelector('a[aria-current="page"], a').focus();
     setOpen(false);
   };
   button.addEventListener('click', toggle);
@@ -31,6 +36,7 @@ export function enhanceNavigation(header) {
   nav.addEventListener('click', navigate);
   document.addEventListener('keydown', escape);
   document.addEventListener('click', outside);
+  document.addEventListener('focusin', rememberFocus);
   mobile.addEventListener('change', resize);
   header.classList.add('is-enhanced');
   // Keep fragment targets visible when text enlargement changes the sticky header.
@@ -46,6 +52,7 @@ export function enhanceNavigation(header) {
     nav.removeEventListener('click', navigate);
     document.removeEventListener('keydown', escape);
     document.removeEventListener('click', outside);
+    document.removeEventListener('focusin', rememberFocus);
     mobile.removeEventListener('change', resize);
     header.classList.remove('is-enhanced');
     setOpen(false);

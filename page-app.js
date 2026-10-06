@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { mount } from './mount.js';
 import { pageFromPath } from './site-header.js';
 import { Page } from './site-layout.js';
@@ -9,6 +9,7 @@ import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import { questions, enquiryGroups } from './questions.js';
 import { enquiryPages, EnquiryLinks } from './enquiry-pages.js';
+import { enhanceEnquirySearch } from './enquiry-search.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
@@ -22,16 +23,19 @@ function Reflections() {
       e('a', { className: 'text-link', href: '/ai-fear-and-clarity' }, 'Read the article'), e('p', null, e('a', { href: '/ai-fear-and-clarity-telugu', lang: 'te', hrefLang: 'te' }, 'తెలుగులో చదవండి'))));
 }
 function FAQ() {
+  useEffect(() => enhanceEnquirySearch(), []);
   return e(Page, { eyebrow: 'Questions about the teaching', title: 'Self-enquiry and enlightenment: questions and answers', intro: teaching.statement },
     e(EnquiryLinks),
     e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')),
     e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
       e('h2', { id: 'enquiry-title' }, 'Start with your question'),
       p('No journal or prescribed timetable is needed. Bring your curiosity: Who am I? What does this teaching mean? These answers are edited from Uday Kumar’s discussions; you are welcome to question them.'),
+      e('p', { id: 'enquiry-fallback', className: 'quiet-note' }, 'Browse the questions below. Open any question to read the full answer.'),
+      e('div', { id: 'enquiry-controls', hidden: true },
       e('label', { htmlFor: 'enquiry-input' }, 'Find an answer in the teaching'),
       e('input', { id: 'enquiry-input', type: 'search', maxLength: 300, placeholder: 'Try: surrender, astrology, guilt, health…', 'aria-describedby': 'enquiry-help' }),
       e('p', { id: 'enquiry-help', className: 'quiet-note' }, 'This is a local answer finder, not a generative AI chatbot. Your search stays in this page and is not saved or sent to a model.'),
-      e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite' })),
+      e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite' }))),
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
       ...enquiryGroups.map(group => e('section', { key: group.title }, e('h2', null, group.title), ...group.entries.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))))),
       e('section', { 'aria-labelledby': 'evidence-notes' },

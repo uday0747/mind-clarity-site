@@ -32,6 +32,8 @@ for (const page of pages) {
   assert.equal((html.match(/property="og:title"/g) || []).length, 1, `${page}: no duplicate metadata`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
   if (page === 'faq') {
+    assert.match(html, /id="enquiry-controls" hidden=""/, 'Question finder is revealed only after enhancement');
+    assert.match(html, /id="enquiry-fallback"/, 'Question browsing has a no-script fallback');
     const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
     const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
       .map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
@@ -39,6 +41,11 @@ for (const page of pages) {
     assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries, 'FAQ structured data matches the reviewed answers');
     assert.equal(new Set(entries.map(([question]) => question)).size, entries.length, 'FAQ questions are unique');
     assert.ok(html.includes('id="evidence-notes"'), 'FAQ research notes are rendered');
+  }
+  if (page === 'ai-fear-and-clarity-telugu') {
+    assert.match(html, /<html lang="te">/, 'Telugu article keeps its document language');
+    for (const tag of ['header', 'footer']) assert.match(html, new RegExp(`<${tag}[^>]*lang="en"`), `English ${tag} is labelled on Telugu article`);
+    assert.match(html, /class="skip-link"[^>]*lang="en"/, 'English skip link is labelled');
   }
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);

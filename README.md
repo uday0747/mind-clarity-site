@@ -14,8 +14,8 @@ Use Node.js 24 and pnpm 11. Install the exact dependencies with `pnpm install --
 ```sh
 pnpm dev       # Source preview with live reload: http://127.0.0.1:5173
 pnpm build     # Regenerate the complete dist directory
-pnpm check     # Validate seven pages, legacy redirects and assets
-pnpm preview   # Preview the production output: http://127.0.0.1:4173
+pnpm check     # Validate 13 pages, routes, caching, redirects and assets
+pnpm preview   # Run the production handler locally: http://127.0.0.1:4173
 ```
 
 On this Mac, Codex supplies Node at `/Users/udaykumarpinninti/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node`.
@@ -33,14 +33,18 @@ If `node` is not on the command's PATH, prepend its containing directory for tha
 - `page.css` and `react-home.css`: styling.
 - Root HTML files: document heads, descriptions, canonicals and analytics; their development entrypoints load React.
 - `scripts/build.mjs`: renders complete static HTML from React at build time and bundles only the small navigation enhancement for visitors.
-- `site-ui.js` and `site-entry.js`: progressive menu behavior, Escape/focus handling and header-aware fragment spacing. React uses the same enhancement during development.
+- `site-ui.js` and `site-entry.js`: progressive menu behavior, Escape/focus handling and header-aware fragment spacing. React uses the same enhancement during development. Menu styles and behavior share the 900 px breakpoint.
+- `enquiry-search.js`: shared development/production question filtering; indexes answer text once, reveals controls after initialization, and keeps research notes visible when filtering or clearing.
+- `site-server.js`: production routing, canonical redirects and removed-page responses, content validators, conditional 304 responses, and immutable caching for CSS/JavaScript URLs with the current build hash.
+- `scripts/preview.mjs`: local adapter for that same production handler, including redirects, removed pages and protected paths. Reloads the generated handler after a rebuild.
+- `vite.dev.config.js`: serves the four generated enquiry routes from their existing content during development.
 - `scripts/metadata.mjs`: completes consistent search/social text and WebSite/WebPage structured data from each HTML template's title, description and canonical. Existing social images are retained.
 - `assets/`: committed, optimized responsive artwork, logo and icons; originals remain at the root. `scripts/optimize-images.mjs` can regenerate these with Sharp (optionally pass its installed package path); normal builds need no image-processing dependency.
 - `mount.js`: mounts the React development view; production does not hydrate or download React.
 - `dist/`: generated public output. Do not hand-edit it; rebuild after source changes.
 - `scripts/create_uday_philosophy.py`: regenerates the organized reference document. Render and visually inspect every page after document edits; the historical guide in `references/` remains unchanged.
 
-The build creates a staging directory, validates all pages and assets, and only then replaces `dist/`. It copies an explicit public asset list and adds content-based CSS and JavaScript cache versions. Text, navigation, links and native expandable examples work without JavaScript. The menu is collapsed only after enhancement succeeds, so navigation remains available if the script is blocked or fails to download. Do not add interactive React state to public pages without implementing a production enhancement.
+The build creates a staging directory, validates all pages and assets, generates the production handler, runs the route and HTTP caching audit, and only then replaces `dist/`. It copies an explicit public asset list and adds content-based CSS and JavaScript cache versions. Text, navigation, links and native expandable examples work without JavaScript. The menu is collapsed and question search is revealed only after enhancement succeeds, so navigation and ordinary question browsing remain available if the script is blocked or fails to download. Do not add interactive React state to public pages without implementing a production enhancement.
 
 ## Publishing
 
@@ -79,11 +83,11 @@ The same structure governs future YouTube scripts, translations, teaching materi
 ### Current website scope
 
 - Self-guided design principle (Uday, 18 September 2026): “The website should enlighten them with the website itself without my help. That should be the design language of the website.” The current application is recorded in section 9 of `Uday_Philosophy.docx`, version 1.5, under the complete governing teaching above.
-- The website is a self-guided learning experience, not a consultation funnel. Primary navigation: Begin here, Philosophy, Daily practice, Questions.
+- The website is a self-guided learning experience, not a consultation funnel. Primary navigation: Begin here, Philosophy, Daily practice, Questions, Reflections.
 - Each main lesson must develop the Creator-and-game understanding through a connected explanation, example, and reflection. Test: can the visitor understand this connection and explore it without contacting Uday?
 - Keep the full core philosophy readable, including the exact original Mula Siddhanta, all ten supplied scriptural pointers, naturally arising care, and the Beautiful World/technology vision. Attribute metaphysics as spiritual perspective, not established science or a guarantee of enlightenment.
 - Design language: calm, readable editorial pages; the complete statement before the first reflection; mobile-friendly typography; in-page contents; accessible menus and expandable worked examples. No registration, payment or sharing personal details required for learning.
-- Pages: Begin here, Philosophy, Daily practice, Questions, Contact, Optional personal conversation and Privacy. Old About and Services addresses redirect, preserving bookmarks without separate promotional pages.
+- Current pages (13): Begin here, Philosophy, Daily practice, Questions, four in-depth enquiry guides, Reflections, the English and Telugu AI reflections, Optional personal conversation, and Privacy. Contact and obsolete Wix pages are retired with HTTP 410 responses. Old About and Services addresses redirect, preserving bookmarks without separate promotional pages.
 - Email and optional conversation remain quiet footer links, not primary calls to action. No About Me emphasis. Do not add donations now; if requested later, place a subdued link at the very bottom.
 - Introductory conversation: ₹500, 30 minutes; phone, Zoom, WhatsApp call or offline by arrangement.
 - Enquiries: WhatsApp +91 9989766517 and pudaykumar12@gmail.com. Arrange a time before payment.
@@ -102,6 +106,8 @@ The same structure governs future YouTube scripts, translations, teaching materi
 - The earlier workflow and opening drafts in `launch/zero-extra-cost-launch.md` are marked superseded by this video-first direction. Pilot narration scripts and scene plans are in `launch/shorts-pilot/`; English is confirmed for all three. First narration generated using Bill — Wise, Mature, Balanced (Eleven Multilingual v2), from `01-narration.txt`: 711 credits used, 39,289 remaining before the correction. Uday supplied the MP3; the original and corrected takes are saved under `launch/shorts-pilot/audio/`. The corrected take uses “Udhai” as one continuous spoken word and used 712 additional credits. The corrected Short is exported at `launch/shorts-pilot/01-a-mistake-is-not-your-whole-identity-corrected.mp4`; automated transcription matches it closely. Existing audience and publishing accounts have not been confirmed, and no video has been published to social media.
 
 ## Verification
+
+6 October 2026 efficiency review: all 13 pages passed at 320 px and 1280 px browser viewport settings without horizontal overflow. Verified question search (matching, no results, clearing all 50 answers, and research-note visibility), menu/Escape focus return, and keyboard focus across the 900 px layout boundary. English shared navigation is explicitly labelled on the Telugu document. The staged build now passes 181 route checks and 72 linked-resource checks plus conditional caching, valid/stale asset versions, HEAD responses and unsupported methods. See `audits/website-efficiency-2026-10-06.md` for changes, evidence, and remaining opportunities. These are functional checks, not field speed or visitor-engagement measurements.
 
 30 September 2026 YouTube launch: the user supplied the already-public Short `https://www.youtube.com/shorts/p1JyKo3vKeE`, identifying Mind Clarity at `@mindclaritywebsite` (channel `UCoXOz3pewAQEB1FKJixStng`). This supersedes older notes saying the channel was unknown and no video was public. A channel description and two free-learning links were published through the existing signed-in Studio session. The profile links were verified publicly and the description persisted after a Studio reload. The existing Short's description update was saved. With Uday's explicit confirmation, the missing Country of Residence was set to India; the Earn page then displayed eligibility progress. The live website and self-judgment example were checked. See `launch/youtube-launch-2026-09-30.md` for the dated baseline, exact changes, recovery copy and monetization sources. New scripts are in `launch/youtube-next/`; they are not rendered videos. No new subscription or credit purchase was made.
 

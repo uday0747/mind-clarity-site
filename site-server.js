@@ -1,4 +1,5 @@
 export function createSiteServer(assets, redirects) {
+  const decodedAssets = new Map();
   return {
     async fetch(request) {
       const url = new URL(request.url);
@@ -24,13 +25,24 @@ export function createSiteServer(assets, redirects) {
       const pathname = url.pathname === '/' ? '/index.html' : url.pathname;
       const asset = pathname === '/404.html' || pathname === '/404' ? null : assets[pathname] || assets[`${pathname}.html`];
       const selected = asset || assets['/404.html'];
+      // Only the build's current content hash qualifies for immutable caching.
+      const versioned = asset && /\.(?:css|js)$/.test(pathname) && url.searchParams.get('v') === asset.revision;
       const headers = {
         'Content-Type': selected.type,
-        'Cache-Control': 'public, max-age=0, must-revalidate',
+        'Cache-Control': versioned ? 'public, max-age=31536000, immutable' : 'public, max-age=0, must-revalidate',
         'X-Content-Type-Options': 'nosniff',
       };
       if (!asset) headers['X-Robots-Tag'] = 'noindex';
-      const body = request.method === 'HEAD' ? null : Uint8Array.from(atob(selected.data), character => character.charCodeAt(0));
+      if (asset) {
+        headers.ETag = `"${asset.revision}"`;
+        const candidates = (request.headers.get('If-None-Match') || '').split(',').map(tag => tag.trim().replace(/^W\//, ''));
+        if (candidates.includes('*') || candidates.includes(headers.ETag)) return new Response(null, { status: 304, headers });
+      }
+      headers['Content-Length'] = String(selected.size);
+      if (request.method !== 'HEAD' && !decodedAssets.has(selected)) {
+        decodedAssets.set(selected, Uint8Array.from(atob(selected.data), character => character.charCodeAt(0)));
+      }
+      const body = request.method === 'HEAD' ? null : decodedAssets.get(selected);
       return new Response(body, { status: asset ? 200 : 404, headers });
     },
   };

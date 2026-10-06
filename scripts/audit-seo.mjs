@@ -1,10 +1,13 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import server from '../dist/server/index.js';
+import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const live = process.argv.includes('--live');
+const dist = process.argv.slice(2).find(argument => !argument.startsWith('--')) || fileURLToPath(new URL('../dist/', import.meta.url));
+const { default: server } = await import(pathToFileURL(path.join(dist, 'server/index.js')).href);
 const origin = 'https://mindclarity.co.in';
-const sitemap = readFileSync(new URL('../dist/sitemap.xml', import.meta.url), 'utf8');
+const sitemap = readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
 const request = url => live ? fetch(url, { redirect: 'manual', signal: AbortSignal.timeout(20000) }) : server.fetch(new Request(url));
 const cases = [];
@@ -74,3 +77,38 @@ for (const url of resources) {
   if (target.pathname === '/sitemap.xml') assert.equal(body.trim(), sitemap.trim(), 'Live sitemap matches published source');
 }
 console.log(`PASS (${live ? 'live' : 'local'}): ${checked} route checks, ${urls.length} page metadata checks, ${resources.size} internal links/assets/fragments, CSS images, robots and sitemap.`);
+
+if (!live) {
+  const localRequest = (pathname, options) => server.fetch(new Request(`${origin}${pathname}`, options));
+  for (const pathname of ['/', '/page.css', '/site.js', '/assets/pond-desktop-640.webp']) {
+    const first = await localRequest(pathname);
+    const bytes = await first.arrayBuffer();
+    const etag = first.headers.get('etag');
+    assert.match(etag, /^"[a-f0-9]{12}"$/, `${pathname}: content validator`);
+    assert.equal(Number(first.headers.get('content-length')), bytes.byteLength, `${pathname}: byte length`);
+    const head = await localRequest(pathname, { method: 'HEAD' });
+    assert.equal(head.status, 200);
+    assert.equal(head.headers.get('etag'), etag);
+    assert.equal(head.headers.get('content-length'), first.headers.get('content-length'));
+    assert.equal((await head.arrayBuffer()).byteLength, 0);
+    for (const validator of [etag, `W/${etag}`, `"older-version", ${etag}`, '*']) {
+      const cached = await localRequest(pathname, { headers: { 'If-None-Match': validator } });
+      assert.equal(cached.status, 304, `${pathname}: unchanged asset reuses browser copy`);
+      assert.equal((await cached.arrayBuffer()).byteLength, 0);
+    }
+    assert.equal((await localRequest(pathname, { headers: { 'If-None-Match': '"old"' } })).status, 200);
+    if (/\.(css|js)$/.test(pathname)) {
+      const versioned = await localRequest(`${pathname}?v=${etag.slice(1, -1)}`);
+      assert.match(versioned.headers.get('cache-control'), /max-age=31536000, immutable/);
+      const stale = await localRequest(`${pathname}?v=old`);
+      assert.doesNotMatch(stale.headers.get('cache-control'), /immutable/);
+    } else assert.doesNotMatch(first.headers.get('cache-control'), /immutable/);
+  }
+  const missing = await localRequest('/nonexistent', { method: 'HEAD' });
+  assert.equal(missing.status, 404);
+  assert.equal((await missing.arrayBuffer()).byteLength, 0);
+  const post = await localRequest('/', { method: 'POST' });
+  assert.equal(post.status, 405);
+  assert.equal(post.headers.get('allow'), 'GET, HEAD');
+  console.log('PASS: conditional caching, current/stale asset versions, HEAD responses and unsupported methods.');
+}

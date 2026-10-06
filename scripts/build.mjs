@@ -56,7 +56,12 @@ async function collectAssets(directory, prefix = '') {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const relative = `${prefix}/${entry.name}`;
     if (entry.isDirectory()) await collectAssets(path.join(directory, entry.name), relative);
-    else if (entry.name !== '_redirects') serverAssets[relative] = { type: types[path.extname(entry.name)] || 'application/octet-stream', data: (await readFile(path.join(directory, entry.name))).toString('base64') };
+    else if (entry.name !== '_redirects') {
+      const bytes = await readFile(path.join(directory, entry.name));
+      serverAssets[relative] = { type: types[path.extname(entry.name)] || 'application/octet-stream',
+        data: bytes.toString('base64'), size: bytes.length,
+        revision: createHash('sha256').update(bytes).digest('hex').slice(0, 12) };
+    }
   }
 }
 await collectAssets(dist);
@@ -64,6 +69,7 @@ const redirects = Object.fromEntries((await readFile(path.join(dist, '_redirects
 await mkdir(path.join(dist, 'server'));
 const serverSource = await readFile(path.join(root, 'site-server.js'), 'utf8');
 await writeFile(path.join(dist, 'server/index.js'), `${serverSource}\nexport default createSiteServer(${JSON.stringify(serverAssets)}, ${JSON.stringify(redirects)});\n`);
+execFileSync(process.execPath, [path.join(root, 'scripts/audit-seo.mjs'), dist], { stdio: 'inherit' });
 await rm(path.join(root, 'dist'), { recursive: true, force: true });
 await rename(dist, path.join(root, 'dist'));
 console.log(`Built ${1 + Object.keys(pages).length} complete learning/support pages and 2 legacy redirects; Contact is retired.`);

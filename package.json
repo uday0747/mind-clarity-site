@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite --config vite.dev.config.js",
     "build": "node scripts/build.mjs",
-    "preview": "vite preview --config vite.dev.config.js",
-    "check": "node scripts/check.mjs"
+    "preview": "node scripts/preview.mjs",
+    "check": "node scripts/check.mjs && node scripts/audit-seo.mjs"
   },
   "dependencies": {"@vitejs/plugin-react": "latest", "vite": "latest", "react": "latest", "react-dom": "latest"},
   "devDependencies": {}
