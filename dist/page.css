@@ -23,6 +23,14 @@ main:focus{outline:none}
 .site-header nav a[aria-current="page"]{font-weight:bold;background:var(--soft);box-shadow:inset 0 -2px var(--green)}
 .site-header nav a:hover{background:var(--soft)}
 .site-header nav a:active,.button:active{transform:translateY(1px)}
+.language-tools{display:flex;align-items:center;gap:10px;margin-left:4px;min-width:0}
+.language-picker{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.8rem;line-height:1.2}
+.language-picker span{white-space:nowrap}
+.language-picker select{min-height:40px;border:1px solid #78978c;border-radius:4px;padding:6px 28px 6px 9px;background:white;color:var(--ink);font:inherit;cursor:pointer}
+.language-picker select:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.language-note{font-size:.78rem;color:var(--muted);max-width:180px;line-height:1.35}
+.language-suggestion{position:absolute;right:40px;top:100%;z-index:11;margin:0;padding:10px 14px;background:white;border:1px solid var(--line);box-shadow:0 7px 20px rgba(24,61,54,.12);font-size:.9rem;color:var(--ink)}
+.language-suggestion a{font-weight:700}
 .menu-toggle{display:none;margin-left:auto;min-width:74px;min-height:44px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:4px;padding:8px 14px;font:700 1rem Arial,sans-serif}
 .mobile-page{display:none}
 .skip-link{position:fixed;top:8px;left:8px;z-index:30;transform:translateY(-200%);background:var(--deep);color:white;padding:10px 16px}
@@ -106,6 +114,8 @@ details p:last-child{margin-bottom:0}
  .site-header.is-enhanced nav:not(.is-open){display:none}
  .site-header:not(.is-enhanced){position:static}
  .mobile-page{display:block;width:100%;margin:0;color:var(--muted);font-size:.875rem}
+ .language-tools{order:4;width:100%;margin:4px 0 0;align-items:flex-start;flex-wrap:wrap}
+ .language-suggestion{position:static;flex-basis:100%;box-shadow:none}
  .first-practice{display:block;padding:24px;margin-top:25px}.practice-image{margin-top:28px}.practice-image img{height:190px}
  .topic-grid,.philosophy-intro,.concept-pair,.path-grid{grid-template-columns:1fr}
  .philosophy-intro{gap:0}.home-section{padding-top:44px}

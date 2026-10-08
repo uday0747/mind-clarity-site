@@ -22,6 +22,7 @@ for (const page of pages) {
   assert.match(html, /<title>[^<]+<\/title>/, `${page}: title`);
   assert.match(html, /name="description" content="[^"]+"/, `${page}: description`);
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
+  assert.match(html, /id="language-select"/, `${page}: language selector`);
   assert.doesNotMatch(html, /href="\/[^"#?]*\.html(?:["#?])/, `${page}: navigation uses canonical paths`);
   assert.doesNotMatch(html, /href="\/contact(?:["/#?]|\.html)/, `${page}: no links to retired Contact page`);
   const canonical = `https://mindclarity.co.in/${page === 'index' ? '' : page}`;
@@ -44,8 +45,13 @@ for (const page of pages) {
   }
   if (page === 'ai-fear-and-clarity-telugu') {
     assert.match(html, /<html lang="te">/, 'Telugu article keeps its document language');
+    assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, 'Telugu article has an x-default alternate');
     for (const tag of ['header', 'footer']) assert.match(html, new RegExp(`<${tag}[^>]*lang="en"`), `English ${tag} is labelled on Telugu article`);
     assert.match(html, /class="skip-link"[^>]*lang="en"/, 'English skip link is labelled');
+  }
+  if (page === 'ai-fear-and-clarity') {
+    assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, 'English article has an x-default alternate');
+    assert.match(html, /data-href="\/ai-fear-and-clarity-telugu"/, 'English article links to the Telugu alternate');
   }
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);
@@ -92,7 +98,7 @@ assert.ok(!sitemap.includes('/contact'), 'Retired Contact page is absent from si
 assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length);
 for (const page of pages) assert.ok(sitemap.includes(`https://mindclarity.co.in/${page === 'index' ? '' : page}</loc>`));
 assert.ok(!readdirSync(dist).some((file) => ['app.js', 'page-app.js', 'node_modules', '.env'].includes(file)), 'No raw source or private files in the public output');
-assert.ok(readFileSync(path.join(dist, 'site.js')).length < 5000, 'Navigation JavaScript stays below 5 KB');
+assert.ok(readFileSync(path.join(dist, 'site.js')).length < 6000, 'Navigation and language JavaScript stays below 6 KB');
 for (const file of readdirSync(path.join(dist, 'assets'))) {
   assert.ok(readFileSync(path.join(dist, 'assets', file)).length < 150000, `${file}: optimized image stays below 150 KB`);
 }

@@ -10,6 +10,14 @@ export function completeMetadata(head) {
   const decode = value => value.replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'");
   const reflection = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
   const language = canonical.endsWith('-telugu') ? 'te' : 'en';
+  if (reflection) {
+    // Keep the reviewed English/Telugu pair reciprocal and give crawlers a
+    // neutral fallback without relying on client-side language detection.
+    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|te|x-default)"[^>]*>/g, '');
+    head += `\n<link rel="alternate" hreflang="en" href="https://mindclarity.co.in/ai-fear-and-clarity" />`;
+    head += `\n<link rel="alternate" hreflang="te" href="https://mindclarity.co.in/ai-fear-and-clarity-telugu" />`;
+    head += `\n<link rel="alternate" hreflang="x-default" href="https://mindclarity.co.in/ai-fear-and-clarity" />`;
+  }
   // Retain existing social images; regenerate only text fields from the page metadata.
   head = head.replace(/\s*<meta (?:property|name)="(?:og:(?:type|site_name|title|description|url)|twitter:(?:title|description|card))"[^>]*>/g, '');
   head = head.replace(/\s*<link rel="preload" as="image"[^>]*>/g, '');

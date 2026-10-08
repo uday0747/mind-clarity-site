@@ -1,4 +1,6 @@
 // Progressive enhancement: reading, links and disclosures work without JavaScript.
+import { browserLanguage, languageOption, storeLanguage, storedLanguage } from './language-options.js';
+
 export function enhanceNavigation(header) {
   if (!header || header.classList.contains('is-enhanced')) return;
   const button = header.querySelector('.menu-toggle');
@@ -57,4 +59,40 @@ export function enhanceNavigation(header) {
     header.classList.remove('is-enhanced');
     setOpen(false);
   };
+}
+
+export function enhanceLanguagePicker() {
+  const select = document.querySelector('#language-select');
+  if (!select) return;
+  const suggestion = document.querySelector('#language-suggestion');
+  const current = select.dataset.currentLanguage || select.value || 'en';
+  const options = [...select.options];
+  const stored = storedLanguage();
+  const preferred = stored || browserLanguage();
+  const target = options.find(option => option.value === preferred && option.value !== current && option.dataset.href);
+
+  if (suggestion && preferred !== current) {
+    const language = languageOption(preferred);
+    if (target) {
+      suggestion.textContent = `Your browser prefers ${language.nativeName}. `;
+      const link = document.createElement('a');
+      link.href = target.dataset.href;
+      link.textContent = `Open this page in ${language.nativeName}`;
+      suggestion.append(link);
+    } else {
+      suggestion.textContent = `Your browser prefers ${language.nativeName}. This page is currently available in English; reviewed translations are being added.`;
+    }
+    suggestion.hidden = false;
+  }
+
+  const change = () => {
+    const option = select.selectedOptions[0];
+    if (!option) return;
+    storeLanguage(option.value);
+    if (option.dataset.href && option.dataset.href !== window.location.pathname) {
+      window.location.assign(option.dataset.href);
+    }
+  };
+  select.addEventListener('change', change);
+  return () => select.removeEventListener('change', change);
 }
