@@ -1,5 +1,6 @@
 import React from 'react';
 import { Contents, Lesson, Page, Reflection } from './site-layout.js';
+import { localizedPath } from './language-options.js';
 
 const e = React.createElement;
 const p = text => e('p', null, text);
@@ -149,7 +150,7 @@ export function LocalizedReflections({ language }) {
   const t = core[language].reflections;
   const date = { hi: '3 अक्टूबर 2026', es: '3 de octubre de 2026', fr: '3 octobre 2026' }[language];
   return e(Page, { lang: language, share: false, eyebrow: t.eyebrow, title: t.title, intro: t.statement },
-    p(t.intro), e('section', { className: 'compact-reading' }, e('p', { className: 'eyebrow' }, date), e('h2', null, t.articleTitle), p(t.articleBody), e('div', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, t.readEnglish), e('a', { href: '/ai-fear-and-clarity-telugu' }, t.readTelugu))), e('p', { className: 'translation-note quiet-note' }, t.review));
+    p(t.intro), e('section', { className: 'compact-reading' }, e('p', { className: 'eyebrow' }, date), e('h2', null, t.articleTitle), p(t.articleBody), e('div', { className: 'reading-links' }, e('a', { href: localizedPath(language, 'ai-fear-and-clarity') }, language === 'hi' ? 'हिन्दी में पूरा लेख पढ़ें' : language === 'es' ? 'Leer el artículo completo en español' : 'Lire l’article complet en français'), e('a', { href: '/ai-fear-and-clarity' }, t.readEnglish), e('a', { href: '/ai-fear-and-clarity-telugu' }, t.readTelugu))), e('p', { className: 'translation-note quiet-note' }, t.review));
 }
 
 export const localizedComponents = {};

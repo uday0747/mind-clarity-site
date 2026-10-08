@@ -18,16 +18,28 @@ const variants = {
   'ai-fear-and-clarity': {
     en: '/ai-fear-and-clarity',
     te: '/ai-fear-and-clarity-telugu',
+    hi: '/hi/ai-fear-and-clarity',
+    es: '/es/ai-fear-and-clarity',
+    fr: '/fr/ai-fear-and-clarity',
   },
   'ai-fear-and-clarity-telugu': {
     en: '/ai-fear-and-clarity',
     te: '/ai-fear-and-clarity-telugu',
   },
+  'hi/ai-fear-and-clarity': {
+    en: '/ai-fear-and-clarity', te: '/ai-fear-and-clarity-telugu', hi: '/hi/ai-fear-and-clarity', es: '/es/ai-fear-and-clarity', fr: '/fr/ai-fear-and-clarity',
+  },
+  'es/ai-fear-and-clarity': {
+    en: '/ai-fear-and-clarity', te: '/ai-fear-and-clarity-telugu', hi: '/hi/ai-fear-and-clarity', es: '/es/ai-fear-and-clarity', fr: '/fr/ai-fear-and-clarity',
+  },
+  'fr/ai-fear-and-clarity': {
+    en: '/ai-fear-and-clarity', te: '/ai-fear-and-clarity-telugu', hi: '/hi/ai-fear-and-clarity', es: '/es/ai-fear-and-clarity', fr: '/fr/ai-fear-and-clarity',
+  },
 };
 
 export const localizedPageSlugs = new Set([
   'philosophy', 'practice', 'faq', 'reflections', 'privacy', 'consultation-info',
-  'who-am-i-self-enquiry', 'surrender-free-will-and-design', 'meditation-and-self-realization', 'guilt-responsibility-and-boundaries',
+  'who-am-i-self-enquiry', 'surrender-free-will-and-design', 'meditation-and-self-realization', 'guilt-responsibility-and-boundaries', 'ai-fear-and-clarity',
 ]);
 
 export function localizedPath(language, page = '') {

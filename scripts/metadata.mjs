@@ -14,14 +14,19 @@ export function completeMetadata(head) {
   const language = pageLanguage(canonicalPath);
   const localizedHome = ['/', '/hi', '/es', '/fr'].includes(canonicalPath);
   const localizedRoute = canonicalPath.match(/^\/(hi|es|fr)\/([^/]+)$/);
-  const localizedPage = localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
+  const localizedPage = reflection ? null : localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
   if (reflection) {
-    // Keep the reviewed English/Telugu pair reciprocal and give crawlers a
-    // neutral fallback without relying on client-side language detection.
-    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|te|x-default)"[^>]*>/g, '');
-    head += `\n<link rel="alternate" hreflang="en" href="https://mindclarity.co.in/ai-fear-and-clarity" />`;
-    head += `\n<link rel="alternate" hreflang="te" href="https://mindclarity.co.in/ai-fear-and-clarity-telugu" />`;
-    head += `\n<link rel="alternate" hreflang="x-default" href="https://mindclarity.co.in/ai-fear-and-clarity" />`;
+    // Keep the English/Telugu pair and add the new translated article routes.
+    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|te|hi|es|fr|x-default)"[^>]*>/g, '');
+    const articleAlternates = [
+      ['en', 'https://mindclarity.co.in/ai-fear-and-clarity'],
+      ['te', 'https://mindclarity.co.in/ai-fear-and-clarity-telugu'],
+      ['hi', 'https://mindclarity.co.in/hi/ai-fear-and-clarity'],
+      ['es', 'https://mindclarity.co.in/es/ai-fear-and-clarity'],
+      ['fr', 'https://mindclarity.co.in/fr/ai-fear-and-clarity'],
+      ['x-default', 'https://mindclarity.co.in/ai-fear-and-clarity'],
+    ];
+    head += '\n' + articleAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
   }
   if (localizedHome) {
     head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|x-default)"[^>]*>/g, '');

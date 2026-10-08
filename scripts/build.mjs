@@ -14,9 +14,10 @@ import { enquiryTopics } from '../enquiry-topics.js';
 import { pageLanguage } from '../language-options.js';
 import { localizedMeta } from '../localized-core.js';
 import { localizedMoreMeta } from '../localized-more.js';
+import { localizedAIMeta } from '../localized-ai.js';
 
 const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr'].map(language => [language, {
-  ...localizedMeta[language], ...localizedMoreMeta[language],
+  ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language],
 }]));
 
 const root = fileURLToPath(new URL('../', import.meta.url));
