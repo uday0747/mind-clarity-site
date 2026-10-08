@@ -40,6 +40,16 @@ main:focus{outline:none}
 .practice-image figcaption{font-size:.875rem;color:var(--muted);margin-top:12px}
 .home-section{padding-top:66px}
 .home-section>p{max-width:760px}
+.welcome-meaning{max-width:760px}
+.reading-links{align-items:center}
+.watch-lesson{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.watch-lesson>div{max-width:68ch}.watch-lesson h2{font-size:1.45rem;margin:0 0 8px}.watch-lesson p{margin:0;font-size:1rem}.watch-lesson>.button{flex-shrink:0}
+.share-lesson{border-top:1px solid var(--line);margin-top:52px;padding-top:28px;max-width:760px}
+.share-lesson h2{font-size:1.6rem;margin-bottom:12px}.share-lesson label{display:block;font-weight:700;font-size:1rem;margin-bottom:8px}
+.share-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}.share-actions input{flex:1 1 280px;min-width:0;width:100%;padding:12px;font:inherit;border:1px solid #78978c;border-radius:5px;color:var(--ink);background:white}
+.share-actions button{font:700 1rem Arial,sans-serif;cursor:pointer}.share-actions input:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.share-lesson .quiet-note{margin:10px 0 0}.share-status{font-size:1rem;margin:8px 0 0}
+@media(max-width:760px){.watch-lesson{align-items:flex-start;flex-direction:column;gap:16px}.share-actions input{flex-basis:100%}}
 .topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
 .topic-link{display:flex;align-items:flex-start;gap:16px;border-top:1px solid var(--line);padding:25px 0;text-decoration:none}
 .topic-link>span:nth-child(2){flex:1}.topic-link strong{display:block;font:400 1.3rem/1.4 Georgia,serif;color:var(--deep)}
@@ -114,7 +124,7 @@ details p:last-child{margin-bottom:0}
 [hidden]{display:none!important}
 @media(max-height:500px){.site-header,.reading-grid>.reading-contents,.reading-contents{position:static}.reading-contents{max-height:none}html{scroll-padding-top:20px}}
 @media print{
- .site-header,.site-footer,.reading-contents,.skip-link{display:none}
+ .site-header,.site-footer,.reading-contents,.skip-link,.share-lesson{display:none}
  body{background:white;color:black;font-size:11pt}
  .reading-grid{display:block}.reading-body{max-width:none}main{padding:0;max-width:none}
  h1,h2,h3{break-after:avoid}.reflection{break-inside:avoid}a{color:inherit}

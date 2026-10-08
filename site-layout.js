@@ -1,17 +1,21 @@
-import React from 'react';
-import Header from './site-header.js';
+import React, { useContext } from 'react';
+import Header, { PagePathContext } from './site-header.js';
+import ShareLearning from './share-learning.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 export function Footer() {
   return e('footer', { className: 'site-footer', lang: 'en' },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, 'Remembering the Creator within the game of experiences.')),
     e('div', { className: 'footer-links' },
+      e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, 'Mind Clarity on YouTube'),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'Email'),
       e('a', { href: '/privacy' }, 'Privacy'),
       e('a', { href: '/consultation-info' }, 'Optional conversation')),
     e('small', null, '© 2026 Mind Clarity · Spiritual reflection and education.'));
 }
 export function Page({ eyebrow, title, intro, children, home = false, lang }) {
+  const pathname = useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
+  const canShare = !['/privacy', '/consultation-info'].includes(pathname.replace(/\.html$/, '').replace(/\/$/, ''));
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content', lang: 'en' }, 'Skip to content'),
     e(Header),
@@ -19,7 +23,8 @@ export function Page({ eyebrow, title, intro, children, home = false, lang }) {
       eyebrow && e('p', { className: 'eyebrow' }, eyebrow),
       e('h1', null, title),
       intro && e('p', { className: 'intro' }, intro),
-      children),
+      children,
+      canShare && e(ShareLearning, { pathname, title })),
     e(Footer));
 }
 export function Reflection({ children }) {

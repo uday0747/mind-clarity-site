@@ -25,8 +25,6 @@ function Reflections() {
 function FAQ() {
   useEffect(() => enhanceEnquirySearch(), []);
   return e(Page, { eyebrow: 'Questions about the teaching', title: 'Self-enquiry and enlightenment: questions and answers', intro: teaching.statement },
-    e(EnquiryLinks),
-    e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')),
     e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
       e('h2', { id: 'enquiry-title' }, 'Start with your question'),
       p('No journal or prescribed timetable is needed. Bring your curiosity: Who am I? What does this teaching mean? These answers are edited from Uday Kumar’s discussions; you are welcome to question them.'),
@@ -46,7 +44,9 @@ function FAQ() {
         e('p', null, e('a', { href: 'https://isha.sadhguru.org/yoga/meditations/science-of-meditation/' }, 'Sadhguru’s meditation account'), ' is a first-person account, separate from the ', e('a', { href: 'https://public-isha.sadhguru.org/research-center/publications/Shambhavi-EEG.pdf' }, 'EEG study of nine Isha practitioners (PDF)'), '. The study reported changes in electrical activity, not clinical brain death or a validated measure of enlightenment.'),
         e('p', null, e('a', { href: 'https://www.nccih.nih.gov/health/meditation-and-mindfulness-effectiveness-and-safety' }, 'Meditation: effectiveness and safety — NCCIH'), ': some practices may help with stress and other symptoms, but evidence and individual experiences vary. Meditation is not a replacement for appropriate healthcare.'),
         p('Found a factual error or a misattributed quotation? Please share the passage and a source by email so it can be checked.'), e('p', null, email())),
-      e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))));
+      e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))),
+    e(EnquiryLinks),
+    e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')));
 }
 function Consultation() {
   return e(Page, { eyebrow: 'An optional last step', title: 'A personal conversation', intro: 'The teaching centres on the Creator within the game of experiences. Its explanations and practices are freely available here. If you have explored them and still prefer a personal conversation, the existing option is described below.' },
