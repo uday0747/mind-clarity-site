@@ -83,7 +83,8 @@ export function enhanceLanguagePicker() {
       link.textContent = `Open this page in ${language.nativeName}`;
       suggestion.append(link);
     } else {
-      suggestion.textContent = `Your browser prefers ${language.nativeName}. This page is currently available in English; reviewed translations are being added.`;
+      const currentName = languageOption(current).nativeName;
+      suggestion.textContent = `Your browser prefers ${language.nativeName}. This page is currently available in ${currentName}; reviewed translations are being added.`;
     }
     suggestion.hidden = false;
   }
