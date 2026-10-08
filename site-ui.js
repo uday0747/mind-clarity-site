@@ -6,12 +6,15 @@ export function enhanceNavigation(header) {
   const button = header.querySelector('.menu-toggle');
   const nav = header.querySelector('nav');
   const mobile = window.matchMedia('(max-width: 900px)');
+  const menuLabel = button.dataset.menuLabel || 'Menu';
+  const openLabel = button.dataset.openLabel || 'Open menu';
+  const closeLabel = button.dataset.closeLabel || 'Close menu';
   let lastFocused = document.activeElement;
   const rememberFocus = event => { lastFocused = event.target; };
   const setOpen = (open) => {
     button.setAttribute('aria-expanded', String(open));
-    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    button.textContent = open ? 'Close' : 'Menu';
+    button.setAttribute('aria-label', open ? closeLabel : openLabel);
+    button.textContent = open ? closeLabel : menuLabel;
     nav.classList.toggle('is-open', open);
   };
   const toggle = () => setOpen(button.getAttribute('aria-expanded') !== 'true');

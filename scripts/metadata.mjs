@@ -1,5 +1,6 @@
 import { questions, enquiryGroups } from '../questions.js';
 import { enquiryTopics } from '../enquiry-topics.js';
+import { pageLanguage } from '../language-options.js';
 
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
 export function completeMetadata(head) {
@@ -9,7 +10,9 @@ export function completeMetadata(head) {
   if (!title || !description || !canonical) throw new Error('Missing page metadata');
   const decode = value => value.replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'");
   const reflection = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
-  const language = canonical.endsWith('-telugu') ? 'te' : 'en';
+  const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
+  const language = pageLanguage(canonicalPath);
+  const localizedHome = ['/', '/hi', '/es', '/fr'].includes(canonicalPath);
   if (reflection) {
     // Keep the reviewed English/Telugu pair reciprocal and give crawlers a
     // neutral fallback without relying on client-side language detection.
@@ -17,6 +20,17 @@ export function completeMetadata(head) {
     head += `\n<link rel="alternate" hreflang="en" href="https://mindclarity.co.in/ai-fear-and-clarity" />`;
     head += `\n<link rel="alternate" hreflang="te" href="https://mindclarity.co.in/ai-fear-and-clarity-telugu" />`;
     head += `\n<link rel="alternate" hreflang="x-default" href="https://mindclarity.co.in/ai-fear-and-clarity" />`;
+  }
+  if (localizedHome) {
+    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|x-default)"[^>]*>/g, '');
+    const homeAlternates = [
+      ['en', 'https://mindclarity.co.in/'],
+      ['hi', 'https://mindclarity.co.in/hi'],
+      ['es', 'https://mindclarity.co.in/es'],
+      ['fr', 'https://mindclarity.co.in/fr'],
+      ['x-default', 'https://mindclarity.co.in/'],
+    ];
+    head += '\n' + homeAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
   }
   // Retain existing social images; regenerate only text fields from the page metadata.
   head = head.replace(/\s*<meta (?:property|name)="(?:og:(?:type|site_name|title|description|url)|twitter:(?:title|description|card))"[^>]*>/g, '');

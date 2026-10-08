@@ -1,31 +1,36 @@
 import React, { useContext } from 'react';
 import Header, { PagePathContext } from './site-header.js';
 import ShareLearning from './share-learning.js';
+import { interfaceFor, pageLanguage } from './language-options.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
-export function Footer() {
-  return e('footer', { className: 'site-footer', lang: 'en' },
-    e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, 'Remembering the Creator within the game of experiences.')),
+export function Footer({ language = 'en' }) {
+  const ui = interfaceFor(language);
+  return e('footer', { className: 'site-footer', lang: language },
+    e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
-      e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, 'Mind Clarity on YouTube'),
-      e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'Email'),
-      e('a', { href: '/privacy' }, 'Privacy'),
-      e('a', { href: '/consultation-info' }, 'Optional conversation')),
-    e('small', null, '© 2026 Mind Clarity · Spiritual reflection and education.'));
+      e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
+      e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
+      e('a', { href: '/privacy' }, ui.privacy),
+      e('a', { href: '/consultation-info' }, ui.conversation)),
+    e('small', null, ui.copyright));
 }
-export function Page({ eyebrow, title, intro, children, home = false, lang }) {
+export function Page({ eyebrow, title, intro, children, home = false, lang, share = true }) {
   const pathname = useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
-  const canShare = !['/privacy', '/consultation-info'].includes(pathname.replace(/\.html$/, '').replace(/\/$/, ''));
+  const documentLanguage = lang || pageLanguage(pathname);
+  const uiLanguage = ['hi', 'es', 'fr'].includes(documentLanguage) ? documentLanguage : 'en';
+  const ui = interfaceFor(uiLanguage);
+  const canShare = share && !['/privacy', '/consultation-info'].includes(pathname.replace(/\.html$/, '').replace(/\/$/, ''));
   return e(React.Fragment, null,
-    e('a', { className: 'skip-link', href: '#main-content', lang: 'en' }, 'Skip to content'),
+    e('a', { className: 'skip-link', href: '#main-content', lang: uiLanguage }, ui.skip),
     e(Header),
-    e('main', { id: 'main-content', lang, tabIndex: -1, className: home ? 'home-main' : 'reading-main' },
+    e('main', { id: 'main-content', lang: documentLanguage, tabIndex: -1, className: home ? 'home-main' : 'reading-main' },
       eyebrow && e('p', { className: 'eyebrow' }, eyebrow),
       e('h1', null, title),
       intro && e('p', { className: 'intro' }, intro),
       children,
       canShare && e(ShareLearning, { pathname, title })),
-    e(Footer));
+    e(Footer, { language: uiLanguage }));
 }
 export function Reflection({ children }) {
   return e('aside', { className: 'reflection', 'aria-label': 'Try this reflection' },

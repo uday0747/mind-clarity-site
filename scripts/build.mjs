@@ -11,6 +11,7 @@ import { pages } from '../page-app.js';
 import { PagePathContext } from '../site-header.js';
 import { completeMetadata } from './metadata.mjs';
 import { enquiryTopics } from '../enquiry-topics.js';
+import { pageLanguage } from '../language-options.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 await build({ configFile: path.join(root, 'vite.config.js'), root });
@@ -43,7 +44,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   }
   const pathname = page === 'index' ? '/' : `/${page}`;
   const markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(Component)));
-  const html = `<!doctype html>\n<html lang="${page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en'}"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
+  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
   await writeFile(path.join(dist, `${page}.html`), html);
 }
 for (const legacy of ['about.html', 'services.html']) await cp(path.join(root, legacy), path.join(dist, legacy));
