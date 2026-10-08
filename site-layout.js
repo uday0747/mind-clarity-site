@@ -32,9 +32,9 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
       canShare && e(ShareLearning, { pathname, title })),
     e(Footer, { language: uiLanguage }));
 }
-export function Reflection({ children }) {
-  return e('aside', { className: 'reflection', 'aria-label': 'Try this reflection' },
-    e('p', { className: 'eyebrow' }, 'Try this now'), e('p', null, children));
+export function Reflection({ children, label = 'Try this reflection', prompt = 'Try this now' }) {
+  return e('aside', { className: 'reflection', 'aria-label': label },
+    e('p', { className: 'eyebrow' }, prompt), e('p', null, children));
 }
 export function Lesson({ id, number, title, children }) {
   return e('section', { id, className: 'lesson' },

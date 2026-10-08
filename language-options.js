@@ -87,7 +87,8 @@ export function storeLanguage(code) {
 
 export const interfaceCopy = {
   en: {
-    language: 'Language', skip: 'Skip to content', mainNav: 'Main navigation', menu: 'Menu', openMenu: 'Open menu', closeMenu: 'Close menu',
+    language: 'Language', chooseLanguage: 'Choose language', skip: 'Skip to content', mainNav: 'Main navigation', menu: 'Menu', openMenu: 'Open menu', closeMenu: 'Close menu',
+    browserPrefers: 'Your browser prefers', openIn: 'Open this page in', currentlyAvailable: current => `This page is currently available in ${current}; reviewed translations are being added.`,
     nav: { home: 'Begin here', philosophy: 'Philosophy', practice: 'Daily practice', faq: 'Questions', reflections: 'Reflections' },
     labels: { home: 'Begin here', philosophy: 'Philosophy', practice: 'Daily practice', faq: 'Questions', reflections: 'Reflections' },
     more: 'More reviewed translations are being added.',
@@ -96,7 +97,8 @@ export const interfaceCopy = {
     copyright: '© 2026 Mind Clarity · Spiritual reflection and education.',
   },
   hi: {
-    language: 'भाषा', skip: 'सामग्री पर जाएँ', mainNav: 'मुख्य नेविगेशन', menu: 'मेनू', openMenu: 'मेनू खोलें', closeMenu: 'मेनू बंद करें',
+    language: 'भाषा', chooseLanguage: 'भाषा चुनें', skip: 'सामग्री पर जाएँ', mainNav: 'मुख्य नेविगेशन', menu: 'मेनू', openMenu: 'मेनू खोलें', closeMenu: 'मेनू बंद करें',
+    browserPrefers: 'आपके ब्राउज़र की पसंद', openIn: 'यह पृष्ठ इसमें खोलें', currentlyAvailable: current => `यह पृष्ठ अभी ${current} में उपलब्ध है; समीक्षित अनुवाद जोड़े जा रहे हैं।`,
     nav: { home: 'शुरुआत यहाँ से', philosophy: 'दर्शन', practice: 'दैनिक अभ्यास', faq: 'प्रश्न', reflections: 'चिन्तन' },
     labels: { home: 'शुरुआत यहाँ से', philosophy: 'दर्शन', practice: 'दैनिक अभ्यास', faq: 'प्रश्न', reflections: 'चिन्तन' },
     more: 'अधिक समीक्षित अनुवाद जोड़े जा रहे हैं।',
@@ -105,7 +107,8 @@ export const interfaceCopy = {
     copyright: '© 2026 Mind Clarity · आध्यात्मिक चिन्तन और शिक्षा।',
   },
   es: {
-    language: 'Idioma', skip: 'Ir al contenido', mainNav: 'Navegación principal', menu: 'Menú', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú',
+    language: 'Idioma', chooseLanguage: 'Elegir idioma', skip: 'Ir al contenido', mainNav: 'Navegación principal', menu: 'Menú', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú',
+    browserPrefers: 'Tu navegador prefiere', openIn: 'Abrir esta página en', currentlyAvailable: current => `Esta página está disponible en ${current}; estamos incorporando traducciones revisadas.`,
     nav: { home: 'Comenzar aquí', philosophy: 'Filosofía', practice: 'Práctica diaria', faq: 'Preguntas', reflections: 'Reflexiones' },
     labels: { home: 'Comenzar aquí', philosophy: 'Filosofía', practice: 'Práctica diaria', faq: 'Preguntas', reflections: 'Reflexiones' },
     more: 'Estamos incorporando más traducciones revisadas.',
@@ -114,7 +117,8 @@ export const interfaceCopy = {
     copyright: '© 2026 Mind Clarity · Reflexión espiritual y educación.',
   },
   fr: {
-    language: 'Langue', skip: 'Aller au contenu', mainNav: 'Navigation principale', menu: 'Menu', openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu',
+    language: 'Langue', chooseLanguage: 'Choisir la langue', skip: 'Aller au contenu', mainNav: 'Navigation principale', menu: 'Menu', openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu',
+    browserPrefers: 'Votre navigateur préfère', openIn: 'Ouvrir cette page en', currentlyAvailable: current => `Cette page est actuellement disponible en ${current} ; d’autres traductions relues sont en préparation.`,
     nav: { home: 'Commencer ici', philosophy: 'Philosophie', practice: 'Pratique quotidienne', faq: 'Questions', reflections: 'Réflexions' },
     labels: { home: 'Commencer ici', philosophy: 'Philosophie', practice: 'Pratique quotidienne', faq: 'Questions', reflections: 'Réflexions' },
     more: 'D’autres traductions relues sont en préparation.',

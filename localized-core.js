@@ -102,11 +102,18 @@ const core = {
   }
 };
 
-function translatedSections(t) {
+const reflectionCopy = {
+  hi: { label: 'अभी इस पर विचार करें', prompt: 'अभी इस पर विचार करें' },
+  es: { label: 'Reflexión para ahora', prompt: 'Reflexiona ahora' },
+  fr: { label: 'Réfléchissez maintenant', prompt: 'Réfléchissez maintenant' },
+};
+
+function translatedSections(t, language) {
+  const copy = reflectionCopy[language];
   return t.sections.map(([id, title, paragraphs, reflection, link], index) => {
     const href = link?.match(/\/(?:hi|es|fr)\/practice#[\w-]+/)?.[0];
     return e(Lesson, { key: id, id, number: String(index + 1).padStart(2, '0'), title },
-      ...paragraphs.map(p), e(Reflection, null, reflection),
+      ...paragraphs.map(p), e(Reflection, { label: copy.label, prompt: copy.prompt }, reflection),
       href && e('p', null, e('a', { href }, link)));
   });
 }
@@ -115,17 +122,18 @@ export function LocalizedPhilosophy({ language }) {
   const t = core[language].philosophy;
   const items = t.sections.map(([id, title]) => [id, title]);
   return e(Page, { lang: language, share: false, eyebrow: t.eyebrow, title: t.title, intro: t.statement },
-    p(t.note), e('div', { className: 'reading-grid' }, e(Contents, { items, label: t.contents }), e('div', { className: 'reading-body' }, translatedSections(t))),
+    p(t.note), e('div', { className: 'reading-grid' }, e(Contents, { items, label: t.contents }), e('div', { className: 'reading-body' }, translatedSections(t, language))),
     e('p', { className: 'translation-note quiet-note' }, t.review));
 }
 
 export function LocalizedPractice({ language }) {
   const t = core[language].practice;
   const contents = [['five-minutes', t.fiveTitle], ...t.cases.map(([id, title]) => [id, title]), ['daily', t.dailyTitle]];
+  const copy = reflectionCopy[language];
   return e(Page, { lang: language, share: false, eyebrow: t.eyebrow, title: t.title, intro: t.statement },
     p(t.intro), e('div', { className: 'reading-grid' }, e(Contents, { items: contents, label: t.contents }), e('div', { className: 'reading-body' },
-      e(Lesson, { id: 'five-minutes', number: '01', title: t.fiveTitle }, p(t.fiveBody), e('ol', { className: 'practice-steps' }, t.steps.map(([title, text]) => e('li', { key: title }, e('strong', null, `${title}. `), text))), e(Reflection, null, t.statement)),
-      ...t.cases.map(([id, title, scene, reflection, participation], index) => e(Lesson, { key: id, id, number: String(index + 2).padStart(2, '0'), title }, e('details', null, e('summary', null, scene), p(scene), e('h3', null, language === 'hi' ? 'स्मरण' : language === 'es' ? 'Recordar al Creador' : 'Se souvenir du Créateur'), p(participation)), e(Reflection, null, reflection))),
+      e(Lesson, { id: 'five-minutes', number: '01', title: t.fiveTitle }, p(t.fiveBody), e('ol', { className: 'practice-steps' }, t.steps.map(([title, text]) => e('li', { key: title }, e('strong', null, `${title}. `), text))), e(Reflection, { label: copy.label, prompt: copy.prompt }, t.statement)),
+      ...t.cases.map(([id, title, scene, reflection, participation], index) => e(Lesson, { key: id, id, number: String(index + 2).padStart(2, '0'), title }, e('details', null, e('summary', null, scene), p(scene), e('h3', null, language === 'hi' ? 'स्मरण' : language === 'es' ? 'Recordar al Creador' : 'Se souvenir du Créateur'), p(participation)), e(Reflection, { label: copy.label, prompt: copy.prompt }, reflection))),
       e(Lesson, { id: 'daily', number: '08', title: t.dailyTitle }, p(t.dailyBody), e('ul', null, t.dailyQuestions.map(question => e('li', { key: question }, question))), p(t.review)))),
     e('p', { className: 'translation-note quiet-note' }, t.review));
 }
@@ -139,8 +147,9 @@ export function LocalizedFAQ({ language }) {
 
 export function LocalizedReflections({ language }) {
   const t = core[language].reflections;
+  const date = { hi: '3 अक्टूबर 2026', es: '3 de octubre de 2026', fr: '3 octobre 2026' }[language];
   return e(Page, { lang: language, share: false, eyebrow: t.eyebrow, title: t.title, intro: t.statement },
-    p(t.intro), e('section', { className: 'compact-reading' }, e('p', { className: 'eyebrow' }, '3 October 2026'), e('h2', null, t.articleTitle), p(t.articleBody), e('div', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, t.readEnglish), e('a', { href: '/ai-fear-and-clarity-telugu' }, t.readTelugu))), e('p', { className: 'translation-note quiet-note' }, t.review));
+    p(t.intro), e('section', { className: 'compact-reading' }, e('p', { className: 'eyebrow' }, date), e('h2', null, t.articleTitle), p(t.articleBody), e('div', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, t.readEnglish), e('a', { href: '/ai-fear-and-clarity-telugu' }, t.readTelugu))), e('p', { className: 'translation-note quiet-note' }, t.review));
 }
 
 export const localizedComponents = {};

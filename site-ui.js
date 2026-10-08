@@ -69,6 +69,9 @@ export function enhanceLanguagePicker() {
   if (!select) return;
   const suggestion = document.querySelector('#language-suggestion');
   const current = select.dataset.currentLanguage || select.value || 'en';
+  const browserPrefers = select.dataset.browserPrefers || 'Your browser prefers';
+  const openIn = select.dataset.openIn || 'Open this page in';
+  const currentlyAvailable = currentName => (select.dataset.currentlyAvailable || 'This page is currently available in __LANGUAGE__; reviewed translations are being added.').replace('__LANGUAGE__', currentName);
   const options = [...select.options];
   const stored = storedLanguage();
   const preferred = stored || browserLanguage();
@@ -77,14 +80,14 @@ export function enhanceLanguagePicker() {
   if (suggestion && preferred !== current) {
     const language = languageOption(preferred);
     if (target) {
-      suggestion.textContent = `Your browser prefers ${language.nativeName}. `;
+      suggestion.textContent = `${browserPrefers} ${language.nativeName}. `;
       const link = document.createElement('a');
       link.href = target.dataset.href;
-      link.textContent = `Open this page in ${language.nativeName}`;
+      link.textContent = `${openIn} ${language.nativeName}`;
       suggestion.append(link);
     } else {
       const currentName = languageOption(current).nativeName;
-      suggestion.textContent = `Your browser prefers ${language.nativeName}. This page is currently available in ${currentName}; reviewed translations are being added.`;
+      suggestion.textContent = `${browserPrefers} ${language.nativeName}. ${currentlyAvailable(currentName)}`;
     }
     suggestion.hidden = false;
   }
