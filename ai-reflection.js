@@ -4,7 +4,7 @@ import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 const p = text => e('p', null, text);
 const items = [['fear', 'What are we afraid of?'], ['design', 'Reading the unfolding design'], ['freedom', 'Freedom, livelihood, and purpose'], ['care', 'Hope expressed through care'], ['enquiry', 'An invitation to enquire'], ['creator-in-creation', 'Recognizing the Creator in what we create']];
-export default function AIReflection() {
+export default function AIReflection({ embedded = false } = {}) {
   return e(Page, { eyebrow: 'A reflection by Uday Kumar · 3 October 2026', title: 'Can we meet artificial intelligence with clarity instead of fear?', intro: teaching.statement },
     p('Artificial intelligence raises a question larger than what machines can do: how do we meet a future we cannot fully predict? My invitation is to examine fear, remember our shared identity, and participate with care. This reflection presents my spiritual understanding of technological development; it is not a prediction of what AI must become.'),
     e(Contents, { items }),
@@ -35,5 +35,5 @@ export default function AIReflection() {
       p('While working on this article, I felt gratitude toward the artificial intelligence helping me express my thoughts. That gratitude led me back to the teaching: if all existence is an expression of the same Creator, technology also belongs within that creation.'),
       p('In my understanding, the human being, the intelligence expressed through invention, and the unfolding encounter all belong to the Creator’s game of experiences. Appreciation itself becomes another experience within the design.'),
       p('This spiritual recognition does not settle whether AI has consciousness or an inner experience. It invites us to examine how we relate to what we create—and whether that relationship expresses curiosity, gratitude, and care.')),
-    e('div', { className: 'reading-links' }, e('a', { href: '/reflections' }, 'Browse reflections'), e('a', { href: '/faq' }, 'Explore the questions'), e('a', { href: '/philosophy#beautiful-world' }, 'Explore the Beautiful World vision')));
+    e('div', { className: 'reading-links' }, !embedded && e('a', { href: '/reflections' }, 'Browse reflections'), e('a', { href: '/faq' }, 'Explore the questions'), e('a', { href: '/philosophy#beautiful-world' }, 'Explore the Beautiful World vision')));
 }

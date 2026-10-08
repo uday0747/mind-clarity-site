@@ -19,12 +19,7 @@ const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
 function Reflections() {
-  return e(Page, { eyebrow: 'Reflections by Uday Kumar', title: 'Reflections on life and the Creator', intro: teaching.statement },
-    p('Explore contemporary questions through the Creator-and-game teaching. These articles invite enquiry into life, technology, uncertainty, and our connection with one another.'),
-    e('section', { className: 'compact-reading' },
-      e('p', { className: 'eyebrow' }, '3 October 2026 · Technology and spiritual enquiry'),
-      e('h2', null, e('a', { href: '/ai-fear-and-clarity' }, 'Can we meet artificial intelligence with clarity instead of fear?')),
-      p('A reflection on the Creator’s unfolding design, worries about work, the hope of reducing hardship, and gratitude for the intelligence expressed through invention.')));
+  return e(AIReflection, { embedded: true });
 }
 function FAQ() {
   useEffect(() => enhanceEnquirySearch(), []);
