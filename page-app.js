@@ -24,8 +24,7 @@ function Reflections() {
     e('section', { className: 'compact-reading' },
       e('p', { className: 'eyebrow' }, '3 October 2026 · Technology and spiritual enquiry'),
       e('h2', null, e('a', { href: '/ai-fear-and-clarity' }, 'Can we meet artificial intelligence with clarity instead of fear?')),
-      p('A reflection on the Creator’s unfolding design, worries about work, the hope of reducing hardship, and gratitude for the intelligence expressed through invention.'),
-      e('a', { className: 'text-link', href: '/ai-fear-and-clarity' }, 'Read the article')));
+      p('A reflection on the Creator’s unfolding design, worries about work, the hope of reducing hardship, and gratitude for the intelligence expressed through invention.')));
 }
 function FAQ() {
   useEffect(() => enhanceEnquirySearch(), []);
