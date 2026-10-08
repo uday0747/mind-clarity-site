@@ -47,7 +47,7 @@ export function completeMetadata(head) {
       ['hi', `https://mindclarity.co.in/hi/${localizedPage}`],
       ['es', `https://mindclarity.co.in/es/${localizedPage}`],
       ['fr', `https://mindclarity.co.in/fr/${localizedPage}`],
-      ...(localizedPage === 'faq' ? [['te', `https://mindclarity.co.in/te/${localizedPage}`]] : []),
+      ['te', `https://mindclarity.co.in/te/${localizedPage}`],
       ['x-default', `https://mindclarity.co.in/${localizedPage}`],
     ];
     head += '\n' + pageAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');

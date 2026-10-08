@@ -11,10 +11,10 @@ export const languageOptions = [
 export const languagePreferenceKey = 'mind-clarity-language';
 
 const variants = {
-  '/': { en: '/', hi: '/hi', es: '/es', fr: '/fr' },
-  '/hi': { en: '/', hi: '/hi', es: '/es', fr: '/fr' },
-  '/es': { en: '/', hi: '/hi', es: '/es', fr: '/fr' },
-  '/fr': { en: '/', hi: '/hi', es: '/es', fr: '/fr' },
+  '/': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
+  '/hi': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
+  '/es': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
+  '/fr': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
   'ai-fear-and-clarity': {
     en: '/ai-fear-and-clarity',
     te: '/ai-fear-and-clarity-telugu',
@@ -66,9 +66,7 @@ export function languageVariants(pathname = '/') {
   const basePage = localizedRoute?.[2];
   if (localizedPageSlugs.has(basePage) || localizedPageSlugs.has(page)) {
     const sourcePage = basePage || page;
-    return sourcePage === 'faq'
-      ? { en: localizedPath('en', sourcePage), te: localizedPath('te', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) }
-      : { en: localizedPath('en', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) };
+    return { en: localizedPath('en', sourcePage), te: localizedPath('te', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) };
   }
   return { en: normalizedPath(pathname) };
 }

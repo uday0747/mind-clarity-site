@@ -71,7 +71,7 @@ if (/^(hi|es|fr)\//.test(page)) {
     const [language, basePage] = page.split('/');
     assert.match(html, new RegExp(`<html lang="${language}">`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
-    const alternates = [`/hi/${basePage}`, `/es/${basePage}`, `/fr/${basePage}`, ...(basePage === 'faq' ? [`/te/${basePage}`] : [])];
+    const alternates = [`/hi/${basePage}`, `/es/${basePage}`, `/fr/${basePage}`, basePage === 'ai-fear-and-clarity' ? '/ai-fear-and-clarity-telugu' : `/te/${basePage}`];
     for (const alternate of alternates) {
       assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
     }
