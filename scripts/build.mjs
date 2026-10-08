@@ -32,9 +32,9 @@ await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
-  const localizedRoute = page.match(/^(hi|es|fr|te)\/(.+)$/);
+  const localizedRoute = page.match(/^(hi|es|fr|te)\/(.+)$/) || (page === 'te' ? ['te', 'te', ''] : null);
   const localizedTopic = localizedRoute && enquiryTopics.find(topic => topic.slug === localizedRoute[2]);
-  const templatePage = page.split('/').pop();
+  const templatePage = page === 'te' ? 'index' : page.split('/').pop();
   let template = await readFile(path.join(root, `${topic || localizedTopic ? 'faq' : templatePage}.html`), 'utf8');
   if (localizedRoute) {
     const [, language, basePage] = localizedRoute;
@@ -43,7 +43,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
     const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
     template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(meta.title)}</title>`)
       .replace(/name="description" content="[^"]+"/, `name="description" content="${escape(meta.description)}"`)
-      .replace(/rel="canonical" href="https:\/\/mindclarity\.co\.in\/[^\"]+"/, `rel="canonical" href="https://mindclarity.co.in/${page}"`)
+      .replace(/rel="canonical" href="https:\/\/mindclarity\.co\.in\/[^\"]*"/, `rel="canonical" href="https://mindclarity.co.in/${page}"`)
       .replace(/property="og:title" content="[^"]+"/, `property="og:title" content="${escape(meta.title)}"`)
       .replace(/property="og:description" content="[^"]+"/, `property="og:description" content="${escape(meta.description)}"`)
       .replace(/property="og:url" content="[^"]+"/, `property="og:url" content="https://mindclarity.co.in/${page}"`);

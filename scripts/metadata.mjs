@@ -12,7 +12,7 @@ export function completeMetadata(head) {
   const reflection = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
   const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
   const language = pageLanguage(canonicalPath);
-  const localizedHome = ['/', '/hi', '/es', '/fr'].includes(canonicalPath);
+  const localizedHome = ['/', '/hi', '/es', '/fr', '/te'].includes(canonicalPath);
   const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te)\/([^/]+)$/);
   const localizedPage = reflection ? null : localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
   if (reflection) {
@@ -35,6 +35,7 @@ export function completeMetadata(head) {
       ['hi', 'https://mindclarity.co.in/hi'],
       ['es', 'https://mindclarity.co.in/es'],
       ['fr', 'https://mindclarity.co.in/fr'],
+      ['te', 'https://mindclarity.co.in/te'],
       ['x-default', 'https://mindclarity.co.in/'],
     ];
     head += '\n' + homeAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');

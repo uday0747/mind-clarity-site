@@ -193,6 +193,16 @@ export const localizedMeta = {
     reflections: { title: 'Réflexions sur la vie et le Créateur | Mind Clarity', description: 'Lisez les réflexions d’Uday Kumar sur la vie, la technologie, l’incertitude et le jeu du Créateur.' },
   },
   te: {
+    '': { title: 'Mind Clarity · సృష్టికర్తను గుర్తుంచుకుంటూ జీవితం', description: 'సృష్టికర్త, అనుభవాల ఆట, ఆత్మ విచారణ మరియు దైనందిన జీవితంపై తెలుగులో ఆధ్యాత్మిక చింతన.' },
+    philosophy: { title: 'సృష్టికర్త మరియు అనుభవాల ఆట | Mind Clarity', description: 'మూల వాక్యం, నిర్ణయించిన రూపకల్పన, సంబంధాలు మరియు కమలం ఉపమానాన్ని తెలుగులో అన్వేషించండి.' },
+    practice: { title: 'సృష్టికర్తను గుర్తుంచుకునే దైనందిన సాధన | Mind Clarity', description: 'భావాలు, సంబంధాలు, నిర్ణయాలు మరియు దైనందిన దృశ్యాలలో సృష్టికర్తను గుర్తుచేసుకునే సాధనను తెలుగులో అన్వేషించండి.' },
     faq: { title: 'సృష్టికర్త మరియు అనుభవాల ఆటపై ప్రశ్నలు | Mind Clarity', description: 'ఆత్మ విచారణ, సృష్టికర్త, భావాలు, శ్రద్ధ మరియు దైనందిన సాధనపై తెలుగులో 50 ప్రశ్నలు మరియు సమాధానాలు చదవండి.' },
+    reflections: { title: 'జీవితం మరియు సృష్టికర్తపై చింతనలు | Mind Clarity', description: 'జీవితం, సాంకేతికత, అనిశ్చితి మరియు సృష్టికర్త అనుభవాల ఆటపై ఉదయ్ కుమార్ చింతనలను తెలుగులో చదవండి.' },
+    privacy: { title: 'గోప్యత సమాచారం | Mind Clarity', description: 'Mind Clarityలో పఠనం, ప్రశ్నల అన్వేషణ, విశ్లేషణలు మరియు మీరు స్వచ్ఛందంగా పంపే సమాచారంపై గోప్యత వివరాలు.' },
+    'consultation-info': { title: 'వ్యక్తిగత సంభాషణ | Mind Clarity', description: 'Mind Clarityలో ఐచ్ఛిక ఆధ్యాత్మిక చింతన సంభాషణకు సంబంధించిన వివరాలను తెలుగులో చదవండి.' },
+    'who-am-i-self-enquiry': { title: 'నేను ఎవరు? ఆత్మ విచారణ | Mind Clarity', description: 'నేను ఎవరు అనే ప్రశ్నతో ప్రారంభించి సృష్టికర్తను గుర్తుచేసుకుంటూ ఆత్మ విచారణను తెలుగులో అన్వేషించండి.' },
+    'surrender-free-will-and-design': { title: 'సమర్పణ, స్వేచ్ఛా సంకల్పం మరియు రూపకల్పన | Mind Clarity', description: 'అనుభవాల ఆట, రూపకల్పన మరియు మన చర్యలను తెలుగులో పరిశీలించండి.' },
+    'meditation-and-self-realization': { title: 'ధ్యానం మరియు ఆత్మ సాక్షాత్కారం | Mind Clarity', description: 'ధ్యానం, శ్వాస, శ్రద్ధ మరియు ఆత్మ విచారణపై ఉదయ్ కుమార్ వివరణలను తెలుగులో చదవండి.' },
+    'guilt-responsibility-and-boundaries': { title: 'అపరాధ భావం, బాధ్యత మరియు హద్దులు | Mind Clarity', description: 'అపరాధ భావం, తప్పులు, బాధ్యత, రక్షణ మరియు సంబంధాలలో హద్దులను తెలుగులో పరిశీలించండి.' },
   },
 };
