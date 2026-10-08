@@ -21,7 +21,8 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
   const documentLanguage = lang || pageLanguage(pathname);
   const uiLanguage = ['hi', 'es', 'fr', 'te'].includes(documentLanguage) ? documentLanguage : 'en';
   const ui = interfaceFor(uiLanguage);
-  const canShare = share && !['/privacy', '/consultation-info'].includes(pathname.replace(/\.html$/, '').replace(/\/$/, ''));
+  const basePath = pathname.replace(/^\/(hi|es|fr|te)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
+  const canShare = share && !['/privacy', '/consultation-info'].includes(basePath);
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content', lang: uiLanguage }, ui.skip),
     e(Header),

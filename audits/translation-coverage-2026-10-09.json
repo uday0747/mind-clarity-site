@@ -1,0 +1,439 @@
+{
+  "date": "2026-10-09",
+  "translatedPages": 48,
+  "reference": "English source components",
+  "pages": [
+    {
+      "language": "hi",
+      "route": "/hi",
+      "source": "/",
+      "paragraphs": 23,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/philosophy",
+      "source": "/philosophy",
+      "paragraphs": 82,
+      "disclosures": 1,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/practice",
+      "source": "/practice",
+      "paragraphs": 50,
+      "disclosures": 6,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/faq",
+      "source": "/faq",
+      "paragraphs": 71,
+      "disclosures": 50,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/reflections",
+      "source": "/reflections",
+      "paragraphs": 9,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/privacy",
+      "source": "/privacy",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/consultation-info",
+      "source": "/consultation-info",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/who-am-i-self-enquiry",
+      "source": "/who-am-i-self-enquiry",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/surrender-free-will-and-design",
+      "source": "/surrender-free-will-and-design",
+      "paragraphs": 20,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/meditation-and-self-realization",
+      "source": "/meditation-and-self-realization",
+      "paragraphs": 24,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/guilt-responsibility-and-boundaries",
+      "source": "/guilt-responsibility-and-boundaries",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "hi",
+      "route": "/hi/ai-fear-and-clarity",
+      "source": "/ai-fear-and-clarity",
+      "paragraphs": 29,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es",
+      "source": "/",
+      "paragraphs": 23,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/philosophy",
+      "source": "/philosophy",
+      "paragraphs": 82,
+      "disclosures": 1,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/practice",
+      "source": "/practice",
+      "paragraphs": 50,
+      "disclosures": 6,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/faq",
+      "source": "/faq",
+      "paragraphs": 71,
+      "disclosures": 50,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/reflections",
+      "source": "/reflections",
+      "paragraphs": 9,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/privacy",
+      "source": "/privacy",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/consultation-info",
+      "source": "/consultation-info",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/who-am-i-self-enquiry",
+      "source": "/who-am-i-self-enquiry",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/surrender-free-will-and-design",
+      "source": "/surrender-free-will-and-design",
+      "paragraphs": 20,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/meditation-and-self-realization",
+      "source": "/meditation-and-self-realization",
+      "paragraphs": 24,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/guilt-responsibility-and-boundaries",
+      "source": "/guilt-responsibility-and-boundaries",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "es",
+      "route": "/es/ai-fear-and-clarity",
+      "source": "/ai-fear-and-clarity",
+      "paragraphs": 29,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr",
+      "source": "/",
+      "paragraphs": 23,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/philosophy",
+      "source": "/philosophy",
+      "paragraphs": 82,
+      "disclosures": 1,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/practice",
+      "source": "/practice",
+      "paragraphs": 50,
+      "disclosures": 6,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/faq",
+      "source": "/faq",
+      "paragraphs": 71,
+      "disclosures": 50,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/reflections",
+      "source": "/reflections",
+      "paragraphs": 9,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/privacy",
+      "source": "/privacy",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/consultation-info",
+      "source": "/consultation-info",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/who-am-i-self-enquiry",
+      "source": "/who-am-i-self-enquiry",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/surrender-free-will-and-design",
+      "source": "/surrender-free-will-and-design",
+      "paragraphs": 20,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/meditation-and-self-realization",
+      "source": "/meditation-and-self-realization",
+      "paragraphs": 24,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/guilt-responsibility-and-boundaries",
+      "source": "/guilt-responsibility-and-boundaries",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "fr",
+      "route": "/fr/ai-fear-and-clarity",
+      "source": "/ai-fear-and-clarity",
+      "paragraphs": 29,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te",
+      "source": "/",
+      "paragraphs": 23,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/philosophy",
+      "source": "/philosophy",
+      "paragraphs": 82,
+      "disclosures": 1,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/practice",
+      "source": "/practice",
+      "paragraphs": 50,
+      "disclosures": 6,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/faq",
+      "source": "/faq",
+      "paragraphs": 71,
+      "disclosures": 50,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/reflections",
+      "source": "/reflections",
+      "paragraphs": 9,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/privacy",
+      "source": "/privacy",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/consultation-info",
+      "source": "/consultation-info",
+      "paragraphs": 7,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/who-am-i-self-enquiry",
+      "source": "/who-am-i-self-enquiry",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/surrender-free-will-and-design",
+      "source": "/surrender-free-will-and-design",
+      "paragraphs": 20,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/meditation-and-self-realization",
+      "source": "/meditation-and-self-realization",
+      "paragraphs": 24,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/te/guilt-responsibility-and-boundaries",
+      "source": "/guilt-responsibility-and-boundaries",
+      "paragraphs": 22,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    },
+    {
+      "language": "te",
+      "route": "/ai-fear-and-clarity-telugu",
+      "source": "/ai-fear-and-clarity",
+      "paragraphs": 29,
+      "disclosures": 0,
+      "structuralParity": true,
+      "anchorParity": true
+    }
+  ]
+}

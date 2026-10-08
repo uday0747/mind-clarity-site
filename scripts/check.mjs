@@ -5,8 +5,13 @@ import path from 'node:path';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { questions, enquiryGroups } from '../questions.js';
 import { localizedPageSlugs } from '../language-options.js';
+import { translations, translateText } from '../translations.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
+const inventory = JSON.parse(readFileSync(new URL('../translations/source-inventory.json', import.meta.url), 'utf8')).items;
+for (const [language, dictionary] of Object.entries(translations)) {
+  for (const source of inventory) assert.ok(typeof dictionary[source] === 'string' && dictionary[source].trim(), `${language}: source text has a translation: ${source}`);
+}
 const localizedPages = ['hi', 'es', 'fr'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
 const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', ...teluguPages, ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
@@ -35,6 +40,22 @@ for (const page of pages) {
   assert.ok(html.includes(`property="og:url" content="${canonical}"`), `${page}: social URL matches canonical`);
   assert.equal((html.match(/property="og:title"/g) || []).length, 1, `${page}: no duplicate metadata`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
+  const locale = page.match(/^(hi|es|fr|te)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
+  if (locale !== 'en') {
+    const sourcePage = page === 'ai-fear-and-clarity-telugu' ? 'ai-fear-and-clarity' : page.split('/')[1] || 'index';
+    const english = readFileSync(path.join(dist, `${sourcePage}.html`), 'utf8');
+    const main = text => text.match(/<main\b[^>]*>[\s\S]*?<\/main>/)[0];
+    const structure = text => [...main(text).matchAll(/<\/?(section|h[1-6]|p|details|summary|ul|ol|li|blockquote|figure|figcaption)\b[^>]*>/g)].map(match => match[0].replace(/\s[^>]*>/, '>'));
+    assert.deepEqual(structure(html), structure(english), `${page}: every English section, paragraph, example and disclosure is retained in order`);
+    const mainIds = text => [...main(text).matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+    assert.deepEqual(mainIds(html), mainIds(english), `${page}: English contents anchors and controls are retained`);
+    if (sourcePage === 'faq') {
+      const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
+      const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)].map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
+      assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries.map(entry => entry.map(text => translateText(text, locale))), `${page}: translated search metadata matches all 50 full answers`);
+      assert.ok(html.includes('data-empty=') && html.includes('id="enquiry-input"'), `${page}: translated search is available`);
+    }
+  }
   if (page === 'faq') {
     assert.match(html, /id="enquiry-controls" hidden=""/, 'Question finder is revealed only after enhancement');
     assert.match(html, /id="enquiry-fallback"/, 'Question browsing has a no-script fallback');
@@ -65,7 +86,6 @@ for (const page of pages) {
     assert.match(html, new RegExp(`<html lang="${page}">`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
     for (const alternate of ['/hi', '/es', '/fr']) assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
-    assert.match(html, /class="translation-note quiet-note"/, `${page}: translation status note`);
   }
 if (/^(hi|es|fr)\//.test(page)) {
     const [language, basePage] = page.split('/');
@@ -75,7 +95,6 @@ if (/^(hi|es|fr)\//.test(page)) {
     for (const alternate of alternates) {
       assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
     }
-    assert.match(html, /class="translation-note quiet-note"/, `${page}: translation status note`);
   }
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);

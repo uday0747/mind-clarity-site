@@ -38,7 +38,7 @@ function FAQ() {
       e('label', { htmlFor: 'enquiry-input' }, 'Find an answer in the teaching'),
       e('input', { id: 'enquiry-input', type: 'search', maxLength: 300, placeholder: 'Try: surrender, astrology, guilt, health…', 'aria-describedby': 'enquiry-help' }),
       e('p', { id: 'enquiry-help', className: 'quiet-note' }, 'This is a local answer finder, not a generative AI chatbot. Your search stays in this page and is not saved or sent to a model.'),
-      e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite' }))),
+      e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite', 'data-single': '1 related answer. Open the question below to read Uday’s explanation.', 'data-plural': '{count} related answers. Open a question below to read Uday’s explanation.', 'data-empty': 'No recorded answer matches yet. Try a shorter topic, or clear the search to browse all questions.' }))),
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
       ...enquiryGroups.map(group => e('section', { key: group.title }, e('h2', null, group.title), ...group.entries.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))))),
       e('section', { 'aria-labelledby': 'evidence-notes' },

@@ -12,6 +12,7 @@ import { PagePathContext } from '../site-header.js';
 import { completeMetadata } from './metadata.mjs';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { pageLanguage } from '../language-options.js';
+import { translateMarkup } from './translate-markup.mjs';
 import { localizedMeta } from '../localized-core.js';
 import { localizedMoreMeta } from '../localized-more.js';
 import { localizedAIMeta } from '../localized-ai.js';
@@ -65,7 +66,11 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
     head = head.replaceAll(`href="${css}"`, `href="/${css}?v=${await revision(css)}"`);
   }
   const pathname = page === 'index' ? '/' : `/${page}`;
-  const markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(Component)));
+  const language = pageLanguage(pathname);
+  const sourcePage = page === 'ai-fear-and-clarity-telugu' ? 'ai-fear-and-clarity' : language !== 'en' ? (page.split('/')[1] || 'index') : page;
+  const sourceComponent = sourcePage === 'index' ? App : pages[sourcePage];
+  let markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(language === 'en' ? Component : sourceComponent)));
+  if (language !== 'en') markup = translateMarkup(markup, language);
   const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
   const outputFile = path.join(dist, `${page}.html`);
   await mkdir(path.dirname(outputFile), { recursive: true });

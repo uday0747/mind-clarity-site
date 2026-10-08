@@ -5,7 +5,7 @@ export function enhanceEnquirySearch(root = document) {
   const fallback = root.querySelector('#enquiry-fallback');
   const status = root.querySelector('#enquiry-status');
   if (!input || !controls || !fallback || !status || controls.dataset.enhanced) return;
-  const normalize = text => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  const normalize = text => text.toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
   const ignored = new Set(['i', 'am', 'a', 'the', 'is', 'are', 'do', 'does', 'can', 'what', 'how', 'why', 'to', 'of', 'in', 'and', 'my', 'me', 'you']);
   const entries = [...root.querySelectorAll('.compact-reading details')].map(element => ({
     element, words: normalize(element.textContent).split(' ')
@@ -23,8 +23,8 @@ export function enhanceEnquirySearch(root = document) {
     }
     for (const group of groups) group.element.hidden = !group.entries.some(entry => !entry.hidden);
     status.textContent = !input.value.trim() ? '' : count
-      ? `${count} related ${count === 1 ? 'answer' : 'answers'}. Open a question below to read Uday’s explanation.`
-      : 'No recorded answer matches yet. Try a shorter topic, or clear the search to browse all questions.';
+      ? (count === 1 ? status.dataset.single : status.dataset.plural).replace('{count}', String(count))
+      : status.dataset.empty;
   };
   input.addEventListener('input', filter);
   filter();

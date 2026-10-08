@@ -1,6 +1,7 @@
 import { questions, enquiryGroups } from '../questions.js';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { localizedPageSlugs, pageLanguage } from '../language-options.js';
+import { translateText } from '../translations.js';
 
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
 export function completeMetadata(head) {
@@ -103,10 +104,11 @@ export function completeMetadata(head) {
       { '@type': 'ListItem', position: 3, name: topic.title, item: canonical }
     ] });
   }
-  const faq = canonicalPath === '/faq' ? {
+  const faq = canonicalPath === '/faq' || localizedPage === 'faq' ? {
     '@context': 'https://schema.org', '@type': 'FAQPage',
     // Semantic description of visible answers, not a promise of Google FAQ rich results.
-    mainEntity: [...questions, ...enquiryGroups.flatMap(group => group.entries)].map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } }))
+    inLanguage: language,
+    mainEntity: [...questions, ...enquiryGroups.flatMap(group => group.entries)].map(([name, text]) => ({ '@type': 'Question', name: translateText(name, language), acceptedAnswer: { '@type': 'Answer', text: translateText(text, language) } }))
   } : null;
   const schemas = [`<script type="application/ld+json">${JSON.stringify(graph).replaceAll('<', '\\u003c')}</script>`];
   if (faq) schemas.push(`<script type="application/ld+json">${JSON.stringify(faq).replaceAll('<', '\\u003c')}</script>`);
