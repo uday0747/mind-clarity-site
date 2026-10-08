@@ -1,17 +1,11 @@
 import React from 'react';
 import { Page, Contents, Lesson, Reflection } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
-import { PagePathContext } from './site-header.js';
-import { languageOptions, pageLanguage, languageVariants } from './language-options.js';
 const e = React.createElement;
 const p = text => e('p', null, text);
 const items = [['fear', 'What are we afraid of?'], ['design', 'Reading the unfolding design'], ['freedom', 'Freedom, livelihood, and purpose'], ['care', 'Hope expressed through care'], ['enquiry', 'An invitation to enquire'], ['creator-in-creation', 'Recognizing the Creator in what we create']];
 export default function AIReflection() {
-  const pathname = React.useContext(PagePathContext);
-  const language = pageLanguage(pathname);
-  const variants = languageVariants('/ai-fear-and-clarity');
   return e(Page, { eyebrow: 'A reflection by Uday Kumar · 3 October 2026', title: 'Can we meet artificial intelligence with clarity instead of fear?', intro: teaching.statement },
-    e('nav', { className: 'reading-links', 'aria-label': 'Article language' }, languageOptions.map(option => e(option.code === language ? 'span' : 'a', { key: option.code, ...(option.code === language ? { 'aria-current': 'true' } : { href: variants[option.code] }), lang: option.code, hrefLang: option.code }, option.nativeName))),
     p('Artificial intelligence raises a question larger than what machines can do: how do we meet a future we cannot fully predict? My invitation is to examine fear, remember our shared identity, and participate with care. This reflection presents my spiritual understanding of technological development; it is not a prediction of what AI must become.'),
     e(Contents, { items }),
     e(Lesson, { id: 'fear', title: items[0][1] },
