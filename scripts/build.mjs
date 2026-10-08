@@ -12,6 +12,7 @@ import { PagePathContext } from '../site-header.js';
 import { completeMetadata } from './metadata.mjs';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { pageLanguage } from '../language-options.js';
+import { localizedMeta } from '../localized-core.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 await build({ configFile: path.join(root, 'vite.config.js'), root });
@@ -25,7 +26,21 @@ await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
-  let template = await readFile(path.join(root, `${topic ? 'faq' : page}.html`), 'utf8');
+  const templatePage = page.split('/').pop();
+  let template = await readFile(path.join(root, `${topic ? 'faq' : templatePage}.html`), 'utf8');
+  const localizedRoute = page.match(/^(hi|es|fr)\/(philosophy|practice|faq|reflections)$/);
+  if (localizedRoute) {
+    const [, language, basePage] = localizedRoute;
+    const meta = localizedMeta[language]?.[basePage];
+    if (!meta) throw new Error(`Missing localized metadata: ${page}`);
+    const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+    template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(meta.title)}</title>`)
+      .replace(/name="description" content="[^"]+"/, `name="description" content="${escape(meta.description)}"`)
+      .replace(/rel="canonical" href="https:\/\/mindclarity\.co\.in\/[^\"]+"/, `rel="canonical" href="https://mindclarity.co.in/${page}"`)
+      .replace(/property="og:title" content="[^"]+"/, `property="og:title" content="${escape(meta.title)}"`)
+      .replace(/property="og:description" content="[^"]+"/, `property="og:description" content="${escape(meta.description)}"`)
+      .replace(/property="og:url" content="[^"]+"/, `property="og:url" content="https://mindclarity.co.in/${page}"`);
+  }
   if (topic) {
     const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
     template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(topic.title)} | Mind Clarity</title>`)
@@ -40,12 +55,14 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   head = head.replace(/[\t ]+$/gm, '');
   head = head.replace(/<script type="module"[^>]*><\/script>/g, '');
   for (const css of ['page.css', 'react-home.css']) {
-    head = head.replaceAll(`href="${css}"`, `href="${css}?v=${await revision(css)}"`);
+    head = head.replaceAll(`href="${css}"`, `href="/${css}?v=${await revision(css)}"`);
   }
   const pathname = page === 'index' ? '/' : `/${page}`;
   const markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(Component)));
   const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
-  await writeFile(path.join(dist, `${page}.html`), html);
+  const outputFile = path.join(dist, `${page}.html`);
+  await mkdir(path.dirname(outputFile), { recursive: true });
+  await writeFile(outputFile, html);
 }
 for (const legacy of ['about.html', 'services.html']) await cp(path.join(root, legacy), path.join(dist, legacy));
 // Check the complete staged output before replacing the last working build.

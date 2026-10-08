@@ -14,7 +14,7 @@ Use Node.js 24 and pnpm 11. Install the exact dependencies with `pnpm install --
 ```sh
 pnpm dev       # Source preview with live reload: http://127.0.0.1:5173
 pnpm build     # Regenerate the complete dist directory
-pnpm check     # Validate 13 pages, routes, caching, redirects and assets
+pnpm check     # Validate 28 pages, routes, caching, redirects and assets
 pnpm preview   # Run the production handler locally: http://127.0.0.1:4173
 ```
 
@@ -87,8 +87,8 @@ The same structure governs future YouTube scripts, translations, teaching materi
 - Each main lesson must develop the Creator-and-game understanding through a connected explanation, example, and reflection. Test: can the visitor understand this connection and explore it without contacting Uday?
 - Keep the full core philosophy readable, including the exact original Mula Siddhanta, all ten supplied scriptural pointers, naturally arising care, and the Beautiful World/technology vision. Attribute metaphysics as spiritual perspective, not established science or a guarantee of enlightenment.
 - Design language: calm, readable editorial pages; the complete statement before the first reflection; mobile-friendly typography; in-page contents; accessible menus and expandable worked examples. No registration, payment or sharing personal details required for learning.
-- Current pages (16): Begin here, Philosophy, Daily practice, Questions, four in-depth enquiry guides, Reflections, the English and Telugu AI reflections, Optional personal conversation, Privacy, and localized Hindi, Spanish, and French entry pages. Contact and obsolete Wix pages are retired with HTTP 410 responses. Old About and Services addresses redirect, preserving bookmarks without separate promotional pages.
-- Multilingual rollout: the site uses a visible language selector with English as the fallback, Telugu available for the reviewed AI reflection pair, and Hindi, Spanish, and French entry pages for the first international batch. The selector can suggest a matching browser language without using IP location or forcing a redirect; a visitor’s manual choice is remembered locally. The longer teaching pages remain English until each translation is reviewed for spiritual and cultural accuracy. Add a language only after its page set has been translated and reviewed, then add its static URLs, reciprocal `hreflang` metadata and sitemap entries.
+- Current pages (28): Begin here, Philosophy, Daily practice, Questions, four in-depth enquiry guides, Reflections, the English and Telugu AI reflections, Optional personal conversation, Privacy, and complete Hindi, Spanish, and French versions of the four main learning pages plus localized entry pages. Contact and obsolete Wix pages are retired with HTTP 410 responses. Old About and Services addresses redirect, preserving bookmarks without separate promotional pages.
+- Multilingual rollout: the site uses a visible language selector with English as the fallback, Telugu available for the reviewed AI reflection pair, and Hindi, Spanish, and French versions of the four main learning pages. The selector can suggest a matching browser language without using IP location or forcing a redirect; a visitor’s manual choice is remembered locally. The localized core pages carry their own static URLs, reciprocal `hreflang` metadata, sitemap entries and translated navigation. The enquiry guides, optional conversation and privacy page still use the English fallback until their full translations are ready.
 - Email and optional conversation remain quiet footer links, not primary calls to action. No About Me emphasis. Do not add donations now; if requested later, place a subdued link at the very bottom.
 - Introductory conversation: ₹500, 30 minutes; phone, Zoom, WhatsApp call or offline by arrangement.
 - Enquiries: WhatsApp +91 9989766517 and pudaykumar12@gmail.com. Arrange a time before payment.

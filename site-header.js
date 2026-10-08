@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useRef } from 'react';
 import { enhanceNavigation } from './site-ui.js';
 import { enquiryTopics } from './enquiry-topics.js';
-import { interfaceFor, languageOptions, languageVariants, pageLanguage } from './language-options.js';
+import { interfaceFor, languageOptions, languageVariants, localizedPageSlugs, localizedPath, pageLanguage } from './language-options.js';
 export const PagePathContext = createContext(null);
 const e = React.createElement;
 const links = [
@@ -12,24 +12,32 @@ const links = [
   ['reflections', 'Reflections', '/reflections']
 ];
 export function pageFromPath(pathname) {
-  const page = pathname.replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '');
-  return !page || page === 'index' ? 'home' : page;
+  const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean).map(segment => segment.replace(/\.html$/, ''));
+  if (!segments.length || segments[0] === 'index') return 'home';
+  if (['hi', 'es', 'fr'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
+  return segments[0];
 }
 export default function Header() {
   const header = useRef(null);
   useEffect(() => enhanceNavigation(header.current), []);
   const provided = useContext(PagePathContext);
   const pathname = provided ?? (typeof location === 'undefined' ? '/' : location.pathname);
-  const current = pageFromPath(pathname);
+  const route = pageFromPath(pathname);
+  const current = route.includes('/') ? route.split('/').pop() : route;
   const currentLanguage = pageLanguage(pathname);
   const localizedUi = ['hi', 'es', 'fr'].includes(currentLanguage) ? currentLanguage : 'en';
   const ui = interfaceFor(localizedUi);
   const page = ['hi', 'es', 'fr'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
-  const navLinks = links.map(([id, , href]) => [id, ui.nav[id], href]);
+  const navLinks = links.map(([id, , href]) => {
+    const pageSlug = id === 'home' ? '' : id === 'faq' ? 'faq' : id;
+    const localizedHref = localizedUi !== 'en' && (id === 'home' || localizedPageSlugs.has(pageSlug)) ? localizedPath(localizedUi, pageSlug) : href;
+    return [id, ui.nav[id], localizedHref];
+  });
+  const brandHref = localizedUi !== 'en' ? localizedPath(localizedUi) : '/';
   return e('header', { className: 'site-header', ref: header, lang: localizedUi },
-    e('a', { className: 'brand', href: '/' }, 'Mind Clarity'),
+    e('a', { className: 'brand', href: brandHref }, 'Mind Clarity'),
     e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,
       'aria-label': ui.openMenu, 'data-menu-label': ui.menu, 'data-open-label': ui.openMenu, 'data-close-label': ui.closeMenu, 'aria-controls': 'primary-navigation' }, ui.menu),
     e('nav', { id: 'primary-navigation', 'aria-label': ui.mainNav },

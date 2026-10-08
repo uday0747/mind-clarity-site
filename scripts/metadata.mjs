@@ -1,6 +1,6 @@
 import { questions, enquiryGroups } from '../questions.js';
 import { enquiryTopics } from '../enquiry-topics.js';
-import { pageLanguage } from '../language-options.js';
+import { localizedPageSlugs, pageLanguage } from '../language-options.js';
 
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
 export function completeMetadata(head) {
@@ -13,6 +13,8 @@ export function completeMetadata(head) {
   const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
   const language = pageLanguage(canonicalPath);
   const localizedHome = ['/', '/hi', '/es', '/fr'].includes(canonicalPath);
+  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr)\/([^/]+)$/);
+  const localizedPage = localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
   if (reflection) {
     // Keep the reviewed English/Telugu pair reciprocal and give crawlers a
     // neutral fallback without relying on client-side language detection.
@@ -32,6 +34,17 @@ export function completeMetadata(head) {
     ];
     head += '\n' + homeAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
   }
+  if (localizedPage && localizedPageSlugs.has(localizedPage)) {
+    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|x-default)"[^>]*>/g, '');
+    const pageAlternates = [
+      ['en', `https://mindclarity.co.in/${localizedPage}`],
+      ['hi', `https://mindclarity.co.in/hi/${localizedPage}`],
+      ['es', `https://mindclarity.co.in/es/${localizedPage}`],
+      ['fr', `https://mindclarity.co.in/fr/${localizedPage}`],
+      ['x-default', `https://mindclarity.co.in/${localizedPage}`],
+    ];
+    head += '\n' + pageAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
+  }
   // Retain existing social images; regenerate only text fields from the page metadata.
   head = head.replace(/\s*<meta (?:property|name)="(?:og:(?:type|site_name|title|description|url)|twitter:(?:title|description|card))"[^>]*>/g, '');
   head = head.replace(/\s*<link rel="preload" as="image"[^>]*>/g, '');
@@ -45,7 +58,7 @@ export function completeMetadata(head) {
   const graph = {
     '@context': 'https://schema.org', '@graph': [
       { '@type': 'WebSite', '@id': 'https://mindclarity.co.in/#website', name: 'Mind Clarity', url: 'https://mindclarity.co.in/', inLanguage: 'en' },
-      { '@type': canonical.endsWith('/reflections') ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
+      { '@type': canonicalPath === '/reflections' ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
   const topic = enquiryTopics.find(topic => canonical.endsWith('/' + topic.slug));
@@ -67,7 +80,7 @@ export function completeMetadata(head) {
       { '@type': 'ListItem', position: 3, name: decode(title).replace(/ \| Mind Clarity$/, ''), item: canonical }
     ] });
   }
-  if (canonical.endsWith('/reflections')) {
+  if (canonicalPath === '/reflections') {
     graph['@graph'][1].mainEntity = { '@type': 'ItemList', itemListElement: [
       { '@type': 'ListItem', position: 1, url: 'https://mindclarity.co.in/ai-fear-and-clarity', name: 'Artificial Intelligence, Fear and Clarity' },
       { '@type': 'ListItem', position: 2, url: 'https://mindclarity.co.in/ai-fear-and-clarity-telugu', name: 'కృత్రిమ మేధస్సు, భయం, స్పష్టమైన అవగాహన' }
@@ -83,7 +96,7 @@ export function completeMetadata(head) {
       { '@type': 'ListItem', position: 3, name: topic.title, item: canonical }
     ] });
   }
-  const faq = canonical.endsWith('/faq') ? {
+  const faq = canonicalPath === '/faq' ? {
     '@context': 'https://schema.org', '@type': 'FAQPage',
     // Semantic description of visible answers, not a promise of Google FAQ rich results.
     mainEntity: [...questions, ...enquiryGroups.flatMap(group => group.entries)].map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } }))

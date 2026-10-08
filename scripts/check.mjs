@@ -6,7 +6,8 @@ import { enquiryTopics } from '../enquiry-topics.js';
 import { questions, enquiryGroups } from '../questions.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const localizedPages = ['hi', 'es', 'fr'].flatMap(language => ['philosophy', 'practice', 'faq', 'reflections'].map(page => `${language}/${page}`));
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
   const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;
@@ -57,6 +58,15 @@ for (const page of pages) {
     assert.match(html, new RegExp(`<html lang="${page}">`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
     for (const alternate of ['/hi', '/es', '/fr']) assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
+    assert.match(html, /class="translation-note quiet-note"/, `${page}: translation status note`);
+  }
+  if (/^(hi|es|fr)\//.test(page)) {
+    const [language, basePage] = page.split('/');
+    assert.match(html, new RegExp(`<html lang="${language}">`), `${page}: document language`);
+    assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
+    for (const alternate of [`/hi/${basePage}`, `/es/${basePage}`, `/fr/${basePage}`]) {
+      assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
+    }
     assert.match(html, /class="translation-note quiet-note"/, `${page}: translation status note`);
   }
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);

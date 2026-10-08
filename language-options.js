@@ -25,6 +25,13 @@ const variants = {
   },
 };
 
+export const localizedPageSlugs = new Set(['philosophy', 'practice', 'faq', 'reflections']);
+
+export function localizedPath(language, page = '') {
+  if (language === 'en') return page ? `/${page}` : '/';
+  return page ? `/${language}/${page}` : `/${language}`;
+}
+
 export function normalizedPath(pathname = '/') {
   const path = pathname.replace(/\/+$/, '');
   return path || '/';
@@ -39,7 +46,14 @@ export function pageLanguage(pathname = '/') {
 export function languageVariants(pathname = '/') {
   const path = normalizedPath(pathname).replace(/\.html$/, '') || '/';
   const page = path.replace(/^\//, '');
-  return variants[path] || variants[page] || { en: normalizedPath(pathname) };
+  if (variants[path] || variants[page]) return variants[path] || variants[page];
+  const localizedRoute = path.match(/^\/(hi|es|fr)\/(.+)$/);
+  const basePage = localizedRoute?.[2];
+  if (localizedPageSlugs.has(basePage) || localizedPageSlugs.has(page)) {
+    const sourcePage = basePage || page;
+    return { en: localizedPath('en', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) };
+  }
+  return { en: normalizedPath(pathname) };
 }
 
 export function languageOption(code) {
