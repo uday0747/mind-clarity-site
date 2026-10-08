@@ -1,5 +1,4 @@
-// Languages with a complete, reviewed page set are added here. Keep the list
-// small until every translated page preserves the meaning of the teaching.
+// Published languages. Route availability does not imply a completed linguistic review.
 export const languageOptions = [
   { code: 'en', nativeName: 'English', label: 'English' },
   { code: 'te', nativeName: 'తెలుగు', label: 'Telugu' },
@@ -12,6 +11,7 @@ export const languagePreferenceKey = 'mind-clarity-language';
 
 const variants = {
   '/': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
+  '/te': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
   '/hi': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
   '/es': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
   '/fr': { en: '/', te: '/te', hi: '/hi', es: '/es', fr: '/fr' },
@@ -25,6 +25,7 @@ const variants = {
   'ai-fear-and-clarity-telugu': {
     en: '/ai-fear-and-clarity',
     te: '/ai-fear-and-clarity-telugu',
+    hi: '/hi/ai-fear-and-clarity', es: '/es/ai-fear-and-clarity', fr: '/fr/ai-fear-and-clarity',
   },
   'hi/ai-fear-and-clarity': {
     en: '/ai-fear-and-clarity', te: '/ai-fear-and-clarity-telugu', hi: '/hi/ai-fear-and-clarity', es: '/es/ai-fear-and-clarity', fr: '/fr/ai-fear-and-clarity',
@@ -103,10 +104,10 @@ export function storeLanguage(code) {
 export const interfaceCopy = {
   en: {
     language: 'Language', chooseLanguage: 'Choose language', skip: 'Skip to content', mainNav: 'Main navigation', menu: 'Menu', openMenu: 'Open menu', closeMenu: 'Close menu',
-    browserPrefers: 'Your browser prefers', openIn: 'Open this page in', currentlyAvailable: current => `This page is currently available in ${current}; reviewed translations are being added.`,
+    browserPrefers: 'Your browser prefers', openIn: 'Open this page in', currentlyAvailable: current => `This page is currently available in ${current}; translations are being improved.`,
     nav: { home: 'Begin here', philosophy: 'Philosophy', practice: 'Daily practice', faq: 'Questions', reflections: 'Reflections' },
     labels: { home: 'Begin here', philosophy: 'Philosophy', practice: 'Daily practice', faq: 'Questions', reflections: 'Reflections' },
-    more: 'More reviewed translations are being added.',
+    more: 'More translations are being improved.',
     footerPurpose: 'Remembering the Creator within the game of experiences.',
     youtube: 'Mind Clarity on YouTube', email: 'Email', privacy: 'Privacy', conversation: 'Optional conversation',
     share: { title: 'Share a useful lesson', body: 'If someone comes to mind, send them this page and let them explore at their own pace.', label: 'Link to this page', copy: 'Copy link', email: 'Share by email', help: 'You can select and copy the link. No account is needed to read it.', copied: 'Link copied. Paste it wherever you would like to share it.', fallback: 'Select and copy the link above to share it.' },

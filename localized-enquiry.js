@@ -2,12 +2,12 @@
 export const localizedEnquiry = {
   "hi": [
     [
-      "क्या मुझे टिप्पणियाँ लिखनी चाहिए?",
-      "नहीं, उदय का नवीनतम स्पष्टीकरण यह है कि लेखन की आवश्यकता नहीं है। यह जानने की प्रेरणा कि आप कौन हैं, शुरुआती बिंदु है। लॉगिंग के पहले के संदर्भ उसकी अपनी जांच का वर्णन करते हैं, न कि हर किसी के लिए एक अनिवार्य विधि।"
+      "क्या मुझे अपने अवलोकन लिखने चाहिए?",
+      "नहीं, उदय का नवीनतम स्पष्टीकरण यह है कि लेखन की आवश्यकता नहीं है। यह जानने की प्रेरणा कि आप कौन हैं, शुरुआती बिंदु है। पहले अवलोकन लिखने के संदर्भ उसकी अपनी जांच का वर्णन करते हैं, न कि हर किसी के लिए एक अनिवार्य पद्धति।"
     ],
     [
       "क्या \"मैं सृष्टिकर्ता हूं\" एक प्रतिज्ञान है जिसे मुझे दोहराना होगा?",
-      "उदय का इरादा सवालों को प्रेरित करना है: मैं निर्माता कैसे हूं? इसका अर्थ क्या है? दोहराव बोध की परीक्षा नहीं है, और आंतरिक रूप से उत्पन्न होने वाला उत्तर कुछ ऐसा होता है जिसकी आप जांच कर सकते हैं।"
+      "उदय का इरादा सवालों को प्रेरित करना है: मैं सृष्टिकर्ता कैसे हूं? इसका अर्थ क्या है? दोहराव बोध की परीक्षा नहीं है, और आंतरिक रूप से उत्पन्न होने वाला उत्तर कुछ ऐसा होता है जिसकी आप जांच कर सकते हैं।"
     ],
     [
       "क्या मैं शिक्षक और इस वेबसाइट से प्रश्न कर सकता हूँ?",
@@ -15,11 +15,11 @@ export const localizedEnquiry = {
     ],
     [
       "क्या आत्मज्ञान की कोई समय सीमा है?",
-      "नहीं, कोई आवश्यक समय सारिणी या गारंटी नहीं है कि ये पृष्ठ साकार करेंगे। पूछताछ को दबाव में बदले बिना सामान्य जीवन जारी रखें और अन्वेषण करें।"
+      "नहीं, कोई आवश्यक समय सारिणी या गारंटी नहीं है कि इन पृष्ठों से आत्मज्ञान प्राप्त होगा। पूछताछ को दबाव में बदले बिना सामान्य जीवन जारी रखें और अन्वेषण करें।"
     ],
     [
       "क्या सृष्टिकर्ता होने का मतलब यह है कि मेरे पास अलौकिक शक्तियाँ हैं?",
-      "नहीं, उदय के खाते में, साझा निर्माता ने संपूर्ण डिज़ाइन पर सीधे नियंत्रण के बिना अनुभव के लिए मूर्त जीवन में प्रवेश किया। यह कथन पहचान से संबंधित है, न कि व्यक्तिगत सर्वशक्तिमानता या श्रेष्ठता से।"
+      "नहीं, उदय की व्याख्या में, साझा सृष्टिकर्ता ने संपूर्ण डिज़ाइन पर सीधे नियंत्रण के बिना अनुभव के लिए मूर्त जीवन में प्रवेश किया। यह कथन पहचान से संबंधित है, न कि व्यक्तिगत सर्वशक्तिमानता या श्रेष्ठता से।"
     ],
     [
       "क्या समर्पण कुछ न करने के समान है?",
@@ -39,7 +39,7 @@ export const localizedEnquiry = {
     ],
     [
       "इस जांच में ध्यान का क्या स्थान है?",
-      "उदय ने ध्यान को अनियंत्रित ध्यान, आरामदायक सांस लेने और पहचान और सृजन की जांच के अवसर के रूप में वर्णित किया है। आराम से बैठो; इस वेबसाइट के लिए किसी कठोर मुद्रा, जबरदस्ती सांस लेने या विशेष संवेदना की आवश्यकता नहीं है।"
+      "उदय ने ध्यान को तनाव रहित ध्यान, आरामदायक सांस लेने और पहचान और सृजन की जांच के अवसर के रूप में वर्णित किया है। आराम से बैठो; इस वेबसाइट के लिए किसी कठोर मुद्रा, जबरदस्ती सांस लेने या विशेष संवेदना की आवश्यकता नहीं है।"
     ],
     [
       "क्या आत्मज्ञान उत्तम स्वास्थ्य या धन की गारंटी देता है?",
@@ -79,7 +79,7 @@ export const localizedEnquiry = {
     ],
     [
       "उदय भक्ति को कैसे समझता है?",
-      "वह साझा निर्माता की अभिव्यक्ति के रूप में स्वयं और अन्य लोगों का सम्मान करने और भविष्य पर नियंत्रण के लिए सौदेबाजी किए बिना कार्य करने पर जोर देता है। यह उनकी व्याख्या है, सभी भक्ति परंपराओं की परिभाषा नहीं।"
+      "वह साझा सृष्टिकर्ता की अभिव्यक्ति के रूप में स्वयं और अन्य लोगों का सम्मान करने और भविष्य पर नियंत्रण के लिए सौदेबाजी किए बिना कार्य करने पर जोर देता है। यह उनकी व्याख्या है, सभी भक्ति परंपराओं की परिभाषा नहीं।"
     ],
     [
       "धन और सेवा का स्थान क्या है?",
@@ -91,7 +91,7 @@ export const localizedEnquiry = {
     ],
     [
       "यदि सब कुछ डिज़ाइन किया गया है, तो मुझे कठिन निर्णय कैसे लेना चाहिए?",
-      "उदय के शिक्षण में, चयन और अभिनय स्वयं डिज़ाइन का हिस्सा हैं। उपलब्ध ज्ञान का उपयोग करें, अपने झुकाव पर ध्यान दें और स्थिरता के साथ चुनाव पर विचार करें। आंतरिक शांति आपको बिना किसी हड़बड़ी के स्थिति पर विचार करने में मदद कर सकती है, लेकिन शांति महसूस करना सही निर्णय की गारंटी नहीं देता है। परिणामी विकल्पों के लिए, तथ्यों, पूर्वानुमानित प्रभावों, सहमति और प्रासंगिक सलाह की जाँच करें। आवश्यक कार्रवाई करने से पहले आपको पूर्ण ज्ञान की प्रतीक्षा करने की आवश्यकता नहीं है।"
+      "उदय के शिक्षण में, निर्णय लेना और कार्य करना स्वयं डिज़ाइन का हिस्सा हैं। उपलब्ध ज्ञान का उपयोग करें, अपने झुकाव पर ध्यान दें और स्थिरता के साथ चुनाव पर विचार करें। आंतरिक शांति आपको बिना किसी हड़बड़ी के स्थिति पर विचार करने में मदद कर सकती है, लेकिन शांति महसूस करना सही निर्णय की गारंटी नहीं देता है। महत्वपूर्ण परिणामों वाले निर्णयों के लिए, तथ्यों, पूर्वानुमानित प्रभावों, सहमति और प्रासंगिक सलाह की जाँच करें। आवश्यक कार्रवाई करने से पहले आपको पूर्ण ज्ञान की प्रतीक्षा करने की आवश्यकता नहीं है।"
     ],
     [
       "जब मेरा मन शांत हो तो क्या मैं अंतर्ज्ञान पर भरोसा कर सकता हूँ?",
@@ -107,7 +107,7 @@ export const localizedEnquiry = {
     ],
     [
       "क्या स्पष्टता से पारिवारिक समस्या तुरंत गायब हो जाती है?",
-      "कोई तत्काल परिणाम का वादा नहीं किया गया है. उदय की शिक्षा बिना किसी दोष के जवाब देने, लोगों को बसने में मदद करने और सुधार की दिशा में काम करने पर जोर देती है। भावनात्मक आश्वासन और बाहरी समस्या का समाधान अलग-अलग हैं: पुनर्प्राप्ति के लिए समय, उपचार, संसाधन या सहयोग की आवश्यकता हो सकती है। निरंतर कठिनाई इस बात का प्रमाण नहीं है कि कोई व्यक्ति आध्यात्मिक रूप से कमज़ोर है।"
+      "कोई तत्काल परिणाम का वादा नहीं किया गया है. उदय की शिक्षा बिना किसी दोष के जवाब देने, लोगों को शांत और स्थिर होने में मदद करने और सुधार की दिशा में काम करने पर जोर देती है। भावनात्मक आश्वासन और बाहरी समस्या का समाधान अलग-अलग हैं: पुनर्प्राप्ति के लिए समय, उपचार, संसाधन या सहयोग की आवश्यकता हो सकती है। निरंतर कठिनाई इस बात का प्रमाण नहीं है कि कोई व्यक्ति आध्यात्मिक रूप से कमज़ोर है।"
     ],
     [
       "क्या मुझे आंतरिक शांति पाने के लिए इस दर्शन से सहमत होना चाहिए?",
@@ -115,7 +115,7 @@ export const localizedEnquiry = {
     ],
     [
       "मैं स्पष्टता को केवल निश्चित महसूस करने से कैसे अलग कर सकता हूँ?",
-      "उदय के खाते में, स्पष्टता स्थिरता, पीड़ा के प्रति संवेदनशीलता और जीवन की देखभाल के माध्यम से व्यक्त की जाती है - न कि केवल यह घोषणा करते हुए कि \"मैं प्रबुद्ध हूं।\" ये गुण चिंतन के लिए निमंत्रण हैं, कोई प्रमाणपत्र या अचूकता परीक्षण नहीं। समय के साथ आचरण पर भी गौर करें: ईमानदारी, सीमाओं के प्रति सम्मान, सुनने की इच्छा और गलती को स्वीकार करने की क्षमता। केवल भय या संकट ही अहसास की विफलता को स्थापित नहीं करता है।"
+      "उदय की व्याख्या में, स्पष्टता स्थिरता, पीड़ा के प्रति संवेदनशीलता और जीवन की देखभाल के माध्यम से व्यक्त की जाती है - न कि केवल यह घोषणा करते हुए कि \"मैं प्रबुद्ध हूं।\" ये गुण चिंतन के लिए निमंत्रण हैं, कोई प्रमाणपत्र या अचूकता परीक्षण नहीं। समय के साथ आचरण पर भी गौर करें: ईमानदारी, सीमाओं के प्रति सम्मान, सुनने की इच्छा और गलती को स्वीकार करने की क्षमता। केवल भय या संकट ही अहसास की विफलता को स्थापित नहीं करता है।"
     ],
     [
       "यदि परिवार का कोई सदस्य साझा धन चुरा ले तो मुझे कैसे प्रतिक्रिया देनी चाहिए?",
@@ -123,7 +123,7 @@ export const localizedEnquiry = {
     ],
     [
       "क्या गरिमा और दृढ़ परिणाम एक साथ चल सकते हैं?",
-      "हाँ। उदय ने स्पष्ट किया कि उचित कार्रवाई स्थिति पर निर्भर करती है और पारिवारिक संबंध दूसरों को नुकसान पहुंचाने का बहाना नहीं बनाते हैं। सीमाएँ निर्धारित करें और आवश्यकता पड़ने पर उपयुक्त पेशेवर या वैध मदद लें। प्रतिशोध और सार्वजनिक अपमान से बचें. सम्मानजनक मार्गदर्शन मदद कर सकता है, लेकिन न तो स्नेह और न ही निर्माता की कहानी यह गारंटी देती है कि कोई बदल जाएगा।"
+      "हाँ। उदय ने स्पष्ट किया कि उचित कार्रवाई स्थिति पर निर्भर करती है और पारिवारिक संबंध दूसरों को नुकसान पहुंचाने का बहाना नहीं बनाते हैं। सीमाएँ निर्धारित करें और आवश्यकता पड़ने पर उपयुक्त पेशेवर या वैध मदद लें। प्रतिशोध और सार्वजनिक अपमान से बचें. सम्मानजनक मार्गदर्शन मदद कर सकता है, लेकिन न तो स्नेह और न ही सृष्टिकर्ता की कहानी यह गारंटी देती है कि कोई बदल जाएगा।"
     ],
     [
       "मुझे ऐसे नेता का मूल्यांकन कैसे करना चाहिए जो आत्मज्ञान का दावा करता है?",
@@ -131,18 +131,18 @@ export const localizedEnquiry = {
     ],
     [
       "क्या स्थिरता का अर्थ धन या व्यावहारिक आवश्यकताओं को अस्वीकार करना है?",
-      "नहीं, उदय चरित्र को धन, भ्रष्टाचार या विलासिता से ऊपर रखते हुए वैध आय का स्वागत करता है। वह स्थिति-प्रज्ञा को लाभ और हानि के माध्यम से स्थिरता के रूप में वर्णित करता है। यह उनके शिक्षण के भीतर एक आकांक्षा है, न कि बिलों, स्वास्थ्य आवश्यकताओं, पारिवारिक प्रतिबद्धताओं या वित्तीय निर्णय के प्रभावों को नजरअंदाज करने का कारण।"
+      "नहीं, उदय चरित्र को धन, भ्रष्टाचार या विलासिता से ऊपर रखते हुए वैध आय का स्वागत करता है। वह स्थितप्रज्ञता को लाभ और हानि के माध्यम से स्थिरता के रूप में वर्णित करता है। यह उनके शिक्षण के भीतर एक आकांक्षा है, न कि बिलों, स्वास्थ्य आवश्यकताओं, पारिवारिक प्रतिबद्धताओं या वित्तीय निर्णय के प्रभावों को नजरअंदाज करने का कारण।"
     ],
     [
       "क्या उदय या यह वेबसाइट गलतियाँ कर सकते हैं?",
-      "हाँ। उदय स्पष्ट रूप से स्वीकार करते हैं कि वह गलतियाँ कर सकते हैं और उन्हें ग़लत उद्धरणों और असमर्थित दावों सहित वैध सुधारों की जांच करनी चाहिए। डिज़ाइन के प्रति समर्पण का अर्थ सीखने से इंकार करना नहीं है। सम्मानजनक असहमति से उपयोगी जानकारी सामने आ सकती है; यह स्वचालित रूप से यह संकेत नहीं है कि प्रश्नकर्ता पहले से ही है।"
+      "हाँ। उदय स्पष्ट रूप से स्वीकार करते हैं कि वह गलतियाँ कर सकते हैं और उन्हें ग़लत उद्धरणों और असमर्थित दावों सहित वैध सुधारों की जांच करनी चाहिए। डिज़ाइन के प्रति समर्पण का अर्थ सीखने से इंकार करना नहीं है। सम्मानजनक असहमति से उपयोगी जानकारी सामने आ सकती है; यह स्वचालित रूप से यह संकेत नहीं है कि प्रश्नकर्ता तैयार नहीं है।"
     ],
     [
       "क्या ईईजी यह साबित करता है कि कोई व्यक्ति प्रबुद्ध है?",
-      "यहां समीक्षा किए गए स्रोत ज्ञानोदय के लिए ईईजी परीक्षण स्थापित नहीं करते हैं। सद्गुरु की वेबसाइट प्रयोगकर्ताओं के बारे में एक निजी कहानी सुनाती है जिसमें कहा गया है कि एक मशीन ने मौत का संकेत दिया है, मूल रिकॉर्डिंग या उस प्रकरण की विस्तृत रिपोर्ट प्रदान किए बिना। नौ ईशा चिकित्सकों के एक अलग छोटे अध्ययन ने ईईजी लय और सुसंगतता में बदलाव की सूचना दी - मस्तिष्क गतिविधि की अनुपस्थिति नहीं। ये खाते साझा निर्माता पहचान, सही निर्णय या बीमारी से मुक्ति को साबित नहीं करते हैं।"
+      "यहां समीक्षा किए गए स्रोत ज्ञानोदय के लिए ईईजी परीक्षण स्थापित नहीं करते हैं। सद्गुरु की वेबसाइट प्रयोगकर्ताओं के बारे में एक निजी कहानी सुनाती है जिसमें कहा गया है कि एक मशीन ने मौत का संकेत दिया है, मूल रिकॉर्डिंग या उस प्रकरण की विस्तृत रिपोर्ट प्रदान किए बिना। नौ ईशा चिकित्सकों के एक अलग छोटे अध्ययन ने ईईजी लय और सुसंगतता में बदलाव की सूचना दी - मस्तिष्क गतिविधि की अनुपस्थिति नहीं। ये खाते साझा सृष्टिकर्ता पहचान, सही निर्णय या बीमारी से मुक्ति को साबित नहीं करते हैं।"
     ],
     [
-      "क्या डिज़ाइन के नुकसान वाले भाग को कॉल करने से इसे रोकने की आवश्यकता समाप्त हो जाती है?",
+      "क्या हानि को रूपरेखा का हिस्सा कहने से उसे रोकने की आवश्यकता समाप्त हो जाती है?",
       "नहीं, इस दर्शन में, रोकथाम, सुरक्षा, जांच और मरम्मत भी जीवन के विकास से संबंधित है। यह एआई सहित लोगों, संस्थानों और प्रौद्योगिकी पर लागू होता है। आध्यात्मिक व्याख्या का उपयोग टाले जा सकने वाले नुकसान का बहाना बनाने या सुरक्षा संबंधी चिंताएँ उठाने वाले लोगों को ख़ारिज करने के लिए नहीं किया जाना चाहिए।"
     ]
   ],
@@ -161,7 +161,7 @@ export const localizedEnquiry = {
     ],
     [
       "¿Existe una fecha límite para la iluminación?",
-      "No. No existe ningún cronograma requerido ni garantía de que estas páginas se realicen. Continúe con la vida ordinaria y explore sin convertir la investigación en presión."
+      "No. No existe ningún cronograma requerido ni garantía de que estas páginas conduzcan a la realización espiritual. Continúe con la vida ordinaria y explore sin convertir la investigación en presión."
     ],
     [
       "¿Ser el Creador significa que tengo poderes sobrenaturales?",
@@ -173,7 +173,7 @@ export const localizedEnquiry = {
     ],
     [
       "¿Podremos saber todo lo que pasará?",
-      "Uday dice que no sabemos la siguiente escena. Describe la incertidumbre como parte de la experiencia. Estas páginas no ofrecen ciertas predicciones de su futuro."
+      "Uday dice que no sabemos la siguiente escena. Describe la incertidumbre como parte de la experiencia. Estas páginas no ofrecen predicciones seguras sobre su futuro."
     ],
     [
       "¿Cómo entiende Uday las vidas pasadas?",
@@ -237,11 +237,11 @@ export const localizedEnquiry = {
     ],
     [
       "Si todo está diseñado, ¿cómo debería tomar una decisión difícil?",
-      "En la enseñanza de Uday, elegir y actuar son en sí mismos parte del diseño. Utilice los conocimientos disponibles, observe su inclinación y aborde la elección con firmeza. La tranquilidad interior puede ayudarte a plantearte una situación sin prisas, pero sentir calma no garantiza una decisión correcta. Para elecciones consecuentes, verifique hechos, efectos previsibles, consentimiento y consejos relevantes. No es necesario esperar a la iluminación completa antes de tomar las medidas necesarias."
+      "En la enseñanza de Uday, elegir y actuar son en sí mismos parte del diseño. Utilice los conocimientos disponibles, observe su inclinación y aborde la elección con firmeza. La tranquilidad interior puede ayudarte a plantearte una situación sin prisas, pero sentir calma no garantiza una decisión correcta. Para decisiones con consecuencias importantes, verifique hechos, efectos previsibles, consentimiento y consejos relevantes. No es necesario esperar a la iluminación completa antes de tomar las medidas necesarias."
     ],
     [
       "¿Puedo confiar en la intuición cuando mi mente está en silencio?",
-      "Uday describe una intuición más clara como un beneficio previsto de la investigación. Trate una intuición como algo para examinar, no como una instrucción que no puede estar equivocada. La investigación sobre la intuición calificada enfatiza la experiencia relevante, una situación suficientemente predecible y las oportunidades para aprender de la retroalimentación. La convicción espiritual no reemplaza la experiencia en medicina, finanzas u otros campos especializados."
+      "Uday describe una intuición más clara como un beneficio previsto de la investigación. Trate una intuición como algo para examinar, no como una instrucción que no puede estar equivocada. La investigación sobre la intuición experta enfatiza la experiencia relevante, una situación suficientemente predecible y las oportunidades para aprender de la retroalimentación. La convicción espiritual no reemplaza la experiencia en medicina, finanzas u otros campos especializados."
     ],
     [
       "¿Qué pasa si una decisión tranquila y reflexiva aún conduce a una pérdida?",
@@ -253,7 +253,7 @@ export const localizedEnquiry = {
     ],
     [
       "¿La claridad hace desaparecer inmediatamente un problema familiar?",
-      "No se promete ningún resultado inmediato. La enseñanza de Uday enfatiza responder sin culpar, ayudar a las personas a establecerse y trabajar hacia la recuperación. La tranquilidad emocional y la solución de un problema externo son diferentes: la recuperación puede necesitar tiempo, tratamiento, recursos o cooperación. Las dificultades continuas no son prueba de que alguien sea espiritualmente deficiente."
+      "No se promete ningún resultado inmediato. La enseñanza de Uday enfatiza responder sin culpar, ayudar a las personas a recuperar la calma y trabajar hacia la recuperación. La tranquilidad emocional y la solución de un problema externo son diferentes: la recuperación puede necesitar tiempo, tratamiento, recursos o cooperación. Las dificultades continuas no son prueba de que alguien sea espiritualmente deficiente."
     ],
     [
       "¿Debo estar de acuerdo con esta filosofía para encontrar la tranquilidad interior?",
@@ -273,7 +273,7 @@ export const localizedEnquiry = {
     ],
     [
       "¿Cómo debo evaluar a un líder que afirma estar iluminado?",
-      "Evaluar el comportamiento, no la etiqueta o el tamaño de la misión. Uday asocia la realización con la preocupación por los demás y la integridad en lugar de la ganancia egoísta. Una afirmación de ilustración no pone a nadie por encima del consentimiento, el escrutinio, la responsabilidad o la ley. Puede interrogar a un maestro, rechazar una solicitud y buscar asesoramiento independiente."
+      "Evaluar el comportamiento, no la etiqueta o el tamaño de la misión. Uday asocia la realización con la preocupación por los demás y la integridad en lugar de la ganancia egoísta. Una afirmación de iluminación no pone a nadie por encima del consentimiento, el escrutinio, la responsabilidad o la ley. Puede interrogar a un maestro, rechazar una solicitud y buscar asesoramiento independiente."
     ],
     [
       "¿La estabilidad significa rechazar el dinero o las necesidades prácticas?",
@@ -295,7 +295,7 @@ export const localizedEnquiry = {
   "fr": [
     [
       "Dois-je noter mes observations ?",
-      "Non. La dernière précision d’Uday est qu’il n’est pas nécessaire d’écrire. La motivation pour savoir qui vous êtes est le point de départ. Les références antérieures à l'exploitation forestière décrivent sa propre enquête, et non une méthode obligatoire pour tout le monde."
+      "Non. La dernière précision d’Uday est qu’il n’est pas nécessaire d’écrire. La motivation pour savoir qui vous êtes est le point de départ. Les références antérieures à la prise de notes décrivent sa propre enquête, et non une méthode obligatoire pour tout le monde."
     ],
     [
       "« Je suis le Créateur » est-il une affirmation que je dois répéter ?",
@@ -319,7 +319,7 @@ export const localizedEnquiry = {
     ],
     [
       "Pouvons-nous savoir tout ce qui va se passer ?",
-      "Uday dit que nous ne connaissons pas la scène suivante. Il décrit l'incertitude comme faisant partie de l'expérience. Ces pages n'offrent pas certaines prédictions sur votre avenir."
+      "Uday dit que nous ne connaissons pas la scène suivante. Il décrit l'incertitude comme faisant partie de l'expérience. Ces pages ne font pas de prédictions certaines sur votre avenir."
     ],
     [
       "Comment Uday comprend-il les vies antérieures ?",
@@ -355,7 +355,7 @@ export const localizedEnquiry = {
     ],
     [
       "Dois-je accepter le mal parce que tout est conçu ?",
-      "Non. Uday a précisé que résister aux dommages signifie une action appropriée et légale, et non des représailles. Fixez des limites, demandez de l’aide et protégez-vous et protégez les autres. La reddition ne nécessite pas de rester en danger."
+      "Non. Uday a précisé que résister aux dommages signifie une action appropriée et légale, et non des représailles. Fixez des limites, demandez de l’aide et protégez-vous et protégez les autres. S’abandonner à la conception du jeu n’oblige pas à rester en danger."
     ],
     [
       "Et si j'ai blessé quelqu'un ?",
@@ -391,15 +391,15 @@ export const localizedEnquiry = {
     ],
     [
       "Et si une décision calme et réfléchie conduisait quand même à une perte ?",
-      "Une décision réfléchie peut avoir un résultat défavorable car les connaissances sont incomplètes et les circonstances changent. Examinez honnêtement votre pièce, reconnaissez les erreurs et effectuez des réparations raisonnables sans auto-condamnation prolongée. Une perte n’établit pas que vous ou un membre de votre famille avez manqué d’illumination, et l’acceptation de la conception ne dégage pas votre responsabilité."
+      "Une décision réfléchie peut avoir un résultat défavorable car les connaissances sont incomplètes et les circonstances changent. Examinez honnêtement votre rôle dans ce qui s’est passé, reconnaissez les erreurs et effectuez des réparations raisonnables sans auto-condamnation prolongée. Une perte n’établit pas que vous ou un membre de votre famille avez manqué d’illumination, et l’acceptation de la conception ne dégage pas votre responsabilité."
     ],
     [
       "Une personne illuminée peut-elle ressentir de la tristesse et de la compassion ?",
-      "Oui. Uday a précisé que la tristesse et la compassion peuvent être présentes sans perdre une clarté plus profonde. Sa description d'être insensible concerne la stabilité intérieure, et non l'immunité contre la maladie, le chagrin, la perte financière ou les conséquences pratiques. Prendre soin signifie aider dans ce qui est raisonnablement possible, plutôt que nier que la douleur est réelle."
+      "Oui. Uday a précisé que la tristesse et la compassion peuvent être présentes sans perdre une clarté plus profonde. Sa description d’une stabilité intérieure face aux événements concerne la stabilité intérieure, et non l'immunité contre la maladie, le chagrin, la perte financière ou les conséquences pratiques. Prendre soin signifie aider dans ce qui est raisonnablement possible, plutôt que nier que la douleur est réelle."
     ],
     [
       "La clarté fait-elle disparaître immédiatement un problème familial ?",
-      "Aucun résultat immédiat n’est promis. L’enseignement d’Uday met l’accent sur le fait de réagir sans reproche, d’aider les gens à s’installer et de travailler au rétablissement. Le réconfort émotionnel et la résolution d’un problème externe sont différents : le rétablissement peut nécessiter du temps, un traitement, des ressources ou une coopération. Des difficultés persistantes ne prouvent pas qu’une personne est spirituellement déficiente."
+      "Aucun résultat immédiat n’est promis. L’enseignement d’Uday met l’accent sur le fait de réagir sans reproche, d’aider les personnes à retrouver leur calme et de travailler au rétablissement. Le réconfort émotionnel et la résolution d’un problème externe sont différents : le rétablissement peut nécessiter du temps, un traitement, des ressources ou une coopération. Des difficultés persistantes ne prouvent pas qu’une personne est spirituellement déficiente."
     ],
     [
       "Dois-je être d’accord avec cette philosophie pour retrouver la quiétude intérieure ?",
@@ -434,18 +434,18 @@ export const localizedEnquiry = {
       "Les sources examinées ici n'établissent pas de test EEG pour l'illumination. Le site Web de Sadhguru raconte l’histoire personnelle d’expérimentateurs affirmant qu’une machine indiquait la mort, sans fournir l’enregistrement original ni un rapport détaillé de cet épisode. Une petite étude distincte menée auprès de neuf praticiens d'Isha a rapporté des changements dans les rythmes et la cohérence de l'EEG, et non une absence d'activité cérébrale. Ces récits ne prouvent pas l’identité commune du Créateur, un jugement parfait ou l’absence de maladie."
     ],
     [
-      "Est-ce que le fait d'appeler une partie nuisible de la conception supprime la nécessité de l'empêcher ?",
-      "Non. Dans cette philosophie, la prévention, la protection, l’investigation et la réparation appartiennent également au déroulement de la vie. Cela s’applique aux personnes, aux institutions et à la technologie, y compris l’IA. L’explication spirituelle ne doit pas être utilisée pour excuser un préjudice évitable ou renvoyer des personnes qui soulèvent des préoccupations en matière de sécurité."
+      "Qualifier un préjudice de partie de la conception du jeu supprime-t-il la nécessité de le prévenir ?",
+      "Non. Dans cette philosophie, la prévention, la protection, l’investigation et la réparation appartiennent également au déroulement de la vie. Cela s’applique aux personnes, aux institutions et à la technologie, y compris l’IA. L’explication spirituelle ne doit pas être utilisée pour excuser un préjudice évitable ou écarter les personnes qui soulèvent des préoccupations en matière de sécurité."
     ]
   ],
   "te": [
     [
       "నేను పరిశీలనలను వ్రాయాలా?",
-      "కాదు. రాయాల్సిన అవసరం లేదని ఉదయ్ తాజా స్పష్టీకరణ. మీరు ఎవరో తెలుసుకోవడానికి ప్రేరణ ప్రారంభ స్థానం. లాగింగ్ గురించిన మునుపటి సూచనలు అతని స్వంత విచారణను వివరిస్తాయి, అందరికీ తప్పనిసరి పద్ధతి కాదు."
+      "కాదు. రాయాల్సిన అవసరం లేదని ఉదయ్ తాజా స్పష్టీకరణ. మీరు ఎవరో తెలుసుకోవడానికి ప్రేరణ ప్రారంభ స్థాకాదు. పరిశీలనలను రాసుకోవాలన్న మునుపటి సూచనలు అతని స్వంత విచారణను వివరిస్తాయి, అందరికీ తప్పనిసరి పద్ధతి కాదు."
     ],
     [
       "\"నేనే సృష్టికర్త\" అనేది నేను పునరావృతం చేయాల్సిన ధృవీకరణ?",
-      "ఉదయ్ ప్రశ్నలను ప్రేరేపించడానికి ఉద్దేశించబడింది: నేను సృష్టికర్తను ఎలా ఉన్నాను? దీని అర్థం ఏమిటి? పునరావృతం అనేది సాక్షాత్కారానికి సంబంధించిన పరీక్ష కాదు మరియు అంతర్గతంగా ఉత్పన్నమయ్యే సమాధానం మీరు పరిశీలించగలిగేదే."
+      "ఉదయ్ ప్రశ్నలను ప్రోత్సహించాలని కోరుకుంటారు: నేను సృష్టికర్తను ఎలా అవుతాను? దీని అర్థం ఏమిటి? పునరావృతం అనేది సాక్షాత్కారానికి సంబంధించిన పరీక్ష కాదు మరియు అంతర్గతంగా ఉత్పన్నమయ్యే సమాధానం మీరు పరిశీలించగలిగేదే."
     ],
     [
       "నేను ఉపాధ్యాయుడిని మరియు ఈ వెబ్‌సైట్‌ను ప్రశ్నించవచ్చా?",
@@ -453,15 +453,15 @@ export const localizedEnquiry = {
     ],
     [
       "జ్ఞానోదయానికి గడువు ఉందా?",
-      "లేదు. ఈ పేజీలు వాస్తవికతను ఉత్పత్తి చేస్తాయని అవసరమైన టైమ్‌టేబుల్ లేదా హామీ లేదు. సాధారణ జీవితాన్ని కొనసాగించండి మరియు విచారణను ఒత్తిడిగా మార్చకుండా అన్వేషించండి."
+      "లేదు. నిర్దిష్ట కాలపట్టిక అవసరం లేదు; ఈ పేజీలు చదివితే ఆత్మసాక్షాత్కారం కలుగుతుందనే హామీ కూడా లేదు. సాధారణ జీవితాన్ని కొనసాగించండి మరియు విచారణను ఒత్తిడిగా మార్చకుండా అన్వేషించండి."
     ],
     [
       "సృష్టికర్త అంటే నాకు అతీంద్రియ శక్తులు ఉన్నాయా?",
-      "నం. ఉదయ్ ఖాతాలో, భాగస్వామ్య సృష్టికర్త మొత్తం డిజైన్‌పై ప్రత్యక్ష నియంత్రణ లేకుండా అనుభవం కోసం మూర్తీభవించిన జీవితంలోకి ప్రవేశించారు. ప్రకటన గుర్తింపుకు సంబంధించినది, వ్యక్తిగత సర్వాధికారం లేదా ఆధిపత్యానికి సంబంధించినది కాదు."
+      "కాదు. ఉదయ్ వివరణ ప్రకారం, భాగస్వామ్య సృష్టికర్త మొత్తం డిజైన్‌పై ప్రత్యక్ష నియంత్రణ లేకుండా అనుభవం కోసం మూర్తీభవించిన జీవితంలోకి ప్రవేశించారు. ప్రకటన గుర్తింపుకు సంబంధించినది, వ్యక్తిగత సర్వాధికారం లేదా ఆధిపత్యానికి సంబంధించినది కాదు."
     ],
     [
       "శరణాగతి అంటే ఏమీ చేయకపోవడమేనా?",
-      "లేదు. ఈ బోధనలో, సరెండర్ అనేది మొత్తం రూపకల్పనకు సంబంధించినది, మరొక వ్యక్తికి సమర్పించడం కాదు. పని, రక్షణ, అభ్యాసం మరియు మరమ్మత్తు జీవితంలో భాగంగా ఉంటాయి. ప్రతి ఫలితంపై నియంత్రణను డిమాండ్ చేయకుండా మీ చేతుల్లో ఉన్నవాటిని సహేతుకంగా చేయండి."
+      "లేదు. ఈ బోధనలో, శరణాగతి అనేది మొత్తం రూపకల్పనకు సంబంధించినది, మరొక వ్యక్తికి సమర్పించడం కాదు. పని, రక్షణ, అభ్యాసం మరియు మరమ్మత్తు జీవితంలో భాగంగా ఉంటాయి. ప్రతి ఫలితంపై నియంత్రణను డిమాండ్ చేయకుండా మీ చేతుల్లో ఉన్నవాటిని సహేతుకంగా చేయండి."
     ],
     [
       "జరగబోయేదంతా తెలుసుకోగలమా?",
@@ -469,7 +469,7 @@ export const localizedEnquiry = {
     ],
     [
       "ఉదయ్ గత జీవితాలను ఎలా అర్థం చేసుకున్నాడు?",
-      "ఈ రికార్డ్ చేసిన స్టేట్‌మెంట్‌లలో, ఉదయ్ గత జీవిత వివరణలను తిరస్కరిస్తాడు మరియు డిజైన్ యొక్క ప్రస్తుత ముగుస్తున్న అనుభవాన్ని ఉంచాడు. ఇది అతని స్థానం; వెబ్‌సైట్ దీనిని ప్రతి భారతీయ ఆధ్యాత్మిక సంప్రదాయం యొక్క స్థానంగా ప్రదర్శించలేదు."
+      "ఈ రికార్డ్ చేసిన స్టేట్‌మెంట్‌లలో, ఉదయ్ గత జీవిత వివరణలను తిరస్కరిస్తాడు మరియు ప్రస్తుతం సాగుతున్న రూపకల్పనలోని అనుభవాలకు ప్రాధాన్యం ఇస్తారు. ఇది అతని స్థానం; వెబ్‌సైట్ దీనిని ప్రతి భారతీయ ఆధ్యాత్మిక సంప్రదాయం యొక్క స్థానంగా ప్రదర్శించలేదు."
     ],
     [
       "ఎందుకు డిజైన్ బాధాకరమైన అనుభవాలను కలిగి ఉంది?",
@@ -477,7 +477,7 @@ export const localizedEnquiry = {
     ],
     [
       "ఈ విచారణలో ధ్యానం యొక్క స్థానం ఏమిటి?",
-      "ఉదయ్ ధ్యానాన్ని అపరిమితమైన శ్రద్ధ, సౌకర్యవంతమైన శ్వాస మరియు గుర్తింపు మరియు సృష్టిపై విచారణ కోసం ఒక అవకాశంగా వర్ణించాడు. హాయిగా కూర్చోండి; ఈ వెబ్‌సైట్ ద్వారా ఎటువంటి దృఢమైన భంగిమ, బలవంతంగా శ్వాస తీసుకోవడం లేదా ప్రత్యేక సంచలనం అవసరం లేదు."
+      "ఉదయ్ ధ్యానాన్ని అపరిమితమైన శ్రద్ధ, సౌకర్యవంతమైన శ్వాస మరియు గుర్తింపు మరియు సృష్టిపై విచారణ కోసం ఒక అవకాశంగా వర్ణించాడు. హాయిగా కూర్చోండి; ఈ వెబ్‌సైట్ ద్వారా ఎటువంటి దృఢమైన భంగిమ, బలవంతంగా శ్వాస తీసుకోవడం లేదా ప్రత్యేక అనుభూతి అవసరం లేదు."
     ],
     [
       "జ్ఞానోదయం సంపూర్ణ ఆరోగ్యానికి లేదా సంపదకు హామీ ఇస్తుందా?",
@@ -493,7 +493,7 @@ export const localizedEnquiry = {
     ],
     [
       "నేను జ్యోతిష్య నిపుణుడిని కావాల్సిన అవసరం ఉందా?",
-      "కాదు. లోతైన అధ్యయనం కంటే మొత్తం అవగాహన, తన బోధనకు సంబంధించినది అని ఉదయ్ చెప్పాడు. మీరు ఆ దావాను పరిశోధించవచ్చు మరియు నమ్మకంగా ఉండవచ్చు."
+      "కాదు. లోతైన అధ్యయనం కంటే మొత్తం అవగాహన, తన బోధనకు సంబంధించినది అని ఉదయ్ చెప్పాడు. ఆ వాదనను మీరు పరిశీలించవచ్చు; అది మీకు నమ్మదగినదిగా అనిపించకపోయినా ఫర్వాలేదు."
     ],
     [
       "నేను జ్యోతిష్యం గురించి నిజాయితీగా విభేదిస్తే?",
@@ -509,7 +509,7 @@ export const localizedEnquiry = {
     ],
     [
       "జీవితాన్ని ఆట అని పిలవడం బాధను అవాస్తవంగా చేస్తుందా?",
-      "నం. \"గేమ్\" అనేది సృష్టి మరియు అనుభవాన్ని వివరించే బోధన యొక్క మార్గం, నొప్పి, సమ్మతి లేదా పరిణామాలను చిన్నచూపు చూడడానికి కారణం కాదు. ఇతర జీవితాలు సంరక్షణకు అర్హమైనవి."
+      "కాదు. \"గేమ్\" అనేది సృష్టి మరియు అనుభవాన్ని వివరించే బోధన యొక్క మార్గం, నొప్పి, సమ్మతి లేదా పరిణామాలను చిన్నచూపు చూడడానికి కారణం కాదు. ఇతర జీవితాలు సంరక్షణకు అర్హమైనవి."
     ],
     [
       "ఈ బోధన జంతువులకు ఎలా సంబంధించినది?",
@@ -529,7 +529,7 @@ export const localizedEnquiry = {
     ],
     [
       "ప్రతిదీ రూపొందించబడితే, నేను కష్టమైన నిర్ణయం ఎలా తీసుకోవాలి?",
-      "ఉదయ్ బోధనలో, ఎంచుకోవడం మరియు నటించడం అనేది డిజైన్‌లో భాగం. అందుబాటులో ఉన్న జ్ఞానాన్ని ఉపయోగించండి, మీ మొగ్గును గమనించండి మరియు స్థిరత్వంతో ఎంపికను చేరుకోండి. అంతర్గత నిశ్శబ్దం మీరు తొందరపడకుండా పరిస్థితిని పరిశీలించడంలో సహాయపడుతుంది, కానీ ప్రశాంతత సరైన నిర్ణయానికి హామీ ఇవ్వదు. పర్యవసాన ఎంపికల కోసం, వాస్తవాలు, ఊహించదగిన ప్రభావాలు, సమ్మతి మరియు సంబంధిత సలహాలను తనిఖీ చేయండి. అవసరమైన చర్య తీసుకునే ముందు మీరు పూర్తి జ్ఞానోదయం కోసం వేచి ఉండాల్సిన అవసరం లేదు."
+      "ఉదయ్ బోధనలో, నిర్ణయాలు తీసుకోవడం మరియు కార్యాచరణ అనేది డిజైన్‌లో భాగం. అందుబాటులో ఉన్న జ్ఞానాన్ని ఉపయోగించండి, మీ మొగ్గును గమనించండి మరియు స్థిరత్వంతో ఎంపికను చేరుకోండి. అంతర్గత నిశ్శబ్దం మీరు తొందరపడకుండా పరిస్థితిని పరిశీలించడంలో సహాయపడుతుంది, కానీ ప్రశాంతత సరైన నిర్ణయానికి హామీ ఇవ్వదు. ముఖ్యమైన పరిణామాలున్న నిర్ణయాల కోసం, వాస్తవాలు, ఊహించదగిన ప్రభావాలు, సమ్మతి మరియు సంబంధిత సలహాలను తనిఖీ చేయండి. అవసరమైన చర్య తీసుకునే ముందు మీరు పూర్తి జ్ఞానోదయం కోసం వేచి ఉండాల్సిన అవసరం లేదు."
     ],
     [
       "నా మనస్సు నిశ్శబ్దంగా ఉన్నప్పుడు నేను అంతర్ దృష్టిని విశ్వసించవచ్చా?",
@@ -553,7 +553,7 @@ export const localizedEnquiry = {
     ],
     [
       "స్పష్టతను కేవలం ఖాయంగా భావించడం నుండి నేను ఎలా వేరు చేయగలను?",
-      "ఉదయ్ ఖాతాలో, స్పష్టత స్థిరత్వం, బాధల పట్ల సున్నితత్వం మరియు జీవితం పట్ల శ్రద్ధ ద్వారా వ్యక్తీకరించబడింది-కేవలం \"నేను జ్ఞానోదయం పొందాను\" అని ప్రకటించడం కాదు. ఈ లక్షణాలు ప్రతిబింబానికి ఆహ్వానాలు, సర్టిఫికేట్ లేదా దోషరహిత పరీక్ష కాదు. కాలక్రమేణా ప్రవర్తనను కూడా చూడండి: నిజాయితీ, సరిహద్దుల పట్ల గౌరవం, వినడానికి ఇష్టపడటం మరియు లోపాన్ని గుర్తించే సామర్థ్యం. భయం లేదా బాధ మాత్రమే సాక్షాత్కార వైఫల్యాన్ని స్థాపించదు."
+      "ఉదయ్ వివరణ ప్రకారం, స్పష్టత స్థిరత్వం, బాధల పట్ల సున్నితత్వం మరియు జీవితం పట్ల శ్రద్ధ ద్వారా వ్యక్తీకరించబడింది-కేవలం \"నేను జ్ఞానోదయం పొందాను\" అని ప్రకటించడం కాదు. ఈ లక్షణాలు ప్రతిబింబానికి ఆహ్వానాలు, సర్టిఫికేట్ లేదా దోషరహిత పరీక్ష కాదు. కాలక్రమేణా ప్రవర్తనను కూడా చూడండి: నిజాయితీ, సరిహద్దుల పట్ల గౌరవం, వినడానికి ఇష్టపడటం మరియు లోపాన్ని గుర్తించే సామర్థ్యం. భయం లేదా బాధ మాత్రమే సాక్షాత్కార వైఫల్యాన్ని స్థాపించదు."
     ],
     [
       "కుటుంబ సభ్యుడు షేర్ చేసిన డబ్బును దొంగిలిస్తే నేను ఎలా స్పందించాలి?",
@@ -569,7 +569,7 @@ export const localizedEnquiry = {
     ],
     [
       "స్థిరత్వం అంటే డబ్బు లేదా ఆచరణాత్మక అవసరాలను తిరస్కరించడమేనా?",
-      "సంఖ్య. సంపద, అవినీతి లేదా లగ్జరీ కంటే ఎక్కువ పాత్రను ఉంచుతూ ఉదయ్ చట్టబద్ధమైన ఆదాయాన్ని స్వాగతించాడు. అతను స్థిత-ప్రజ్ఞను లాభం మరియు నష్టం ద్వారా స్థిరత్వంగా వర్ణించాడు. అది అతని బోధనలోని ఆకాంక్ష, బిల్లులు, ఆరోగ్య అవసరాలు, కుటుంబ కట్టుబాట్లు లేదా ఆర్థిక నిర్ణయం యొక్క ప్రభావాలను విస్మరించడానికి కారణం కాదు."
+      "కాదు. సంపద, అవినీతి లేదా విలాసం కంటే సద్గుణాలకు ప్రాధాన్యం ఇస్తూ ఉదయ్ చట్టబద్ధమైన ఆదాయాన్ని స్వాగతించాడు. అతను స్థిత-ప్రజ్ఞను లాభం మరియు నష్టం ద్వారా స్థిరత్వంగా వర్ణించాడు. అది అతని బోధనలోని ఆకాంక్ష, బిల్లులు, ఆరోగ్య అవసరాలు, కుటుంబ కట్టుబాట్లు లేదా ఆర్థిక నిర్ణయం యొక్క ప్రభావాలను విస్మరించడానికి కారణం కాదు."
     ],
     [
       "ఉదయ్ లేదా ఈ వెబ్‌సైట్ తప్పులు చేయగలదా?",
@@ -577,11 +577,11 @@ export const localizedEnquiry = {
     ],
     [
       "ఎవరైనా జ్ఞానోదయం పొందారని EEG రుజువు చేస్తుందా?",
-      "ఇక్కడ సమీక్షించబడిన మూలాధారాలు జ్ఞానోదయం కోసం EEG పరీక్షను ఏర్పాటు చేయలేదు. సద్గురు వెబ్‌సైట్ ప్రయోగాలు చేసేవారి వ్యక్తిగత కథనాన్ని వివరిస్తుంది, ఒక యంత్రం మరణాన్ని సూచించింది, అసలు రికార్డింగ్ లేదా ఆ ఎపిసోడ్ యొక్క వివరణాత్మక నివేదికను అందించలేదు. తొమ్మిది మంది ఇషా అభ్యాసకులపై ఒక ప్రత్యేక చిన్న అధ్యయనం EEG లయలు మరియు పొందికలో మార్పులను నివేదించింది-మెదడు కార్యకలాపాలు లేకపోవడం కాదు. ఈ ఖాతాలు భాగస్వామ్య సృష్టికర్త గుర్తింపు, ఖచ్చితమైన తీర్పు లేదా అనారోగ్యం నుండి విముక్తిని నిరూపించవు."
+      "ఇక్కడ సమీక్షించబడిన మూలాధారాలు జ్ఞానోదయం కోసం EEG పరీక్షను ఏర్పాటు చేయలేదు. సద్గురు వెబ్‌సైట్ ప్రయోగాలు చేసేవారి వ్యక్తిగత కథనాన్ని వివరిస్తుంది, ఒక యంత్రం మరణాన్ని సూచించింది, అసలు రికార్డింగ్ లేదా ఆ ఎపిసోడ్ యొక్క వివరణాత్మక నివేదికను అందించలేదు. తొమ్మిది మంది ఇషా అభ్యాసకులపై ఒక ప్రత్యేక చిన్న అధ్యయనం EEG లయలు మరియు పొందికలో మార్పులను నివేదించింది-మెదడు కార్యకలాపాలు లేకపోవడం కాదు. ఈ వృత్తాంతాలు భాగస్వామ్య సృష్టికర్త గుర్తింపు, ఖచ్చితమైన తీర్పు లేదా అనారోగ్యం నుండి విముక్తిని నిరూపించవు."
     ],
     [
-      "డిజైన్‌లో భాగమైన హానిని పిలవడం దానిని నిరోధించాల్సిన అవసరాన్ని తీసివేస్తుందా?",
-      "నం. ఈ తత్వశాస్త్రంలో, నివారణ, రక్షణ, పరిశోధన మరియు మరమ్మత్తు కూడా జీవితానికి సంబంధించినవి. AIతో సహా వ్యక్తులు, సంస్థలు మరియు సాంకేతికతకు ఇది వర్తిస్తుంది. తప్పించుకోదగిన హానిని మన్నించడానికి లేదా భద్రతా సమస్యలను లేవనెత్తే వ్యక్తులను తొలగించడానికి ఆధ్యాత్మిక వివరణను ఉపయోగించకూడదు."
+      "హానిని రూపకల్పనలో భాగమని చెప్పడం వల్ల దాన్ని నివారించాల్సిన అవసరం పోతుందా?",
+      "కాదు. ఈ తత్వశాస్త్రంలో, నివారణ, రక్షణ, పరిశోధన మరియు మరమ్మత్తు కూడా జీవితానికి సంబంధించినవి. AIతో సహా వ్యక్తులు, సంస్థలు మరియు సాంకేతికతకు ఇది వర్తిస్తుంది. తప్పించుకోదగిన హానిని మన్నించడానికి లేదా భద్రతా సమస్యలను లేవనెత్తే వ్యక్తులను తొలగించడానికి ఆధ్యాత్మిక వివరణను ఉపయోగించకూడదు."
     ]
   ]
 };

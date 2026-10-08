@@ -26,9 +26,9 @@ export default function Header() {
   const current = route.includes('/') ? route.split('/').pop() : route;
   const currentLanguage = pageLanguage(pathname);
   const localizedUi = ['hi', 'es', 'fr', 'te'].includes(currentLanguage) ? currentLanguage : 'en';
-  const localizedNavigation = ['hi', 'es', 'fr'].includes(localizedUi);
+  const localizedNavigation = ['hi', 'es', 'fr', 'te'].includes(localizedUi);
   const ui = interfaceFor(localizedUi);
-  const page = ['hi', 'es', 'fr'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = ['hi', 'es', 'fr', 'te'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
   const navLinks = links.map(([id, , href]) => {

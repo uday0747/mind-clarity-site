@@ -1,0 +1,601 @@
+[
+  {
+    "language": "hi",
+    "page": "index",
+    "english_paragraphs": 23,
+    "translated_paragraphs": 14,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "practice",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "index",
+    "english_paragraphs": 23,
+    "translated_paragraphs": 14,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "practice",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "index",
+    "english_paragraphs": 23,
+    "translated_paragraphs": 14,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "practice",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "index",
+    "english_paragraphs": 23,
+    "translated_paragraphs": 24,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "philosophy",
+    "english_paragraphs": 82,
+    "translated_paragraphs": 47,
+    "english_details": 1,
+    "translated_details": 0,
+    "missing_ids": [
+      "intelligence",
+      "scripture",
+      "share-help",
+      "share-title",
+      "share-url",
+      "sthitaprajna"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "philosophy",
+    "english_paragraphs": 82,
+    "translated_paragraphs": 47,
+    "english_details": 1,
+    "translated_details": 0,
+    "missing_ids": [
+      "intelligence",
+      "scripture",
+      "share-help",
+      "share-title",
+      "share-url",
+      "sthitaprajna"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "philosophy",
+    "english_paragraphs": 82,
+    "translated_paragraphs": 47,
+    "english_details": 1,
+    "translated_details": 0,
+    "missing_ids": [
+      "intelligence",
+      "scripture",
+      "share-help",
+      "share-title",
+      "share-url",
+      "sthitaprajna"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "philosophy",
+    "english_paragraphs": 82,
+    "translated_paragraphs": 83,
+    "english_details": 1,
+    "translated_details": 1,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "practice",
+    "english_paragraphs": 50,
+    "translated_paragraphs": 34,
+    "english_details": 6,
+    "translated_details": 6,
+    "missing_ids": [
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "practice",
+    "english_paragraphs": 50,
+    "translated_paragraphs": 34,
+    "english_details": 6,
+    "translated_details": 6,
+    "missing_ids": [
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "practice",
+    "english_paragraphs": 50,
+    "translated_paragraphs": 34,
+    "english_details": 6,
+    "translated_details": 6,
+    "missing_ids": [
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "practice",
+    "english_paragraphs": 50,
+    "translated_paragraphs": 51,
+    "english_details": 6,
+    "translated_details": 6,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "faq",
+    "english_paragraphs": 71,
+    "translated_paragraphs": 55,
+    "english_details": 50,
+    "translated_details": 50,
+    "missing_ids": [
+      "enquiry-controls",
+      "enquiry-fallback",
+      "enquiry-guides",
+      "enquiry-help",
+      "enquiry-input",
+      "enquiry-status",
+      "evidence-notes",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "faq",
+    "english_paragraphs": 71,
+    "translated_paragraphs": 55,
+    "english_details": 50,
+    "translated_details": 50,
+    "missing_ids": [
+      "enquiry-controls",
+      "enquiry-fallback",
+      "enquiry-guides",
+      "enquiry-help",
+      "enquiry-input",
+      "enquiry-status",
+      "evidence-notes",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "faq",
+    "english_paragraphs": 71,
+    "translated_paragraphs": 55,
+    "english_details": 50,
+    "translated_details": 50,
+    "missing_ids": [
+      "enquiry-controls",
+      "enquiry-fallback",
+      "enquiry-guides",
+      "enquiry-help",
+      "enquiry-input",
+      "enquiry-status",
+      "evidence-notes",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "faq",
+    "english_paragraphs": 71,
+    "translated_paragraphs": 55,
+    "english_details": 50,
+    "translated_details": 50,
+    "missing_ids": [
+      "enquiry-controls",
+      "enquiry-fallback",
+      "enquiry-guides",
+      "enquiry-help",
+      "enquiry-input",
+      "enquiry-status",
+      "evidence-notes",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "hi",
+    "page": "reflections",
+    "english_paragraphs": 9,
+    "translated_paragraphs": 6,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "reflections",
+    "english_paragraphs": 9,
+    "translated_paragraphs": 6,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "reflections",
+    "english_paragraphs": 9,
+    "translated_paragraphs": 6,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "reflections",
+    "english_paragraphs": 9,
+    "translated_paragraphs": 10,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "privacy",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 8,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "es",
+    "page": "privacy",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 8,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "fr",
+    "page": "privacy",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 8,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "te",
+    "page": "privacy",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 8,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "consultation-info",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 10,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "es",
+    "page": "consultation-info",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 10,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "fr",
+    "page": "consultation-info",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 10,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "te",
+    "page": "consultation-info",
+    "english_paragraphs": 7,
+    "translated_paragraphs": 8,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "who-am-i-self-enquiry",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 14,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "who-am-i-self-enquiry",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 14,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "who-am-i-self-enquiry",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 14,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "who-am-i-self-enquiry",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 23,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "surrender-free-will-and-design",
+    "english_paragraphs": 20,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "surrender-free-will-and-design",
+    "english_paragraphs": 20,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "surrender-free-will-and-design",
+    "english_paragraphs": 20,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "surrender-free-will-and-design",
+    "english_paragraphs": 20,
+    "translated_paragraphs": 21,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "meditation-and-self-realization",
+    "english_paragraphs": 24,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "meditation-and-self-realization",
+    "english_paragraphs": 24,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "meditation-and-self-realization",
+    "english_paragraphs": 24,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "meditation-and-self-realization",
+    "english_paragraphs": 24,
+    "translated_paragraphs": 25,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "guilt-responsibility-and-boundaries",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "es",
+    "page": "guilt-responsibility-and-boundaries",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "fr",
+    "page": "guilt-responsibility-and-boundaries",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 15,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": [
+      "enquiry-guides",
+      "share-help",
+      "share-title",
+      "share-url"
+    ]
+  },
+  {
+    "language": "te",
+    "page": "guilt-responsibility-and-boundaries",
+    "english_paragraphs": 22,
+    "translated_paragraphs": 23,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "hi",
+    "page": "ai-fear-and-clarity",
+    "english_paragraphs": 29,
+    "translated_paragraphs": 26,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "es",
+    "page": "ai-fear-and-clarity",
+    "english_paragraphs": 29,
+    "translated_paragraphs": 26,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "fr",
+    "page": "ai-fear-and-clarity",
+    "english_paragraphs": 29,
+    "translated_paragraphs": 26,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  },
+  {
+    "language": "te",
+    "page": "ai-fear-and-clarity",
+    "english_paragraphs": 29,
+    "translated_paragraphs": 33,
+    "english_details": 0,
+    "translated_details": 0,
+    "missing_ids": []
+  }
+]

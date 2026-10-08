@@ -6,7 +6,7 @@ import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 export function Footer({ language = 'en' }) {
   const ui = interfaceFor(language);
-  const localized = ['hi', 'es', 'fr'].includes(language);
+  const localized = ['hi', 'es', 'fr', 'te'].includes(language);
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
