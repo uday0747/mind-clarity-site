@@ -13,7 +13,7 @@ export function completeMetadata(head) {
   const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
   const language = pageLanguage(canonicalPath);
   const localizedHome = ['/', '/hi', '/es', '/fr'].includes(canonicalPath);
-  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr)\/([^/]+)$/);
+  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te)\/([^/]+)$/);
   const localizedPage = reflection ? null : localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
   if (reflection) {
     // Keep the English/Telugu pair and add the new translated article routes.
@@ -29,7 +29,7 @@ export function completeMetadata(head) {
     head += '\n' + articleAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
   }
   if (localizedHome) {
-    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|x-default)"[^>]*>/g, '');
+    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|te|x-default)"[^>]*>/g, '');
     const homeAlternates = [
       ['en', 'https://mindclarity.co.in/'],
       ['hi', 'https://mindclarity.co.in/hi'],
@@ -40,12 +40,13 @@ export function completeMetadata(head) {
     head += '\n' + homeAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
   }
   if (localizedPage && localizedPageSlugs.has(localizedPage)) {
-    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|x-default)"[^>]*>/g, '');
+    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|te|x-default)"[^>]*>/g, '');
     const pageAlternates = [
       ['en', `https://mindclarity.co.in/${localizedPage}`],
       ['hi', `https://mindclarity.co.in/hi/${localizedPage}`],
       ['es', `https://mindclarity.co.in/es/${localizedPage}`],
       ['fr', `https://mindclarity.co.in/fr/${localizedPage}`],
+      ...(localizedPage === 'faq' ? [['te', `https://mindclarity.co.in/te/${localizedPage}`]] : []),
       ['x-default', `https://mindclarity.co.in/${localizedPage}`],
     ];
     head += '\n' + pageAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');

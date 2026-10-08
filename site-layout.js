@@ -19,7 +19,7 @@ export function Footer({ language = 'en' }) {
 export function Page({ eyebrow, title, intro, children, home = false, lang, share = true }) {
   const pathname = useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
   const documentLanguage = lang || pageLanguage(pathname);
-  const uiLanguage = ['hi', 'es', 'fr'].includes(documentLanguage) ? documentLanguage : 'en';
+  const uiLanguage = ['hi', 'es', 'fr', 'te'].includes(documentLanguage) ? documentLanguage : 'en';
   const ui = interfaceFor(uiLanguage);
   const canShare = share && !['/privacy', '/consultation-info'].includes(pathname.replace(/\.html$/, '').replace(/\/$/, ''));
   return e(React.Fragment, null,

@@ -14,7 +14,7 @@ const links = [
 export function pageFromPath(pathname) {
   const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean).map(segment => segment.replace(/\.html$/, ''));
   if (!segments.length || segments[0] === 'index') return 'home';
-  if (['hi', 'es', 'fr'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
+  if (['hi', 'es', 'fr', 'te'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
   return segments[0];
 }
 export default function Header() {
@@ -25,17 +25,18 @@ export default function Header() {
   const route = pageFromPath(pathname);
   const current = route.includes('/') ? route.split('/').pop() : route;
   const currentLanguage = pageLanguage(pathname);
-  const localizedUi = ['hi', 'es', 'fr'].includes(currentLanguage) ? currentLanguage : 'en';
+  const localizedUi = ['hi', 'es', 'fr', 'te'].includes(currentLanguage) ? currentLanguage : 'en';
+  const localizedNavigation = ['hi', 'es', 'fr'].includes(localizedUi);
   const ui = interfaceFor(localizedUi);
   const page = ['hi', 'es', 'fr'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
   const navLinks = links.map(([id, , href]) => {
     const pageSlug = id === 'home' ? '' : id === 'faq' ? 'faq' : id;
-    const localizedHref = localizedUi !== 'en' && (id === 'home' || localizedPageSlugs.has(pageSlug)) ? localizedPath(localizedUi, pageSlug) : href;
+    const localizedHref = localizedNavigation && (id === 'home' || localizedPageSlugs.has(pageSlug)) ? localizedPath(localizedUi, pageSlug) : href;
     return [id, ui.nav[id], localizedHref];
   });
-  const brandHref = localizedUi !== 'en' ? localizedPath(localizedUi) : '/';
+  const brandHref = localizedNavigation ? localizedPath(localizedUi) : '/';
   return e('header', { className: 'site-header', ref: header, lang: localizedUi },
     e('a', { className: 'brand', href: brandHref }, 'Mind Clarity'),
     e('button', { className: 'menu-toggle', type: 'button', 'aria-expanded': false,

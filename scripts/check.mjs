@@ -8,7 +8,7 @@ import { localizedPageSlugs } from '../language-options.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
 const localizedPages = ['hi', 'es', 'fr'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'te/faq', ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
   const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;
@@ -48,8 +48,8 @@ for (const page of pages) {
   if (page === 'ai-fear-and-clarity-telugu') {
     assert.match(html, /<html lang="te">/, 'Telugu article keeps its document language');
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, 'Telugu article has an x-default alternate');
-    for (const tag of ['header', 'footer']) assert.match(html, new RegExp(`<${tag}[^>]*lang="en"`), `English ${tag} is labelled on Telugu article`);
-    assert.match(html, /class="skip-link"[^>]*lang="en"/, 'English skip link is labelled');
+    for (const tag of ['header', 'footer']) assert.match(html, new RegExp(`<${tag}[^>]*lang="te"`), `Telugu ${tag} is labelled on Telugu article`);
+    assert.match(html, /class="skip-link"[^>]*lang="te"/, 'Telugu skip link is labelled');
   }
   if (page === 'ai-fear-and-clarity') {
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, 'English article has an x-default alternate');
@@ -61,11 +61,12 @@ for (const page of pages) {
     for (const alternate of ['/hi', '/es', '/fr']) assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
     assert.match(html, /class="translation-note quiet-note"/, `${page}: translation status note`);
   }
-  if (/^(hi|es|fr)\//.test(page)) {
+if (/^(hi|es|fr|te)\//.test(page)) {
     const [language, basePage] = page.split('/');
     assert.match(html, new RegExp(`<html lang="${language}">`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
-    for (const alternate of [`/hi/${basePage}`, `/es/${basePage}`, `/fr/${basePage}`]) {
+    const alternates = [`/hi/${basePage}`, `/es/${basePage}`, `/fr/${basePage}`, ...(basePage === 'faq' ? [`/te/${basePage}`] : [])];
+    for (const alternate of alternates) {
       assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
     }
     assert.match(html, /class="translation-note quiet-note"/, `${page}: translation status note`);

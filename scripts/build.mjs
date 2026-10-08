@@ -16,7 +16,7 @@ import { localizedMeta } from '../localized-core.js';
 import { localizedMoreMeta } from '../localized-more.js';
 import { localizedAIMeta } from '../localized-ai.js';
 
-const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr'].map(language => [language, {
+const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te'].map(language => [language, {
   ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language],
 }]));
 
@@ -32,7 +32,7 @@ await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
-  const localizedRoute = page.match(/^(hi|es|fr)\/(.+)$/);
+  const localizedRoute = page.match(/^(hi|es|fr|te)\/(.+)$/);
   const localizedTopic = localizedRoute && enquiryTopics.find(topic => topic.slug === localizedRoute[2]);
   const templatePage = page.split('/').pop();
   let template = await readFile(path.join(root, `${topic || localizedTopic ? 'faq' : templatePage}.html`), 'utf8');

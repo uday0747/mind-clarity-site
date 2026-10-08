@@ -54,7 +54,7 @@ export function normalizedPath(pathname = '/') {
 
 export function pageLanguage(pathname = '/') {
   const path = normalizedPath(pathname);
-  const localized = path.match(/^\/(hi|es|fr)(?:\/|$)/);
+  const localized = path.match(/^\/(hi|es|fr|te)(?:\/|$)/);
   return localized?.[1] || (path.endsWith('-telugu') ? 'te' : 'en');
 }
 
@@ -62,11 +62,13 @@ export function languageVariants(pathname = '/') {
   const path = normalizedPath(pathname).replace(/\.html$/, '') || '/';
   const page = path.replace(/^\//, '');
   if (variants[path] || variants[page]) return variants[path] || variants[page];
-  const localizedRoute = path.match(/^\/(hi|es|fr)\/(.+)$/);
+  const localizedRoute = path.match(/^\/(hi|es|fr|te)\/(.+)$/);
   const basePage = localizedRoute?.[2];
   if (localizedPageSlugs.has(basePage) || localizedPageSlugs.has(page)) {
     const sourcePage = basePage || page;
-    return { en: localizedPath('en', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) };
+    return sourcePage === 'faq'
+      ? { en: localizedPath('en', sourcePage), te: localizedPath('te', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) }
+      : { en: localizedPath('en', sourcePage), hi: localizedPath('hi', sourcePage), es: localizedPath('es', sourcePage), fr: localizedPath('fr', sourcePage) };
   }
   return { en: normalizedPath(pathname) };
 }
@@ -144,6 +146,14 @@ export const interfaceCopy = {
     youtube: 'Mind Clarity sur YouTube', email: 'E-mail', privacy: 'Confidentialité', conversation: 'Conversation facultative',
     share: { title: 'Partager un enseignement utile', body: 'Si quelqu’un vous vient à l’esprit, envoyez-lui cette page pour qu’il puisse l’explorer à son rythme.', label: 'Lien vers cette page', copy: 'Copier le lien', email: 'Partager par e-mail', help: 'Vous pouvez sélectionner et copier le lien. Aucun compte n’est nécessaire pour le lire.', copied: 'Lien copié. Collez-le où vous souhaitez le partager.', fallback: 'Sélectionnez et copiez le lien ci-dessus pour le partager.' },
     copyright: '© 2026 Mind Clarity · Réflexion spirituelle et éducation.',
+  },
+  te: {
+    language: 'భాష', chooseLanguage: 'భాషను ఎంచుకోండి', skip: 'విషయానికి వెళ్లండి', mainNav: 'ప్రధాన నావిగేషన్', menu: 'మెను', openMenu: 'మెనును తెరవండి', closeMenu: 'మెనును మూసివేయండి',
+    browserPrefers: 'మీ బ్రౌజర్ ప్రాధాన్యత', openIn: 'ఈ పేజీని ఇందులో తెరవండి', currentlyAvailable: current => `ఈ పేజీ ప్రస్తుతం ${current}లో అందుబాటులో ఉంది; సమీక్షించిన అనువాదాలు జోడించబడుతున్నాయి.`,
+    nav: { home: 'ఇక్కడ ప్రారంభించండి', philosophy: 'తత్వం', practice: 'దైనందిన సాధన', faq: 'ప్రశ్నలు', reflections: 'చింతనలు' },
+    labels: { home: 'ఇక్కడ ప్రారంభించండి', philosophy: 'తత్వం', practice: 'దైనందిన సాధన', faq: 'ప్రశ్నలు', reflections: 'చింతనలు' },
+    more: 'మరిన్ని సమీక్షించిన అనువాదాలు జోడించబడుతున్నాయి.', footerPurpose: 'అనుభవాల ఆటలో సృష్టికర్తను గుర్తుంచుకోవడం.', youtube: 'YouTubeలో Mind Clarity', email: 'ఈమెయిల్', privacy: 'గోప్యత', conversation: 'ఐచ్ఛిక సంభాషణ', copyright: '© 2026 Mind Clarity · ఆధ్యాత్మిక చింతన మరియు విద్య.',
+    share: { title: 'ఉపయోగకరమైన పాఠాన్ని పంచుకోండి', body: 'ఎవరైనా గుర్తుకు వస్తే, ఈ పేజీని వారికి పంపి తమ వేగంతో అన్వేషించనివ్వండి.', label: 'ఈ పేజీ లింక్', copy: 'లింక్ కాపీ చేయండి', email: 'ఈమెయిల్ ద్వారా పంచుకోండి', help: 'మీరు లింక్‌ను ఎంచుకుని కాపీ చేయవచ్చు. చదవడానికి ఖాతా అవసరం లేదు.', copied: 'లింక్ కాపీ అయింది. ఎక్కడ కావాలంటే అక్కడ పేస్ట్ చేయండి.', fallback: 'పంచుకోవడానికి పై లింక్‌ను ఎంచుకుని కాపీ చేయండి.' },
   },
 };
 
