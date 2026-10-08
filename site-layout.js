@@ -1,18 +1,19 @@
 import React, { useContext } from 'react';
 import Header, { PagePathContext } from './site-header.js';
 import ShareLearning from './share-learning.js';
-import { interfaceFor, pageLanguage } from './language-options.js';
+import { interfaceFor, localizedPath, pageLanguage } from './language-options.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 export function Footer({ language = 'en' }) {
   const ui = interfaceFor(language);
+  const localized = ['hi', 'es', 'fr'].includes(language);
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
       e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
-      e('a', { href: '/privacy' }, ui.privacy),
-      e('a', { href: '/consultation-info' }, ui.conversation)),
+      e('a', { href: localized ? localizedPath(language, 'privacy') : '/privacy' }, ui.privacy),
+      e('a', { href: localized ? localizedPath(language, 'consultation-info') : '/consultation-info' }, ui.conversation)),
     e('small', null, ui.copyright));
 }
 export function Page({ eyebrow, title, intro, children, home = false, lang, share = true }) {

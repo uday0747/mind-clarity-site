@@ -61,7 +61,7 @@ export function completeMetadata(head) {
       { '@type': canonicalPath === '/reflections' ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
-  const topic = enquiryTopics.find(topic => canonical.endsWith('/' + topic.slug));
+  const topic = enquiryTopics.find(topic => canonicalPath === '/' + topic.slug);
   const author = { '@type': 'Person', '@id': 'https://mindclarity.co.in/#uday-kumar', name: 'Uday Kumar' };
   graph['@graph'][1].author = author;
   if (reflection) {

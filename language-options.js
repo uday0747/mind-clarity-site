@@ -25,7 +25,10 @@ const variants = {
   },
 };
 
-export const localizedPageSlugs = new Set(['philosophy', 'practice', 'faq', 'reflections']);
+export const localizedPageSlugs = new Set([
+  'philosophy', 'practice', 'faq', 'reflections', 'privacy', 'consultation-info',
+  'who-am-i-self-enquiry', 'surrender-free-will-and-design', 'meditation-and-self-realization', 'guilt-responsibility-and-boundaries',
+]);
 
 export function localizedPath(language, page = '') {
   if (language === 'en') return page ? `/${page}` : '/';

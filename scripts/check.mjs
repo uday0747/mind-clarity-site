@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { questions, enquiryGroups } from '../questions.js';
+import { localizedPageSlugs } from '../language-options.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
-const localizedPages = ['hi', 'es', 'fr'].flatMap(language => ['philosophy', 'practice', 'faq', 'reflections'].map(page => `${language}/${page}`));
+const localizedPages = ['hi', 'es', 'fr'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
@@ -71,7 +72,7 @@ for (const page of pages) {
   }
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);
-  assert.equal((html.match(/aria-current="page"/g) || []).length, ['privacy', 'consultation-info', 'contact'].includes(page) ? 0 : 1, `${page}: active navigation`);
+  assert.equal((html.match(/aria-current="page"/g) || []).length, ['privacy', 'consultation-info', 'contact'].includes(page.split('/').pop()) ? 0 : 1, `${page}: active navigation`);
   assert.doesNotMatch(html, /src="(?:app|page-app|home-react|react-app)\.js/, `${page}: no full-page browser runtime`);
   assert.match(html, /<script defer src="\/site\.js\?v=[a-f0-9]+"/, `${page}: versioned navigation enhancement`);
   for (const [, url] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {

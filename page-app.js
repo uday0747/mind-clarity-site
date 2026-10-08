@@ -12,6 +12,7 @@ import { enquiryPages, EnquiryLinks } from './enquiry-pages.js';
 import { enhanceEnquirySearch } from './enquiry-search.js';
 import { HindiHome, SpanishHome, FrenchHome } from './localized-home.js';
 import { localizedComponents } from './localized-core.js';
+import { localizedMoreComponents } from './localized-more.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
@@ -70,7 +71,7 @@ function Privacy() {
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { hi: HindiHome, es: SpanishHome, fr: FrenchHome, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages, ...localizedComponents };
+export const pages = { hi: HindiHome, es: SpanishHome, fr: FrenchHome, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents };
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

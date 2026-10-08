@@ -13,6 +13,11 @@ import { completeMetadata } from './metadata.mjs';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { pageLanguage } from '../language-options.js';
 import { localizedMeta } from '../localized-core.js';
+import { localizedMoreMeta } from '../localized-more.js';
+
+const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr'].map(language => [language, {
+  ...localizedMeta[language], ...localizedMoreMeta[language],
+}]));
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 await build({ configFile: path.join(root, 'vite.config.js'), root });
@@ -26,12 +31,13 @@ await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
+  const localizedRoute = page.match(/^(hi|es|fr)\/(.+)$/);
+  const localizedTopic = localizedRoute && enquiryTopics.find(topic => topic.slug === localizedRoute[2]);
   const templatePage = page.split('/').pop();
-  let template = await readFile(path.join(root, `${topic ? 'faq' : templatePage}.html`), 'utf8');
-  const localizedRoute = page.match(/^(hi|es|fr)\/(philosophy|practice|faq|reflections)$/);
+  let template = await readFile(path.join(root, `${topic || localizedTopic ? 'faq' : templatePage}.html`), 'utf8');
   if (localizedRoute) {
     const [, language, basePage] = localizedRoute;
-    const meta = localizedMeta[language]?.[basePage];
+    const meta = allLocalizedMeta[language]?.[basePage];
     if (!meta) throw new Error(`Missing localized metadata: ${page}`);
     const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
     template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(meta.title)}</title>`)
