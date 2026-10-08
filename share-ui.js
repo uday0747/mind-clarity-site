@@ -4,13 +4,15 @@ export function enhanceSharing(root) {
   const status = root?.querySelector('.share-status');
   if (!button || !input || !status || button.dataset.enhanced || !navigator.clipboard?.writeText) return;
   const copy = async () => {
+    const copied = root.dataset.shareCopied || 'Link copied. Paste it wherever you would like to share it.';
+    const fallback = root.dataset.shareFallback || 'Select and copy the link above to share it.';
     try {
       await navigator.clipboard.writeText(input.value);
-      status.textContent = 'Link copied. Paste it wherever you would like to share.';
+      status.textContent = copied;
     } catch {
       input.focus();
       input.select();
-      status.textContent = 'Select and copy the link above to share it.';
+      status.textContent = fallback;
     }
   };
   button.addEventListener('click', copy);

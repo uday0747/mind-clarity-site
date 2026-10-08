@@ -109,6 +109,7 @@ export const interfaceCopy = {
     more: 'More reviewed translations are being added.',
     footerPurpose: 'Remembering the Creator within the game of experiences.',
     youtube: 'Mind Clarity on YouTube', email: 'Email', privacy: 'Privacy', conversation: 'Optional conversation',
+    share: { title: 'Share a useful lesson', body: 'If someone comes to mind, send them this page and let them explore at their own pace.', label: 'Link to this page', copy: 'Copy link', email: 'Share by email', help: 'You can select and copy the link. No account is needed to read it.', copied: 'Link copied. Paste it wherever you would like to share it.', fallback: 'Select and copy the link above to share it.' },
     copyright: '© 2026 Mind Clarity · Spiritual reflection and education.',
   },
   hi: {
@@ -119,6 +120,7 @@ export const interfaceCopy = {
     more: 'अधिक समीक्षित अनुवाद जोड़े जा रहे हैं।',
     footerPurpose: 'अनुभवों के खेल में सृष्टिकर्ता को स्मरण करना।',
     youtube: 'YouTube पर Mind Clarity', email: 'ईमेल', privacy: 'गोपनीयता', conversation: 'वैकल्पिक बातचीत',
+    share: { title: 'एक उपयोगी सीख साझा करें', body: 'यदि किसी का ध्यान आए, तो यह पृष्ठ उन्हें भेजें और उन्हें अपनी गति से समझने दें।', label: 'इस पृष्ठ का लिंक', copy: 'लिंक कॉपी करें', email: 'ईमेल से साझा करें', help: 'आप लिंक चुनकर कॉपी कर सकते हैं। इसे पढ़ने के लिए किसी खाते की आवश्यकता नहीं है।', copied: 'लिंक कॉपी हो गया। इसे जहाँ चाहें वहाँ पेस्ट करें।', fallback: 'ऊपर दिए लिंक को चुनकर कॉपी करें।' },
     copyright: '© 2026 Mind Clarity · आध्यात्मिक चिन्तन और शिक्षा।',
   },
   es: {
@@ -129,6 +131,7 @@ export const interfaceCopy = {
     more: 'Estamos incorporando más traducciones revisadas.',
     footerPurpose: 'Recordar al Creador dentro del juego de las experiencias.',
     youtube: 'Mind Clarity en YouTube', email: 'Correo electrónico', privacy: 'Privacidad', conversation: 'Conversación opcional',
+    share: { title: 'Comparte una enseñanza útil', body: 'Si piensas en alguien, envíale esta página para que pueda explorarla a su propio ritmo.', label: 'Enlace a esta página', copy: 'Copiar enlace', email: 'Compartir por correo', help: 'Puedes seleccionar y copiar el enlace. No necesitas una cuenta para leerlo.', copied: 'Enlace copiado. Pégalo donde quieras compartirlo.', fallback: 'Selecciona y copia el enlace de arriba para compartirlo.' },
     copyright: '© 2026 Mind Clarity · Reflexión espiritual y educación.',
   },
   fr: {
@@ -139,6 +142,7 @@ export const interfaceCopy = {
     more: 'D’autres traductions relues sont en préparation.',
     footerPurpose: 'Se souvenir du Créateur au sein du jeu des expériences.',
     youtube: 'Mind Clarity sur YouTube', email: 'E-mail', privacy: 'Confidentialité', conversation: 'Conversation facultative',
+    share: { title: 'Partager un enseignement utile', body: 'Si quelqu’un vous vient à l’esprit, envoyez-lui cette page pour qu’il puisse l’explorer à son rythme.', label: 'Lien vers cette page', copy: 'Copier le lien', email: 'Partager par e-mail', help: 'Vous pouvez sélectionner et copier le lien. Aucun compte n’est nécessaire pour le lire.', copied: 'Lien copié. Collez-le où vous souhaitez le partager.', fallback: 'Sélectionnez et copiez le lien ci-dessus pour le partager.' },
     copyright: '© 2026 Mind Clarity · Réflexion spirituelle et éducation.',
   },
 };
