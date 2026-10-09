@@ -45,9 +45,13 @@ for (const page of pages) {
   assert.equal((html.match(/property="og:title"/g) || []).length, 1, `${page}: no duplicate metadata`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
   const locale = page.match(/^(hi|es|fr|te|pt|id|ar)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
+  if (page === 'index') assert.match(html, /id="watch-title"/, 'English homepage retains the video section');
   if (locale !== 'en') {
     const sourcePage = page === 'ai-fear-and-clarity-telugu' ? 'ai-fear-and-clarity' : page.split('/')[1] || 'index';
-    const english = readFileSync(path.join(dist, `${sourcePage}.html`), 'utf8');
+    let english = readFileSync(path.join(dist, `${sourcePage}.html`), 'utf8');
+    // Videos are available only in English; translated pages retain all written teaching.
+    if (sourcePage === 'index') english = english.replace(/<section\b[^>]*class="watch-lesson"[^>]*>[\s\S]*?<\/section>/, '');
+    assert(!/href="https:\/\/(?:www\.)?youtube\.com\//.test(html), `${page}: no English-only YouTube links on translated pages`);
     const main = text => text.match(/<main\b[^>]*>[\s\S]*?<\/main>/)[0];
     const structure = text => [...main(text).matchAll(/<\/?(section|h[1-6]|p|details|summary|ul|ol|li|blockquote|figure|figcaption)\b[^>]*>/g)].map(match => match[0].replace(/\s[^>]*>/, '>'));
     assert.deepEqual(structure(html), structure(english), `${page}: every English section, paragraph, example and disclosure is retained in order`);

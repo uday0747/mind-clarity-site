@@ -11,7 +11,7 @@ export function Footer({ language = 'en' }) {
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
-      e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
+      language === 'en' && e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
       e('a', { href: localized ? localizedPath(language, 'privacy') : '/privacy' }, ui.privacy),
       e('a', { href: localized ? localizedPath(language, 'consultation-info') : '/consultation-info' }, ui.conversation)),

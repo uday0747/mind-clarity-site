@@ -3,9 +3,13 @@ import { mount } from './mount.js';
 import { Page, Reflection, TopicLinks } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import { EnquiryLinks } from './enquiry-pages.js';
+import { PagePathContext } from './site-header.js';
+import { pageLanguage } from './language-options.js';
 const e = React.createElement;
 const firstExample = teaching.cases.find(item => item.id === 'self-judgment');
 export function App() {
+  const pathname = React.useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
+  const showVideos = pageLanguage(pathname) === 'en';
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
     title: 'Begin with a question: Who am I?', intro: teaching.statement },
     e('p', { className: 'welcome-meaning' }, 'Here, “Creator” means the shared source appearing as every life, beyond our separate personalities. Remembering, questioning, choosing, and caring also unfold within the game. You are welcome to explore this spiritual perspective and question it.'),
@@ -28,7 +32,7 @@ export function App() {
           e('source', { type: 'image/webp', srcSet: '/assets/pond-mobile-480.webp 480w, /assets/pond-mobile-960.webp 960w', sizes: 'calc(100vw - 92px)' }),
           e('img', { src: '/assets/pond-fallback.jpg', alt: 'A quiet moment beside a lotus pond', width: 600, height: 400, fetchPriority: 'high', decoding: 'async' })),
         e('figcaption', null, 'The lotus: within life, with light attachment to its passing scenes.'))),
-    e('section', { className: 'watch-lesson', 'aria-labelledby': 'watch-title' },
+    showVideos && e('section', { className: 'watch-lesson', 'aria-labelledby': 'watch-title' },
       e('div', null, e('h2', { id: 'watch-title' }, 'Prefer a short video?'),
         e('p', null, 'Watch “A Mistake Is Not Your Whole Identity” on the Mind Clarity YouTube channel, then explore the example in your own life.')),
       e('a', { className: 'button secondary', href: 'https://www.youtube.com/shorts/p1JyKo3vKeE' }, 'Watch on YouTube')),
