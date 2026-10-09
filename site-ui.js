@@ -77,6 +77,14 @@ export function enhanceLanguagePicker() {
   const preferred = stored || browserLanguage();
   const target = options.find(option => option.value === preferred && option.value !== current && option.dataset.href);
 
+  // Negotiate ordinary English entry pages. Explicit translated URLs stay
+  // readable in their own language, including arrivals from search results.
+  // A saved English choice also lets visitors override browser detection.
+  if (current === 'en' && target) {
+    window.location.replace(target.dataset.href + window.location.search + window.location.hash);
+    return;
+  }
+
   if (suggestion && preferred !== current) {
     const language = languageOption(preferred);
     if (target) {
