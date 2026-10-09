@@ -8,7 +8,7 @@ export function enhanceEnquirySearch(root = document) {
   const normalize = text => text.toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
   const ignored = new Set(['i', 'am', 'a', 'the', 'is', 'are', 'do', 'does', 'can', 'what', 'how', 'why', 'to', 'of', 'in', 'and', 'my', 'me', 'you']);
   const entries = [...root.querySelectorAll('.compact-reading details')].map(element => ({
-    element, words: normalize(element.textContent).split(' ')
+    element, words: normalize(element.textContent + ' ' + (element.dataset.searchTerms || '')).split(' ')
   }));
   const groups = [...root.querySelectorAll('.compact-reading section')]
     .map(element => ({ element, entries: [...element.querySelectorAll('details')] }))

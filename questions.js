@@ -69,3 +69,46 @@ export const enquiryGroups = [
     ['Does calling harm part of the design remove the need to prevent it?', 'No. In this philosophy, prevention, protection, investigation, and repair also belong to the unfolding of life. This applies to people, institutions, and technology, including AI. The spiritual explanation must not be used to excuse avoidable harm or dismiss people who raise safety concerns.']
   ] }
 ];
+
+// Editorial applications, distinguished from recorded teaching in the visible introduction.
+enquiryGroups.push({
+  "id": "personal-growth",
+  "title": "Confidence, personal growth, and difficult emotions",
+  "intro": "These everyday applications connect the teaching with common concerns. They are explanations for this website, not quotations from recorded discussions.",
+  "entries": [
+    [
+      "Can self-enquiry help with personality development and personal growth?",
+      "Self-enquiry invites you to examine who you are beyond a passing role or reaction. Apply it to character, relationships, and everyday choices: listen, accept useful feedback, and repair mistakes. Personal development is explored through these actions; the teaching does not guarantee a particular outcome."
+    ],
+    [
+      "How can I explore confidence, self-esteem, and fear of failure?",
+      "A mistake, criticism, or comparison need not define your whole identity. Remember the shared source described in this teaching, then consider the next practical step. Confidence can include learning, asking for help, and admitting uncertainty; it does not require superiority or certainty that you will succeed."
+    ],
+    [
+      "What about overthinking, stress, anxiety, and worry?",
+      "Notice the thought and the feeling without demanding that they disappear. Ask what needs attention now and what lies beyond your control. Reflection can accompany rest, practical action, and support from others. Persistent anxiety or stress that disrupts daily life deserves appropriate professional care."
+    ],
+    [
+      "How do I approach guilt, shame, and self-blame?",
+      "Distinguish a harmful action from a judgment that your whole self is bad. Acknowledge what happened, apologize or make repair where appropriate, and respect boundaries. Remembering shared Creator identity must not erase responsibility. Explore the detailed guide on guilt, responsibility, and boundaries for more examples."
+    ],
+    [
+      "Can I explore sadness, grief, hurt, and emotional pain here?",
+      "Yes. Loss, rejection, loneliness, relationship difficulties, and painful memories are human experiences you can bring to reflection. You do not have to suppress grief or pretend to feel peaceful. Give feelings space, seek trusted support, and take practical care of yourself while questioning what an experience means to you."
+    ],
+    [
+      "Can this teaching help someone experiencing depression?",
+      "Spiritual reflection may offer meaning or companionship, but this website cannot promise to remove or cure depression. Depression is more than ordinary sadness and can require treatment. If symptoms persist or affect daily life, seek a qualified mental health professional; reflection can accompany appropriate care."
+    ]
+  ]
+});
+
+// Extra finder terms are for browser filtering; visible answers remain the SEO content.
+enquiryGroups.at(-1).searchTerms = [
+  "personality development personal growth self improvement character",
+  "confidence confident confidence building self esteem self worth fear failure insecurity",
+  "overthinking stress stressed anxiety anxious worry worried peace of mind",
+  "guilt guilty shame ashamed self blame regret remorse",
+  "sadness sad grief grieving bereavement hurt pain emotional healing loneliness rejection relationships",
+  "depression depressed mental health low mood"
+];

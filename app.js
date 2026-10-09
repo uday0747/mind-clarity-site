@@ -9,6 +9,8 @@ export function App() {
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
     title: 'Begin with a question: Who am I?', intro: teaching.statement },
     e('p', { className: 'welcome-meaning' }, 'Here, “Creator” means the shared source appearing as every life, beyond our separate personalities. Remembering, questioning, choosing, and caring also unfold within the game. You are welcome to explore this spiritual perspective and question it.'),
+    e('p', null, "Explore self-enquiry for confidence and personal growth, and questions about guilt, sadness, grief, emotional pain, and depression. Begin with your own experience and notice what helps."),
+    e('p', { className: 'reading-links' }, e('a', { href: '/faq#personal-growth' }, 'Explore confidence and difficult emotions')),
     e('p', { className: 'quiet-note' }, 'Free to explore. No account, payment, journal, or prescribed routine is needed.'),
     e('nav', { className: 'reading-links', 'aria-label': 'Choose a starting point' },
       e('a', { className: 'button', href: '#first-practice-title' }, 'Start with an everyday example'),

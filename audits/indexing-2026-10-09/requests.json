@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-09",
+  "property": "https://mindclarity.co.in/",
+  "sitemap": "https://mindclarity.co.in/sitemap.xml",
+  "sitemapSubmission": "Sitemap submitted successfully",
+  "indexingRequests": [
+    {
+      "url": "https://mindclarity.co.in/fr/faq",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/hi",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/es",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/fr",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/te",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/hi/faq",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/es/faq",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    },
+    {
+      "url": "https://mindclarity.co.in/te/faq",
+      "confirmation": "Indexing requested",
+      "meaning": "Added to a priority crawl queue; indexing is not yet confirmed"
+    }
+  ]
+}

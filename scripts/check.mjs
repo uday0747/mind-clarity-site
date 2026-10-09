@@ -52,7 +52,7 @@ for (const page of pages) {
     if (sourcePage === 'faq') {
       const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
       const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)].map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
-      assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries.map(entry => entry.map(text => translateText(text, locale))), `${page}: translated search metadata matches all 50 full answers`);
+      assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries.map(entry => entry.map(text => translateText(text, locale))), `${page}: translated search metadata matches all full answers`);
       assert.ok(html.includes('data-empty=') && html.includes('id="enquiry-input"'), `${page}: translated search is available`);
     }
   }
