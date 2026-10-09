@@ -12,9 +12,9 @@ const inventory = JSON.parse(readFileSync(new URL('../translations/source-invent
 for (const [language, dictionary] of Object.entries(translations)) {
   for (const source of inventory) assert.ok(typeof dictionary[source] === 'string' && dictionary[source].trim(), `${language}: source text has a translation: ${source}`);
 }
-const localizedPages = ['hi', 'es', 'fr'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
+const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', ...teluguPages, ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
   const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;
@@ -31,6 +31,10 @@ for (const page of pages) {
   assert.match(html, /name="description" content="[^"]+"/, `${page}: description`);
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
   assert.match(html, /id="language-select"/, `${page}: language selector`);
+  for (const code of ['en','te','hi','es','fr','pt','id','ar']) {
+    assert.equal((html.match(new RegExp(`hreflang="${code}"`, 'g')) || []).length, 1, `${page}: one alternate for ${code}`);
+    assert.match(html, new RegExp(`value="${code}"`), `${page}: ${code} is selectable`);
+  }
   assert.doesNotMatch(html, /href="\/[^"#?]*\.html(?:["#?])/, `${page}: navigation uses canonical paths`);
   assert.doesNotMatch(html, /href="\/contact(?:["/#?]|\.html)/, `${page}: no links to retired Contact page`);
   const canonical = `https://mindclarity.co.in/${page === 'index' ? '' : page}`;
@@ -40,7 +44,7 @@ for (const page of pages) {
   assert.ok(html.includes(`property="og:url" content="${canonical}"`), `${page}: social URL matches canonical`);
   assert.equal((html.match(/property="og:title"/g) || []).length, 1, `${page}: no duplicate metadata`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
-  const locale = page.match(/^(hi|es|fr|te)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
+  const locale = page.match(/^(hi|es|fr|te|pt|id|ar)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
   if (locale !== 'en') {
     const sourcePage = page === 'ai-fear-and-clarity-telugu' ? 'ai-fear-and-clarity' : page.split('/')[1] || 'index';
     const english = readFileSync(path.join(dist, `${sourcePage}.html`), 'utf8');
@@ -67,6 +71,7 @@ for (const page of pages) {
     assert.equal(new Set(entries.map(([question]) => question)).size, entries.length, 'FAQ questions are unique');
     assert.ok(html.includes('id="evidence-notes"'), 'FAQ research notes are rendered');
   }
+  if (locale === 'ar') assert.match(html, /<html lang="ar" dir="rtl">/, `${page}: Arabic uses right-to-left flow`);
   if (page === 'te' || /^te\//.test(page)) {
     assert.match(html, /<html lang="te">/, `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
@@ -82,14 +87,14 @@ for (const page of pages) {
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, 'English article has an x-default alternate');
     assert.match(html, /data-href="\/ai-fear-and-clarity-telugu"/, 'English article links to the Telugu alternate');
   }
-  if (['hi', 'es', 'fr'].includes(page)) {
-    assert.match(html, new RegExp(`<html lang="${page}">`), `${page}: document language`);
+  if (['hi', 'es', 'fr', 'pt', 'id', 'ar'].includes(page)) {
+    assert.match(html, new RegExp(`<html lang="${page}"(?: dir="rtl")?>`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
     for (const alternate of ['/hi', '/es', '/fr']) assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
   }
-if (/^(hi|es|fr)\//.test(page)) {
+if (/^(hi|es|fr|pt|id|ar)\//.test(page)) {
     const [language, basePage] = page.split('/');
-    assert.match(html, new RegExp(`<html lang="${language}">`), `${page}: document language`);
+    assert.match(html, new RegExp(`<html lang="${language}"(?: dir="rtl")?>`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
     const alternates = [`/hi/${basePage}`, `/es/${basePage}`, `/fr/${basePage}`, basePage === 'ai-fear-and-clarity' ? '/ai-fear-and-clarity-telugu' : `/te/${basePage}`];
     for (const alternate of alternates) {

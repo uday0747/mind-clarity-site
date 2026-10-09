@@ -1,3 +1,5 @@
+import { App } from './app.js';
+import { localizedPageSlugs } from './language-options.js';
 import React, { useEffect } from 'react';
 import { mount } from './mount.js';
 import { pageFromPath } from './site-header.js';
@@ -69,6 +71,10 @@ function Privacy() {
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
 export const pages = { hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => page !== 'index').map(([page, Component]) => [`te/${page}`, Component])) };
+for (const language of ['pt', 'id', 'ar']) {
+  pages[language] = App;
+  for (const page of localizedPageSlugs) pages[`${language}/${page}`] = pages[page];
+}
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];
   if (Component) mount(Component);

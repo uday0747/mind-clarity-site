@@ -1,6 +1,6 @@
 import { questions, enquiryGroups } from '../questions.js';
 import { enquiryTopics } from '../enquiry-topics.js';
-import { localizedPageSlugs, pageLanguage } from '../language-options.js';
+import { localizedPageSlugs, pageLanguage, languageVariants } from '../language-options.js';
 import { translateText } from '../translations.js';
 
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
@@ -13,45 +13,13 @@ export function completeMetadata(head) {
   const reflection = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
   const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
   const language = pageLanguage(canonicalPath);
-  const localizedHome = ['/', '/hi', '/es', '/fr', '/te'].includes(canonicalPath);
-  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te)\/([^/]+)$/);
+  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te|pt|id|ar)\/([^/]+)$/);
   const localizedPage = reflection ? null : localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
-  if (reflection) {
-    // Keep the English/Telugu pair and add the new translated article routes.
-    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|te|hi|es|fr|x-default)"[^>]*>/g, '');
-    const articleAlternates = [
-      ['en', 'https://mindclarity.co.in/ai-fear-and-clarity'],
-      ['te', 'https://mindclarity.co.in/ai-fear-and-clarity-telugu'],
-      ['hi', 'https://mindclarity.co.in/hi/ai-fear-and-clarity'],
-      ['es', 'https://mindclarity.co.in/es/ai-fear-and-clarity'],
-      ['fr', 'https://mindclarity.co.in/fr/ai-fear-and-clarity'],
-      ['x-default', 'https://mindclarity.co.in/ai-fear-and-clarity'],
-    ];
-    head += '\n' + articleAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
-  }
-  if (localizedHome) {
-    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|te|x-default)"[^>]*>/g, '');
-    const homeAlternates = [
-      ['en', 'https://mindclarity.co.in/'],
-      ['hi', 'https://mindclarity.co.in/hi'],
-      ['es', 'https://mindclarity.co.in/es'],
-      ['fr', 'https://mindclarity.co.in/fr'],
-      ['te', 'https://mindclarity.co.in/te'],
-      ['x-default', 'https://mindclarity.co.in/'],
-    ];
-    head += '\n' + homeAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
-  }
-  if (localizedPage && localizedPageSlugs.has(localizedPage)) {
-    head = head.replace(/\s*<link rel="alternate" hreflang="(?:en|hi|es|fr|te|x-default)"[^>]*>/g, '');
-    const pageAlternates = [
-      ['en', `https://mindclarity.co.in/${localizedPage}`],
-      ['hi', `https://mindclarity.co.in/hi/${localizedPage}`],
-      ['es', `https://mindclarity.co.in/es/${localizedPage}`],
-      ['fr', `https://mindclarity.co.in/fr/${localizedPage}`],
-      ['te', `https://mindclarity.co.in/te/${localizedPage}`],
-      ['x-default', `https://mindclarity.co.in/${localizedPage}`],
-    ];
-    head += '\n' + pageAlternates.map(([code, url]) => `<link rel="alternate" hreflang="${code}" href="${url}" />`).join('\n');
+  const alternates = languageVariants(canonicalPath);
+  if (Object.keys(alternates).length > 1) {
+    head = head.replace(/\s*<link rel="alternate" hreflang="[^"]*"[^>]*>/g, '');
+    const pairs = [...Object.entries(alternates), ['x-default', alternates.en]];
+    head += '\n' + pairs.map(([code, path]) => `<link rel="alternate" hreflang="${code}" href="https://mindclarity.co.in${path}" />`).join('\n');
   }
   // Retain existing social images; regenerate only text fields from the page metadata.
   head = head.replace(/\s*<meta (?:property|name)="(?:og:(?:type|site_name|title|description|url)|twitter:(?:title|description|card))"[^>]*>/g, '');

@@ -5,7 +5,7 @@ export function enhanceEnquirySearch(root = document) {
   const fallback = root.querySelector('#enquiry-fallback');
   const status = root.querySelector('#enquiry-status');
   if (!input || !controls || !fallback || !status || controls.dataset.enhanced) return;
-  const normalize = text => text.toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
+  const normalize = text => text.toLowerCase().replace(/[\u064b-\u065f\u0670]/g, '').replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim().replace(/(^| )ال(?=[\u0621-\u064a])(?!له(?: |$))/g, '$1');
   const ignored = new Set(['i', 'am', 'a', 'the', 'is', 'are', 'do', 'does', 'can', 'what', 'how', 'why', 'to', 'of', 'in', 'and', 'my', 'me', 'you']);
   const entries = [...root.querySelectorAll('.compact-reading details')].map(element => ({
     element, words: normalize(element.textContent + ' ' + (element.dataset.searchTerms || '')).split(' ')

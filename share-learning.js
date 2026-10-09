@@ -1,6 +1,7 @@
+import { interfaceFor } from './interface-copy.js';
 import React, { useEffect, useRef } from 'react';
 import { enhanceSharing } from './share-ui.js';
-import { interfaceFor, pageLanguage } from './language-options.js';
+import { pageLanguage } from './language-options.js';
 import { translateText } from './translations.js';
 const e = React.createElement;
 

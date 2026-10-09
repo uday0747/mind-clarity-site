@@ -1,12 +1,13 @@
+import { interfaceFor } from './interface-copy.js';
 import React, { useContext } from 'react';
 import Header, { PagePathContext } from './site-header.js';
 import ShareLearning from './share-learning.js';
-import { interfaceFor, localizedPath, pageLanguage } from './language-options.js';
+import { localizedPath, pageLanguage } from './language-options.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 export function Footer({ language = 'en' }) {
   const ui = interfaceFor(language);
-  const localized = ['hi', 'es', 'fr', 'te'].includes(language);
+  const localized = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(language);
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
@@ -19,9 +20,9 @@ export function Footer({ language = 'en' }) {
 export function Page({ eyebrow, title, intro, children, home = false, lang, share = true }) {
   const pathname = useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
   const documentLanguage = lang || pageLanguage(pathname);
-  const uiLanguage = ['hi', 'es', 'fr', 'te'].includes(documentLanguage) ? documentLanguage : 'en';
+  const uiLanguage = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(documentLanguage) ? documentLanguage : 'en';
   const ui = interfaceFor(uiLanguage);
-  const basePath = pathname.replace(/^\/(hi|es|fr|te)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
+  const basePath = pathname.replace(/^\/(hi|es|fr|te|pt|id|ar)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
   const canShare = share && !['/privacy', '/consultation-info'].includes(basePath);
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content', lang: uiLanguage }, ui.skip),

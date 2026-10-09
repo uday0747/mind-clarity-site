@@ -13,12 +13,13 @@ import { completeMetadata } from './metadata.mjs';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { pageLanguage } from '../language-options.js';
 import { translateMarkup } from './translate-markup.mjs';
+import additionalMeta from '../translations/metadata-new.json' with { type: 'json' };
 import { localizedMeta } from '../localized-core.js';
 import { localizedMoreMeta } from '../localized-more.js';
 import { localizedAIMeta } from '../localized-ai.js';
 
-const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te'].map(language => [language, {
-  ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language],
+const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].map(language => [language, {
+  ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language], ...additionalMeta[language],
 }]));
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -33,9 +34,9 @@ await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
-  const localizedRoute = page.match(/^(hi|es|fr|te)\/(.+)$/) || (page === 'te' ? ['te', 'te', ''] : null);
+  const localizedRoute = page.match(/^(hi|es|fr|te|pt|id|ar)\/(.+)$/) || (['te', 'pt', 'id', 'ar'].includes(page) ? [page, page, ''] : null);
   const localizedTopic = localizedRoute && enquiryTopics.find(topic => topic.slug === localizedRoute[2]);
-  const templatePage = page === 'te' ? 'index' : page.split('/').pop();
+  const templatePage = ['te', 'pt', 'id', 'ar'].includes(page) ? 'index' : page.split('/').pop();
   let template = await readFile(path.join(root, `${topic || localizedTopic ? 'faq' : templatePage}.html`), 'utf8');
   if (localizedRoute) {
     const [, language, basePage] = localizedRoute;
@@ -71,7 +72,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const sourceComponent = sourcePage === 'index' ? App : pages[sourcePage];
   let markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(language === 'en' ? Component : sourceComponent)));
   if (language !== 'en') markup = translateMarkup(markup, language);
-  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
+  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${language === 'ar' ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
   const outputFile = path.join(dist, `${page}.html`);
   await mkdir(path.dirname(outputFile), { recursive: true });
   await writeFile(outputFile, html);

@@ -27,7 +27,7 @@ export default defineConfig({
             const source = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: `/${slug}` }, React.createElement(component)));
             const template = await readFile(new URL(`${enquiryTopics.some(topic => topic.slug === base) ? 'faq' : base}.html`, import.meta.url), 'utf8');
             const head = template.match(/<head>([\s\S]*?)<\/head>/)[1].replace(/<script\b[\s\S]*?<\/script>/g, '').replace(/href="(page.css|react-home.css|mind-clarity-mark.png)"/g, 'href="/$1"');
-            const html = `<!doctype html><html lang="${language}"><head>${head}</head><body><div id="root">${translateMarkup(source, language)}</div><script type="module" src="/site-entry.js"></script></body></html>`;
+            const html = `<!doctype html><html lang="${language}"${language === 'ar' ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${translateMarkup(source, language)}</div><script type="module" src="/site-entry.js"></script></body></html>`;
             response.setHeader('Content-Type', 'text/html; charset=utf-8');
             response.end(request.method === 'HEAD' ? undefined : await server.transformIndexHtml(url.pathname, html));
           } catch (error) { next(error); }

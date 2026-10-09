@@ -18,22 +18,22 @@ main:focus{outline:none}
 .site-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;max-width:1280px;margin:auto;padding:18px 40px;background:var(--cream);border-bottom:1px solid var(--line)}
 .brand{display:inline-flex;align-items:center;gap:10px;max-width:100%;min-width:0;font:700 1.45rem Georgia,serif;color:var(--deep);text-decoration:none}
 .brand:before{content:"";width:34px;height:34px;flex-shrink:0;border-radius:50%;background:url("/assets/mark-68.png") center/cover}
-.site-header nav{display:flex;justify-content:flex-end;gap:6px;margin-left:auto}
+.site-header nav{display:flex;justify-content:flex-end;gap:6px;margin-inline-start:auto}
 .site-header nav a{display:flex;align-items:center;min-height:44px;padding:6px 14px;font-size:1rem;text-decoration:none;border-radius:4px}
 .site-header nav a[aria-current="page"]{font-weight:bold;background:var(--soft);box-shadow:inset 0 -2px var(--green)}
 .site-header nav a:hover{background:var(--soft)}
 .site-header nav a:active,.button:active{transform:translateY(1px)}
-.language-tools{display:flex;align-items:center;gap:10px;margin-left:4px;min-width:0}
+.language-tools{display:flex;align-items:center;gap:10px;margin-inline-start:4px;min-width:0}
 .language-picker{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.8rem;line-height:1.2}
 .language-picker span{white-space:nowrap}
 .language-picker select{min-height:40px;border:1px solid #78978c;border-radius:4px;padding:6px 28px 6px 9px;background:white;color:var(--ink);font:inherit;cursor:pointer}
 .language-picker select:focus-visible{outline:3px solid var(--green);outline-offset:3px}
 .language-note{font-size:.78rem;color:var(--muted);max-width:180px;line-height:1.35}
-.language-suggestion{position:absolute;right:40px;top:100%;z-index:11;margin:0;padding:10px 14px;background:white;border:1px solid var(--line);box-shadow:0 7px 20px rgba(24,61,54,.12);font-size:.9rem;color:var(--ink)}
+.language-suggestion{position:absolute;inset-inline-end:40px;top:100%;z-index:11;margin:0;padding:10px 14px;background:white;border:1px solid var(--line);box-shadow:0 7px 20px rgba(24,61,54,.12);font-size:.9rem;color:var(--ink)}
 .language-suggestion a{font-weight:700}
-.menu-toggle{display:none;margin-left:auto;min-width:74px;min-height:44px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:4px;padding:8px 14px;font:700 1rem Arial,sans-serif}
+.menu-toggle{display:none;margin-inline-start:auto;min-width:74px;min-height:44px;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:4px;padding:8px 14px;font:700 1rem Arial,sans-serif}
 .mobile-page{display:none}
-.skip-link{position:fixed;top:8px;left:8px;z-index:30;transform:translateY(-200%);background:var(--deep);color:white;padding:10px 16px}
+.skip-link{position:fixed;top:8px;inset-inline-start:8px;z-index:30;transform:translateY(-200%);background:var(--deep);color:white;padding:10px 16px}
 .skip-link:focus{transform:none}
 .button{display:inline-block;padding:12px 20px;min-height:44px;background:var(--green);color:white;text-decoration:none;border-radius:5px;font-weight:700;font-size:1rem}
 .button:hover{background:var(--deep)}
@@ -41,8 +41,8 @@ main:focus{outline:none}
 .text-link{font-weight:700}
 .first-practice{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;background:var(--soft);padding:34px;margin:36px 0 0;border-radius:8px}
 .first-practice h2{font-size:1.8rem;max-width:430px}
-.practice-steps{padding-left:24px;margin:0 0 24px}
-.practice-steps li{padding-left:6px}
+.practice-steps{padding-inline-start:24px;margin:0 0 24px}
+.practice-steps li{padding-inline-start:6px}
 .practice-image{margin:0}
 .practice-image img{display:block;width:100%;height:260px;object-fit:cover;border-radius:5px}
 .practice-image figcaption{font-size:.875rem;color:var(--muted);margin-top:12px}
@@ -66,21 +66,21 @@ main:focus{outline:none}
 .topic-index,.lesson-number{color:var(--gold);font-size:.875rem;letter-spacing:.08em}
 .philosophy-intro{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
 .first-practice>*,.topic-grid>*,.philosophy-intro>*,.concept-pair>*{min-width:0}
-.reflection{background:var(--soft);border-left:3px solid var(--green);padding:22px 25px;margin:28px 0;font-size:1rem}
+.reflection{background:var(--soft);border-inline-start:3px solid var(--green);padding:22px 25px;margin:28px 0;font-size:1rem}
 .reflection p:last-child{margin-bottom:0}
 .reading-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:55px;align-items:start;margin-top:44px}
 .reading-grid>.reading-contents{position:sticky;top:calc(var(--header-height,88px) + 20px);border-top:1px solid var(--line);padding-top:22px;max-height:calc(100vh - var(--header-height,88px) - 42px);overflow-y:auto}
 .reading-main>.reading-contents{position:static;background:var(--soft);padding:22px;margin:28px 0 36px}
-.reading-contents ol{padding-left:21px;margin:0;font-size:.95rem;line-height:1.5}
-.reading-contents li{padding-left:3px;margin-bottom:4px}
+.reading-contents ol{padding-inline-start:21px;margin:0;font-size:.95rem;line-height:1.5}
+.reading-contents li{padding-inline-start:3px;margin-bottom:4px}
 .reading-contents a{display:block;padding:5px 0;min-height:32px;text-decoration:none}.reading-contents a:hover{text-decoration:underline}
 .reading-body{min-width:0;max-width:70ch}
 .lesson{padding:0 0 38px;margin:0 0 34px;border-bottom:1px solid var(--line)}
 .lesson-number{display:block;margin-bottom:12px}
 .lesson h2{font-size:clamp(1.85rem,2.8vw,2.4rem)}
-.lesson ul,.lesson ol{padding-left:24px}
+.lesson ul,.lesson ol{padding-inline-start:24px}
 .lesson p:last-child{margin-bottom:0}
-blockquote{font:400 1.2rem/1.8 Georgia,serif;margin:26px 0;padding-left:24px;border-left:2px solid var(--gold)}
+blockquote{font:400 1.2rem/1.8 Georgia,serif;margin:26px 0;padding-inline-start:24px;border-inline-start:2px solid var(--gold)}
 blockquote p{margin:0}
 blockquote cite{display:block;margin-top:16px;font:400 .875rem/1.5 Arial,sans-serif;color:var(--muted)}
 .concept-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -88,7 +88,7 @@ blockquote cite{display:block;margin-top:16px;font:400 .875rem/1.5 Arial,sans-se
 .path-grid>div{background:var(--cream);padding:22px 24px}
 .path-grid h3{margin:0 0 8px;font-size:1.22rem}
 .path-grid p{margin:0}
-.lotus-practice{margin:28px 0;padding:18px 22px;border-left:2px solid var(--gold);background:var(--soft);font-size:1.05rem}
+.lotus-practice{margin:28px 0;padding:18px 22px;border-inline-start:2px solid var(--gold);background:var(--soft);font-size:1.05rem}
 .concept-pair h3{margin-top:6px}
 .reading-links{display:flex;flex-wrap:wrap;gap:15px 28px;margin:28px 0 0}
 .example{padding:20px 0;border-top:1px solid var(--line)}
@@ -98,7 +98,7 @@ summary{cursor:pointer;font-size:1.12rem;font-weight:700;color:var(--deep);min-h
 details[open]>summary{margin-bottom:18px}
 details p{font-size:1rem}
 details p:last-child{margin-bottom:0}
-.source-list{padding-left:25px}.source-list li{margin-bottom:22px}.source-list strong{display:block;font-weight:400;font-family:Georgia,serif;font-size:1.2rem}.source-list span{display:block;font-size:1rem}.source-list small{color:var(--muted);font-size:.875rem}
+.source-list{padding-inline-start:25px}.source-list li{margin-bottom:22px}.source-list strong{display:block;font-weight:400;font-family:Georgia,serif;font-size:1.2rem}.source-list span{display:block;font-size:1rem}.source-list small{color:var(--muted);font-size:.875rem}
 .quiet-note{font-size:.95rem;color:var(--muted)}
 .compact-reading{max-width:70ch;margin-top:36px}
 .site-footer{max-width:1180px;margin:auto;border-top:1px solid var(--line);padding:32px 40px;color:var(--muted);font-size:.9rem}
@@ -144,3 +144,9 @@ details p:last-child{margin-bottom:0}
 }
 
 main[lang="te"]{line-height:1.9}main[lang="te"] h1,main[lang="te"] h2{line-height:1.55;letter-spacing:normal}main[lang="te"] .eyebrow{letter-spacing:normal}
+
+/* Arabic reading flow, with links and addresses isolated from RTL prose. */
+html[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] blockquote{font-family:Tahoma,Arial,sans-serif;line-height:1.65}
+html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="rtl"] a[href^="tel:"],html[dir="rtl"] .brand{direction:ltr;unicode-bidi:isolate}
+.language-picker option{unicode-bidi:isolate}

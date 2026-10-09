@@ -1,7 +1,8 @@
+import { interfaceFor } from './interface-copy.js';
 import React, { createContext, useContext, useEffect, useRef } from 'react';
 import { enhanceNavigation } from './site-ui.js';
 import { enquiryTopics } from './enquiry-topics.js';
-import { interfaceFor, languageOptions, languageVariants, localizedPageSlugs, localizedPath, pageLanguage } from './language-options.js';
+import { languageOptions, languageVariants, localizedPageSlugs, localizedPath, pageLanguage } from './language-options.js';
 export const PagePathContext = createContext(null);
 const e = React.createElement;
 const links = [
@@ -14,7 +15,7 @@ const links = [
 export function pageFromPath(pathname) {
   const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean).map(segment => segment.replace(/\.html$/, ''));
   if (!segments.length || segments[0] === 'index') return 'home';
-  if (['hi', 'es', 'fr', 'te'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
+  if (['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
   return segments[0];
 }
 export default function Header() {
@@ -25,10 +26,10 @@ export default function Header() {
   const route = pageFromPath(pathname);
   const current = route.includes('/') ? route.split('/').pop() : route;
   const currentLanguage = pageLanguage(pathname);
-  const localizedUi = ['hi', 'es', 'fr', 'te'].includes(currentLanguage) ? currentLanguage : 'en';
-  const localizedNavigation = ['hi', 'es', 'fr', 'te'].includes(localizedUi);
+  const localizedUi = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(currentLanguage) ? currentLanguage : 'en';
+  const localizedNavigation = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(localizedUi);
   const ui = interfaceFor(localizedUi);
-  const page = ['hi', 'es', 'fr', 'te'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
   const navLinks = links.map(([id, , href]) => {
