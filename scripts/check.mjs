@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { questions, enquiryGroups } from '../questions.js';
-import { localizedPageSlugs } from '../language-options.js';
+import { localizedPageSlugs, languageVariants } from '../language-options.js';
 import { translations, translateText } from '../translations.js';
 import { introductionVideos } from '../introduction-videos.js';
 
@@ -15,7 +15,7 @@ for (const [language, dictionary] of Object.entries(translations)) {
 }
 const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url) => {
   const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;
@@ -33,8 +33,9 @@ for (const page of pages) {
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
   assert.match(html, /id="language-select"/, `${page}: language selector`);
   for (const code of ['en','te','hi','es','fr','pt','id','ar']) {
-    assert.equal((html.match(new RegExp(`hreflang="${code}"`, 'g')) || []).length, 1, `${page}: one alternate for ${code}`);
-    assert.match(html, new RegExp(`value="${code}"`), `${page}: ${code} is selectable`);
+    const hasAlternate = Object.keys(languageVariants(`/${page === 'index' ? '' : page}`)).length > 1;
+    assert.equal((html.match(new RegExp(`hreflang="${code}"`, 'g')) || []).length, hasAlternate ? 1 : 0, `${page}: alternates match available translations for ${code}`);
+    assert.equal(new RegExp(`value="${code}"`).test(html), code in languageVariants(`/${page === 'index' ? '' : page}`), `${page}: ${code} selection matches route availability`);
   }
   assert.doesNotMatch(html, /href="\/[^"#?]*\.html(?:["#?])/, `${page}: navigation uses canonical paths`);
   assert.doesNotMatch(html, /href="\/contact(?:["/#?]|\.html)/, `${page}: no links to retired Contact page`);

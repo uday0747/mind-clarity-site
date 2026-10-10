@@ -14,7 +14,7 @@ Use Node.js 24 and pnpm 11. Install the exact dependencies with `pnpm install --
 ```sh
 pnpm dev       # Source preview with live reload: http://127.0.0.1:5173
 pnpm build     # Regenerate the complete dist directory
-pnpm check     # Validate 60 pages, routes, caching, redirects and assets
+pnpm check     # Validate all pages, routes, caching, redirects and assets
 pnpm preview   # Run the production handler locally: http://127.0.0.1:4173
 ```
 
@@ -147,3 +147,5 @@ Current reference layout: `references/Uday_Philosophy.docx` is the only current 
 10 October 2026 website alignment: `discussion-content.json` supplies shared confidence, enjoyment, family-care and earlier-teachings passages for the homepage, philosophy and confidence FAQ. All new text has translations in seven dictionaries. Enquiry is the primary homepage starting point; five-step guides are optional disclosures and the existing `five-minutes` bookmark remains supported. See `audits/discussion-website-update-2026-10-10.md` for content, source checks and verification. The original root statement and scriptural pointers were retained unchanged.
 
 10 October 2026 concern guide and SEO: `problem-content.json` catalogues 59 concerns in ten groups and maps them to reference chapters. `problem-guide.js` displays the full guide and homepage/FAQ category links. Three new routes (overview, confidence, overthinking) have full seven-language translations, metadata, hreflang, sitemap and redirects. The build validates 120 pages. See `audits/philosophy-concern-guide-seo-2026-10-10.md` for the complete list, scope and verification.
+
+10 October 2026 Ashtavakra and understanding update: `/ashtavakra-gita` documents five verse-based connections; `/understanding-god` explains the Creator/game story, enquiry, remembrance, and questioning beliefs used to justify harm. Both pages have complete Hindi, Telugu, Spanish, French, Portuguese, Indonesian, and Arabic versions, localized footer links, metadata, sitemap entries, and canonical redirects. The exact governing statement and original Mula Siddhanta are retained. Research notes are in `source-notes/2026-10-10-ashtavakra-gita.md` and `source-notes/2026-10-10-understanding-god.md`.

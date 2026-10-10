@@ -1,3 +1,5 @@
+import UnderstandingGod from './understanding-god-page.js';
+import AshtavakraResearch from './ashtavakra-page.js';
 import ProblemGuide from './problem-guide.js';
 import { App } from './app.js';
 import { localizedPageSlugs } from './language-options.js';
@@ -73,7 +75,10 @@ function Privacy() {
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => page !== 'index').map(([page, Component]) => [`te/${page}`, Component])) };
+export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => page !== 'index').map(([page, Component]) => [`te/${page}`, Component])) };
+for (const language of ['hi','es','fr','te','pt','id','ar']) {
+  for (const slug of ['ashtavakra-gita', 'understanding-god']) pages[`${language}/${slug}`] = pages[slug];
+}
 for (const language of ['pt', 'id', 'ar']) {
   pages[language] = App;
   for (const page of localizedPageSlugs) pages[`${language}/${page}`] = pages[page];

@@ -29,7 +29,7 @@ export default function Header() {
   const localizedUi = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(currentLanguage) ? currentLanguage : 'en';
   const localizedNavigation = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(localizedUi);
   const ui = interfaceFor(localizedUi);
-  const page = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = ['ashtavakra-gita', 'understanding-god'].includes(current) ? 'philosophy' : ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
   const navLinks = links.map(([id, , href]) => {

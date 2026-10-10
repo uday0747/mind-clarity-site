@@ -13,6 +13,7 @@ export const languageOptions = [
 export const languagePreferenceKey = 'mind-clarity-language';
 
 export const localizedPageSlugs = new Set([
+  'ashtavakra-gita', 'understanding-god',
   'life-problems-and-self-enquiry', 'confidence-self-worth-and-self-enquiry', 'overthinking-worry-and-uncertainty',
   'philosophy', 'practice', 'faq', 'reflections', 'privacy', 'consultation-info',
   'who-am-i-self-enquiry', 'surrender-free-will-and-design', 'meditation-and-self-realization', 'guilt-responsibility-and-boundaries', 'ai-fear-and-clarity',

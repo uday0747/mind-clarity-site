@@ -1,3 +1,4 @@
+import { translateText } from './translations.js';
 import { interfaceFor } from './interface-copy.js';
 import React, { useContext } from 'react';
 import Header, { PagePathContext } from './site-header.js';
@@ -13,6 +14,8 @@ export function Footer({ language = 'en' }) {
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
+      e('a', { href: localizedPath(language, 'understanding-god') }, translateText('Understanding God', language)),
+      e('a', { href: localizedPath(language, 'ashtavakra-gita') }, translateText('Ashtavakra Gita', language)),
       introduction && e('a', { href: introduction.href }, introduction.label),
       language === 'en' && e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
