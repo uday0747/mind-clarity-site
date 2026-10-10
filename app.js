@@ -15,6 +15,7 @@ export function App() {
     title: 'Begin with a question: Who am I?', intro: teaching.statement },
     e('nav', { className: 'reading-links', 'aria-label': 'Choose a starting point' },
       e('a', { className: 'button', href: '/who-am-i-self-enquiry' }, 'Begin with a question: Who am I?'),
+      e('a', { href: '/philosophy' }, 'Read the complete philosophy →'),
       e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
     e(ProblemLinks, {compact:true, featured:true}),
     e('p', { className: 'welcome-meaning' }, 'Here, “Creator” means the shared source appearing as every life, beyond our separate personalities. Remembering, questioning, choosing, and caring also unfold within the game. You are welcome to explore this spiritual perspective and question it.'),

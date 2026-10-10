@@ -10,7 +10,10 @@ const origin = 'https://mindclarity.co.in';
 const sitemap = readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
 const request = url => live ? fetch(url, { redirect: 'manual', signal: AbortSignal.timeout(20000) }) : server.fetch(new Request(url));
-const cases = [];
+const cases = [
+  [`${origin}/post/artificial-super-intelligence-and-enlightened-human-being`, 301, `${origin}/ai-fear-and-clarity`],
+  [`${origin}/post/artificial-super-intelligence-and-enlightened-human-being/`, 301, `${origin}/ai-fear-and-clarity`],
+];
 for (const url of urls) {
   const path = new URL(url).pathname;
   cases.push([url, 200]);

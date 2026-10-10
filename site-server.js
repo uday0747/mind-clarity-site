@@ -2,6 +2,7 @@ export function createSiteServer(assets, redirects) {
   const decodedAssets = new Map();
   return {
     async fetch(request) {
+      const started = performance.now();
       const url = new URL(request.url);
       const retired = ['/contact', '/blank-1', '/blank-2', '/blank-3', '/blank-4', '/blog', '/book-online'];
       const normalized = url.pathname.replace(/\/$/, '').replace(/\.html$/, '');
@@ -29,7 +30,7 @@ export function createSiteServer(assets, redirects) {
       const versioned = asset && /\.(?:css|js)$/.test(pathname) && url.searchParams.get('v') === asset.revision;
       const headers = {
         'Content-Type': selected.type,
-        'Cache-Control': versioned ? 'public, max-age=31536000, immutable' : 'public, max-age=0, must-revalidate',
+        'Cache-Control': versioned ? 'public, max-age=31536000, immutable' : asset ? 'public, max-age=0, s-maxage=60, stale-while-revalidate=300' : 'public, max-age=0, must-revalidate',
         'X-Content-Type-Options': 'nosniff',
       };
       if (!asset) headers['X-Robots-Tag'] = 'noindex';
@@ -42,6 +43,7 @@ export function createSiteServer(assets, redirects) {
       if (request.method !== 'HEAD' && !decodedAssets.has(selected)) {
         decodedAssets.set(selected, Uint8Array.from(atob(selected.data), character => character.charCodeAt(0)));
       }
+      headers['Server-Timing'] = `app;dur=${(performance.now() - started).toFixed(2)}`;
       const body = request.method === 'HEAD' ? null : decodedAssets.get(selected);
       return new Response(body, { status: asset ? 200 : 404, headers });
     },

@@ -59,6 +59,8 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   let head = template.match(/<head>([\s\S]*?)<\/head>/i)?.[1];
   if (!head) throw new Error(`Missing head: ${page}.html`);
   head = completeMetadata(head);
+  const analyticsBootstrap = await readFile(path.join(root, 'analytics-bootstrap.js'), 'utf8');
+  head = head.replace(/<script async src="https:\/\/www\.googletagmanager\.com\/gtag\/js[^"]*"><\/script>\s*<script>[\s\S]*?<\/script>/, `<script>${analyticsBootstrap}</script>`);
   head = head.replaceAll('href="mind-clarity-mark.png"', 'href="/assets/favicon-32.png"');
   head += '<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />';
   head = head.replace(/[\t ]+$/gm, '');

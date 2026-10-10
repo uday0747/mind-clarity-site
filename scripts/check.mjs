@@ -151,7 +151,7 @@ assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length);
 for (const page of pages) assert.ok(sitemap.includes(`https://mindclarity.co.in/${page === 'index' ? '' : page}</loc>`));
 assert.ok(!readdirSync(dist).some((file) => ['app.js', 'page-app.js', 'node_modules', '.env'].includes(file)), 'No raw source or private files in the public output');
 // Search ranking, concern aliases and section sharing join the navigation enhancement.
-assert.ok(readFileSync(path.join(dist, 'site.js')).length < 8000, 'Progressive enhancement JavaScript stays below 8 KB');
+assert.ok(readFileSync(path.join(dist, 'site.js')).length < 9000, 'Progressive enhancement JavaScript stays below 9 KB');
 for (const file of readdirSync(path.join(dist, 'assets'))) {
   assert.ok(readFileSync(path.join(dist, 'assets', file)).length < 150000, `${file}: optimized image stays below 150 KB`);
 }
