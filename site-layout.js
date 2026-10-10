@@ -4,13 +4,16 @@ import Header, { PagePathContext } from './site-header.js';
 import ShareLearning from './share-learning.js';
 import { localizedPath, pageLanguage } from './language-options.js';
 import teaching from './teaching-content.json' with { type: 'json' };
+import { introductionVideos } from './introduction-videos.js';
 const e = React.createElement;
 export function Footer({ language = 'en' }) {
   const ui = interfaceFor(language);
   const localized = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(language);
+  const introduction = introductionVideos[language];
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
     e('div', { className: 'footer-links' },
+      introduction && e('a', { href: introduction.href }, introduction.label),
       language === 'en' && e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
       e('a', { href: localized ? localizedPath(language, 'privacy') : '/privacy' }, ui.privacy),

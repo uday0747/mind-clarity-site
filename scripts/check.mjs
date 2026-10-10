@@ -6,6 +6,7 @@ import { enquiryTopics } from '../enquiry-topics.js';
 import { questions, enquiryGroups } from '../questions.js';
 import { localizedPageSlugs } from '../language-options.js';
 import { translations, translateText } from '../translations.js';
+import { introductionVideos } from '../introduction-videos.js';
 
 const dist = process.argv[2] || fileURLToPath(new URL('../dist/', import.meta.url));
 const inventory = JSON.parse(readFileSync(new URL('../translations/source-inventory.json', import.meta.url), 'utf8')).items;
@@ -46,12 +47,18 @@ for (const page of pages) {
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
   const locale = page.match(/^(hi|es|fr|te|pt|id|ar)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
   if (page === 'index') assert.match(html, /id="watch-title"/, 'English homepage retains the video section');
+  if (introductionVideos[locale]) {
+    assert.ok(html.includes(`href="${introductionVideos[locale].href}"`), `${page}: introduction video matches page language`);
+    const otherLanguage = locale === 'en' ? 'te' : 'en';
+    assert.ok(!html.includes(introductionVideos[otherLanguage].href), `${page}: no introduction in the wrong language`);
+    if (page === 'te') assert.match(html, /id="watch-title"/, 'Telugu homepage includes the introduction video section');
+  }
   if (locale !== 'en') {
     const sourcePage = page === 'ai-fear-and-clarity-telugu' ? 'ai-fear-and-clarity' : page.split('/')[1] || 'index';
     let english = readFileSync(path.join(dist, `${sourcePage}.html`), 'utf8');
-    // Videos are available only in English; translated pages retain all written teaching.
-    if (sourcePage === 'index') english = english.replace(/<section\b[^>]*class="watch-lesson"[^>]*>[\s\S]*?<\/section>/, '');
-    assert(!/href="https:\/\/(?:www\.)?youtube\.com\//.test(html), `${page}: no English-only YouTube links on translated pages`);
+    // English and Telugu have their own introductions; other translations retain the written teaching.
+    if (sourcePage === 'index' && locale !== 'te') english = english.replace(/<section\b[^>]*class="watch-lesson"[^>]*>[\s\S]*?<\/section>/, '');
+    if (locale !== 'te') assert(!/href="https:\/\/(?:www\.)?youtube\.com\//.test(html), `${page}: no English-only YouTube links on translated pages`);
     const main = text => text.match(/<main\b[^>]*>[\s\S]*?<\/main>/)[0];
     const structure = text => [...main(text).matchAll(/<\/?(section|h[1-6]|p|details|summary|ul|ol|li|blockquote|figure|figcaption)\b[^>]*>/g)].map(match => match[0].replace(/\s[^>]*>/, '>'));
     assert.deepEqual(structure(html), structure(english), `${page}: every English section, paragraph, example and disclosure is retained in order`);
