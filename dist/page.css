@@ -150,3 +150,21 @@ html[dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}
 html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] blockquote{font-family:Tahoma,Arial,sans-serif;line-height:1.65}
 html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="rtl"] a[href^="tel:"],html[dir="rtl"] .brand{direction:ltr;unicode-bidi:isolate}
 .language-picker option{unicode-bidi:isolate}
+
+/* Put the first useful choices close to the opening, including on small screens. */
+.featured-concerns{padding-top:8px;margin-bottom:20px}
+.featured-concerns h2{font-size:1.6rem;margin-bottom:14px}
+.featured-concerns .topic-grid{display:flex;flex-wrap:wrap;gap:10px}
+.featured-concerns article h3{margin:0;font:700 1rem/1.4 Arial,sans-serif}
+.featured-concerns article a{display:flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:5px;background:var(--soft);text-decoration:none}
+.featured-concerns article a:hover{border-color:var(--green);text-decoration:underline}
+.featured-concerns>.text-link{display:inline-block;min-height:44px;padding-top:12px}
+@media(max-width:900px){
+ .site-header{padding:8px 22px;gap:4px 12px}
+ .mobile-page{display:none}
+ .language-tools{margin:0;gap:4px}
+ .language-picker select{min-height:36px;padding-top:4px;padding-bottom:4px}
+ .home-main>.intro{margin-bottom:18px}
+ .home-main>.welcome-meaning{font-size:1rem;margin-bottom:18px}
+ .featured-concerns{padding-top:0}
+}

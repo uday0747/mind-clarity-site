@@ -1,3 +1,4 @@
+import problems from './problem-content.json' with { type: 'json' };
 import teaching from './teaching-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
 
@@ -113,3 +114,18 @@ enquiryGroups.at(-1).searchTerms = [
   "sadness sad grief grieving bereavement hurt pain emotional healing loneliness rejection relationships",
   "depression depressed mental health low mood"
 ];
+
+// Concern answers are visible, searchable, and included in FAQ structured data.
+export const problemExplanations = [discussion.confidenceIdentity, teaching.cases[0].connection,
+  enquiryGroups.at(-1).entries[3][1], enquiryGroups[4].entries[3][1], discussion.familyRecovery,
+  teaching.cases[3].connection, teaching.cases.find(item=>item.id==='money-relationships').connection,
+  enquiryGroups[0].entries[1][1], problems.healthLimit, problems.worldLimit];
+enquiryGroups.splice(enquiryGroups.length - 1, 0, {
+  id: 'life-answers', title: problems.homeTitle,
+  entries: problems.categories.map((category,index)=>[category.title, problemExplanations[index]]),
+  searchTerms: problems.categories.map(category=>category.aliases),
+  entryIds: problems.categories.map(category=>`life-${category.id}`),
+  concerns: problems.categories.map(category=>category.concerns),
+  examples: problems.categories.map(category=>category.example),
+  entryLinks: problems.categories.map(category=>`/life-problems-and-self-enquiry#${category.id}`)
+});

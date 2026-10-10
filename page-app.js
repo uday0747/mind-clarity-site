@@ -1,4 +1,4 @@
-import ProblemGuide, { ProblemLinks } from './problem-guide.js';
+import ProblemGuide from './problem-guide.js';
 import { App } from './app.js';
 import { localizedPageSlugs } from './language-options.js';
 import React, { useEffect } from 'react';
@@ -37,7 +37,7 @@ function FAQ() {
       e('p', { id: 'enquiry-help', className: 'quiet-note' }, 'This is a local answer finder, not a generative AI chatbot. Your search stays in this page and is not saved or sent to a model.'),
       e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite', 'data-single': '1 related answer. Open the question below to read Uday’s explanation.', 'data-plural': '{count} related answers. Open a question below to read Uday’s explanation.', 'data-empty': 'No recorded answer matches yet. Try a shorter topic, or clear the search to browse all questions.' }))),
     e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
-      ...enquiryGroups.map(group => e('section', { key: group.title, id: group.id }, e('h2', null, group.title), group.intro && p(group.intro), ...group.entries.map(([q,a], index) => e('details', { key: q, 'data-search-terms': group.searchTerms?.[index] }, e('summary', null, q), p(a))))),
+      ...enquiryGroups.map(group => e('section', { key: group.title, id: group.id }, e('h2', null, group.title), group.intro && p(group.intro), ...group.entries.map(([q,a], index) => e('details', { key: q, id: group.entryIds?.[index], 'data-search-terms': group.searchTerms?.[index] }, e('summary', null, q), group.concerns?.[index] && p(group.concerns[index]), p(a), group.examples?.[index] && p(group.examples[index]), group.entryLinks?.[index] && e('a', {className:'text-link',href:group.entryLinks[index]}, 'Explore a question in depth'))))),
       e('section', { 'aria-labelledby': 'evidence-notes' },
         e('h2', { id: 'evidence-notes' }, 'Research and its limits'),
         p('Spiritual teaching, personal experience, and research answer different kinds of questions. The sources below support specific findings; they do not establish that we created the universe or that enlightenment guarantees health, wealth, or correct decisions.'),
@@ -48,7 +48,6 @@ function FAQ() {
         e('p', null, e('a', { href: 'https://www.nimh.nih.gov/health/topics/depression', hrefLang: 'en' }, 'Depression: symptoms and treatment — NIMH')),
         p('Found a factual error or a misattributed quotation? Please share the passage and a source by email so it can be checked.'), e('p', null, email())),
       e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))),
-    e(ProblemLinks, {compact:true}),
     e(EnquiryLinks),
     e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')));
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from './mount.js';
 import { Page, Reflection, TopicLinks } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
-import discussion from './discussion-content.json' with { type: 'json' };
 import { ProblemLinks } from './problem-guide.js';
 import { EnquiryLinks } from './enquiry-pages.js';
 import { PagePathContext } from './site-header.js';
@@ -14,15 +13,12 @@ export function App() {
   const showVideos = pageLanguage(pathname) === 'en';
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
     title: 'Begin with a question: Who am I?', intro: teaching.statement },
-    e('p', { className: 'welcome-meaning' }, 'Here, “Creator” means the shared source appearing as every life, beyond our separate personalities. Remembering, questioning, choosing, and caring also unfold within the game. You are welcome to explore this spiritual perspective and question it.'),
-    e('p', null, discussion.confidenceIntro),
-    e('p', { className: 'reading-links' }, e('a', { href: '/philosophy#confidence' }, discussion.confidenceTitle)),
-    e('p', null, "Explore self-enquiry for confidence and personal growth, and questions about guilt, sadness, grief, emotional pain, and depression. Begin with your own experience and notice what helps."),
-    e('p', { className: 'reading-links' }, e('a', { href: '/faq#personal-growth' }, 'Explore confidence and difficult emotions')),
-    e('p', { className: 'quiet-note' }, 'Free to explore. No account, payment, journal, or prescribed routine is needed.'),
     e('nav', { className: 'reading-links', 'aria-label': 'Choose a starting point' },
       e('a', { className: 'button', href: '/who-am-i-self-enquiry' }, 'Begin with a question: Who am I?'),
       e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
+    e(ProblemLinks, {compact:true, featured:true}),
+    e('p', { className: 'welcome-meaning' }, 'Here, “Creator” means the shared source appearing as every life, beyond our separate personalities. Remembering, questioning, choosing, and caring also unfold within the game. You are welcome to explore this spiritual perspective and question it.'),
+    e('p', { className: 'quiet-note' }, 'Free to explore. No account, payment, journal, or prescribed routine is needed.'),
     e('section', { className: 'first-practice', 'aria-labelledby': 'first-practice-title' },
       e('div', null, e('p', { className: 'eyebrow' }, 'See the teaching in ordinary life'),
         e('h2', { id: 'first-practice-title' }, 'A mistake is not your whole identity.'),
@@ -40,7 +36,6 @@ export function App() {
       e('div', null, e('h2', { id: 'watch-title' }, 'Prefer a short video?'),
         e('p', null, 'Watch “A Mistake Is Not Your Whole Identity” on the Mind Clarity YouTube channel, then explore the example in your own life.')),
       e('a', { className: 'button secondary', href: 'https://www.youtube.com/shorts/p1JyKo3vKeE' }, 'Watch on YouTube')),
-    e(ProblemLinks, {compact:true}),
     e(EnquiryLinks),
     e('section', { id: 'practice', className: 'home-section' },
       e('p', { className: 'eyebrow' }, 'One teaching in everyday experiences'),

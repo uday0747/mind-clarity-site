@@ -12,15 +12,93 @@
   "overthinkingTitle": "Overthinking, worry and uncertainty: a self-enquiry guide",
   "overthinkingDescription": "Explore repeated thoughts, worry and uncertainty through Uday Kumar’s philosophy. Read an unanswered-message example and ways to participate without demanding certainty.",
   "categories": [
-    {"id":"confidence","title":"Confidence and self-worth","concerns":"Low confidence · Low self-worth · Comparison · Rejection · Fear of failure · Dependence on approval","href":"/confidence-self-worth-and-self-enquiry","sourceSection":"5"},
-    {"id":"thoughts","title":"Overthinking and a restless mind","concerns":"Overthinking · Repeated thoughts · Worry · Stress · Anxiety · Difficulty quieting the mind","href":"/overthinking-worry-and-uncertainty","sourceSection":"5, 6"},
-    {"id":"emotions","title":"Difficult emotions and self-judgment","concerns":"Anger · Resentment · Guilt · Shame · Self-blame · Emotional pain","href":"/guilt-responsibility-and-boundaries","sourceSection":"5, 6, 7"},
-    {"id":"loss","title":"Loss, sadness and loneliness","concerns":"Sadness · Grief · Loneliness · Disappointment · Fear of death · Feeling overwhelmed","href":"/faq#personal-growth","sourceSection":"5, 6, 7"},
-    {"id":"relationships","title":"Relationships, family and boundaries","concerns":"Family conflict · Blame · Hurtful conversations · Mistrust · Difficulty setting boundaries · Responding to wrongdoing","href":"/philosophy#family-care","sourceSection":"7"},
-    {"id":"uncertainty","title":"Decisions, change and control","concerns":"Indecision · Uncertainty · Resistance to change · Fear of the future · Helplessness · Confusing surrender with passivity","href":"/surrender-free-will-and-design","sourceSection":"2, 7"},
-    {"id":"possessions","title":"Money, status and attachment","concerns":"Attachment to money · Status anxiety · Greed · Jealousy · Fear of financial loss · Conflict over possessions","href":"/philosophy#money","sourceSection":"5, 7"},
-    {"id":"spiritual","title":"Identity, meaning and spiritual questions","concerns":"Identity confusion · Lack of meaning · Fear of God · Religious superiority · Blind belief · Pressure to become enlightened","href":"/who-am-i-self-enquiry","sourceSection":"1, 3, 4"},
-    {"id":"health","title":"Living with depression or illness","concerns":"Depression · Sleep difficulties · Fatigue · Distress during illness · Worry about health","href":"/meditation-and-self-realization","sourceSection":"4, 5, 11"},
-    {"id":"world","title":"Technology, society and enjoyment of life","concerns":"Fear of AI · Job insecurity · Indifference to suffering · Harm to nature · Poverty · Losing enjoyment and wonder","href":"/philosophy#beautiful-world","sourceSection":"6, 8"}
+    {
+      "id": "confidence",
+      "title": "Confidence and self-worth",
+      "concerns": "Low confidence · Low self-worth · Comparison · Rejection · Fear of failure · Dependence on approval",
+      "href": "/confidence-self-worth-and-self-enquiry",
+      "sourceSection": "5",
+      "aliases": "insecure insecurity confident esteem approval rejected failure"
+    },
+    {
+      "id": "thoughts",
+      "title": "Overthinking and a restless mind",
+      "concerns": "Overthinking · Repeated thoughts · Worry · Stress · Anxiety · Difficulty quieting the mind",
+      "href": "/overthinking-worry-and-uncertainty",
+      "sourceSection": "5, 6",
+      "aliases": "cannot stop thinking restless worried anxious stressed rumination"
+    },
+    {
+      "id": "emotions",
+      "title": "Difficult emotions and self-judgment",
+      "concerns": "Anger · Resentment · Guilt · Shame · Self-blame · Emotional pain",
+      "href": "/guilt-responsibility-and-boundaries",
+      "sourceSection": "5, 6, 7",
+      "aliases": "angry anger resentment resentful guilty ashamed blame hurt",
+      "example": "Suppose a hurtful remark leaves you angry. In Uday’s teaching, both people share the Creator identity; anger is an experience within the game, not your whole identity. You can acknowledge the hurt, pause before replying, and say clearly what is unacceptable. Remembering connection does not require suppressing anger or accepting repeated harm.",
+      "reflection": "What was hurt, and what response or boundary is needed now?"
+    },
+    {
+      "id": "loss",
+      "title": "Loss, sadness and loneliness",
+      "concerns": "Sadness · Grief · Loneliness · Disappointment · Fear of death · Feeling overwhelmed",
+      "href": "/faq#life-loss",
+      "sourceSection": "5, 6, 7",
+      "aliases": "lonely alone loneliness grieving bereavement bereaved sad overwhelmed death disappointment",
+      "example": "An evening alone after a loss may bring grief or loneliness. Uday allows sadness and compassion alongside deeper steadiness. Remembering the shared Creator does not require feeling peaceful or denying the relationship you miss. Allow the feeling, reach out to someone you trust, and attend to one ordinary need. Support and recovery can take time.",
+      "reflection": "Can you give this feeling space while remembering that a painful scene is not the whole of who you are?"
+    },
+    {
+      "id": "relationships",
+      "title": "Relationships, family and boundaries",
+      "concerns": "Family conflict · Blame · Hurtful conversations · Mistrust · Difficulty setting boundaries · Responding to wrongdoing",
+      "href": "/philosophy#family-care",
+      "sourceSection": "7",
+      "aliases": "family conflict trust distrust mistrust boundary boundaries wrongdoing argument",
+      "example": "After a family argument, the wish to prove who is right can overshadow the people involved. Uday’s direction is to remember the shared Creator, listen without humiliation, and help with what is reasonably possible. Name the actual disagreement, acknowledge your part, and make a clear request. A boundary can coexist with care; another person’s agreement or change cannot be demanded.",
+      "reflection": "What needs understanding, what needs repair, and what needs a firm boundary?"
+    },
+    {
+      "id": "uncertainty",
+      "title": "Decisions, change and control",
+      "concerns": "Indecision · Uncertainty · Resistance to change · Fear of the future · Helplessness · Confusing surrender with passivity",
+      "href": "/surrender-free-will-and-design",
+      "sourceSection": "2, 7",
+      "aliases": "indecisive uncertain future control helpless surrender passive change"
+    },
+    {
+      "id": "possessions",
+      "title": "Money, status and attachment",
+      "concerns": "Attachment to money · Status anxiety · Greed · Jealousy · Fear of financial loss · Conflict over possessions",
+      "href": "/practice#money-relationships",
+      "sourceSection": "5, 7",
+      "aliases": "jealous envy envious jealousy greedy greed money finances financial attachment status",
+      "example": "A friend’s success may stir jealousy, or a disagreement over money may threaten a relationship. Uday places money and status among the small parts of creation; they cannot enlarge or diminish our shared Creator identity. Notice the comparison without judging yourself for having it. Attend to your practical needs and agreements, while enquiring into why a possession has become a measure of your worth.",
+      "reflection": "What practical need deserves attention, and what comparison are you treating as a measure of who you are?"
+    },
+    {
+      "id": "spiritual",
+      "title": "Identity, meaning and spiritual questions",
+      "concerns": "Identity confusion · Lack of meaning · Fear of God · Religious superiority · Blind belief · Pressure to become enlightened",
+      "href": "/who-am-i-self-enquiry",
+      "sourceSection": "1, 3, 4",
+      "aliases": "identity meaning meaningless god religious religion belief enlightenment"
+    },
+    {
+      "id": "health",
+      "title": "Living with depression or illness",
+      "concerns": "Depression · Sleep difficulties · Fatigue · Distress during illness · Worry about health",
+      "href": "/faq#life-health",
+      "sourceSection": "4, 5, 11",
+      "aliases": "depressed depression insomnia sleepless sleep tired fatigue illness sick health"
+    },
+    {
+      "id": "world",
+      "title": "Technology, society and enjoyment of life",
+      "concerns": "Fear of AI · Job insecurity · Indifference to suffering · Harm to nature · Poverty · Losing enjoyment and wonder",
+      "href": "/philosophy#beautiful-world",
+      "sourceSection": "6, 8",
+      "aliases": "AI artificial intelligence jobs unemployment poverty nature suffering wonder enjoyment"
+    }
   ]
 }

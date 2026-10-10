@@ -8,7 +8,7 @@ const e = React.createElement;
 const links = [
   ['home', 'Begin here', '/'],
   ['philosophy', 'Philosophy', '/philosophy'],
-  ['practice', 'Daily practice', '/practice'],
+  ['practice', 'Everyday examples', '/practice'],
   ['faq', 'Questions', '/faq'],
   ['reflections', 'Reflections', '/reflections']
 ];

@@ -1,26 +1,28 @@
 export function enhanceSharing(root) {
-  const button = root?.querySelector('[data-copy-link]');
-  const input = root?.querySelector('#share-url');
-  const status = root?.querySelector('.share-status');
-  if (!button || !input || !status || button.dataset.enhanced || !navigator.clipboard?.writeText) return;
-  const copy = async () => {
-    const copied = root.dataset.shareCopied || 'Link copied. Paste it wherever you would like to share it.';
-    const fallback = root.dataset.shareFallback || 'Select and copy the link above to share it.';
-    try {
-      await navigator.clipboard.writeText(input.value);
-      status.textContent = copied;
-    } catch {
-      input.focus();
-      input.select();
-      status.textContent = fallback;
+  const button=root?.querySelector('[data-copy-link]'), input=root?.querySelector('#share-url'), status=root?.querySelector('.share-status');
+  if(!button||!input||!status||button.dataset.enhanced)return;
+  const email=root.querySelector('a[href^="mailto:"]');
+  const base=input.value.split('#')[0];
+  const originalEmail=email?.getAttribute('href');
+  const sync=()=>{
+    input.value=base+window.location.hash;
+    if(email&&originalEmail){
+      const url=new URL(originalEmail);
+      url.searchParams.set('body',url.searchParams.get('body').replace(base,input.value));
+      email.href=url.href;
     }
   };
-  button.addEventListener('click', copy);
-  button.dataset.enhanced = 'true';
-  button.hidden = false;
-  return () => {
-    button.removeEventListener('click', copy);
-    button.hidden = true;
-    delete button.dataset.enhanced;
+  const copy=async()=>{
+    sync();
+    try{await navigator.clipboard.writeText(input.value);status.textContent=root.dataset.shareCopied;}
+    catch{input.focus();input.select();status.textContent=root.dataset.shareFallback;}
+  };
+  window.addEventListener('hashchange',sync);sync();
+  if(navigator.clipboard?.writeText){button.addEventListener('click',copy);button.hidden=false;}
+  button.dataset.enhanced='true';
+  return()=>{
+    window.removeEventListener('hashchange',sync);button.removeEventListener('click',copy);
+    input.value=base;if(email&&originalEmail)email.setAttribute('href',originalEmail);
+    button.hidden=true;delete button.dataset.enhanced;
   };
 }

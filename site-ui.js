@@ -90,7 +90,7 @@ export function enhanceLanguagePicker() {
     if (target) {
       suggestion.textContent = `${browserPrefers} ${language.nativeName}. `;
       const link = document.createElement('a');
-      link.href = target.dataset.href;
+      link.href = target.dataset.href + window.location.search + window.location.hash;
       link.textContent = `${openIn} ${language.nativeName}`;
       suggestion.append(link);
     } else {
@@ -105,7 +105,7 @@ export function enhanceLanguagePicker() {
     if (!option) return;
     storeLanguage(option.value);
     if (option.dataset.href && option.dataset.href !== window.location.pathname) {
-      window.location.assign(option.dataset.href);
+      window.location.assign(option.dataset.href + window.location.search + window.location.hash);
     }
   };
   select.addEventListener('change', change);
