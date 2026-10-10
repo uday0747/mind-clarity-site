@@ -1,10 +1,11 @@
 import React from 'react';
 import teaching from './teaching-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
+import research from './research-content.json' with { type: 'json' };
 import { Page, Contents, Lesson, Reflection } from './site-layout.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
-const sections = [["mula-siddhanta","The root statement"],["confidence",discussion.confidenceTitle],["one-shakti","One Creator, many roles"],["witnessing","Remembering during experience"],["surrender","The movie and the lotus"],["four-paths","Four paths to recognition"],["sthitaprajna","Steady wisdom"],["two-levels","Relationships and natural care"],["family-care",discussion.familyTitle],["money","Possessions within creation"],["intelligence","Silence and intelligence"],["scripture","Ten scriptural pointers"],["earlier-teachings",discussion.traditionTitle],["intention","The central intention"],["beautiful-world","A Beautiful World"],["living","Living with the understanding"]];
+const sections = [["mula-siddhanta","The root statement"],["confidence",discussion.confidenceTitle],["one-shakti","One Creator, many roles"],["witnessing","Remembering during experience"],["surrender","The movie and the lotus"],["four-paths","Four paths to recognition"],["sthitaprajna","Steady wisdom"],["two-levels","Relationships and natural care"],["family-care",discussion.familyTitle],["money","Possessions within creation"],["intelligence","Silence and intelligence"],["scripture","Ten scriptural pointers"],["research-connections",research.title],["earlier-teachings",discussion.traditionTitle],["intention","The central intention"],["beautiful-world","A Beautiful World"],["living","Living with the understanding"]];
 const sources = [
   ['ప్రజ్ఞానం బ్రహ్మ','Prajñānam Brahma','Consciousness is Brahman.','Aitareya Upanishad 3.1.3 · Rig Veda tradition'],
   ['అహం బ్రహ్మాస్మి','Aham Brahmāsmi','I am Brahman.','Brihadaranyaka Upanishad 1.4.10 · Yajur Veda tradition'],
@@ -97,6 +98,11 @@ export default function Philosophy() {
           e('li', null, e('a', {href:'https://sri-aurobindo.co.in/workings/sa/12/isha_e.pdf'}, 'Isha Upanishad · verse 16 (PDF)')),
           e('li', null, e('a', {href:'https://upasanayoga.org/KathU.htm'}, 'Katha Upanishad · text and commentary')),
           e('li', null, e('a', {href:'https://rigveda-online.github.io/10/125.html'}, 'Rig Veda 10.125 · text and translation')))),
+        e('section', {id:'research-connections', className:'research-connections'},
+          e('h3', null, research.title), p(research.intro), p(research.process),
+          research.entries.map(entry => e('details', {key:entry.title}, e('summary', null, entry.title), p(entry.text),
+            e('ul', null, entry.links.map(([label,href]) => e('li', {key:href}, e('a', {href}, label)))))),
+          e('p', {className:'quiet-note'}, research.scope)),
         e(Reflection, null, 'Choose one pointer about the Self. How does Uday connect it to the Creator in every role? Distinguish what the passage says from the further teaching that we entered a game whose design cannot be changed from inside.')),
       e(Lesson, {id:'earlier-teachings', number:'13', title:discussion.traditionTitle},
         p(discussion.traditionIntro), p(discussion.ramana),

@@ -1,4 +1,5 @@
 import React from 'react';
+import research from './research-content.json' with { type: 'json' };
 import { Page, Reflection } from './site-layout.js';
 import { enquiryTopics } from './enquiry-topics.js';
 const e = React.createElement;
@@ -14,6 +15,7 @@ function EnquiryPage({ topic }) {
     e('p', { className: 'quiet-note' }, 'Teaching: Uday Kumar · Edited from his recorded discussions · Updated 10 October 2026. These explanations express his spiritual framework; they are not medical advice or independently verified proof of creation.'),
     e('article', { className: 'compact-reading' },
       ...topic.sections.map(([heading,text]) => e('section', { key: heading }, e('h2', null, heading), e('p', null, text))),
+      topic.slug === 'meditation-and-self-realization' ? e('section', null, e('p', null, research.process), e('p', null, e('a', {href:'/philosophy#research-connections'}, research.link))) : null,
       e('h2', null, 'Related questions'),
       ...topic.entries.map(([q,a]) => e('section', { key: q }, e('h3', null, q), e('p', null, a))),
       e(Reflection, null, topic.reflection),
