@@ -10,6 +10,7 @@ import AIReflection from './ai-reflection.js';
 import TeluguAIReflection from './ai-reflection-te.js';
 import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
+import comparative from './comparative-research.json' with { type: 'json' };
 import { questions, enquiryGroups } from './questions.js';
 import { enquiryPages, EnquiryLinks } from './enquiry-pages.js';
 import { enhanceEnquirySearch } from './enquiry-search.js';
@@ -41,6 +42,7 @@ function FAQ() {
       e('section', { 'aria-labelledby': 'evidence-notes' },
         e('h2', { id: 'evidence-notes' }, 'Research and its limits'),
         p('Spiritual teaching, personal experience, and research answer different kinds of questions. The sources below support specific findings; they do not establish that we created the universe or that enlightenment guarantees health, wealth, or correct decisions.'),
+        e('p', {className:'reading-links'}, e('a', {href:'/philosophy#research-across-traditions'}, comparative.traditionsTitle), e('a', {href:'/philosophy#research-health-and-time'}, comparative.healthTitle)),
         e('p', null, e('a', { href: 'https://www.insead.edu/faculty-research/publications/journal-articles/debiasing-mind-through-meditation-mindfulness-and' }, 'Mindfulness and sunk-cost bias — INSEAD'), ': four studies suggest that mindfulness can reduce the tendency to let unrecoverable past costs drive a present decision. This is a specific decision-making benefit, not proof that every choice will be right.'),
         e('p', null, e('a', { href: 'https://bear.warrington.ufl.edu/brenner/mar7588/Papers/kahneman-klein-2009.pdf' }, 'Conditions for intuitive expertise — Kahneman and Klein (PDF)'), ': skilled intuition depends on opportunities to learn reliable patterns. Subjective certainty alone does not establish accuracy.'),
         e('p', null, e('a', { href: 'https://isha.sadhguru.org/yoga/meditations/science-of-meditation/' }, 'Sadhguru’s meditation account'), ' is a first-person account, separate from the ', e('a', { href: 'https://public-isha.sadhguru.org/research-center/publications/Shambhavi-EEG.pdf' }, 'EEG study of nine Isha practitioners (PDF)'), '. The study reported changes in electrical activity, not clinical brain death or a validated measure of enlightenment.'),
