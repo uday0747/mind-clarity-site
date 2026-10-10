@@ -1,3 +1,4 @@
+import mission from './mission-content.json' with { type: 'json' };
 import { translateText } from './translations.js';
 import { interfaceFor } from './interface-copy.js';
 import React, { useContext } from 'react';
@@ -37,7 +38,12 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
       eyebrow && e('p', { className: 'eyebrow' }, eyebrow),
       e('h1', null, title),
       intro && e('p', { className: 'intro' }, intro),
+      !home && canShare && e('nav', { className: 'mission-path', 'aria-label': mission.journeyLabel },
+        e('a', { href: '/understanding-god' }, mission.understandLink),
+        e('a', { href: '/practice' }, mission.practiceLink),
+        e('a', { href: '/understanding-god#questioning' }, mission.peaceLink)),
       children,
+      canShare && e('aside', { className: 'mission-return' }, e('p', null, mission.missionNote)),
       canShare && e(ShareLearning, { pathname, title })),
     e(Footer, { language: uiLanguage }));
 }

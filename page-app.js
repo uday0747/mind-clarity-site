@@ -1,3 +1,4 @@
+import mission from './mission-content.json' with { type: 'json' };
 import UnderstandingGod from './understanding-god-page.js';
 import AshtavakraResearch from './ashtavakra-page.js';
 import ProblemGuide from './problem-guide.js';
@@ -29,10 +30,10 @@ function Reflections() {
 }
 function FAQ() {
   useEffect(() => enhanceEnquirySearch(), []);
-  return e(Page, { eyebrow: 'Questions about the teaching', title: 'Self-enquiry and enlightenment: questions and answers', intro: teaching.statement },
+  return e(Page, { eyebrow: 'Questions about the teaching', title: mission.faqTitle, intro: teaching.statement },
     e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
       e('h2', { id: 'enquiry-title' }, 'Start with your question'),
-      p('No journal or prescribed timetable is needed. Bring your curiosity: Who am I? What does this teaching mean? These answers are edited from Uday Kumar’s discussions; you are welcome to question them.'),
+      p(mission.faqIntro),
       e('p', { id: 'enquiry-fallback', className: 'quiet-note' }, 'Browse the questions below. Open any question to read the full answer.'),
       e('div', { id: 'enquiry-controls', hidden: true },
       e('label', { htmlFor: 'enquiry-input' }, 'Find an answer in the teaching'),

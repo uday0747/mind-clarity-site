@@ -1,12 +1,13 @@
+import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
 import { Page, Contents, Lesson, Reflection } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 const p = text => e('p', null, text);
 export default function Practice() {
-  const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['daily', 'Return throughout the day']];
+  const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['faith-and-division', mission.practicePeaceTitle], ['daily', 'Return throughout the day']];
   return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement },
-    p('Begin with the motivation to know who you are. Ask “Who am I?” and let ordinary life invite enquiry. No journal, checklist, prescribed observation, or timetable is required. The examples below are optional ways to explore the teaching, not conditions for realization.'),
+    p(mission.practiceIntro),
     e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
       e(Lesson, { id: 'five-minutes', number: '01', title: 'Remember the whole teaching' },
@@ -22,6 +23,9 @@ export default function Practice() {
           e('h3', null, 'Remembering the Creator'), p(item.remember),
           e('h3', null, 'Participating within the game'), p(item.participation)),
         e(Reflection, null, item.reflection))),
+      e('section', {id:'faith-and-division', className:'lesson'}, e('h2', null, mission.practicePeaceTitle),
+        p(mission.practicePeaceScene), p(mission.practicePeaceRemember), p(mission.practicePeaceResponse),
+        e(Reflection, null, mission.practicePeaceReflection)),
       e(Lesson, { id:'daily', number:'08', title:'Return throughout the day' },
         p('The intended state is remembrance of the Creator while the game continues. A conversation, a mistake, or a quiet moment can be an occasion to return to the whole statement. The practice belongs within the unfolding; it does not rewrite the design.'),
         e('h3', null, 'An evening reflection'),

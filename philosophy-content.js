@@ -1,3 +1,4 @@
+import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
 import teaching from './teaching-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
@@ -7,7 +8,7 @@ import { Page, Contents, Lesson, Reflection } from './site-layout.js';
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const sourceCards = entries => entries.map(entry => e('details', {key:entry.title}, e('summary', null, entry.title), p(entry.text), e('ul', null, entry.links.map(([label,href]) => e('li', {key:href}, e('a', {href}, label))))));
-const sections = [["mula-siddhanta","The root statement"],["confidence",discussion.confidenceTitle],["one-shakti","One Creator, many roles"],["witnessing","Remembering during experience"],["surrender","The movie and the lotus"],["four-paths","Four paths to recognition"],["sthitaprajna","Steady wisdom"],["two-levels","Relationships and natural care"],["family-care",discussion.familyTitle],["money","Possessions within creation"],["intelligence","Silence and intelligence"],["scripture","Ten scriptural pointers"],["research-connections",research.title],["earlier-teachings",discussion.traditionTitle],["intention","The central intention"],["beautiful-world","A Beautiful World"],["living","Living with the understanding"]];
+const sections = [["purpose",mission.philosophyPurposeTitle],["mula-siddhanta","The root statement"],["confidence",discussion.confidenceTitle],["one-shakti","One Creator, many roles"],["witnessing","Remembering during experience"],["surrender","The movie and the lotus"],["four-paths","Four paths to recognition"],["sthitaprajna","Steady wisdom"],["two-levels","Relationships and natural care"],["family-care",discussion.familyTitle],["money","Possessions within creation"],["intelligence","Silence and intelligence"],["scripture","Ten scriptural pointers"],["research-connections",research.title],["earlier-teachings",discussion.traditionTitle],["intention","The central intention"],["beautiful-world","A Beautiful World"],["living","Living with the understanding"]];
 const sources = [
   ['ప్రజ్ఞానం బ్రహ్మ','Prajñānam Brahma','Consciousness is Brahman.','Aitareya Upanishad 3.1.3 · Rig Veda tradition'],
   ['అహం బ్రహ్మాస్మి','Aham Brahmāsmi','I am Brahman.','Brihadaranyaka Upanishad 1.4.10 · Yajur Veda tradition'],
@@ -23,8 +24,10 @@ const sources = [
 export default function Philosophy() {
   return e(Page, { eyebrow:'Uday Kumar’s spiritual philosophy', title:'We are the Creator within the game.', intro:teaching.statement },
     p(teaching.meaning),
-    e('p', {className:'quiet-note'}, 'The pages that follow develop this spiritual understanding through explanations, analogies, and enquiry. These explore the philosophy; they do not establish it as scientifically proven cosmology.'),
+    e('p', {className:'quiet-note'}, mission.philosophyIntro),
     e('div', {className:'reading-grid'}, e(Contents, {items:sections}), e('div', {className:'reading-body'},
+      e('section', {id:'purpose', className:'lesson'}, e('h2', null, mission.philosophyPurposeTitle), p(mission.philosophyPurpose),
+        e('div', {className:'reading-links'}, e('a', {href:'/understanding-god'}, mission.storyLink), e('a', {href:'/ashtavakra-gita'}, mission.ashtavakraLink))),
       e(Lesson, {id:'mula-siddhanta', number:'01', title:'Mula Siddhanta: the root statement'},
         e('blockquote', null, p('“' + teaching.original + '”'), e('cite', null, 'Uday’s original statement · 16 September 2026')),
         p('The one Creator was alone before the multiplicity of experience. In Uday’s account, the Creator made this game and entered its many lives and roles to experience it. “We are the creators” and “we are the Creator” express that same shared identity. God is not absent from the game: the source, the world of experience, and its deepest experiencer belong to one reality in this teaching.'),
@@ -51,7 +54,7 @@ export default function Philosophy() {
         p('In a movie theatre, we may laugh, cry, feel anger, or experience love. We become absorbed in a scene. When we leave and remember that it was a movie, our relationship with those emotions can change. Uday uses that return of awareness to explain remembrance within the game of life.'),
         p('The teaching asks us to remember while life is still happening: we are the Creator who made this game, entered it for experiences, and cannot change its design from inside. Emotions belong to the experience. Remembering is intended to keep a scene from becoming the whole of our identity.'),
         e('div', {className:'lotus-practice'}, e('strong', null, 'The lotus practice. '), 'Picture a lotus in the pond, appearing to rest so lightly on the water that it is unclear whether the water touches it. This is Uday’s image for living within the game: fully present, yet inwardly untouched by its passing scenes through remembrance of the Creator.'),
-        p('“Untouched” describes the intended spiritual state, not an instruction to become emotionless. Laughing, crying, love, and anger can be experienced. There is no test requiring a feeling to disappear instantly. The movie and lotus are illustrations of the teaching, not proof of its cosmology.'),
+        p('“Untouched” describes the intended spiritual state, not an instruction to become emotionless. Laughing, crying, love, and anger can be experienced. There is no test requiring a feeling to disappear instantly. The movie and lotus help make remembrance understandable during everyday experience.'),
         p(discussion.enjoyment),
         p('Surrender follows the same root: the role releases its demand to rewrite the game. If a plan changes, remembering the Creator can make room to meet the scene and examine the available alternatives. Making another plan, too, occurs within the unfolding.'),
         p('Bhakti brings devotion to the Creator present throughout the game; Jnana enquires into the identity of that Creator and the passing role. A sacred image can support this remembrance. Uday’s criticism is of worship that becomes mechanical while awareness of the divine in living people is forgotten.'),
@@ -126,7 +129,7 @@ export default function Philosophy() {
         e(Reflection, null, 'Remember a place you share with other lives. From the teaching that all belong to the same Creator, what care becomes meaningful? Consider that care and its consequences as experiences within the already-designed game.')),
       e(Lesson, {id:'living', number:'16', title:'Living with the understanding'},
         p('The intended state of mind carries the whole recognition into life: we are the Creator who entered the game for experiences, and we cannot change its design from inside it. A passing role, emotion, possession, or result need not become the whole of who we are.'),
-        p('Within Uday’s teaching, natural care follows as this recognition becomes clear. It is the reason for returning to the root in every exercise. Repeating a sentence or feeling calm once does not establish the cosmology or guarantee success. The invitation is continuing enquiry and honest attention to life.'),
+        p('Within Uday’s teaching, natural care follows as this recognition becomes clear. It is the reason for returning to the root in every exercise. Understanding grows through enquiry, remembrance, and the way we meet actual people and situations. Return to the meaning rather than measuring yourself by one passing feeling.'),
         e('details', null, e('summary', null, 'Explore the teaching in a daily experience'),
           e('ol', {className:'practice-steps'}, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
           e(Reflection, null, teaching.practiceReflection)),

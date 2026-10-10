@@ -168,3 +168,14 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
  .home-main>.welcome-meaning{font-size:1rem;margin-bottom:18px}
  .featured-concerns{padding-top:0}
 }
+
+/* The shared journey connects explanation, remembrance, and relationships. */
+.mission-path{display:flex;flex-wrap:wrap;gap:12px 22px;margin:24px 0 38px;padding:18px 0;border-block:1px solid var(--line,#d8dfd9);font-size:.95rem}
+.mission-path a{font-weight:650;text-underline-offset:4px}
+.mission-return{margin-top:42px;padding:20px 24px;border-inline-start:3px solid #8ba591;background:#f0f3ed;border-radius:0 10px 10px 0}
+.mission-return p{margin:0;font-size:.98rem;line-height:1.7}
+.mission-story{padding:32px;border:1px solid #d7ded1;background:#f0f3ed;border-radius:16px}
+.mission-story h2{max-width:760px}
+.mission-purpose h3{margin-top:30px}
+.mission-peace{padding-block:30px;border-block:1px solid #d7ded1}
+@media(max-width:600px){.mission-story{padding:22px}.mission-path{flex-direction:column;gap:13px}.mission-return{padding:18px}.mission-peace{padding-block:22px}}

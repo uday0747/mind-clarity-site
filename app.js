@@ -1,3 +1,4 @@
+import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
 import { mount } from './mount.js';
 import { Page, Reflection, TopicLinks } from './site-layout.js';
@@ -13,14 +14,20 @@ export function App() {
   const pathname = React.useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
   const introduction = introductionVideos[pageLanguage(pathname)];
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
-    title: 'Begin with a question: Who am I?', intro: teaching.statement },
+    title: mission.homeTitle, intro: teaching.statement },
     e('nav', { className: 'reading-links', 'aria-label': 'Choose a starting point' },
-      e('a', { className: 'button', href: '/who-am-i-self-enquiry' }, 'Begin with a question: Who am I?'),
+      e('a', { className: 'button', href: '/understanding-god' }, mission.understandLink),
       e('a', { href: '/philosophy' }, 'Read the complete philosophy →'),
       e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
-    e(ProblemLinks, {compact:true, featured:true}),
-    e('p', { className: 'welcome-meaning' }, 'Here, “Creator” means the shared source appearing as every life, beyond our separate personalities. Remembering, questioning, choosing, and caring also unfold within the game. You are welcome to explore this spiritual perspective and question it.'),
+    e('p', { className: 'welcome-meaning' }, mission.homeMeaning),
     e('p', { className: 'quiet-note' }, 'Free to explore. No account, payment, journal, or prescribed routine is needed.'),
+    e('section', { className: 'home-section mission-story', 'aria-labelledby': 'story-title' },
+      e('p', { className: 'eyebrow' }, mission.storyEyebrow),
+      e('h2', { id: 'story-title' }, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design),
+      e('a', { className: 'text-link', href: '/understanding-god#story' }, mission.storyLink)),
+    e('section', { className: 'home-section mission-purpose' },
+      e('h2', null, mission.purposeTitle), e('p', null, mission.purpose),
+      e('h3', null, mission.recognitionTitle), e('p', null, mission.recognition)),
     e('section', { className: 'first-practice', 'aria-labelledby': 'first-practice-title' },
       e('div', null, e('p', { className: 'eyebrow' }, 'See the teaching in ordinary life'),
         e('h2', { id: 'first-practice-title' }, 'A mistake is not your whole identity.'),
@@ -38,6 +45,13 @@ export function App() {
       e('div', null, e('h2', { id: 'watch-title' }, 'Watch the Mind Clarity introduction'),
         e('p', null, 'Explore Uday Kumar’s main teaching through a simple everyday example, then read and question the philosophy for yourself.')),
       e('a', { className: 'button secondary', href: introduction.href }, 'Watch the introduction on YouTube')),
+    e('section', { className: 'home-section' }, e('h2', null, mission.stateTitle), e('p', null, mission.state),
+      e('a', { className: 'text-link', href: '/practice' }, mission.practiceLink)),
+    e('section', { className: 'home-section mission-peace' }, e('h2', null, mission.peaceTitle), e('p', null, mission.peace),
+      e('a', { className: 'text-link', href: '/understanding-god#questioning' }, mission.peaceLinkLong)),
+    e('section', { className: 'home-section' }, e('h2', null, mission.scriptureTitle), e('p', null, mission.scripture),
+      e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#scripture' }, mission.scriptureLink), e('a', { href: '/ashtavakra-gita' }, mission.ashtavakraLink))),
+    e(ProblemLinks, {compact:true, featured:true}),
     e(EnquiryLinks),
     e('section', { id: 'practice', className: 'home-section' },
       e('p', { className: 'eyebrow' }, 'One teaching in everyday experiences'),
