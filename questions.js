@@ -1,4 +1,5 @@
 import teaching from './teaching-content.json' with { type: 'json' };
+import discussion from './discussion-content.json' with { type: 'json' };
 
 // Used by both the visible Questions page and its structured data.
 export const questions = [
@@ -82,7 +83,7 @@ enquiryGroups.push({
     ],
     [
       "How can I explore confidence, self-esteem, and fear of failure?",
-      "A mistake, criticism, or comparison need not define your whole identity. Remember the shared source described in this teaching, then consider the next practical step. Confidence can include learning, asking for help, and admitting uncertainty; it does not require superiority or certainty that you will succeed."
+      discussion.confidenceIntro + " " + discussion.confidenceEnquiry
     ],
     [
       "What about overthinking, stress, anxiety, and worry?",
