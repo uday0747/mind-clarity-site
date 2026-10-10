@@ -1,6 +1,7 @@
 import { questions, enquiryGroups } from '../questions.js';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { localizedPageSlugs, pageLanguage, languageVariants } from '../language-options.js';
+import problems from '../problem-content.json' with { type: 'json' };
 import { translateText } from '../translations.js';
 
 // Titles, descriptions and canonicals in each source HTML remain the source of truth.
@@ -34,10 +35,10 @@ export function completeMetadata(head) {
   const graph = {
     '@context': 'https://schema.org', '@graph': [
       { '@type': 'WebSite', '@id': 'https://mindclarity.co.in/#website', name: 'Mind Clarity', url: 'https://mindclarity.co.in/', inLanguage: 'en' },
-      { '@type': canonicalPath === '/reflections' ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
+      { '@type': canonicalPath === '/reflections' || canonicalPath.endsWith('/life-problems-and-self-enquiry') ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
-  const topic = enquiryTopics.find(topic => canonicalPath === '/' + topic.slug);
+  const topic = enquiryTopics.find(topic => canonicalPath === '/' + topic.slug || localizedPage === topic.slug);
   const author = { '@type': 'Person', '@id': 'https://mindclarity.co.in/#uday-kumar', name: 'Uday Kumar' };
   graph['@graph'][1].author = author;
   if (reflection) {
@@ -63,13 +64,23 @@ export function completeMetadata(head) {
     ] };
   }
   if (topic) {
-    graph['@graph'].push({ '@type': 'Article', '@id': `${canonical}#article`, headline: topic.title,
-      description: topic.description, author, datePublished: '2026-10-01', dateModified: '2026-10-01',
-      mainEntityOfPage: { '@id': `${canonical}#webpage` }, inLanguage: 'en' });
+    const prefix = language === 'en' ? '' : `/${language}`;
+    graph['@graph'][1].about = topic.slug === 'life-problems-and-self-enquiry'
+      ? problems.categories.map(category => ({ '@type':'Thing', name:translateText(category.title, language) }))
+      : { '@type':'Thing', name:decode(title).replace(/ \| Mind Clarity$/, '') };
+    if (topic.slug === 'life-problems-and-self-enquiry') {
+      graph['@graph'][1].mainEntity = { '@type':'ItemList', itemListElement:problems.categories.map((category,index)=>({
+        '@type':'ListItem', position:index+1, name:translateText(category.title, language), url:`${canonical}#${category.id}` })) };
+    } else {
+      graph['@graph'][1].mainEntity = { '@id':`${canonical}#article` };
+      graph['@graph'].push({ '@type': 'Article', '@id': `${canonical}#article`, headline:decode(title).replace(/ \| Mind Clarity$/, ''),
+        description:decode(description), author, datePublished:topic.published || '2026-10-01', dateModified:topic.modified || '2026-10-10',
+        mainEntityOfPage: { '@id': `${canonical}#webpage` }, inLanguage:language });
+    }
     graph['@graph'].push({ '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Mind Clarity', item: 'https://mindclarity.co.in/' },
-      { '@type': 'ListItem', position: 2, name: 'Questions and answers', item: 'https://mindclarity.co.in/faq' },
-      { '@type': 'ListItem', position: 3, name: topic.title, item: canonical }
+      { '@type': 'ListItem', position: 1, name: 'Mind Clarity', item: `https://mindclarity.co.in${prefix || '/'}` },
+      { '@type': 'ListItem', position: 2, name:translateText('Questions and answers', language), item: `https://mindclarity.co.in${prefix}/faq` },
+      { '@type': 'ListItem', position: 3, name:decode(title).replace(/ \| Mind Clarity$/, ''), item: canonical }
     ] });
   }
   const faq = canonicalPath === '/faq' || localizedPage === 'faq' ? {

@@ -1,3 +1,4 @@
+import ProblemGuide, { ProblemLinks } from './problem-guide.js';
 import { App } from './app.js';
 import { localizedPageSlugs } from './language-options.js';
 import React, { useEffect } from 'react';
@@ -47,6 +48,7 @@ function FAQ() {
         e('p', null, e('a', { href: 'https://www.nimh.nih.gov/health/topics/depression', hrefLang: 'en' }, 'Depression: symptoms and treatment — NIMH')),
         p('Found a factual error or a misattributed quotation? Please share the passage and a source by email so it can be checked.'), e('p', null, email())),
       e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))),
+    e(ProblemLinks, {compact:true}),
     e(EnquiryLinks),
     e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')));
 }
@@ -74,6 +76,10 @@ export const pages = { hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: Telug
 for (const language of ['pt', 'id', 'ar']) {
   pages[language] = App;
   for (const page of localizedPageSlugs) pages[`${language}/${page}`] = pages[page];
+}
+pages['life-problems-and-self-enquiry'] = ProblemGuide;
+for (const language of ['hi','es','fr','te','pt','id','ar']) {
+  for (const slug of ['life-problems-and-self-enquiry','confidence-self-worth-and-self-enquiry','overthinking-worry-and-uncertainty']) pages[`${language}/${slug}`] = pages[slug];
 }
 if (typeof document !== 'undefined') {
   const Component = pages[pageFromPath(location.pathname)];

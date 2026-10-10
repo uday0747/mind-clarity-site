@@ -47,6 +47,18 @@
     "ai-fear-and-clarity": {
       "title": "Inteligência Artificial, Medo e Clareza | Mind Clarity",
       "description": "Uma reflexão espiritual sobre a inteligência artificial, o desígnio do Criador, o trabalho, a pobreza e o enfrentamento da incerteza com esperança e responsabilidade."
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "Problemas da vida e autoindagação: o que você pode explorar? | Mind Clarity",
+      "description": "Explore confiança, pensamentos excessivos, raiva, culpa, luto, relacionamentos, incerteza e questões espirituais pela filosofia de Uday Kumar, com limites claros sobre saúde."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "Autoindagação para confiança, autoestima e medo do fracasso | Mind Clarity",
+      "description": "Explore falta de confiança, comparação, rejeição e medo do fracasso pela identidade compartilhada de Criador. Leia a explicação de Uday Kumar, um exemplo de emprego e uma reflexão opcional."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Pensamentos excessivos, preocupação e incerteza: um guia de autoindagação | Mind Clarity",
+      "description": "Explore pensamentos repetitivos, preocupação e incerteza pela filosofia de Uday Kumar. Leia um exemplo de mensagem sem resposta e formas de participar sem exigir certeza."
     }
   },
   "id": {
@@ -97,6 +109,18 @@
     "ai-fear-and-clarity": {
       "title": "Kecerdasan Buatan, Ketakutan dan Kejelasan | Mind Clarity",
       "description": "Sebuah refleksi spiritual tentang kecerdasan buatan, rancangan Sang Pencipta, karya, kemiskinan, dan menghadapi ketidakpastian dengan harapan dan tanggung jawab."
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "Masalah kehidupan dan penyelidikan diri: apa yang dapat dijelajahi? | Mind Clarity",
+      "description": "Jelajahi kepercayaan diri, berpikir berlebihan, kemarahan, rasa bersalah, duka, hubungan, ketidakpastian, dan pertanyaan spiritual melalui filosofi Uday Kumar, dengan batas jelas pada klaim kesehatan."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "Penyelidikan diri untuk kepercayaan diri, harga diri, dan takut gagal | Mind Clarity",
+      "description": "Jelajahi kurang percaya diri, perbandingan, penolakan, dan takut gagal melalui identitas bersama sebagai Sang Pencipta. Baca penjelasan Uday Kumar, contoh pekerjaan, dan refleksi opsional."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Berpikir berlebihan, kekhawatiran, dan ketidakpastian: panduan penyelidikan diri | Mind Clarity",
+      "description": "Jelajahi pikiran berulang, kekhawatiran, dan ketidakpastian melalui filosofi Uday Kumar. Baca contoh pesan tanpa balasan dan cara berpartisipasi tanpa menuntut kepastian."
     }
   },
   "ar": {
@@ -147,6 +171,74 @@
     "ai-fear-and-clarity": {
       "title": "الذكاء الاصطناعي والخوف والوضوح | Mind Clarity",
       "description": "تأمل روحي حول الذكاء الاصطناعي وتصميم الخالق وعمله والفقر ومواجهة عدم اليقين بالأمل والمسؤولية."
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "مشكلات الحياة والاستقصاء الذاتي: ما الذي يمكنك استكشافه؟ | Mind Clarity",
+      "description": "استكشف الثقة والتفكير المفرط والغضب والذنب والحزن والعلاقات وعدم اليقين والأسئلة الروحية من خلال فلسفة أوداي كومار، مع توضيح حدود الادعاءات الصحية."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "الاستقصاء الذاتي للثقة وتقدير الذات والخوف من الفشل | Mind Clarity",
+      "description": "استكشف ضعف الثقة والمقارنة والرفض والخوف من الفشل عبر الهوية المشتركة بوصفنا الخالق. اقرأ شرح أوداي كومار ومثالًا عن العمل وتأملًا اختياريًا."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "التفكير المفرط والقلق وعدم اليقين: دليل للاستقصاء الذاتي | Mind Clarity",
+      "description": "استكشف الأفكار المتكررة والقلق وعدم اليقين من خلال فلسفة أوداي كومار. اقرأ مثال رسالة بلا رد وطرق المشاركة دون المطالبة باليقين."
+    }
+  },
+  "te": {
+    "life-problems-and-self-enquiry": {
+      "title": "జీవిత సమస్యలు, ఆత్మవిచారణ: ఏమి పరిశీలించవచ్చు? | Mind Clarity",
+      "description": "ఉదయ్ కుమార్ తత్వం ద్వారా ఆత్మవిశ్వాసం, అతిగా ఆలోచించడం, కోపం, అపరాధ భావన, దుఃఖం, సంబంధాలు, అనిశ్చితి, ఆధ్యాత్మిక ప్రశ్నలను పరిశీలించండి. ఆరోగ్య వాదనల పరిమితులు స్పష్టంగా ఉన్నాయి."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "ఆత్మవిశ్వాసం, ఆత్మవిలువ, వైఫల్య భయం కోసం ఆత్మవిచారణ | Mind Clarity",
+      "description": "ఉమ్మడి సృష్టికర్త గుర్తింపు ద్వారా తక్కువ ఆత్మవిశ్వాసం, పోలిక, తిరస్కరణ, వైఫల్య భయాన్ని పరిశీలించండి. ఉదయ్ వివరణ, ఉద్యోగ ఉదాహరణ, ఐచ్ఛిక ఆలోచన చదవండి."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "అతిగా ఆలోచించడం, చింత, అనిశ్చితి: ఆత్మవిచారణ మార్గదర్శిని | Mind Clarity",
+      "description": "ఉదయ్ కుమార్ తత్వం ద్వారా పదే పదే వచ్చే ఆలోచనలు, చింత, అనిశ్చితిని పరిశీలించండి. సమాధానం రాని సందేశం ఉదాహరణను, నిశ్చితత్వం కోసం పట్టుబట్టకుండా పాల్గొనే మార్గాలను చదవండి."
+    }
+  },
+  "hi": {
+    "life-problems-and-self-enquiry": {
+      "title": "जीवन की समस्याएँ और आत्म-विचार: क्या खोज सकते हैं? | Mind Clarity",
+      "description": "उदय कुमार के दर्शन से आत्मविश्वास, अधिक सोचने, क्रोध, अपराधबोध, शोक, संबंधों, अनिश्चितता और आध्यात्मिक प्रश्नों की खोज करें। स्वास्थ्य दावों की सीमाएँ स्पष्ट हैं।"
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "आत्मविश्वास, आत्म-मूल्य और असफलता के डर के लिए आत्म-विचार | Mind Clarity",
+      "description": "साझा सृष्टिकर्ता पहचान से कम आत्मविश्वास, तुलना, अस्वीकृति और असफलता के डर की खोज करें। उदय की व्याख्या, नौकरी का उदाहरण और वैकल्पिक चिंतन पढ़ें।"
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "अधिक सोचने, चिंता और अनिश्चितता पर आत्म-विचार की मार्गदर्शिका | Mind Clarity",
+      "description": "उदय कुमार के दर्शन से बार-बार आने वाले विचारों, चिंता और अनिश्चितता की खोज करें। अनुत्तरित संदेश का उदाहरण और निश्चितता की माँग किए बिना भाग लेने के तरीके पढ़ें।"
+    }
+  },
+  "es": {
+    "life-problems-and-self-enquiry": {
+      "title": "Problemas de la vida y autoindagación: ¿qué puedes explorar? | Mind Clarity",
+      "description": "Explora confianza, sobrepensamiento, ira, culpa, duelo, relaciones, incertidumbre y preguntas espirituales mediante la filosofía de Uday Kumar, con límites claros sobre la salud."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "Autoindagación para la confianza, la autoestima y el miedo al fracaso | Mind Clarity",
+      "description": "Explora la falta de confianza, la comparación, el rechazo y el miedo al fracaso mediante la identidad compartida como Creador. Lee la explicación de Uday Kumar, un ejemplo laboral y una reflexión opcional."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Sobrepensamiento, preocupación e incertidumbre: una guía de autoindagación | Mind Clarity",
+      "description": "Explora pensamientos repetidos, preocupación e incertidumbre mediante la filosofía de Uday Kumar. Lee un ejemplo de un mensaje sin respuesta y formas de participar sin exigir certeza."
+    }
+  },
+  "fr": {
+    "life-problems-and-self-enquiry": {
+      "title": "Difficultés de la vie et enquête sur soi : que pouvez-vous explorer ? | Mind Clarity",
+      "description": "Explorez confiance, pensées excessives, colère, culpabilité, deuil, relations, incertitude et questions spirituelles avec la philosophie d’Uday Kumar, en précisant les limites concernant la santé."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "L’enquête sur soi pour la confiance, l’estime de soi et la peur de l’échec | Mind Clarity",
+      "description": "Explorez le manque de confiance, la comparaison, le rejet et la peur de l’échec à travers l’identité commune de Créateur. Lisez l’explication d’Uday Kumar, un exemple professionnel et une réflexion facultative."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Pensées excessives, inquiétude et incertitude : un guide d’enquête sur soi | Mind Clarity",
+      "description": "Explorez pensées répétitives, inquiétude et incertitude avec la philosophie d’Uday Kumar. Découvrez un exemple de message sans réponse et comment participer sans exiger la certitude."
     }
   }
 }

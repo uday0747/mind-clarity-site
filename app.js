@@ -3,6 +3,7 @@ import { mount } from './mount.js';
 import { Page, Reflection, TopicLinks } from './site-layout.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
+import { ProblemLinks } from './problem-guide.js';
 import { EnquiryLinks } from './enquiry-pages.js';
 import { PagePathContext } from './site-header.js';
 import { pageLanguage } from './language-options.js';
@@ -39,6 +40,7 @@ export function App() {
       e('div', null, e('h2', { id: 'watch-title' }, 'Prefer a short video?'),
         e('p', null, 'Watch “A Mistake Is Not Your Whole Identity” on the Mind Clarity YouTube channel, then explore the example in your own life.')),
       e('a', { className: 'button secondary', href: 'https://www.youtube.com/shorts/p1JyKo3vKeE' }, 'Watch on YouTube')),
+    e(ProblemLinks, {compact:true}),
     e(EnquiryLinks),
     e('section', { id: 'practice', className: 'home-section' },
       e('p', { className: 'eyebrow' }, 'One teaching in everyday experiences'),

@@ -1,0 +1,26 @@
+{
+  "title": "Life problems and self-enquiry: what can you explore?",
+  "description": "Explore confidence, overthinking, anger, guilt, grief, relationships, uncertainty and spiritual questions through Uday Kumar’s philosophy, with clear limits on health claims.",
+  "intro": "Uday’s philosophy addresses how we understand and meet difficulties by enquiring into our shared Creator identity within the game of experiences. Choose a concern below to find an explanation, an everyday example, or a question to explore.",
+  "scope": "These are concerns discussed in the philosophy and applications of its teaching, not a promise to solve every external problem. Recognition is intended to change our relationship with experience; practical action, learning, protection, and appropriate support remain part of life.",
+  "homeTitle": "What is troubling you?",
+  "homeLink": "Explore the full guide to life’s difficulties",
+  "healthLimit": "For depression, persistent anxiety, sleep problems, fatigue, or illness, spiritual enquiry can accompany appropriate healthcare. This philosophy is not a treatment, a diagnosis, or a promise to prevent illness. Sleep, vitality, and immunity were discussed as hoped-for benefits, not established outcomes of this teaching.",
+  "worldLimit": "Poverty, job insecurity, harm to nature, and unsafe technology also require practical resources, cooperation, and safeguards. Uday’s Beautiful World vision gives these concerns a direction for enquiry and action; personal recognition alone does not guarantee their resolution.",
+  "confidenceTitle": "Self-enquiry for confidence, self-worth and fear of failure",
+  "confidenceDescription": "Explore low confidence, comparison, rejection and fear of failure through shared Creator identity. Read Uday Kumar’s explanation, a job example and optional reflection.",
+  "overthinkingTitle": "Overthinking, worry and uncertainty: a self-enquiry guide",
+  "overthinkingDescription": "Explore repeated thoughts, worry and uncertainty through Uday Kumar’s philosophy. Read an unanswered-message example and ways to participate without demanding certainty.",
+  "categories": [
+    {"id":"confidence","title":"Confidence and self-worth","concerns":"Low confidence · Low self-worth · Comparison · Rejection · Fear of failure · Dependence on approval","href":"/confidence-self-worth-and-self-enquiry","sourceSection":"5"},
+    {"id":"thoughts","title":"Overthinking and a restless mind","concerns":"Overthinking · Repeated thoughts · Worry · Stress · Anxiety · Difficulty quieting the mind","href":"/overthinking-worry-and-uncertainty","sourceSection":"5, 6"},
+    {"id":"emotions","title":"Difficult emotions and self-judgment","concerns":"Anger · Resentment · Guilt · Shame · Self-blame · Emotional pain","href":"/guilt-responsibility-and-boundaries","sourceSection":"5, 6, 7"},
+    {"id":"loss","title":"Loss, sadness and loneliness","concerns":"Sadness · Grief · Loneliness · Disappointment · Fear of death · Feeling overwhelmed","href":"/faq#personal-growth","sourceSection":"5, 6, 7"},
+    {"id":"relationships","title":"Relationships, family and boundaries","concerns":"Family conflict · Blame · Hurtful conversations · Mistrust · Difficulty setting boundaries · Responding to wrongdoing","href":"/philosophy#family-care","sourceSection":"7"},
+    {"id":"uncertainty","title":"Decisions, change and control","concerns":"Indecision · Uncertainty · Resistance to change · Fear of the future · Helplessness · Confusing surrender with passivity","href":"/surrender-free-will-and-design","sourceSection":"2, 7"},
+    {"id":"possessions","title":"Money, status and attachment","concerns":"Attachment to money · Status anxiety · Greed · Jealousy · Fear of financial loss · Conflict over possessions","href":"/philosophy#money","sourceSection":"5, 7"},
+    {"id":"spiritual","title":"Identity, meaning and spiritual questions","concerns":"Identity confusion · Lack of meaning · Fear of God · Religious superiority · Blind belief · Pressure to become enlightened","href":"/who-am-i-self-enquiry","sourceSection":"1, 3, 4"},
+    {"id":"health","title":"Living with depression or illness","concerns":"Depression · Sleep difficulties · Fatigue · Distress during illness · Worry about health","href":"/meditation-and-self-realization","sourceSection":"4, 5, 11"},
+    {"id":"world","title":"Technology, society and enjoyment of life","concerns":"Fear of AI · Job insecurity · Indifference to suffering · Harm to nature · Poverty · Losing enjoyment and wonder","href":"/philosophy#beautiful-world","sourceSection":"6, 8"}
+  ]
+}

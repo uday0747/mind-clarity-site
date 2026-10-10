@@ -1,3 +1,6 @@
+import problems from './problem-content.json' with { type: 'json' };
+import discussion from './discussion-content.json' with { type: 'json' };
+import teaching from './teaching-content.json' with { type: 'json' };
 import { questions, enquiryGroups } from './questions.js';
 
 // Adapted from Uday Kumar’s recorded discussions and clarifications.
@@ -59,3 +62,17 @@ export const enquiryTopics = [
     practiceLink: '/practice#self-judgment'
   }
 ];
+
+const caseById = id => teaching.cases.find(item=>item.id===id);
+const overthinking = caseById('overthinking');
+enquiryTopics.push(
+  {slug:'life-problems-and-self-enquiry', title:problems.title, description:problems.description, published:'2026-10-10', modified:'2026-10-10'},
+  {slug:'confidence-self-worth-and-self-enquiry', title:problems.confidenceTitle, description:problems.confidenceDescription,
+    answer:discussion.confidenceIntro, published:'2026-10-10', modified:'2026-10-10',
+    sections:[[discussion.confidenceTitle,discussion.confidenceIdentity],['A mistake is not your whole identity.',discussion.confidenceExample],['How is understanding different from repeating a belief?',discussion.confidenceEnquiry]],
+    entries:enquiryGroups.at(-1).entries.slice(0,2), reflection:discussion.confidenceReflection, practiceLink:'/practice#self-judgment'},
+  {slug:'overthinking-worry-and-uncertainty', title:problems.overthinkingTitle, description:problems.overthinkingDescription,
+    answer:overthinking.connection, published:'2026-10-10', modified:'2026-10-10',
+    sections:[[overthinking.example,overthinking.scene],['Remembering the Creator',overthinking.remember],['Participating within the game',overthinking.participation]],
+    entries:[questions.find(([q])=>q==='What if the mind does not become silent?'),enquiryGroups.at(-1).entries[2]], reflection:overthinking.reflection, practiceLink:'/practice#overthinking'}
+);
