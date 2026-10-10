@@ -101,7 +101,7 @@ export default function Philosophy() {
           e('li', null, e('a', {href:'https://upasanayoga.org/KathU.htm'}, 'Katha Upanishad · text and commentary')),
           e('li', null, e('a', {href:'https://rigveda-online.github.io/10/125.html'}, 'Rig Veda 10.125 · text and translation')))),
         e('section', {id:'research-connections', className:'research-connections'},
-          e('h3', null, research.title), p(research.intro), p(research.process),
+          e('h3', null, research.title), p(research.intro), p(research.guide), p(research.process),
           sourceCards([research.entries[0], comparative.core, ...research.entries.slice(1)]),
           e('p', {className:'quiet-note'}, research.scope),
           e('section', {id:'research-across-traditions'}, e('h3', null, comparative.traditionsTitle), p(comparative.traditionsIntro), sourceCards(comparative.traditions)),

@@ -1,6 +1,6 @@
 # Creator, comparative religion, and health: research continuation
 
-This continues the [first source ledger](traditional-sources-2026-10-10.md). Uday authorized independent enquiry, research across religions, research into Ayurveda and medical astrology, and continued website updates. A weekly thread follow-up is active on Mondays at 9 a.m. It should add verified, substantive findings and distinguish source testimony from demonstrated effects.
+This continues the [first source ledger](traditional-sources-2026-10-10.md). Uday authorized independent enquiry, research across religions, research into Ayurveda and medical astrology, and continued website updates. The Monday automation was deleted at Uday’s request. Research is on demand in this chat, within the time or token allowance he specifies. There is no scheduled follow-up. Verified findings may be published during an authorized research session.
 
 ## Questions examined and answers found
 
@@ -40,7 +40,7 @@ Yes. [Brihat Jataka 23.7](https://www.wisdomlib.org/hinduism/book/brihat-jataka-
 
 Testimonies can record what someone experienced or believed. They require identifiable authors and faithful context. They do not independently settle cosmology, planetary causation, diagnosis, or guaranteed outcomes. Existing Ramana, Vivekananda, and first-person meditation sources remain useful with these distinctions. This batch adds no unverifiable miracle testimonials.
 
-## Next questions for the weekly continuation
+## Next questions for an on-demand research session
 
 1. What do classical sources on *lila* say about creation as play? Examine Brahma Sutra 2.1.33 with identifiable commentaries, preserving differences from Uday’s reason for creation.
 2. Which texts distinguish recognition of a shared Self from the personality’s power? Examine implications for responsibility, boundaries, and compassion.
@@ -56,3 +56,9 @@ Testimonies can record what someone experienced or believed. They require identi
 One core Gita explanation, five comparative religion explanations, and three health/time explanations, all in the site’s eight languages. FAQ links lead to the two new subsections. Static HTML preserves crawlability without speculative disease-targeted SEO pages.
 
 Browser review also exposed incorrect legacy translations of the ten Telugu-script Sanskrit pointers, including unrelated Arabic phrases. The original phrases are now preserved in their original script across all languages, with the translated meanings kept separately. A wider review of older Arabic prose remains a useful future editorial question.
+
+## On-demand continuation: creation as play
+
+Examined Brahma Sutra 2.1.33 in George Thibaut’s translations of [Shankara’s commentary, 1890](https://www.wisdomlib.org/hinduism/book/brahma-sutras-thibaut/d/doc63841.html) and [Ramanuja’s commentary, 1904](https://www.wisdomlib.org/hinduism/book/brahma-sutras-ramanuja/d/doc1083849.html). Both explain creation through play, providing a direct classical connection with the game analogy. Shankara connects activity with divine nature and the teaching that Brahman is the Self of everything; Ramanuja discusses creation, sustenance, and destruction by divine will. Their distinct systems should not be merged into a single doctrine. Both describe fulfillment, so Uday’s loneliness/need-for-experience explanation remains his further formulation. No exact life-event schedule is established by this verse.
+
+Added one source card in eight languages and a reading guide directing visitors first to creation/entry, divine indwelling, and play, before the other connections. The next enquiry can deepen the shared Self versus individual personality distinction. Continue investigating reasons and evidence rather than substituting generic caveats for research; preserve the actual meaning of every source.

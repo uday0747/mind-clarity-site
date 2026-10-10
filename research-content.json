@@ -5,11 +5,92 @@
   "scope": "These passages document traditional teachings. Uday brings them together into his account of a shared Creator and an unfolding design. The complete game designed before entry, birth-time influences, and the purpose of visible planets remain parts of his interpretation. Textual support and measured bodily effects are different kinds of evidence.",
   "link": "Explore the passages on creation, planets, chakras, and meditation",
   "entries": [
-    {"title":"Creation, entry, and shared identity", "text":"Taittiriya Upanishad 2.6.1 describes creation followed by entry into what was created. Brihadaranyaka Upanishad 1.4.10 gives the realization “I am Brahman.” These are close textual connections to Uday’s central teaching.", "links":[["Taittiriya Upanishad · 2.6.1","https://www.upasanayoga.org/TaitU.htm"],["Brihadaranyaka Upanishad · 1.4.10","https://www.brhat.in/openlibrary/special/brihadaranyaka-upanishad/1-4-10"]]},
-    {"title":"Learning, reflection, and meditation", "text":"Brihadaranyaka Upanishad 2.4.5 connects knowing the Self with hearing, reflection, and meditation. It offers a traditional foundation for investigating a teaching until understanding becomes your own.", "links":[["Brihadaranyaka Upanishad · 2.4.5","https://vivekavani.com/bru2c4v5/"]]},
-    {"title":"The body as a microcosm", "text":"Shiva Samhita 2.1–3 describes the body as containing mountains, stars, planets, the sun, the moon, and elements. This directly connects with Uday’s view that the outer world is reflected within us, through the language of yogic cosmology.", "links":[["Shiva Samhita · 2.1–3","https://yogarasa.org/traditional-texts/siva-samhita-2"]]},
-    {"title":"Chakras and the elements", "text":"Sat-Chakra-Nirupana describes earth in Muladhara (verse 5), water in Svadhisthana (15), and fire in Manipura (19). Parashara separately associates Mars with fire. Uday connects these correspondences; the chakra verses themselves do not give a complete chakra-to-planet map.", "links":[["Sat-Chakra-Nirupana · 5, 15, 19","https://wiki.yoga-vidya.de/Shat_Chakra_Nirupana_Devanagari_Text"]]},
-    {"title":"Planetary qualities and bodily correspondences", "text":"Brihat Parashara Hora Shastra assigns planets distinct qualities, elements, and bodily tissues. Chapter 3 associates Jupiter with knowledge and describes Mars as fiery and hot-tempered. These are documented astrological teachings, relevant to Uday’s interpretation of timing and experience.", "links":[["Brihat Parashara Hora Shastra · 3.12–13, 20, 25, 27, 31","https://parashara.net/index.php?page=chapter3"],["Brihat Jataka · 2.1","https://www.wisdomlib.org/hinduism/book/brihat-jataka-by-varahamihira-sanskrit-english/d/doc1501584.html"]]},
-    {"title":"Upright sitting and breathing", "text":"Bhagavad Gita 6.13 describes keeping the body, head, and neck upright and steady. A 2018 study of 35 healthy young men found higher inspiratory pressure when upright than when slouched. It measured breathing muscle strength, not oxygen levels, thinking ability, or chakra alignment.", "links":[["Bhagavad Gita · 6.13","https://www.gitasupersite.iitk.ac.in/srimad?enable_contplay=1&etpurohit=1&field_chapter_value=6&field_nsutra_value=13&language=ro&show_mool=1&show_purohit=1"],["Posture and respiratory muscle strength · 2018 study","https://research.polyu.edu.hk/en/publications/effect-of-upright-and-slouched-sitting-postures-on-the-respirator/"]]}
-  ]
+    {
+      "title": "Creation, entry, and shared identity",
+      "text": "Taittiriya Upanishad 2.6.1 describes creation followed by entry into what was created. Brihadaranyaka Upanishad 1.4.10 gives the realization “I am Brahman.” These are close textual connections to Uday’s central teaching.",
+      "links": [
+        [
+          "Taittiriya Upanishad · 2.6.1",
+          "https://www.upasanayoga.org/TaitU.htm"
+        ],
+        [
+          "Brihadaranyaka Upanishad · 1.4.10",
+          "https://www.brhat.in/openlibrary/special/brihadaranyaka-upanishad/1-4-10"
+        ]
+      ]
+    },
+    {
+      "title": "Creation as play: lila",
+      "text": "Brahma Sutra 2.1.33 describes creation as play. Shankara explains it as activity arising from divine nature, and Ramanuja also connects creation with play. This gives a classical foundation for Uday’s game analogy. Uday further explains creation as a way to experience many forms of life; these commentaries describe Brahman as already fulfilled rather than needing to overcome loneliness.",
+      "links": [
+        [
+          "Brahma Sutra · 2.1.33, Shankara commentary",
+          "https://www.wisdomlib.org/hinduism/book/brahma-sutras-thibaut/d/doc63841.html"
+        ],
+        [
+          "Brahma Sutra · 2.1.33, Ramanuja commentary",
+          "https://www.wisdomlib.org/hinduism/book/brahma-sutras-ramanuja/d/doc1083849.html"
+        ]
+      ]
+    },
+    {
+      "title": "Learning, reflection, and meditation",
+      "text": "Brihadaranyaka Upanishad 2.4.5 connects knowing the Self with hearing, reflection, and meditation. It offers a traditional foundation for investigating a teaching until understanding becomes your own.",
+      "links": [
+        [
+          "Brihadaranyaka Upanishad · 2.4.5",
+          "https://vivekavani.com/bru2c4v5/"
+        ]
+      ]
+    },
+    {
+      "title": "The body as a microcosm",
+      "text": "Shiva Samhita 2.1–3 describes the body as containing mountains, stars, planets, the sun, the moon, and elements. This directly connects with Uday’s view that the outer world is reflected within us, through the language of yogic cosmology.",
+      "links": [
+        [
+          "Shiva Samhita · 2.1–3",
+          "https://yogarasa.org/traditional-texts/siva-samhita-2"
+        ]
+      ]
+    },
+    {
+      "title": "Chakras and the elements",
+      "text": "Sat-Chakra-Nirupana describes earth in Muladhara (verse 5), water in Svadhisthana (15), and fire in Manipura (19). Parashara separately associates Mars with fire. Uday connects these correspondences; the chakra verses themselves do not give a complete chakra-to-planet map.",
+      "links": [
+        [
+          "Sat-Chakra-Nirupana · 5, 15, 19",
+          "https://wiki.yoga-vidya.de/Shat_Chakra_Nirupana_Devanagari_Text"
+        ]
+      ]
+    },
+    {
+      "title": "Planetary qualities and bodily correspondences",
+      "text": "Brihat Parashara Hora Shastra assigns planets distinct qualities, elements, and bodily tissues. Chapter 3 associates Jupiter with knowledge and describes Mars as fiery and hot-tempered. These are documented astrological teachings, relevant to Uday’s interpretation of timing and experience.",
+      "links": [
+        [
+          "Brihat Parashara Hora Shastra · 3.12–13, 20, 25, 27, 31",
+          "https://parashara.net/index.php?page=chapter3"
+        ],
+        [
+          "Brihat Jataka · 2.1",
+          "https://www.wisdomlib.org/hinduism/book/brihat-jataka-by-varahamihira-sanskrit-english/d/doc1501584.html"
+        ]
+      ]
+    },
+    {
+      "title": "Upright sitting and breathing",
+      "text": "Bhagavad Gita 6.13 describes keeping the body, head, and neck upright and steady. A 2018 study of 35 healthy young men found higher inspiratory pressure when upright than when slouched. It measured breathing muscle strength, not oxygen levels, thinking ability, or chakra alignment.",
+      "links": [
+        [
+          "Bhagavad Gita · 6.13",
+          "https://www.gitasupersite.iitk.ac.in/srimad?enable_contplay=1&etpurohit=1&field_chapter_value=6&field_nsutra_value=13&language=ro&show_mool=1&show_purohit=1"
+        ],
+        [
+          "Posture and respiratory muscle strength · 2018 study",
+          "https://research.polyu.edu.hk/en/publications/effect-of-upright-and-slouched-sitting-postures-on-the-respirator/"
+        ]
+      ]
+    }
+  ],
+  "guide": "Begin with the main idea: creation, entry into creation, and the same divine Self within different lives. Read the first three explanations together, then explore the body, planets, and other traditions."
 }
