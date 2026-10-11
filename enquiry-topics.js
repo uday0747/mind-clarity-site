@@ -67,11 +67,11 @@ const caseById = id => teaching.cases.find(item=>item.id===id);
 const overthinking = caseById('overthinking');
 enquiryTopics.push(
   {slug:'life-problems-and-self-enquiry', title:problems.title, description:problems.description, published:'2026-10-10', modified:'2026-10-11'},
-  {slug:'confidence-self-worth-and-self-enquiry', title:problems.confidenceTitle, description:problems.confidenceDescription,
+  {slug:'confidence-self-worth-and-self-enquiry', title:problems.confidenceTitle, seoTitle:'Confidence, self-worth and self-enquiry', description:problems.confidenceDescription,
     answer:discussion.confidenceIntro, published:'2026-10-10', modified:'2026-10-11',
     sections:[[discussion.confidenceTitle,discussion.confidenceIdentity],['A mistake is not your whole identity.',discussion.confidenceExample],['How is understanding different from repeating a belief?',discussion.confidenceEnquiry]],
     entries:enquiryGroups.at(-1).entries.slice(0,2), reflection:discussion.confidenceReflection, practiceLink:'/practice#self-judgment'},
-  {slug:'overthinking-worry-and-uncertainty', title:problems.overthinkingTitle, description:problems.overthinkingDescription,
+  {slug:'overthinking-worry-and-uncertainty', title:problems.overthinkingTitle, seoTitle:'Overthinking, worry and self-enquiry', description:problems.overthinkingDescription,
     answer:overthinking.connection, published:'2026-10-10', modified:'2026-10-11',
     sections:[[overthinking.example,overthinking.scene],['Remembering the Creator',overthinking.remember],['Participating within the game',overthinking.participation]],
     entries:[questionById['quiet-mind'],enquiryGroups.at(-1).entries[2]], reflection:overthinking.reflection, practiceLink:'/practice#overthinking'}

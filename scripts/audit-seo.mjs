@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { languageVariants, pageLanguage } from '../language-options.js';
 
 const live = process.argv.includes('--live');
 const dist = process.argv.slice(2).find(argument => !argument.startsWith('--')) || fileURLToPath(new URL('../dist/', import.meta.url));
@@ -9,6 +10,8 @@ const { default: server } = await import(pathToFileURL(path.join(dist, 'server/i
 const origin = 'https://mindclarity.co.in';
 const sitemap = readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+const sitemapDates = new Map([...sitemap.matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map(match => [match[1],match[2]]));
+assert.equal(sitemapDates.size, urls.length, 'Every canonical page has a reviewed update date');
 const request = url => live ? fetch(url, { redirect: 'manual', signal: AbortSignal.timeout(20000) }) : server.fetch(new Request(url));
 const cases = [
   [`${origin}/post/artificial-super-intelligence-and-enlightened-human-being`, 301, `${origin}/ai-fear-and-clarity`],
@@ -63,6 +66,27 @@ for (const url of urls) {
   assert.ok(html.includes(`property="og:url" content="${url}"`), `${url}: social URL`);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${url}: heading`);
   assert.doesNotMatch(html, /name="robots" content="noindex"/, `${url}: indexable`);
+  const pathname = new URL(url).pathname;
+  const language = pageLanguage(pathname);
+  for (const [code, alternate] of Object.entries(languageVariants(pathname))) {
+    const target = `${origin}${alternate}`;
+    assert.ok(urls.includes(target), `${url}: language alternate is a current canonical page`);
+    assert.ok(html.includes(`hreflang="${code}" href="${target}"`), `${url}: accurate ${code} alternate`);
+  }
+  assert.equal((html.match(/property="og:image"/g) || []).length, 1, `${url}: one social image`);
+  assert.match(html, /og:image:width" content="1200"/, `${url}: correct image width`);
+  assert.match(html, /og:image:height" content="800"/, `${url}: correct image height`);
+  const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1])['@graph'];
+  const modified = sitemapDates.get(url);
+  assert.equal(graph[1].dateModified, modified, `${url}: schema and sitemap update dates agree`);
+  assert.deepEqual(graph[0].inLanguage.sort(), Object.keys(languageVariants('/')).sort(), `${url}: site languages reflect actual translations`);
+  for (const breadcrumb of graph.filter(item => item['@type'] === 'BreadcrumbList')) {
+    const entries = breadcrumb.itemListElement;
+    assert.equal(entries[0].item, `${origin}${languageVariants('/')[language]}`, `${url}: breadcrumb begins in this language`);
+    assert.equal(entries.at(-1).item, url, `${url}: breadcrumb ends at this page`);
+    assert.ok(entries.every(item => urls.includes(item.item)), `${url}: breadcrumb targets remain published`);
+  }
+  assert.doesNotMatch(html, /analytics and payments|análises e pagamentos|analyses? et paiements|consultation-info|rzp\.io|Razorpay|₹500/i, `${url}: no retired commercial metadata`);
   for (const [, reference] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const target = new URL(reference.replaceAll('&amp;', '&'), url);
     if (target.origin === origin) resources.add(target.href);

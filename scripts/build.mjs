@@ -52,7 +52,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   }
   if (topic) {
     const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
-    template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(topic.title)} | Mind Clarity</title>`)
+    template = template.replace(/<title>[^<]+<\/title>/, `<title>${escape(topic.seoTitle || topic.title)} | Mind Clarity</title>`)
       .replace(/name="description" content="[^"]+"/, `name="description" content="${escape(topic.description)}"`)
       .replace('rel="canonical" href="https://mindclarity.co.in/faq"', `rel="canonical" href="https://mindclarity.co.in/${topic.slug}"`);
   }
