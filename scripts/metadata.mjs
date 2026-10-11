@@ -19,7 +19,7 @@ export function completeMetadata(head) {
   const reflection = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
   const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
   const language = pageLanguage(canonicalPath);
-  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu)\/([^/]+)$/);
+  const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur)\/([^/]+)$/);
   const localizedPage = reflection ? null : localizedRoute?.[2] || (!localizedRoute && localizedPageSlugs.has(canonicalPath.slice(1)) ? canonicalPath.slice(1) : null);
   const alternates = languageVariants(canonicalPath);
   if (Object.keys(alternates).length > 1) {

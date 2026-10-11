@@ -17,7 +17,7 @@
 
 ## Native editor checklist
 
-For Hindi, Telugu, Spanish, French, Portuguese, Indonesian, Arabic, Tamil, Kannada, Malayalam, Bengali, Marathi and Gujarati, review the homepage premise, Philosophy’s root statement, surrender/effort, responsibility and boundaries, health passages, optional payment information, and the new privacy choices. Compare with the English source and preserved original statements. Record reviewer, language, pages, date and corrections before describing a translation as independently reviewed.
+For Hindi, Telugu, Spanish, French, Portuguese, Indonesian, Arabic, Tamil, Kannada, Malayalam, Bengali, Marathi, Gujarati, Punjabi, Odia, Assamese and Urdu, review the homepage premise, Philosophy’s root statement, surrender/effort, responsibility and boundaries, health passages, optional payment information, and the new privacy choices. Compare with the English source and preserved original statements. Record reviewer, language, pages, date and corrections before describing a translation as independently reviewed.
 
 Check that God/Creator/Shakti remain consistent within their context; distinguish quoted original statements, editorial explanations and external scripture translations. Preserve uncertainty and qualifications. Check natural question-finder queries, status messages, mobile line breaks and Arabic directionality. Source proper names and source-edition language may remain untranslated.
 

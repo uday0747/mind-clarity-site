@@ -19,7 +19,7 @@ import { localizedMoreMeta } from '../localized-more.js';
 import { localizedAIMeta } from '../localized-ai.js';
 import { contentSecurityPolicy, scriptIntegrity } from './security-policy.mjs';
 
-const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu'].map(language => [language, {
+const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].map(language => [language, {
   ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language], ...additionalMeta[language],
 }]));
 
@@ -36,9 +36,9 @@ const bundleIntegrity = scriptIntegrity(await readFile(path.join(dist, 'site.js'
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
-  const localizedRoute = page.match(/^(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu)\/(.+)$/) || (['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu'].includes(page) ? [page, page, ''] : null);
+  const localizedRoute = page.match(/^(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur)\/(.+)$/) || (['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].includes(page) ? [page, page, ''] : null);
   const localizedTopic = localizedRoute && enquiryTopics.find(topic => topic.slug === localizedRoute[2]);
-  const templatePage = ['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu'].includes(page) ? 'index' : page.split('/').pop();
+  const templatePage = ['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].includes(page) ? 'index' : page.split('/').pop();
   let template = await readFile(path.join(root, `${topic || localizedTopic ? 'faq' : templatePage}.html`), 'utf8');
   if (localizedRoute) {
     const [, language, basePage] = localizedRoute;
@@ -81,7 +81,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const articleMinutes = Math.max(1, Math.ceil(articleText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
   markup = markup.replace(/(<span data-reading-minutes="true"([^>]*)>)–(<\/span>)/g, (_, open, attributes, close) => open + (attributes.includes('data-reading-article') ? articleMinutes : readingMinutes) + close);
   if (language !== 'en') markup = translateMarkup(markup, language);
-  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${language === 'ar' ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}" integrity="${bundleIntegrity}" crossorigin="anonymous"></script></body></html>\n`;
+  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${['ar', 'ur'].includes(language) ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}" integrity="${bundleIntegrity}" crossorigin="anonymous"></script></body></html>\n`;
   const outputFile = path.join(dist, `${page}.html`);
   await mkdir(path.dirname(outputFile), { recursive: true });
   await writeFile(outputFile, html);
