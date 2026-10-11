@@ -2,6 +2,9 @@
 export const languageOptions = [
   { code: 'en', nativeName: 'English', label: 'English' },
   { code: 'te', nativeName: 'తెలుగు', label: 'Telugu' },
+  { code: 'ta', nativeName: 'தமிழ்', label: 'Tamil' },
+  { code: 'kn', nativeName: 'ಕನ್ನಡ', label: 'Kannada' },
+  { code: 'ml', nativeName: 'മലയാളം', label: 'Malayalam' },
   { code: 'hi', nativeName: 'हिन्दी', label: 'Hindi' },
   { code: 'es', nativeName: 'Español', label: 'Spanish' },
   { code: 'fr', nativeName: 'Français', label: 'French' },

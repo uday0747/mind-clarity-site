@@ -13,9 +13,9 @@ const inventory = JSON.parse(readFileSync(new URL('../translations/source-invent
 for (const [language, dictionary] of Object.entries(translations)) {
   for (const source of inventory) assert.ok(typeof dictionary[source] === 'string' && dictionary[source].trim(), `${language}: source text has a translation: ${source}`);
 }
-const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
+const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar', 'ta', 'kn', 'ml'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url, base = 'https://mindclarity.co.in/') => {
   const pathname = new URL(url, base).pathname;
@@ -32,7 +32,7 @@ for (const page of pages) {
   assert.match(html, /name="description" content="[^"]+"/, `${page}: description`);
   assert.match(html, /rel="canonical"/, `${page}: canonical`);
   assert.match(html, /id="language-select"/, `${page}: language selector`);
-  for (const code of ['en','te','hi','es','fr','pt','id','ar']) {
+  for (const code of ['en','te','hi','es','fr','pt','id','ar', 'ta', 'kn', 'ml']) {
     const hasAlternate = Object.keys(languageVariants(`/${page === 'index' ? '' : page}`)).length > 1;
     assert.equal((html.match(new RegExp(`hreflang="${code}"`, 'g')) || []).length, hasAlternate ? 1 : 0, `${page}: alternates match available translations for ${code}`);
     assert.equal(new RegExp(`value="${code}"`).test(html), code in languageVariants(`/${page === 'index' ? '' : page}`), `${page}: ${code} selection matches route availability`);
@@ -46,7 +46,7 @@ for (const page of pages) {
   assert.ok(html.includes(`property="og:url" content="${canonical}"`), `${page}: social URL matches canonical`);
   assert.equal((html.match(/property="og:title"/g) || []).length, 1, `${page}: no duplicate metadata`);
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)?.[1] || '{}');
-  const locale = page.match(/^(hi|es|fr|te|pt|id|ar)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
+  const locale = page.match(/^(hi|es|fr|te|pt|id|ar|ta|kn|ml)(?:\/|$)/)?.[1] || (page === 'ai-fear-and-clarity-telugu' ? 'te' : 'en');
   if (page === 'index') assert.match(html, /id="watch-title"/, 'English homepage retains the video section');
   if (introductionVideos[locale]) {
     assert.ok(html.includes(`href="${introductionVideos[locale].href}"`), `${page}: introduction video matches page language`);
@@ -99,12 +99,12 @@ for (const page of pages) {
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, 'English article has an x-default alternate');
     assert.match(html, /data-href="\/ai-fear-and-clarity-telugu"/, 'English article links to the Telugu alternate');
   }
-  if (['hi', 'es', 'fr', 'pt', 'id', 'ar'].includes(page)) {
+  if (['hi', 'es', 'fr', 'pt', 'id', 'ar', 'ta', 'kn', 'ml'].includes(page)) {
     assert.match(html, new RegExp(`<html lang="${page}"(?: dir="rtl")?>`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
     for (const alternate of ['/hi', '/es', '/fr']) assert.match(html, new RegExp(`data-href="${alternate}"`), `${page}: language selector includes ${alternate}`);
   }
-if (/^(hi|es|fr|pt|id|ar)\//.test(page)) {
+if (/^(hi|es|fr|pt|id|ar|ta|kn|ml)\//.test(page)) {
     const [language, basePage] = page.split('/');
     assert.match(html, new RegExp(`<html lang="${language}"(?: dir="rtl")?>`), `${page}: document language`);
     assert.equal((html.match(/hreflang="x-default"/g) || []).length, 1, `${page}: has an x-default alternate`);
@@ -161,8 +161,8 @@ assert.ok(!sitemap.includes('/contact'), 'Retired Contact page is absent from si
 assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length);
 for (const page of pages) assert.ok(sitemap.includes(`https://mindclarity.co.in/${page === 'index' ? '' : page}</loc>`));
 assert.ok(!readdirSync(dist).some((file) => ['app.js', 'page-app.js', 'node_modules', '.env'].includes(file)), 'No raw source or private files in the public output');
-// Eight-language search, privacy preferences and reading disclosures share a 12 KB budget.
-assert.ok(readFileSync(path.join(dist, 'site.js')).length < 12000, 'Progressive enhancement JavaScript stays below 12 KB');
+// Eleven-language search, privacy preferences and reading disclosures share a 13 KB budget.
+assert.ok(readFileSync(path.join(dist, 'site.js')).length < 13000, 'Progressive enhancement JavaScript stays below 13 KB for eleven languages');
 for (const file of readdirSync(path.join(dist, 'assets'))) {
   assert.ok(readFileSync(path.join(dist, 'assets', file)).length < 150000, `${file}: optimized image stays below 150 KB`);
 }

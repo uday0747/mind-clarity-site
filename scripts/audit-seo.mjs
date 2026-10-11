@@ -38,7 +38,7 @@ for (const host of ['mindclarity.co.in', 'www.mindclarity.co.in']) {
   cases.push([`https://${host}/blog/old-article`, 410]);
 }
 // Retired conversation URLs go directly to the matching language homepage.
-for (const language of ['en','hi','es','fr','te','pt','id','ar']) {
+for (const language of ['en','hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml']) {
   const prefix = language === 'en' ? '' : `/${language}`;
   for (const host of ['mindclarity.co.in','www.mindclarity.co.in']) {
     for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}${prefix}/consultation-info${suffix}`,301,`${origin}${prefix || '/'}`]);

@@ -31,14 +31,17 @@ for (const [language, query] of [
   ['hi','मैं अपने आप में अधिक आत्मविश्वास कैसे महसूस कर सकता हूँ?'],
   ['te','నా ఆత్మవిశ్వాసం ఎలా పెంచుకోవాలి?'],
   ['id','Bagaimana saya bisa lebih percaya diri?'],
-  ['ar','كيف يمكنني الشعور بمزيد من الثقة بنفسي؟']
+  ['ar','كيف يمكنني الشعور بمزيد من الثقة بنفسي؟'],
+  ['ta','தன்னம்பிக்கை'],
+  ['kn','ಆತ್ಮವಿಶ್ವಾಸ'],
+  ['ml','ആത്മവിശ്വാസം']
 ]) {
   const scores = entries.map(([q,a]) => ({q, score:enquiryScore(query,translateText(q,language),translateText(a,language),'',language)})).filter(entry => entry.score).sort((a,b)=>b.score-a.score);
   assert.ok(scores.length > 0 && scores.length <= 12, `${language}: focused confidence query returns a useful set (${scores.length})`);
   assert.ok(scores.slice(0,3).some(entry => /confidence|self-worth/.test(entry.q)), `${language}: confidence answer ranks near the top`);
   assert.ok(entries.every(([q,a]) => enquiryScore('zzzzzz',translateText(q,language),translateText(a,language),'',language) === 0), `${language}: unknown query has no matches`);
 }
-for (const language of ['en','hi','es','fr','te','pt','id','ar']) {
+for (const language of ['en','hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml']) {
   const prefix = language === 'en' ? '' : `${language}/`;
   for (const page of ['philosophy','practice']) {
     const html = readFileSync(path.join(dist, `${prefix}${page}.html`),'utf8');
@@ -67,4 +70,4 @@ globalThis.document={querySelector:selector=>selector==='#language-select'?selec
 enhanceLanguagePicker();
 assert.equal(redirected,false,'explicit language URL is respected');
 assert.equal(suggested.href,'/te/practice#five-minutes','suggested language keeps the section link');
-console.log('PASS: stable related questions, eight-language search, section numbering, article index, privacy preferences and language choice.');
+console.log('PASS: stable related questions, eleven-language search, section numbering, article index, privacy preferences and language choice.');
