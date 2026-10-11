@@ -4,7 +4,7 @@ import AshtavakraResearch from './ashtavakra-page.js';
 import ProblemGuide from './problem-guide.js';
 import { App } from './app.js';
 import { localizedPageSlugs } from './language-options.js';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { mount } from './mount.js';
 import { pageFromPath } from './site-header.js';
 import { Page } from './site-layout.js';
@@ -16,7 +16,6 @@ import teaching from './teaching-content.json' with { type: 'json' };
 import comparative from './comparative-research.json' with { type: 'json' };
 import { questions, foundationQuestions, technologyQuestions, enquiryGroups } from './questions.js';
 import { enquiryPages, EnquiryLinks } from './enquiry-pages.js';
-import { enhanceEnquirySearch } from './enquiry-search.js';
 import { HindiHome, SpanishHome, FrenchHome } from './localized-home.js';
 import { localizedComponents } from './localized-core.js';
 import { localizedMoreComponents } from './localized-more.js';
@@ -36,23 +35,18 @@ function Reflections() {
 
 }
 function FAQ() {
-  useEffect(() => enhanceEnquirySearch(), []);
-  return e(Page, { eyebrow: 'Questions about the teaching', title: mission.faqTitle, intro: teaching.statement, overview:'Start with the foundational questions, choose a topic, or use the local answer finder. Open any answer to read the full explanation.' },
-    e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
+  return e(Page, { eyebrow: 'Questions about the teaching', title: mission.faqTitle, intro: teaching.statement, overview:'Browse the questions below. Open any question to read the full answer.' },
+    e('section', { className: 'question-introduction', 'aria-labelledby': 'enquiry-title' },
       e('h2', { id: 'enquiry-title' }, 'Start with your question'),
       p(mission.faqIntro),
       e('p', { id: 'enquiry-fallback', className: 'quiet-note' }, 'Browse the questions below. Open any question to read the full answer.'),
-      e('div', { id: 'enquiry-controls', hidden: true },
-      e('label', { htmlFor: 'enquiry-input' }, 'Find an answer in the teaching'),
-      e('input', { id: 'enquiry-input', type: 'search', maxLength: 300, placeholder: 'Try: surrender, astrology, guilt, health…', 'aria-describedby': 'enquiry-help' }),
-      e('p', { id: 'enquiry-help', className: 'quiet-note' }, 'This is a local answer finder, not a generative AI chatbot. Your search stays in this page and is not saved or sent to a model.'),
-      e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite', 'data-single': '1 related answer. Open the question below to read Uday’s explanation.', 'data-plural': '{count} related answers. Open a question below to read Uday’s explanation.', 'data-empty': 'No recorded answer matches yet. Try a shorter topic, or clear the search to browse all questions.' }))),
+    ),
     e('nav', {className:'faq-topics reading-links', 'aria-label':'Question topics'},
       e('a', {href:'#foundations'}, 'Begin here'),
       ...enquiryGroups.map((group,index) => e('a', {key:group.title,href:'#'+(group.id || 'question-topic-'+index)}, group.title)),
       e('a', {href:'#technology'}, 'Technology')),
     e('div', { className: 'compact-reading' }, e('section', {id:'foundations'}, e('h2', null, 'Begin here'), foundationQuestions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a)))),
-      ...enquiryGroups.map((group,index) => e('section', { key: group.title, id: group.id || 'question-topic-'+index }, e('h2', null, group.title), group.intro && p(group.intro), ...group.entries.map(([q,a], index) => e('details', { key: q, id: group.entryIds?.[index], 'data-search-terms': group.searchTerms?.[index] }, e('summary', null, q), group.concerns?.[index] && p(group.concerns[index]), p(a), group.examples?.[index] && p(group.examples[index]), group.entryLinks?.[index] && e('a', {className:'text-link',href:group.entryLinks[index]}, 'Explore a question in depth'))))),
+      ...enquiryGroups.map((group,index) => e('section', { key: group.title, id: group.id || 'question-topic-'+index }, e('h2', null, group.title), group.intro && p(group.intro), ...group.entries.map(([q,a], index) => e('details', { key: q, id: group.entryIds?.[index] }, e('summary', null, q), group.concerns?.[index] && p(group.concerns[index]), p(a), group.examples?.[index] && p(group.examples[index]), group.entryLinks?.[index] && e('a', {className:'text-link',href:group.entryLinks[index]}, 'Explore a question in depth'))))),
       e('section', {id:'technology'}, e('h2', null, 'Technology'), technologyQuestions.map(([q,a]) => e('details', {key:q},e('summary',null,q),p(a)))),
       e('section', { 'aria-labelledby': 'evidence-notes' },
         e('h2', { id: 'evidence-notes' }, 'Research and its limits'),

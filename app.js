@@ -44,7 +44,7 @@ export function App() {
       e('ol', {className:'journey-steps'},
         e('li', null, e('h3', null, e('a', {href:'/understanding-god'}, mission.understandLink)), e('p', null, 'Begin with the story of one Creator entering many lives.')),
         e('li', null, e('h3', null, e('a', {href:'/practice#self-judgment'}, 'Explore an optional everyday example')), e('p', null, 'Connect the teaching with one ordinary scene or relationship.')),
-        e('li', null, e('h3', null, e('a', {href:'/faq#enquiry-title'}, 'Find an answer to your question')), e('p', null, 'Browse the questions, search a topic, and examine the explanation.')))),
+        e('li', null, e('h3', null, e('a', {href:'/faq#enquiry-title'}, 'Find an answer to your question')), e('p', null, 'Browse the questions below. Open any question to read the full answer.')))),
     e('details', {className:'learning-library'}, e('summary', null, 'Explore the full learning library'),
       e('div', {className:'reading-links'}, e('a', {href:'/philosophy'}, 'Read the complete philosophy →'), e('a', {href:'/ashtavakra-gita'}, mission.ashtavakraLink), e('a', {href:'/philosophy#beautiful-world'}, 'The Beautiful World vision')),
       e(ProblemLinks, {compact:true, featured:true}), e(EnquiryLinks),

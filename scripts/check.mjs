@@ -68,13 +68,13 @@ for (const page of pages) {
     if (sourcePage === 'faq') {
       const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
       const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)].map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
-      assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries.map(entry => entry.map(text => translateText(text, locale))), `${page}: translated search metadata matches all full answers`);
-      assert.ok(html.includes('data-empty=') && html.includes('id="enquiry-input"'), `${page}: translated search is available`);
+      assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries.map(entry => entry.map(text => translateText(text, locale))), `${page}: translated FAQ metadata matches all full answers`);
+      assert.doesNotMatch(html, /id="enquiry-(?:input|controls|status)"/, `${page}: retired question search is absent`);
     }
   }
   if (page === 'faq') {
-    assert.match(html, /id="enquiry-controls" hidden=""/, 'Question finder is revealed only after enhancement');
-    assert.match(html, /id="enquiry-fallback"/, 'Question browsing has a no-script fallback');
+    assert.doesNotMatch(html, /type="search"/, 'Questions use topic browsing without search');
+    assert.match(html, /id="enquiry-fallback"/, 'Question browsing instructions remain visible');
     const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
     const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
       .map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
@@ -161,8 +161,8 @@ assert.ok(!sitemap.includes('/contact'), 'Retired Contact page is absent from si
 assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length);
 for (const page of pages) assert.ok(sitemap.includes(`https://mindclarity.co.in/${page === 'index' ? '' : page}</loc>`));
 assert.ok(!readdirSync(dist).some((file) => ['app.js', 'page-app.js', 'node_modules', '.env'].includes(file)), 'No raw source or private files in the public output');
-// Eleven-language search, privacy preferences and reading disclosures share a 13 KB budget.
-assert.ok(readFileSync(path.join(dist, 'site.js')).length < 13000, 'Progressive enhancement JavaScript stays below 13 KB for eleven languages');
+// Language selection, privacy preferences and reading disclosures share a 10 KB budget.
+assert.ok(readFileSync(path.join(dist, 'site.js')).length < 10000, 'Progressive enhancement JavaScript stays below 10 KB');
 for (const file of readdirSync(path.join(dist, 'assets'))) {
   assert.ok(readFileSync(path.join(dist, 'assets', file)).length < 150000, `${file}: optimized image stays below 150 KB`);
 }

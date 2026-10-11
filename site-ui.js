@@ -121,3 +121,15 @@ export function enhanceAnalyticsPreference(root = document) {
   try { status.textContent = localStorage.getItem('mc-analytics-disabled') === '1' ? status.dataset.disabled : status.dataset.allowed; }
   catch { status.textContent = status.dataset.unavailable; }
 }
+
+// Keep bookmarks to individual questions useful without a search feature.
+export function enhanceQuestionLinks() {
+  const openQuestion = () => {
+    let id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+    const question = document.getElementById(id);
+    if (question?.matches('.compact-reading details')) question.open = true;
+  };
+  window.addEventListener('hashchange', openQuestion);
+  openQuestion();
+}
