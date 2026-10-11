@@ -68,16 +68,6 @@ function FAQ() {
     e(EnquiryLinks),
     e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')));
 }
-function Consultation() {
-  return e(Page, { eyebrow: 'An optional last step', title: 'A personal conversation', intro: 'The teaching centres on the Creator within the game of experiences. Its explanations and practices are freely available here. If you have explored them and still prefer a personal conversation, the existing option is described below.' },
-    e('div', { className: 'compact-reading' },
-      e('h2', null, 'Practical details'), p('An introductory reflection conversation is 30 minutes and ₹500. The available formats are phone, Zoom, WhatsApp call, or offline by arrangement. Availability is 9 am–10 pm (IST). Individual or group conversations can be discussed case by case.'),
-      e('p', null, 'Arrange a suitable time before paying: ', email(), ' or ', e('a', { href: 'https://wa.me/919989766517' }, 'WhatsApp +91 9989766517'), '.'),
-      p('This is spiritual reflection and personal development, not therapy or crisis support.'),
-      e('h2', null, 'Payment information'), e('p', null, 'After arranging the conversation, the existing ', e('a', { href: 'https://rzp.io/rzp/8BpoM63h' }, 'Razorpay payment page'), ' is available. If you have paid, share only your payment reference. Never send card numbers, bank details, OTPs, or passwords.'),
-      p('If the same customer accidentally pays twice for the same introductory conversation, the duplicate payment will be refunded within 1–2 days.'),
-      e('a', { href: '/practice' }, 'Continue learning independently')));
-}
 function Privacy() {
   return e(Page, { eyebrow: 'Your information', title: 'Privacy information' },
     e('div', { className: 'compact-reading' },
@@ -90,12 +80,11 @@ function Privacy() {
         e('p', {id:'analytics-choice-status',role:'status','aria-live':'polite','data-allowed':'Preference: analytics allowed.','data-disabled':'Preference: analytics disabled.','data-unavailable':'Your browser could not save this preference. Analytics is disabled for this visit when you use the disable link.'}, 'Choose your analytics preference below.'),
         e('div', {className:'reading-links'}, e('a', {className:'button secondary',href:'?mc_analytics=off#analytics-preferences'}, 'Disable analytics'), e('a', {className:'button secondary',href:'?mc_analytics=on#analytics-preferences'}, 'Allow analytics'))),
       e('h2', null, 'Browser preferences and service providers'),
-      p('Your selected language and analytics preference are stored in this browser. Google provides analytics, Cloudflare delivers the website and helps protect it from automated abuse, and email, WhatsApp, and Razorpay handle interactions you choose to start with those services.'),
+      p('Your selected language and analytics preference are stored in this browser. Google provides analytics, Cloudflare delivers the website and helps protect it from automated abuse, and email and WhatsApp handle interactions you choose to start with those services.'),
       p('Contact us if you want to ask about information you have sent directly. Reflection answers and question-finder searches are not collected by this website.'),
-      e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, 'consultation-info': Consultation, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => page !== 'index').map(([page, Component]) => [`te/${page}`, Component])) };
+export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => !['index', 'consultation-info'].includes(page)).map(([page, Component]) => [`te/${page}`, Component])) };
 for (const language of ['hi','es','fr','te','pt','id','ar']) {
   for (const slug of ['ashtavakra-gita', 'understanding-god']) pages[`${language}/${slug}`] = pages[slug];
 }

@@ -23,7 +23,7 @@ for (const url of urls) {
     for (const variant of variants) cases.push([`https://${host}${variant}?ref=seo-check`, 301, `${url}?ref=seo-check`]);
   }
 }
-for (const [oldPath, target] of [['about', 'philosophy'], ['services', 'consultation-info']]) {
+for (const [oldPath, target] of [['about', 'philosophy'], ['services', '']]) {
   for (const host of ['mindclarity.co.in', 'www.mindclarity.co.in']) {
     for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}/${oldPath}${suffix}`, 301, `${origin}/${target}`]);
   }
@@ -33,6 +33,13 @@ for (const host of ['mindclarity.co.in', 'www.mindclarity.co.in']) {
     for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}/${path}${suffix}?ref=google`, 410]);
   }
   cases.push([`https://${host}/blog/old-article`, 410]);
+}
+// Retired conversation URLs go directly to the matching language homepage.
+for (const language of ['en','hi','es','fr','te','pt','id','ar']) {
+  const prefix = language === 'en' ? '' : `/${language}`;
+  for (const host of ['mindclarity.co.in','www.mindclarity.co.in']) {
+    for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}${prefix}/consultation-info${suffix}`,301,`${origin}${prefix || '/'}`]);
+  }
 }
 for (const path of ['/404', '/404.html', '/nonexistent-seo-audit', '/server/index.js', '/.env']) cases.push([`${origin}${path}`, 404]);
 let checked = 0;

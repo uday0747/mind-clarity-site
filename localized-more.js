@@ -277,7 +277,6 @@ function LocalizedTopic({ language, slug }) {
 export const localizedMoreComponents = {};
 for (const language of ['hi', 'es', 'fr']) {
   localizedMoreComponents[`${language}/privacy`] = () => e(SupportPage, { language, kind: 'privacy' });
-  localizedMoreComponents[`${language}/consultation-info`] = () => e(SupportPage, { language, kind: 'consultation' });
   for (const slug of Object.keys(more[language].topics)) {
     localizedMoreComponents[`${language}/${slug}`] = () => e(LocalizedTopic, { language, slug });
   }

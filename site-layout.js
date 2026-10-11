@@ -20,9 +20,9 @@ export function Footer({ language = 'en' }) {
       introduction && e('a', { href: introduction.href }, introduction.label),
       language === 'en' && e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
+      e('a', { href: 'https://wa.me/919989766517' }, 'WhatsApp'),
       e('a', { href: localized ? localizedPath(language, 'privacy') : '/privacy' }, ui.privacy),
-      e('a', {href:localizedPath(language, 'privacy') + '#analytics-preferences'}, translateText('Analytics preferences', language)),
-      e('a', { href: localized ? localizedPath(language, 'consultation-info') : '/consultation-info' }, ui.conversation)),
+      e('a', {href:localizedPath(language, 'privacy') + '#analytics-preferences'}, translateText('Analytics preferences', language))),
     e('small', null, ui.copyright));
 }
 export function Page({ eyebrow, title, intro, children, home = false, lang, share = true, overview }) {
@@ -31,7 +31,7 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
   const uiLanguage = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(documentLanguage) ? documentLanguage : 'en';
   const ui = interfaceFor(uiLanguage);
   const basePath = pathname.replace(/^\/(hi|es|fr|te|pt|id|ar)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
-  const canShare = share && !['/privacy', '/consultation-info'].includes(basePath);
+  const canShare = share && basePath !== '/privacy';
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content', lang: uiLanguage }, ui.skip),
     e(Header),

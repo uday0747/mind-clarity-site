@@ -5,9 +5,9 @@
 /about /philosophy 301
 /about.html /philosophy 301
 /about/ /philosophy 301
-/services /consultation-info 301
-/services.html /consultation-info 301
-/services/ /consultation-info 301
+/services / 301
+/services.html / 301
+/services/ / 301
 /index.html / 301
 /index / 301
 /hi.html /hi 301
@@ -42,8 +42,8 @@
 /fr/reflections/ /fr/reflections 301
 /hi/privacy.html /hi/privacy 301
 /hi/privacy/ /hi/privacy 301
-/hi/consultation-info.html /hi/consultation-info 301
-/hi/consultation-info/ /hi/consultation-info 301
+/hi/consultation-info.html /hi 301
+/hi/consultation-info/ /hi 301
 /hi/who-am-i-self-enquiry.html /hi/who-am-i-self-enquiry 301
 /hi/who-am-i-self-enquiry/ /hi/who-am-i-self-enquiry 301
 /hi/surrender-free-will-and-design.html /hi/surrender-free-will-and-design 301
@@ -54,8 +54,8 @@
 /hi/guilt-responsibility-and-boundaries/ /hi/guilt-responsibility-and-boundaries 301
 /es/privacy.html /es/privacy 301
 /es/privacy/ /es/privacy 301
-/es/consultation-info.html /es/consultation-info 301
-/es/consultation-info/ /es/consultation-info 301
+/es/consultation-info.html /es 301
+/es/consultation-info/ /es 301
 /es/who-am-i-self-enquiry.html /es/who-am-i-self-enquiry 301
 /es/who-am-i-self-enquiry/ /es/who-am-i-self-enquiry 301
 /es/surrender-free-will-and-design.html /es/surrender-free-will-and-design 301
@@ -66,8 +66,8 @@
 /es/guilt-responsibility-and-boundaries/ /es/guilt-responsibility-and-boundaries 301
 /fr/privacy.html /fr/privacy 301
 /fr/privacy/ /fr/privacy 301
-/fr/consultation-info.html /fr/consultation-info 301
-/fr/consultation-info/ /fr/consultation-info 301
+/fr/consultation-info.html /fr 301
+/fr/consultation-info/ /fr 301
 /fr/who-am-i-self-enquiry.html /fr/who-am-i-self-enquiry 301
 /fr/who-am-i-self-enquiry/ /fr/who-am-i-self-enquiry 301
 /fr/surrender-free-will-and-design.html /fr/surrender-free-will-and-design 301
@@ -86,12 +86,12 @@
 /practice.html /practice 301
 /faq.html /faq 301
 /privacy.html /privacy 301
-/consultation-info.html /consultation-info 301
+/consultation-info.html / 301
 /philosophy/ /philosophy 301
 /practice/ /practice 301
 /faq/ /faq 301
 /privacy/ /privacy 301
-/consultation-info/ /consultation-info 301
+/consultation-info/ / 301
 /who-am-i-self-enquiry.html /who-am-i-self-enquiry 301
 /who-am-i-self-enquiry/ /who-am-i-self-enquiry 301
 /surrender-free-will-and-design.html /surrender-free-will-and-design 301
@@ -119,8 +119,8 @@
 /te/reflections/ /te/reflections 301
 /te/privacy.html /te/privacy 301
 /te/privacy/ /te/privacy 301
-/te/consultation-info.html /te/consultation-info 301
-/te/consultation-info/ /te/consultation-info 301
+/te/consultation-info.html /te 301
+/te/consultation-info/ /te 301
 /te/who-am-i-self-enquiry.html /te/who-am-i-self-enquiry 301
 /te/who-am-i-self-enquiry/ /te/who-am-i-self-enquiry 301
 /te/surrender-free-will-and-design.html /te/surrender-free-will-and-design 301
@@ -135,7 +135,7 @@
 /pt/faq.html /pt/faq 301
 /pt/reflections.html /pt/reflections 301
 /pt/privacy.html /pt/privacy 301
-/pt/consultation-info.html /pt/consultation-info 301
+/pt/consultation-info.html /pt 301
 /pt/who-am-i-self-enquiry.html /pt/who-am-i-self-enquiry 301
 /pt/surrender-free-will-and-design.html /pt/surrender-free-will-and-design 301
 /pt/meditation-and-self-realization.html /pt/meditation-and-self-realization 301
@@ -147,7 +147,7 @@
 /id/faq.html /id/faq 301
 /id/reflections.html /id/reflections 301
 /id/privacy.html /id/privacy 301
-/id/consultation-info.html /id/consultation-info 301
+/id/consultation-info.html /id 301
 /id/who-am-i-self-enquiry.html /id/who-am-i-self-enquiry 301
 /id/surrender-free-will-and-design.html /id/surrender-free-will-and-design 301
 /id/meditation-and-self-realization.html /id/meditation-and-self-realization 301
@@ -159,7 +159,7 @@
 /ar/faq.html /ar/faq 301
 /ar/reflections.html /ar/reflections 301
 /ar/privacy.html /ar/privacy 301
-/ar/consultation-info.html /ar/consultation-info 301
+/ar/consultation-info.html /ar 301
 /ar/who-am-i-self-enquiry.html /ar/who-am-i-self-enquiry 301
 /ar/surrender-free-will-and-design.html /ar/surrender-free-will-and-design 301
 /ar/meditation-and-self-realization.html /ar/meditation-and-self-realization 301
@@ -171,7 +171,7 @@
 /pt/faq/ /pt/faq 301
 /pt/reflections/ /pt/reflections 301
 /pt/privacy/ /pt/privacy 301
-/pt/consultation-info/ /pt/consultation-info 301
+/pt/consultation-info/ /pt 301
 /pt/who-am-i-self-enquiry/ /pt/who-am-i-self-enquiry 301
 /pt/surrender-free-will-and-design/ /pt/surrender-free-will-and-design 301
 /pt/meditation-and-self-realization/ /pt/meditation-and-self-realization 301
@@ -183,7 +183,7 @@
 /id/faq/ /id/faq 301
 /id/reflections/ /id/reflections 301
 /id/privacy/ /id/privacy 301
-/id/consultation-info/ /id/consultation-info 301
+/id/consultation-info/ /id 301
 /id/who-am-i-self-enquiry/ /id/who-am-i-self-enquiry 301
 /id/surrender-free-will-and-design/ /id/surrender-free-will-and-design 301
 /id/meditation-and-self-realization/ /id/meditation-and-self-realization 301
@@ -195,7 +195,7 @@
 /ar/faq/ /ar/faq 301
 /ar/reflections/ /ar/reflections 301
 /ar/privacy/ /ar/privacy 301
-/ar/consultation-info/ /ar/consultation-info 301
+/ar/consultation-info/ /ar 301
 /ar/who-am-i-self-enquiry/ /ar/who-am-i-self-enquiry 301
 /ar/surrender-free-will-and-design/ /ar/surrender-free-will-and-design 301
 /ar/meditation-and-self-realization/ /ar/meditation-and-self-realization 301
@@ -281,3 +281,11 @@
 /ar/ashtavakra-gita/ /ar/ashtavakra-gita 301
 /ar/understanding-god.html /ar/understanding-god 301
 /ar/understanding-god/ /ar/understanding-god 301
+/consultation-info / 301
+/hi/consultation-info /hi 301
+/es/consultation-info /es 301
+/fr/consultation-info /fr 301
+/te/consultation-info /te 301
+/pt/consultation-info /pt 301
+/id/consultation-info /id 301
+/ar/consultation-info /ar 301

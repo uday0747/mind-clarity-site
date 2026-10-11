@@ -15,7 +15,7 @@ for (const [language, dictionary] of Object.entries(translations)) {
 }
 const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url, base = 'https://mindclarity.co.in/') => {
   const pathname = new URL(url, base).pathname;
@@ -116,6 +116,9 @@ if (/^(hi|es|fr|pt|id|ar)\//.test(page)) {
   assert.equal(schema['@graph']?.[1]?.url, canonical, `${page}: valid structured data`);
   assert.equal((html.match(/googletagmanager\.com\/gtag\/js/g) || []).length, 1, `${page}: one analytics loader`);
   assert.equal((html.match(/aria-current="page"/g) || []).length, ['privacy', 'consultation-info', 'contact'].includes(page.split('/').pop()) ? 0 : 1, `${page}: active navigation`);
+  assert.doesNotMatch(html, /(?:consultation-info|rzp\.io|Razorpay|₹500)/, `${page}: retired paid-conversation links and terms are absent`);
+  assert.match(html, /href="https:\/\/wa\.me\/919989766517"/, `${page}: WhatsApp contact remains available`);
+  assert.match(html, /href="mailto:pudaykumar12@gmail\.com"/, `${page}: email contact remains available`);
   assert.doesNotMatch(html, /src="(?:app|page-app|home-react|react-app)\.js/, `${page}: no full-page browser runtime`);
   assert.match(html, /<script defer src="\/site\.js\?v=[a-f0-9]+"/, `${page}: versioned navigation enhancement`);
   for (const [, url] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
@@ -138,12 +141,12 @@ if (/^(hi|es|fr|pt|id|ar)\//.test(page)) {
     assert.doesNotMatch(main, /href="[^"]*(?:consultation-info|wa\.me|rzp\.io)|₹500|Book a|Donate/, `${page}: independent learning, no sales funnel`);
   }
 }
-for (const [legacy, destination] of [['about','philosophy'],['services','consultation-info']]) {
+for (const [legacy, destination] of [['about','philosophy'],['services','']]) {
   const html = readFileSync(path.join(dist, `${legacy}.html`), 'utf8');
   assert.ok(html.includes(`content="0;url=/${destination}"`) && html.includes('noindex'), `${legacy}: legacy redirect fallback`);
 }
 const redirects = readFileSync(path.join(dist, '_redirects'), 'utf8');
-for (const [legacy, destination] of [['about', 'philosophy'], ['services', 'consultation-info']]) {
+for (const [legacy, destination] of [['about', 'philosophy'], ['services', '']]) {
   for (const suffix of ['', '.html', '/']) assert.ok(redirects.split('\n').includes(`/${legacy}${suffix} /${destination} 301`), `${legacy}${suffix}: permanent redirect`);
 }
 for (const page of pages) assert.ok(redirects.split('\n').includes(`/${page}.html /${page === 'index' ? '' : page} 301`), `${page}: permanent canonical redirect`);
