@@ -11,6 +11,15 @@ export function createSiteServer(assets, redirects) {
     'Cross-Origin-Opener-Policy': 'same-origin',
     'Content-Security-Policy': "default-src 'none'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'",
   };
+  function htmlHeaders(csp = securityHeaders['Content-Security-Policy']) {
+    // Cloudflare parses this per-response nonce and applies it to its own bot
+    // detection scripts. HTML is never cached, so the nonce is not reused.
+    const nonce = btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(18))));
+    csp = /(?:^|; )script-src /.test(csp)
+      ? csp.replace(/script-src ([^;]+)/, (_, sources) => `script-src ${sources.replace("'none'", '').trim()} 'nonce-${nonce}'${sources.includes("'strict-dynamic'") ? '' : " 'strict-dynamic'"}`)
+      : `${csp}; script-src 'nonce-${nonce}' 'strict-dynamic'`;
+    return { ...securityHeaders, 'Content-Security-Policy': csp, 'Cache-Control': 'private, no-store' };
+  }
   return {
     async fetch(request) {
       const started = performance.now();
@@ -21,7 +30,7 @@ export function createSiteServer(assets, redirects) {
       const retired = ['/contact', '/blank-1', '/blank-2', '/blank-3', '/blank-4', '/blog', '/book-online'];
       const normalized = url.pathname.replace(/\/$/, '').replace(/\.html$/, '');
       if (retired.includes(normalized) || url.pathname.startsWith('/blog/')) {
-        return new Response(request.method === 'HEAD' ? null : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page removed | Mind Clarity</title></head><body><main><h1>This page has been removed</h1><p>This page is no longer part of Mind Clarity.</p><p><a href="/">Begin here</a> or explore the <a href="/practice">daily practice</a>.</p></main></body></html>', { status: 410, headers: { ...securityHeaders, 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex', 'Cache-Control': 'public, max-age=0, must-revalidate' } });
+        return new Response(request.method === 'HEAD' ? null : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page removed | Mind Clarity</title></head><body><main><h1>This page has been removed</h1><p>This page is no longer part of Mind Clarity.</p><p><a href="/">Begin here</a> or explore the <a href="/practice">daily practice</a>.</p></main></body></html>', { status: 410, headers: { ...htmlHeaders(), 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex' } });
       }
       const canonicalHost = ['mindclarity.co.in', 'www.mindclarity.co.in'].includes(url.hostname);
       const redirectPath = publicRedirects.get(url.pathname) || (url.pathname.endsWith('.html/') ? publicRedirects.get(url.pathname.slice(0, -1)) : null);
@@ -37,16 +46,17 @@ export function createSiteServer(assets, redirects) {
       const pathname = url.pathname === '/' ? '/index.html' : url.pathname;
       const asset = pathname === '/404.html' || pathname === '/404' ? null : publicAssets.get(pathname) || publicAssets.get(`${pathname}.html`);
       const selected = asset || publicAssets.get('/404.html');
+      const isHTML = selected.type.startsWith('text/html');
       // Only the build's current content hash qualifies for immutable caching.
       const versioned = asset && /\.(?:css|js)$/.test(pathname) && url.searchParams.get('v') === asset.revision;
       const headers = {
         ...securityHeaders,
         'Content-Type': selected.type,
         'Cache-Control': versioned ? 'public, max-age=31536000, immutable' : asset ? 'public, max-age=0, s-maxage=60, stale-while-revalidate=300' : 'public, max-age=0, must-revalidate',
-        ...(selected.csp ? { 'Content-Security-Policy': selected.csp } : {}),
+        ...(isHTML ? htmlHeaders(selected.csp) : {}),
       };
       if (!asset) headers['X-Robots-Tag'] = 'noindex';
-      if (asset) {
+      if (asset && !isHTML) {
         headers.ETag = `"${asset.revision}"`;
         const candidates = (request.headers.get('If-None-Match') || '').split(',').map(tag => tag.trim().replace(/^W\//, ''));
         if (candidates.includes('*') || candidates.includes(headers.ETag)) return new Response(null, { status: 304, headers });

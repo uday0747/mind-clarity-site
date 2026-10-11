@@ -3,6 +3,7 @@
 ## Website changes
 
 - Every current HTML page has an enforced hash-based Content Security Policy. Executable inline scripts and the first-party JavaScript bundle are authorized by their exact SHA-256 hashes; the bundle also has Subresource Integrity. No `unsafe-inline` or `unsafe-eval` exceptions are enabled.
+- A fresh cryptographically random response nonce lets Cloudflare authorize its injected bot detection script according to its documented CSP integration. HTML uses private/no-store caching to prevent nonce reuse; static assets retain their conditional and versioned caches. Live checks exposed this integration requirement before verification was completed.
 - Restrict styles, images and connections to the site's actual requirements, including existing Google Analytics without advertising endpoints. Disallow frames, plugins, form submissions, workers, inline event handlers and base URL overrides. Analytics preferences retain their existing behavior.
 - Add HTTPS Strict Transport Security (one year, without unverified subdomain/preload commitments), clickjacking protection, a referrer policy, permission restrictions and opener isolation. Apply headers to normal, cached, redirect, removed, missing and rejected-method responses.
 - Only GET and HEAD are accepted, including at redirect and retired routes. Source/private file paths remain unavailable.
@@ -24,12 +25,13 @@
 - Changed the password requirement after screen saver/display sleep from five minutes to Immediately; verified in System Settings after the owner's local authentication.
 - Gatekeeper, System Integrity Protection and authenticated root were already enabled.
 - System Settings shows File Sharing, Screen Sharing, Remote Login, Remote Management and other inspected sharing services off.
-- FileVault was off at the initial check; setup was handed to the owner for private authentication and recovery-key handling. Verify completion separately.
+- FileVault was off at the initial check. The owner completed private authentication and recovery setup; the system tool and Settings now confirm FileVault On and encryption finished. Recovery credentials were not read or recorded.
 - The update service offers macOS Sequoia 15.8.1 and Safari 27.0 for this installed macOS 15.6.1. Restart-dependent installation remains to be completed when the owner can save work.
+- Automatic downloads, macOS updates, App Store updates and Security Responses/system files were verified On in Software Update. A Safari-only update was started through Apple's updater; its completion must be verified separately. No major macOS upgrade was selected.
 - No Time Machine destination is configured. A backup destination must be chosen by the owner.
 
 ## Limits and remaining account work
 
 No malware clearance or guarantee against hacking is claimed. Account multifactor authentication, domain registrar protection, recovery methods, router settings and provider-managed denial-of-service controls were not changed or verified through the available interfaces. These need the owner's account/device access. Do not expose passwords or recovery keys in this repository or chat.
 
-References: [MDN CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), [Google Analytics CSP requirements](https://developers.google.com/tag-platform/security/guides/csp), [patched dependency advisory](https://github.com/advisories/GHSA-68fv-2mgg-jv7q), [Apple firewall](https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac), [Apple FileVault](https://support.apple.com/guide/mac-help/encrypt-mac-data-with-filevault-mh11785/mac).
+References: [MDN CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), [Cloudflare's nonce integration](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/), [Google Analytics CSP requirements](https://developers.google.com/tag-platform/security/guides/csp), [patched dependency advisory](https://github.com/advisories/GHSA-68fv-2mgg-jv7q), [Apple firewall](https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac), [Apple FileVault](https://support.apple.com/guide/mac-help/encrypt-mac-data-with-filevault-mh11785/mac).

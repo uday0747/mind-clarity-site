@@ -118,17 +118,20 @@ if (!live) {
     const first = await localRequest(pathname);
     const bytes = await first.arrayBuffer();
     const etag = first.headers.get('etag');
-    assert.match(etag, /^"[a-f0-9]{12}"$/, `${pathname}: content validator`);
+    if (pathname === '/') {
+      assert.equal(etag, null, 'Nonce-bearing HTML is not conditionally cached');
+      assert.equal(first.headers.get('cache-control'), 'private, no-store');
+    } else assert.match(etag, /^"[a-f0-9]{12}"$/, `${pathname}: content validator`);
     assert.equal(Number(first.headers.get('content-length')), bytes.byteLength, `${pathname}: byte length`);
     const head = await localRequest(pathname, { method: 'HEAD' });
     assert.equal(head.status, 200);
     assert.equal(head.headers.get('etag'), etag);
     assert.equal(head.headers.get('content-length'), first.headers.get('content-length'));
     assert.equal((await head.arrayBuffer()).byteLength, 0);
-    for (const validator of [etag, `W/${etag}`, `"older-version", ${etag}`, '*']) {
+    for (const validator of etag ? [etag, `W/${etag}`, `"older-version", ${etag}`, '*'] : ['*']) {
       const cached = await localRequest(pathname, { headers: { 'If-None-Match': validator } });
-      assert.equal(cached.status, 304, `${pathname}: unchanged asset reuses browser copy`);
-      assert.equal((await cached.arrayBuffer()).byteLength, 0);
+      assert.equal(cached.status, etag ? 304 : 200, `${pathname}: safe cache behavior`);
+      if (etag) assert.equal((await cached.arrayBuffer()).byteLength, 0);
     }
     assert.equal((await localRequest(pathname, { headers: { 'If-None-Match': '"old"' } })).status, 200);
     if (/\.(css|js)$/.test(pathname)) {

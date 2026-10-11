@@ -35,11 +35,17 @@ for (let offset = 0; offset < urls.length; offset += 6) {
     assert.equal(response.status, 200, pathname);
     const csp = checkHeaders(response, pathname);
     const html = await response.text();
+    assert.equal(response.headers.get('cache-control'), 'private, no-store', `${pathname}: nonce is not cached`);
+    assert.match(csp, /'nonce-[A-Za-z0-9+/]{24}'/, `${pathname}: cryptographically random response nonce`);
     assert.match(csp, /'strict-dynamic'/, pathname);
     assert.ok(html.includes(`integrity="${integrity}"`), `${pathname}: bundle integrity`);
     assert.ok(csp.includes(`'${integrity}'`), `${pathname}: external script authorized by hash`);
     for (const [, attributes, contents] of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
-      if (!/\bsrc\s*=/.test(attributes)) assert.ok(csp.includes(`'${scriptIntegrity(contents)}'`), `${pathname}: inline script matches policy`);
+      if (!/\bsrc\s*=/.test(attributes)) {
+        const nonce = attributes.match(/\bnonce="([^"]+)"/)?.[1];
+        const approvedEdgeScript = live && nonce && csp.includes(`'nonce-${nonce}'`) && contents.startsWith('(function(){function c()');
+        assert.ok(csp.includes(`'${scriptIntegrity(contents)}'`) || approvedEdgeScript, `${pathname}: inline script matches hash or Cloudflare nonce`);
+      }
     }
     assert.doesNotMatch(html, /<style\b|\sstyle=|\son(?:click|load|error|submit)=/i, `${pathname}: no inline style/event exceptions`);
     assert.doesNotMatch(html, /(?:src|href)="http:\/\//i, `${pathname}: no insecure resources`);
@@ -65,8 +71,10 @@ const head = await request('/', { method: 'HEAD' });
 checkHeaders(head, 'HEAD');
 assert.equal((await head.arrayBuffer()).byteLength, 0);
 if (!live) {
-  const etag = head.headers.get('etag');
-  const cached = await request('/', { headers: { 'If-None-Match': etag } });
+  const second = await request('/');
+  assert.notEqual(head.headers.get('content-security-policy'), second.headers.get('content-security-policy'), 'Fresh nonce for each response');
+  const asset = await request('/site.js');
+  const cached = await request('/site.js', { headers: { 'If-None-Match': asset.headers.get('etag') } });
   assert.equal(cached.status, 304);
   checkHeaders(cached, '304');
 }
