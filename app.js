@@ -18,7 +18,7 @@ export function App() {
     e('nav', { className: 'reading-links', 'aria-label': 'Choose a starting point' },
       e('a', { className: 'button', href: '/understanding-god' }, mission.understandLink)),
     e('p', { className: 'welcome-meaning' }, mission.homeMeaning),
-    e('p', { className: 'quiet-note' }, 'Free to explore. No account, payment, journal, or prescribed routine is needed.'),
+    e('p', { className: 'quiet-note' }, 'Explore.'),
     e('section', { className: 'home-section mission-story', 'aria-labelledby': 'story-title' },
       e('p', { className: 'eyebrow' }, mission.storyEyebrow),
       e('h2', { id: 'story-title' }, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design),

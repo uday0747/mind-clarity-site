@@ -35,7 +35,7 @@
       "label": "Link para esta página",
       "copy": "Copiar link",
       "email": "Comcompartilhar por e-mail",
-      "help": "Você pode selecionar e copiar o link. Nenhuma conta é necessária para lê-lo.",
+      "help": "Você pode selecionar e copiar o link.",
       "copied": "Link copiado. Cole-o onde quiser comcompartilhá-lo.",
       "fallback": "Selecione e copie o link acima para comcompartilhá-lo."
     },
@@ -78,7 +78,7 @@
       "label": "Tautan ke halaman ini",
       "copy": "Salin tautan",
       "email": "Bagikan melalui email",
-      "help": "Anda dapat memilih dan menyalin tautan. Tidak diperlukan akun untuk membacanya.",
+      "help": "Anda dapat memilih dan menyalin tautan.",
       "copied": "Tautan disalin. Tempelkan di mana pun Anda ingin membagikannya.",
       "fallback": "Pilih dan salin tautan di atas untuk membagikannya."
     },
@@ -121,7 +121,7 @@
       "label": "رابط لهذه الصفحة",
       "copy": "انسخ الرابط",
       "email": "شارك عبر البريد الإلكتروني",
-      "help": "يمكنك تحديد ونسخ الرابط. ليست هناك حاجة إلى حساب لقراءتها.",
+      "help": "يمكنك تحديد ونسخ الرابط.",
       "copied": "تم نسخ الرابط. الصقها أينما تريد مشاركتها.",
       "fallback": "حدد وانسخ الرابط أعلاه لمشاركته."
     },

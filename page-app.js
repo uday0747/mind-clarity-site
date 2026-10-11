@@ -71,7 +71,7 @@ function FAQ() {
 function Privacy() {
   return e(Page, { eyebrow: 'Your information', title: 'Privacy information' },
     e('div', { className: 'compact-reading' },
-      e('h2', null, 'Reading and reflection'), p('The learning pages require no account, booking, or submission. The reflection prompts do not collect or store your answers. If you choose to write, use your own notebook or a tool of your choice.'),
+      e('h2', null, 'Reading and reflection'), p('The reflection prompts do not collect or store your answers. If you choose to write, use your own notebook or a tool of your choice.'),
       e('h2', null, 'Question finder'), p('The question finder filters answers in your browser. Its text is not saved, placed in the URL, sent to a model, or included in analytics events by this tool. It is not a live AI conversation. General website analytics still operate as described below.'),
       e('h2', null, 'Information you choose to send'), p('Mind Clarity receives information you choose to share by email or WhatsApp. Please do not send card numbers, bank details, OTPs, or passwords.'),
       e('section', {id:'analytics-preferences'}, e('h2', null, 'Analytics preferences'),
