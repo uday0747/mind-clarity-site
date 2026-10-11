@@ -73,6 +73,11 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const sourcePage = page === 'ai-fear-and-clarity-telugu' ? 'ai-fear-and-clarity' : language !== 'en' ? (page.split('/')[1] || 'index') : page;
   const sourceComponent = sourcePage === 'index' ? App : pages[sourcePage];
   let markup = renderToStaticMarkup(React.createElement(PagePathContext.Provider, { value: pathname }, React.createElement(language === 'en' ? Component : sourceComponent)));
+  const readingText = markup.replace(/<aside\b[^>]*class="share-lesson"[^>]*>[\s\S]*?<\/aside>/g, '').match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || markup;
+  const readingMinutes = Math.max(1, Math.ceil(readingText.replace(/<[^>]*>/g,' ').split(/\s+/).filter(Boolean).length / 200));
+  const articleText = renderToStaticMarkup(React.createElement(pages['ai-fear-and-clarity']));
+  const articleMinutes = Math.max(1, Math.ceil(articleText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
+  markup = markup.replace(/(<span data-reading-minutes="true"([^>]*)>)–(<\/span>)/g, (_, open, attributes, close) => open + (attributes.includes('data-reading-article') ? articleMinutes : readingMinutes) + close);
   if (language !== 'en') markup = translateMarkup(markup, language);
   const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${language === 'ar' ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
   const outputFile = path.join(dist, `${page}.html`);
@@ -82,6 +87,9 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
 for (const legacy of ['about.html', 'services.html']) await cp(path.join(root, legacy), path.join(dist, legacy));
 // Check the complete staged output before replacing the last working build.
 execFileSync(process.execPath, [path.join(root, 'scripts/check.mjs'), dist], { stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'scripts/check-discovery.mjs')], { stdio:'inherit' });
+execFileSync(process.execPath, [path.join(root, 'scripts/check-reading-analytics.mjs')], { stdio:'inherit' });
+execFileSync(process.execPath, [path.join(root, 'scripts/check-audit-fixes.mjs'), dist], { stdio:'inherit' });
 // Serve explicit HTTP redirects even on hosts that ignore static _redirects files.
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg' };
 const serverAssets = {};

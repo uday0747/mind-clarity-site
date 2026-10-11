@@ -6,8 +6,13 @@
     "dev": "vite --config vite.dev.config.js",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/preview.mjs",
-    "check": "node scripts/check.mjs && node scripts/audit-seo.mjs"
+    "check": "node scripts/check.mjs && node scripts/audit-seo.mjs && node scripts/check-discovery.mjs && node scripts/check-reading-analytics.mjs && node scripts/check-audit-fixes.mjs"
   },
-  "dependencies": {"@vitejs/plugin-react": "latest", "vite": "latest", "react": "latest", "react-dom": "latest"},
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
   "devDependencies": {}
 }

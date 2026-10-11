@@ -33,7 +33,7 @@ export function translateMarkup(markup, language) {
     body = body.replace(/<aside\b[^>]*class="share-lesson"[^>]*>[\s\S]*?<\/aside>/g, share => {shares.push(share); return `<!--SHARE${shares.length-1}-->`;});
     body = body.split(/(<[^>]*>)/g).map(token => {
       if (!token.startsWith('<')) return text(token);
-      return token.replace(/\b(href|alt|aria-label|placeholder|data-single|data-plural|data-empty)="([^"]*)"/g, (all, key, value) => `${key}="${key === 'href' ? (/\bhreflang=/.test(token) ? value : localLink(value)) : text(value)}"`);
+      return token.replace(/\b(href|alt|aria-label|placeholder|data-single|data-plural|data-empty|data-allowed|data-disabled|data-unavailable)="([^"]*)"/g, (all, key, value) => `${key}="${key === 'href' ? (/\bhreflang=/.test(token) ? value : localLink(value)) : text(value)}"`);
     }).join('');
     body = body.replace(/<!--SHARE(\d+)-->/g,(_,i)=>shares[+i]);
     return open + body + close;

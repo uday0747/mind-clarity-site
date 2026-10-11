@@ -22,7 +22,9 @@ export function completeMetadata(head) {
     const pairs = [...Object.entries(alternates), ['x-default', alternates.en]];
     head += '\n' + pairs.map(([code, path]) => `<link rel="alternate" hreflang="${code}" href="https://mindclarity.co.in${path}" />`).join('\n');
   }
-  // Retain existing social images; regenerate only text fields from the page metadata.
+  // Use the compressed sharing artwork consistently on all pages.
+  head = head.replace(/(content="(?:https:\/\/mindclarity\.co\.in\/)?)(?:assets-brand(?:-desktop)?\.png)(")/g, '$1assets/social-preview.jpg$2');
+  head = head.replace(/(og:image:width" content=")\d+(")/g, '$11200$2').replace(/(og:image:height" content=")\d+(")/g, '$1800$2');
   head = head.replace(/\s*<meta (?:property|name)="(?:og:(?:type|site_name|title|description|url)|twitter:(?:title|description|card))"[^>]*>/g, '');
   head = head.replace(/\s*<link rel="preload" as="image"[^>]*>/g, '');
   if (!head.includes('name="color-scheme"')) head += '\n<meta name="color-scheme" content="light" />';
@@ -35,7 +37,7 @@ export function completeMetadata(head) {
   const graph = {
     '@context': 'https://schema.org', '@graph': [
       { '@type': 'WebSite', '@id': 'https://mindclarity.co.in/#website', name: 'Mind Clarity', url: 'https://mindclarity.co.in/', inLanguage: 'en' },
-      { '@type': canonicalPath === '/reflections' || canonicalPath.endsWith('/life-problems-and-self-enquiry') ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
+      { '@type': (canonicalPath === '/reflections' || localizedPage === 'reflections') || canonicalPath.endsWith('/life-problems-and-self-enquiry') ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
   const topic = enquiryTopics.find(topic => canonicalPath === '/' + topic.slug || localizedPage === topic.slug);
@@ -46,21 +48,21 @@ export function completeMetadata(head) {
     graph['@graph'].push({ '@type': 'BlogPosting', '@id': `${canonical}#article`,
       headline: decode(title).replace(/ \| Mind Clarity$/, ''), description: decode(description),
       author, publisher: { '@id': 'https://mindclarity.co.in/#website' },
-      datePublished: '2026-10-03', dateModified: '2026-10-03',
-      image: 'https://mindclarity.co.in/assets-brand-desktop.png',
+      datePublished: '2026-10-03', dateModified: '2026-10-11',
+      image: 'https://mindclarity.co.in/assets/social-preview.jpg',
       mainEntityOfPage: { '@id': `${canonical}#webpage` }, inLanguage: language });
     tags.push(['property', 'article:published_time', '2026-10-03'],
-      ['property', 'article:modified_time', '2026-10-03']);
+      ['property', 'article:modified_time', '2026-10-11']);
     graph['@graph'].push({ '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Mind Clarity', item: 'https://mindclarity.co.in/' },
       { '@type': 'ListItem', position: 2, name: 'Reflections', item: 'https://mindclarity.co.in/reflections' },
       { '@type': 'ListItem', position: 3, name: decode(title).replace(/ \| Mind Clarity$/, ''), item: canonical }
     ] });
   }
-  if (canonicalPath === '/reflections') {
+  if (canonicalPath === '/reflections' || localizedPage === 'reflections') {
+    const article = languageVariants('/ai-fear-and-clarity')[language];
     graph['@graph'][1].mainEntity = { '@type': 'ItemList', itemListElement: [
-      { '@type': 'ListItem', position: 1, url: 'https://mindclarity.co.in/ai-fear-and-clarity', name: 'Artificial Intelligence, Fear and Clarity' },
-      { '@type': 'ListItem', position: 2, url: 'https://mindclarity.co.in/ai-fear-and-clarity-telugu', name: 'కృత్రిమ మేధస్సు, భయం, స్పష్టమైన అవగాహన' }
+      { '@type': 'ListItem', position: 1, url: `https://mindclarity.co.in${article}`, name: translateText('Can we meet artificial intelligence with clarity instead of fear?', language) }
     ] };
   }
   if (topic) {
@@ -74,7 +76,7 @@ export function completeMetadata(head) {
     } else {
       graph['@graph'][1].mainEntity = { '@id':`${canonical}#article` };
       graph['@graph'].push({ '@type': 'Article', '@id': `${canonical}#article`, headline:decode(title).replace(/ \| Mind Clarity$/, ''),
-        description:decode(description), author, datePublished:topic.published || '2026-10-01', dateModified:topic.modified || '2026-10-10',
+        description:decode(description), author, datePublished:topic.published || '2026-10-01', dateModified:topic.modified || '2026-10-11',
         mainEntityOfPage: { '@id': `${canonical}#webpage` }, inLanguage:language });
     }
     graph['@graph'].push({ '@type': 'BreadcrumbList', itemListElement: [

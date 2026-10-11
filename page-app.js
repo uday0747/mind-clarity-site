@@ -14,7 +14,7 @@ import TeluguAIReflection from './ai-reflection-te.js';
 import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import comparative from './comparative-research.json' with { type: 'json' };
-import { questions, enquiryGroups } from './questions.js';
+import { questions, foundationQuestions, technologyQuestions, enquiryGroups } from './questions.js';
 import { enquiryPages, EnquiryLinks } from './enquiry-pages.js';
 import { enhanceEnquirySearch } from './enquiry-search.js';
 import { HindiHome, SpanishHome, FrenchHome } from './localized-home.js';
@@ -26,11 +26,18 @@ const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
 function Reflections() {
-  return e(AIReflection, { embedded: true });
+  return e(Page, {eyebrow:'Reflections', title:'Reflections on life and the Creator', intro:'Read Uday Kumar’s reflections on technology, uncertainty, and the way we meet life.'},
+    e('article', {className:'reflection-card'},
+      e('p', {className:'quiet-note'}, e('time', {dateTime:'2026-10-03'}, '2026-10-03'), ' · ', 'Updated', ' ', e('time', {dateTime:'2026-10-11'}, '2026-10-11')),
+      e('h2', null, e('a', {href:'/ai-fear-and-clarity'}, 'Can we meet artificial intelligence with clarity instead of fear?')),
+      p('A reflection on work, fear, gratitude, and care as technology changes our lives.'),
+      e('p', {className:'quiet-note'}, e('span', {'data-reading-minutes':true, 'data-reading-article':'ai-fear-and-clarity'}, '–'), ' ', 'minutes'),
+      e('a', {className:'text-link',href:'/ai-fear-and-clarity'}, 'Read the reflection')));
+
 }
 function FAQ() {
   useEffect(() => enhanceEnquirySearch(), []);
-  return e(Page, { eyebrow: 'Questions about the teaching', title: mission.faqTitle, intro: teaching.statement },
+  return e(Page, { eyebrow: 'Questions about the teaching', title: mission.faqTitle, intro: teaching.statement, overview:'Start with the foundational questions, choose a topic, or use the local answer finder. Open any answer to read the full explanation.' },
     e('section', { className: 'enquiry-search', 'aria-labelledby': 'enquiry-title' },
       e('h2', { id: 'enquiry-title' }, 'Start with your question'),
       p(mission.faqIntro),
@@ -40,8 +47,13 @@ function FAQ() {
       e('input', { id: 'enquiry-input', type: 'search', maxLength: 300, placeholder: 'Try: surrender, astrology, guilt, health…', 'aria-describedby': 'enquiry-help' }),
       e('p', { id: 'enquiry-help', className: 'quiet-note' }, 'This is a local answer finder, not a generative AI chatbot. Your search stays in this page and is not saved or sent to a model.'),
       e('p', { id: 'enquiry-status', role: 'status', 'aria-live': 'polite', 'data-single': '1 related answer. Open the question below to read Uday’s explanation.', 'data-plural': '{count} related answers. Open a question below to read Uday’s explanation.', 'data-empty': 'No recorded answer matches yet. Try a shorter topic, or clear the search to browse all questions.' }))),
-    e('div', { className: 'compact-reading' }, questions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a))),
-      ...enquiryGroups.map(group => e('section', { key: group.title, id: group.id }, e('h2', null, group.title), group.intro && p(group.intro), ...group.entries.map(([q,a], index) => e('details', { key: q, id: group.entryIds?.[index], 'data-search-terms': group.searchTerms?.[index] }, e('summary', null, q), group.concerns?.[index] && p(group.concerns[index]), p(a), group.examples?.[index] && p(group.examples[index]), group.entryLinks?.[index] && e('a', {className:'text-link',href:group.entryLinks[index]}, 'Explore a question in depth'))))),
+    e('nav', {className:'faq-topics reading-links', 'aria-label':'Question topics'},
+      e('a', {href:'#foundations'}, 'Begin here'),
+      ...enquiryGroups.map((group,index) => e('a', {key:group.title,href:'#'+(group.id || 'question-topic-'+index)}, group.title)),
+      e('a', {href:'#technology'}, 'Technology')),
+    e('div', { className: 'compact-reading' }, e('section', {id:'foundations'}, e('h2', null, 'Begin here'), foundationQuestions.map(([q,a]) => e('details', { key: q }, e('summary', null, q), p(a)))),
+      ...enquiryGroups.map((group,index) => e('section', { key: group.title, id: group.id || 'question-topic-'+index }, e('h2', null, group.title), group.intro && p(group.intro), ...group.entries.map(([q,a], index) => e('details', { key: q, id: group.entryIds?.[index], 'data-search-terms': group.searchTerms?.[index] }, e('summary', null, q), group.concerns?.[index] && p(group.concerns[index]), p(a), group.examples?.[index] && p(group.examples[index]), group.entryLinks?.[index] && e('a', {className:'text-link',href:group.entryLinks[index]}, 'Explore a question in depth'))))),
+      e('section', {id:'technology'}, e('h2', null, 'Technology'), technologyQuestions.map(([q,a]) => e('details', {key:q},e('summary',null,q),p(a)))),
       e('section', { 'aria-labelledby': 'evidence-notes' },
         e('h2', { id: 'evidence-notes' }, 'Research and its limits'),
         p('Spiritual teaching, personal experience, and research answer different kinds of questions. The sources below support specific findings; they do not establish that we created the universe or that enlightenment guarantees health, wealth, or correct decisions.'),
@@ -72,7 +84,14 @@ function Privacy() {
       e('h2', null, 'Reading and reflection'), p('The learning pages require no account, booking, or submission. The reflection prompts do not collect or store your answers. If you choose to write, use your own notebook or a tool of your choice.'),
       e('h2', null, 'Question finder'), p('The question finder filters answers in your browser. Its text is not saved, placed in the URL, sent to a model, or included in analytics events by this tool. It is not a live AI conversation. General website analytics still operate as described below.'),
       e('h2', null, 'Information you choose to send'), p('Mind Clarity receives information you choose to share by email or WhatsApp. Please do not send card numbers, bank details, OTPs, or passwords.'),
-      e('h2', null, 'Analytics'), p('This website uses Google Analytics to understand general visitor activity. It is not used to provide medical or psychological profiling.'),
+      e('section', {id:'analytics-preferences'}, e('h2', null, 'Analytics preferences'),
+        p('Google Analytics measures page visits, navigation between learning pages, and engaged reading. The question finder text and your reflection answers are not included in these events.'),
+        p('Choose whether to allow analytics on this browser. Your choice is stored locally and can be changed here at any time.'),
+        e('p', {id:'analytics-choice-status',role:'status','aria-live':'polite','data-allowed':'Preference: analytics allowed.','data-disabled':'Preference: analytics disabled.','data-unavailable':'Your browser could not save this preference. Analytics is disabled for this visit when you use the disable link.'}, 'Choose your analytics preference below.'),
+        e('div', {className:'reading-links'}, e('a', {className:'button secondary',href:'?mc_analytics=off#analytics-preferences'}, 'Disable analytics'), e('a', {className:'button secondary',href:'?mc_analytics=on#analytics-preferences'}, 'Allow analytics'))),
+      e('h2', null, 'Browser preferences and service providers'),
+      p('Your selected language and analytics preference are stored in this browser. Google provides analytics, Cloudflare delivers the website and helps protect it from automated abuse, and email, WhatsApp, and Razorpay handle interactions you choose to start with those services.'),
+      p('Contact us if you want to ask about information you have sent directly. Reflection answers and question-finder searches are not collected by this website.'),
       e('h2', null, 'Optional payments'), p('Payments for optional conversations are processed by Razorpay. Mind Clarity does not request or store your full payment credentials.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }

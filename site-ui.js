@@ -77,14 +77,7 @@ export function enhanceLanguagePicker() {
   const preferred = stored || browserLanguage();
   const target = options.find(option => option.value === preferred && option.value !== current && option.dataset.href);
 
-  // Negotiate ordinary English entry pages. Explicit translated URLs stay
-  // readable in their own language, including arrivals from search results.
-  // A saved English choice also lets visitors override browser detection.
-  if (current === 'en' && target) {
-    window.location.replace(target.dataset.href + window.location.search + window.location.hash);
-    return;
-  }
-
+  // Offer the preferred language while respecting the URL the reader opened.
   if (suggestion && preferred !== current) {
     const language = languageOption(preferred);
     if (target) {
@@ -110,4 +103,21 @@ export function enhanceLanguagePicker() {
   };
   select.addEventListener('change', change);
   return () => select.removeEventListener('change', change);
+}
+
+export function enhanceContents(root = document) {
+  const mobile = window.matchMedia('(max-width: 900px)');
+  const disclosures = [...root.querySelectorAll('.contents-disclosure')];
+  const update = () => disclosures.forEach(details => { details.open = !mobile.matches; });
+  const jump = event => { if (mobile.matches && event.target.closest('a')) event.currentTarget.open = false; };
+  update();
+  mobile.addEventListener('change', update);
+  disclosures.forEach(details => details.addEventListener('click', jump));
+  return () => { mobile.removeEventListener('change', update); disclosures.forEach(details => {details.removeEventListener('click', jump); details.open = true;}); };
+}
+export function enhanceAnalyticsPreference(root = document) {
+  const status = root.querySelector('#analytics-choice-status');
+  if (!status) return;
+  try { status.textContent = localStorage.getItem('mc-analytics-disabled') === '1' ? status.dataset.disabled : status.dataset.allowed; }
+  catch { status.textContent = status.dataset.unavailable; }
 }

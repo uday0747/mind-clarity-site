@@ -179,3 +179,15 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
 .mission-purpose h3{margin-top:30px}
 .mission-peace{padding-block:30px;border-block:1px solid #d7ded1}
 @media(max-width:600px){.mission-story{padding:22px}.mission-path{flex-direction:column;gap:13px}.mission-return{padding:18px}.mission-peace{padding-block:22px}}
+
+/* Reading and discovery improvements from the October audit. */
+.reading-overview{max-width:70ch;background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin:30px 0}
+.reading-overview p:last-child{margin-bottom:0}.reading-duration{font-size:.9rem}
+.contents-disclosure{padding:0;border:0}.contents-disclosure>summary{font-size:1rem;letter-spacing:.03em;min-height:32px}.contents-disclosure[open]>summary{margin-bottom:14px}
+.reading-contents ol{padding-inline-start:30px}
+.journey-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;padding-inline-start:24px}.journey-steps h3{font-size:1.2rem}.journey-steps p{font-size:1rem}.journey-steps li{padding-inline-start:6px}
+.learning-library{margin-top:40px;padding:22px 24px;background:var(--soft);border:1px solid var(--line);border-radius:6px}.learning-library .home-section{padding-top:32px}
+.author-introduction{max-width:70ch}.author-introduction h2{font-size:1.7rem}.reflection-card{border:1px solid var(--line);border-radius:6px;padding:28px;max-width:70ch;margin-top:32px}.reflection-card h2{font-size:1.75rem}
+.faq-topics{gap:10px;margin:24px 0}.faq-topics a{border:1px solid var(--line);border-radius:20px;padding:8px 14px;font-size:.95rem;text-decoration:none}.faq-topics a:hover{background:var(--soft)}
+.source-list .source-link{display:inline-block;font-size:.9rem;min-height:32px;padding:4px 0;margin-top:4px}
+@media(max-width:900px){.journey-steps{display:block}.journey-steps li{margin-bottom:24px}.contents-disclosure>summary{min-height:44px}.reading-grid>.reading-contents{margin-bottom:12px}.reading-overview{padding:18px 20px}}

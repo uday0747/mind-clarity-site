@@ -12,7 +12,7 @@ export function EnquiryLinks() {
 function EnquiryPage({ topic }) {
   return e(Page, { eyebrow: 'Self-enquiry · Uday Kumar’s teaching', title: topic.title, intro: topic.answer },
     e('nav', { 'aria-label': 'Breadcrumb', className: 'reading-links' }, e('a', { href: '/' }, 'Mind Clarity'), e('a', { href: '/faq' }, 'Questions and answers')),
-    e('p', { className: 'quiet-note' }, 'Teaching: Uday Kumar · Edited from his recorded discussions · Updated 10 October 2026. Explore how understanding the Creator carries into this question and the way we participate in life.'),
+    e('p', { className: 'quiet-note' }, 'Teaching: Uday Kumar · Adapted from his written discussions and clarifications · Updated 11 October 2026. Explore how understanding the Creator carries into this question and the way we participate in life.'),
     e('article', { className: 'compact-reading' },
       ...topic.sections.map(([heading,text]) => e('section', { key: heading }, e('h2', null, heading), e('p', null, text))),
       topic.slug === 'meditation-and-self-realization' ? e('section', null, e('p', null, research.process), e('p', null, e('a', {href:'/philosophy#research-connections'}, research.link))) : null,

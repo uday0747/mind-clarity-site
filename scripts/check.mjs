@@ -17,8 +17,8 @@ const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar'].flatMap(language => 
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
 const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'consultation-info', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
-const resolveLocal = (url) => {
-  const pathname = new URL(url, 'https://mindclarity.co.in/').pathname;
+const resolveLocal = (url, base = 'https://mindclarity.co.in/') => {
+  const pathname = new URL(url, base).pathname;
   const file = path.join(dist, pathname === '/' ? 'index.html' : pathname.replace(/^\//, ''));
   return existsSync(file) || existsSync(`${file}.html`);
 };
@@ -120,8 +120,8 @@ if (/^(hi|es|fr|pt|id|ar)\//.test(page)) {
   assert.match(html, /<script defer src="\/site\.js\?v=[a-f0-9]+"/, `${page}: versioned navigation enhancement`);
   for (const [, url] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (/^(?:https?:|mailto:|tel:|data:|#)/.test(url)) continue;
-    assert.ok(resolveLocal(url), `${page}: broken reference ${url}`);
-    const target = new URL(url, 'https://mindclarity.co.in/');
+    assert.ok(resolveLocal(url, canonical), `${page}: broken reference ${url}`);
+    const target = new URL(url, canonical);
     if (target.hash) {
       const file = path.join(dist, target.pathname.replace(/^\//, '') || 'index.html');
       assert.ok(readFileSync(existsSync(file) ? file : `${file}.html`, 'utf8').includes(`id="${target.hash.slice(1)}"`), `${page}: broken cross-page fragment ${url}`);
@@ -158,8 +158,8 @@ assert.ok(!sitemap.includes('/contact'), 'Retired Contact page is absent from si
 assert.equal((sitemap.match(/<loc>/g) || []).length, pages.length);
 for (const page of pages) assert.ok(sitemap.includes(`https://mindclarity.co.in/${page === 'index' ? '' : page}</loc>`));
 assert.ok(!readdirSync(dist).some((file) => ['app.js', 'page-app.js', 'node_modules', '.env'].includes(file)), 'No raw source or private files in the public output');
-// Search ranking, concern aliases and section sharing join the navigation enhancement.
-assert.ok(readFileSync(path.join(dist, 'site.js')).length < 9000, 'Progressive enhancement JavaScript stays below 9 KB');
+// Eight-language search, privacy preferences and reading disclosures share a 12 KB budget.
+assert.ok(readFileSync(path.join(dist, 'site.js')).length < 12000, 'Progressive enhancement JavaScript stays below 12 KB');
 for (const file of readdirSync(path.join(dist, 'assets'))) {
   assert.ok(readFileSync(path.join(dist, 'assets', file)).length < 150000, `${file}: optimized image stays below 150 KB`);
 }

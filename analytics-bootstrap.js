@@ -2,6 +2,7 @@
   var disabled = !['mindclarity.co.in', 'www.mindclarity.co.in', 'mind-clarity-uday.udaykum.chatgpt.site'].includes(location.hostname);
   try {
     var choice = new URLSearchParams(location.search).get('mc_analytics');
+    if (choice === 'off') disabled = true;
     if (choice === 'off') localStorage.setItem('mc-analytics-disabled', '1');
     if (choice === 'on') localStorage.removeItem('mc-analytics-disabled');
     disabled = disabled || localStorage.getItem('mc-analytics-disabled') === '1';

@@ -21,10 +21,11 @@ export function Footer({ language = 'en' }) {
       language === 'en' && e('a', { href: 'https://www.youtube.com/@mindclaritywebsite' }, ui.youtube),
       e('a', { href: 'mailto:pudaykumar12@gmail.com' }, ui.email),
       e('a', { href: localized ? localizedPath(language, 'privacy') : '/privacy' }, ui.privacy),
+      e('a', {href:localizedPath(language, 'privacy') + '#analytics-preferences'}, translateText('Analytics preferences', language)),
       e('a', { href: localized ? localizedPath(language, 'consultation-info') : '/consultation-info' }, ui.conversation)),
     e('small', null, ui.copyright));
 }
-export function Page({ eyebrow, title, intro, children, home = false, lang, share = true }) {
+export function Page({ eyebrow, title, intro, children, home = false, lang, share = true, overview }) {
   const pathname = useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
   const documentLanguage = lang || pageLanguage(pathname);
   const uiLanguage = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].includes(documentLanguage) ? documentLanguage : 'en';
@@ -42,6 +43,7 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
         e('a', { href: '/understanding-god' }, mission.understandLink),
         e('a', { href: '/practice' }, mission.practiceLink),
         e('a', { href: '/understanding-god#questioning' }, mission.peaceLink)),
+      overview && e('aside', { className:'reading-overview', 'aria-label':'In brief' }, e('p', {className:'eyebrow'}, 'In brief'), e('p', null, overview), e('p', {className:'reading-duration quiet-note'}, 'Full reading', ' · ', e('span', {'data-reading-minutes':true}, '–'), ' ', e('span', null, 'minutes'), ' · ', 'Explore at your own pace.')),
       children,
       canShare && e('aside', { className: 'mission-return' }, e('p', null, mission.missionNote)),
       canShare && e(ShareLearning, { pathname, title })),
@@ -58,8 +60,8 @@ export function Lesson({ id, number, title, children }) {
 }
 export function Contents({ items, label = 'On this page' }) {
   return e('nav', { className: 'reading-contents', 'aria-label': label },
-    e('p', { className: 'eyebrow' }, label),
-    e('ol', null, items.map(([id,title]) => e('li', { key: id }, e('a', { href: '#'+id }, title)))));
+    e('details', {className:'contents-disclosure', open:true}, e('summary', null, label),
+      e('ol', null, items.map(([id,title]) => e('li', { key: id }, e('a', { href: '#'+id }, title))))));
 }
 export const topics = teaching.cases.map(({ id, title, description }) => [id, title, description]);
 export function TopicLinks({ samePage = false }) {

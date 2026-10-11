@@ -6,6 +6,7 @@ const p = text => e('p', null, text);
 const items = [['fear', 'What are we afraid of?'], ['design', 'Reading the unfolding design'], ['freedom', 'Freedom, livelihood, and purpose'], ['care', 'Hope expressed through care'], ['enquiry', 'An invitation to enquire'], ['creator-in-creation', 'Recognizing the Creator in what we create']];
 export default function AIReflection({ embedded = false } = {}) {
   return e(Page, { eyebrow: 'A reflection by Uday Kumar · 3 October 2026', title: 'Can we meet artificial intelligence with clarity instead of fear?', intro: teaching.statement },
+    e('p', {className:'quiet-note'}, 'Updated', ' ', e('time', {dateTime:'2026-10-11'}, '2026-10-11')),
     p('Artificial intelligence raises a question larger than what machines can do: how do we meet a future we cannot fully predict? My invitation is to examine fear, remember our shared identity, and participate with care. This reflection presents my spiritual understanding of technological development; it is not a prediction of what AI must become.'),
     e(Contents, { items }),
     e(Lesson, { id: 'fear', title: items[0][1] },

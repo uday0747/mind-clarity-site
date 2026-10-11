@@ -6,7 +6,7 @@ const bootstrap = readFileSync(new URL('../analytics-bootstrap.js', import.meta.
 function load(hostname, search = '', initial = {}, blocked = false) {
   const saved = { ...initial }, scripts = [];
   const context = { location: {hostname, search, origin: `https://${hostname}`, pathname: '/philosophy'}, URLSearchParams, Date,
-    localStorage: {getItem: key => {if(blocked) throw Error(); return saved[key];}, setItem: (key,value) => saved[key]=value, removeItem: key => delete saved[key]},
+    localStorage: {getItem: key => {if(blocked) throw Error(); return saved[key];}, setItem: (key,value) => {if(blocked) throw Error(); saved[key]=value;}, removeItem: key => delete saved[key]},
     document: {createElement: () => ({}), head: {appendChild: script => scripts.push(script)}}, window: {} };
   vm.runInNewContext(bootstrap, context);
   return {context, saved, scripts};
@@ -20,6 +20,7 @@ const normal = load('mindclarity.co.in', '?question=private');
 assert.equal(normal.scripts.length, 1);
 assert.equal(normal.context.window.dataLayer[1][2].page_location, 'https://mindclarity.co.in/philosophy');
 assert.equal(load('mindclarity.co.in', '', {}, true).scripts.length, 1);
+assert.equal(load('mindclarity.co.in', '?mc_analytics=off', {}, true).scripts.length, 0, 'Opt-out takes effect even when storage is blocked');
 const events = [], listeners = {};
 let tick, cleared = false, top = 0;
 globalThis.window = {gtag: (...args) => events.push(args)};

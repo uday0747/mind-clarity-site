@@ -6,27 +6,28 @@ const e = React.createElement;
 const p = text => e('p', null, text);
 export default function Practice() {
   const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['faith-and-division', mission.practicePeaceTitle], ['daily', 'Return throughout the day']];
-  return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement },
+  const numberFor = id => String(contents.findIndex(([sectionId]) => sectionId === id) + 1).padStart(2, '0');
+  return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement, overview:'Choose one everyday scene. Read its connection to the teaching, open the worked example if useful, and examine what remembrance changes for you.' },
     p(mission.practiceIntro),
     e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
-      e(Lesson, { id: 'five-minutes', number: '01', title: 'Remember the whole teaching' },
+      e(Lesson, { id: 'five-minutes', number: numberFor('five-minutes'), title: 'Remember the whole teaching' },
         p(teaching.meaning),
         e('details', null, e('summary', null, 'Explore the teaching in a daily experience'),
           e('ol', { className: 'practice-steps' }, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
           e(Reflection, null, teaching.practiceReflection)),
         p('The examples below are optional ways to explore the teaching, not conditions for realization. You do not need to write anything. If reflection becomes overwhelming, stop and return to an ordinary activity or suitable support. No particular feeling has to appear for enquiry to be honest.')),
-      ...teaching.cases.map((item, i) => e(Lesson, { key:item.id, id:item.id, number:String(i + 2).padStart(2, '0'), title:item.title },
+      ...teaching.cases.map((item, i) => e(Lesson, { key:item.id, id:item.id, number:numberFor(item.id), title:item.title },
         p(item.connection),
         e('details', null, e('summary', null, 'Worked example: ' + item.example),
           e('h3', null, 'The scene'), p(item.scene),
           e('h3', null, 'Remembering the Creator'), p(item.remember),
           e('h3', null, 'Participating within the game'), p(item.participation)),
         e(Reflection, null, item.reflection))),
-      e('section', {id:'faith-and-division', className:'lesson'}, e('h2', null, mission.practicePeaceTitle),
+      e(Lesson, {id:'faith-and-division', number:numberFor('faith-and-division'), title:mission.practicePeaceTitle},
         p(mission.practicePeaceScene), p(mission.practicePeaceRemember), p(mission.practicePeaceResponse),
         e(Reflection, null, mission.practicePeaceReflection)),
-      e(Lesson, { id:'daily', number:'08', title:'Return throughout the day' },
+      e(Lesson, { id:'daily', number:numberFor('daily'), title:'Return throughout the day' },
         p('The intended state is remembrance of the Creator while the game continues. A conversation, a mistake, or a quiet moment can be an occasion to return to the whole statement. The practice belongs within the unfolding; it does not rewrite the design.'),
         e('h3', null, 'An evening reflection'),
         e('ul', null, ...[

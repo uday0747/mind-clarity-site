@@ -4,7 +4,7 @@ import teaching from './teaching-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
 
 // Used by both the visible Questions page and its structured data.
-export const questions = [
+const originalQuestions = [
   ['Does the teaching include artificial intelligence as an expression of the Creator?', 'Yes, within Uday’s spiritual perspective, all existence belongs to the same Creator, including technology and the intelligence expressed through human invention. We are the Creator who made and entered this game of experiences; we cannot rewrite its total design from inside. Creating, using, and appreciating AI also take place within that unfolding. This interpretation does not establish that AI has consciousness, feelings, or spiritual realization; whether AI can have subjective experience remains an open question. Recognizing a shared source invites curiosity, gratitude, and care in how we develop and use technology.'],
   ['If AI can reduce human hardship, why do we fear it?', 'AI can unsettle our sense of security, livelihood, purpose, and control. In Uday’s philosophy, we are the Creator who made and entered this game of experiences; we cannot rewrite its total design from inside. Remembering that shared identity can invite curiosity and care while we face uncertainty. Fear deserves examination: some concerns are imagined, while others call for practical safeguards and support for affected people. AI could reduce burdens, but freedom from poverty is an aspiration that requires broad access and shared benefits, not a guaranteed outcome. Read the linked AI reflection on this page for the fuller discussion.'],
   ['What is the central statement?', teaching.statement + ' Every lesson and exercise on this site develops this spiritual philosophy of Uday Kumar.'],
@@ -22,7 +22,15 @@ export const questions = [
   , ...mission.faqEntries
 ];
 
-// Editorial adaptations of Uday’s recorded statements, not verbatim quotations.
+// IDs describe the question, so additions and display reordering cannot change related answers.
+const questionIds = ['ai-creator', 'ai-fear', 'central-statement', 'shared-identity', 'creator-story', 'effort', 'understanding', 'movie-lotus', 'responsibility', 'possessions', 'boundaries', 'quiet-mind', 'evidence-limits', 'begin', 'purpose', 'visible-god', 'religion', 'manipulation'];
+export const questionById = Object.fromEntries(originalQuestions.map((entry, index) => [questionIds[index], entry]));
+export const questionOrder = ['begin', 'central-statement', 'shared-identity', 'creator-story', 'effort', 'understanding', 'movie-lotus', 'responsibility', 'boundaries', 'quiet-mind', 'possessions', 'evidence-limits', 'purpose', 'visible-god', 'religion', 'manipulation', 'ai-creator', 'ai-fear'];
+export const questions = questionOrder.map(id => questionById[id]);
+export const technologyQuestions = ['ai-creator', 'ai-fear'].map(id => questionById[id]);
+export const foundationQuestions = questions.filter(entry => !technologyQuestions.includes(entry));
+
+// Editorial adaptations of Uday’s written statements, not verbatim quotations.
 export const enquiryGroups = [
   { title: 'Starting the enquiry', entries: [
     ['Must I write down observations?', 'No. Uday’s latest clarification is that writing is not required. Motivation to know who you are is the starting point. Earlier references to logging describe his own enquiry, not a compulsory method for everyone.'],
@@ -34,7 +42,7 @@ export const enquiryGroups = [
     ['Does being the Creator mean I have supernatural powers?', 'No. In Uday’s account, the shared Creator entered embodied life for experience without direct control over the whole design. The statement concerns identity, not personal omnipotence or superiority.'],
     ['Is surrender the same as doing nothing?', 'No. In this teaching, surrender concerns the total design, not submission to another person. Work, protection, learning, and repair remain part of life. Do what is reasonably in your hands without demanding control of every outcome.'],
     ['Can we know everything that will happen?', 'Uday says we do not know the next scene. He describes uncertainty as part of the experience. These pages do not offer certain predictions of your future.'],
-    ['How does Uday understand past lives?', 'In these recorded statements, Uday rejects past-life explanations and places experience in the present unfolding of the design. This is his position; the website does not present it as the position of every Indian spiritual tradition.'],
+    ['How does Uday understand past lives?', 'In these written statements, Uday rejects past-life explanations and places experience in the present unfolding of the design. This is his position; the website does not present it as the position of every Indian spiritual tradition.'],
     ['Why does the design include painful experiences?', 'Uday describes the game as containing contrasting experiences, not only pleasant ones. This explanation is not permission to dismiss suffering: help, protection, and compassionate action also belong within the experience.']
   ] },
   { title: 'Meditation, health, and astrology', entries: [
@@ -74,11 +82,11 @@ export const enquiryGroups = [
   ] }
 ];
 
-// Editorial applications, distinguished from recorded teaching in the visible introduction.
+// Editorial applications, distinguished from written teaching in the visible introduction.
 enquiryGroups.push({
   "id": "personal-growth",
   "title": "Confidence, personal growth, and difficult emotions",
-  "intro": "These everyday applications connect the teaching with common concerns. They are explanations for this website, not quotations from recorded discussions.",
+  "intro": "These everyday applications connect the teaching with common concerns. They are explanations for this website, not quotations from written discussions.",
   "entries": [
     [
       "Can self-enquiry help with personality development and personal growth?",
