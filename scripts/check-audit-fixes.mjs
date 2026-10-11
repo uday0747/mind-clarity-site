@@ -20,7 +20,7 @@ for (const [slug, ids] of [
   for (const id of ids) assert.ok(entries.includes(questionById[id]), `${slug}: ${id} remains related`);
   assert.ok(!entries.includes(questionById['ai-creator']), `${slug}: no accidental AI question`);
 }
-for (const language of ['en','hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml']) {
+for (const language of ['en','hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu']) {
   const prefix = language === 'en' ? '' : `${language}/`;
   for (const page of ['philosophy','practice']) {
     const html = readFileSync(path.join(dist, `${prefix}${page}.html`),'utf8');
