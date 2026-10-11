@@ -17,6 +17,7 @@ import additionalMeta from '../translations/metadata-new.json' with { type: 'jso
 import { localizedMeta } from '../localized-core.js';
 import { localizedMoreMeta } from '../localized-more.js';
 import { localizedAIMeta } from '../localized-ai.js';
+import { contentSecurityPolicy, scriptIntegrity } from './security-policy.mjs';
 
 const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar'].map(language => [language, {
   ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language], ...additionalMeta[language],
@@ -30,6 +31,7 @@ const assets = ['page.css', 'react-home.css', 'assets-brand.png', 'assets-brand-
   'mind-clarity-mark.png', 'mind-clarity-mark-desktop.png', 'assets', 'robots.txt', 'sitemap.xml', '_redirects', '404.html'];
 for (const asset of assets) await cp(path.join(root, asset), path.join(dist, asset), { recursive: true });
 await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
+const bundleIntegrity = scriptIntegrity(await readFile(path.join(dist, 'site.js')));
 
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
@@ -79,7 +81,7 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const articleMinutes = Math.max(1, Math.ceil(articleText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
   markup = markup.replace(/(<span data-reading-minutes="true"([^>]*)>)–(<\/span>)/g, (_, open, attributes, close) => open + (attributes.includes('data-reading-article') ? articleMinutes : readingMinutes) + close);
   if (language !== 'en') markup = translateMarkup(markup, language);
-  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${language === 'ar' ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}"></script></body></html>\n`;
+  const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${language === 'ar' ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}" integrity="${bundleIntegrity}" crossorigin="anonymous"></script></body></html>\n`;
   const outputFile = path.join(dist, `${page}.html`);
   await mkdir(path.dirname(outputFile), { recursive: true });
   await writeFile(outputFile, html);
@@ -101,7 +103,8 @@ async function collectAssets(directory, prefix = '') {
       const bytes = await readFile(path.join(directory, entry.name));
       serverAssets[relative] = { type: types[path.extname(entry.name)] || 'application/octet-stream',
         data: bytes.toString('base64'), size: bytes.length,
-        revision: createHash('sha256').update(bytes).digest('hex').slice(0, 12) };
+        revision: createHash('sha256').update(bytes).digest('hex').slice(0, 12),
+        ...(path.extname(entry.name) === '.html' ? { csp: contentSecurityPolicy(bytes.toString('utf8'), bundleIntegrity) } : {}) };
     }
   }
 }
@@ -111,6 +114,7 @@ await mkdir(path.join(dist, 'server'));
 const serverSource = await readFile(path.join(root, 'site-server.js'), 'utf8');
 await writeFile(path.join(dist, 'server/index.js'), `${serverSource}\nexport default createSiteServer(${JSON.stringify(serverAssets)}, ${JSON.stringify(redirects)});\n`);
 execFileSync(process.execPath, [path.join(root, 'scripts/audit-seo.mjs'), dist], { stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'scripts/check-security.mjs'), dist], { stdio: 'inherit' });
 await rm(path.join(root, 'dist'), { recursive: true, force: true });
 await rename(dist, path.join(root, 'dist'));
 console.log(`Built ${1 + Object.keys(pages).length} complete learning/support pages and 2 legacy redirects; Contact is retired.`);

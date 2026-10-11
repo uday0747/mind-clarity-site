@@ -1,16 +1,30 @@
 export function createSiteServer(assets, redirects) {
   const decodedAssets = new Map();
+  const publicAssets = new Map(Object.entries(assets));
+  const publicRedirects = new Map(Object.entries(redirects));
+  const securityHeaders = {
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'DENY',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Strict-Transport-Security': 'max-age=31536000',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), hid=(), bluetooth=(), display-capture=()',
+    'Cross-Origin-Opener-Policy': 'same-origin',
+    'Content-Security-Policy': "default-src 'none'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'",
+  };
   return {
     async fetch(request) {
       const started = performance.now();
       const url = new URL(request.url);
+      if (!['GET', 'HEAD'].includes(request.method)) {
+        return new Response('Method not allowed', { status: 405, headers: { ...securityHeaders, 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', Allow: 'GET, HEAD' } });
+      }
       const retired = ['/contact', '/blank-1', '/blank-2', '/blank-3', '/blank-4', '/blog', '/book-online'];
       const normalized = url.pathname.replace(/\/$/, '').replace(/\.html$/, '');
       if (retired.includes(normalized) || url.pathname.startsWith('/blog/')) {
-        return new Response(request.method === 'HEAD' ? null : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page removed | Mind Clarity</title></head><body><main><h1>This page has been removed</h1><p>This page is no longer part of Mind Clarity.</p><p><a href="/">Begin here</a> or explore the <a href="/practice">daily practice</a>.</p></main></body></html>', { status: 410, headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex', 'Cache-Control': 'public, max-age=0, must-revalidate' } });
+        return new Response(request.method === 'HEAD' ? null : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page removed | Mind Clarity</title></head><body><main><h1>This page has been removed</h1><p>This page is no longer part of Mind Clarity.</p><p><a href="/">Begin here</a> or explore the <a href="/practice">daily practice</a>.</p></main></body></html>', { status: 410, headers: { ...securityHeaders, 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex', 'Cache-Control': 'public, max-age=0, must-revalidate' } });
       }
       const canonicalHost = ['mindclarity.co.in', 'www.mindclarity.co.in'].includes(url.hostname);
-      const redirectPath = redirects[url.pathname] || (url.pathname.endsWith('.html/') ? redirects[url.pathname.slice(0, -1)] : null);
+      const redirectPath = publicRedirects.get(url.pathname) || (url.pathname.endsWith('.html/') ? publicRedirects.get(url.pathname.slice(0, -1)) : null);
       if (redirectPath || (canonicalHost && (url.hostname !== 'mindclarity.co.in' || url.protocol !== 'https:'))) {
         if (redirectPath) url.pathname = redirectPath;
         if (canonicalHost) {
@@ -18,20 +32,18 @@ export function createSiteServer(assets, redirects) {
           url.protocol = 'https:';
           url.port = '';
         }
-        return new Response(null, { status: 301, headers: { Location: url.href } });
-      }
-      if (!['GET', 'HEAD'].includes(request.method)) {
-        return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
+        return new Response(null, { status: 301, headers: { ...securityHeaders, Location: url.href } });
       }
       const pathname = url.pathname === '/' ? '/index.html' : url.pathname;
-      const asset = pathname === '/404.html' || pathname === '/404' ? null : assets[pathname] || assets[`${pathname}.html`];
-      const selected = asset || assets['/404.html'];
+      const asset = pathname === '/404.html' || pathname === '/404' ? null : publicAssets.get(pathname) || publicAssets.get(`${pathname}.html`);
+      const selected = asset || publicAssets.get('/404.html');
       // Only the build's current content hash qualifies for immutable caching.
       const versioned = asset && /\.(?:css|js)$/.test(pathname) && url.searchParams.get('v') === asset.revision;
       const headers = {
+        ...securityHeaders,
         'Content-Type': selected.type,
         'Cache-Control': versioned ? 'public, max-age=31536000, immutable' : asset ? 'public, max-age=0, s-maxage=60, stale-while-revalidate=300' : 'public, max-age=0, must-revalidate',
-        'X-Content-Type-Options': 'nosniff',
+        ...(selected.csp ? { 'Content-Security-Policy': selected.csp } : {}),
       };
       if (!asset) headers['X-Robots-Tag'] = 'noindex';
       if (asset) {
