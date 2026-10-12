@@ -17,6 +17,11 @@ export const languageOptions = [
   { code: 'fr', nativeName: 'Français', label: 'French' },
   { code: 'pt', nativeName: 'Português', label: 'Portuguese' },
   { code: 'id', nativeName: 'Bahasa Indonesia', label: 'Indonesian' },
+  { code: 'de', nativeName: 'Deutsch', label: 'German' },
+  { code: 'it', nativeName: 'Italiano', label: 'Italian' },
+  { code: 'ru', nativeName: 'Русский', label: 'Russian' },
+  { code: 'ja', nativeName: '日本語', label: 'Japanese' },
+  { code: 'ko', nativeName: '한국어', label: 'Korean' },
   { code: 'ar', nativeName: 'العربية', label: 'Arabic' },
 ];
 

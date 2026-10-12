@@ -15,7 +15,7 @@ const links = [
 export function pageFromPath(pathname) {
   const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean).map(segment => segment.replace(/\.html$/, ''));
   if (!segments.length || segments[0] === 'index') return 'home';
-  if (['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
+  if (['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(segments[0]) && segments[1]) return `${segments[0]}/${segments[1]}`;
   return segments[0];
 }
 export default function Header() {
@@ -26,10 +26,10 @@ export default function Header() {
   const route = pageFromPath(pathname);
   const current = route.includes('/') ? route.split('/').pop() : route;
   const currentLanguage = pageLanguage(pathname);
-  const localizedUi = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].includes(currentLanguage) ? currentLanguage : 'en';
-  const localizedNavigation = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].includes(localizedUi);
+  const localizedUi = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(currentLanguage) ? currentLanguage : 'en';
+  const localizedNavigation = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(localizedUi);
   const ui = interfaceFor(localizedUi);
-  const page = ['ashtavakra-gita', 'understanding-god'].includes(current) ? 'philosophy' : ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = ['ashtavakra-gita', 'understanding-god'].includes(current) ? 'philosophy' : ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
   const navLinks = links.map(([id, , href]) => {

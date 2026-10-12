@@ -22,3 +22,5 @@ For Hindi, Telugu, Spanish, French, Portuguese, Indonesian, Arabic, Tamil, Kanna
 Check that God/Creator/Shakti remain consistent within their context; distinguish quoted original statements, editorial explanations and external scripture translations. Preserve uncertainty and qualifications. Check natural question-finder queries, status messages, mobile line breaks and Arabic directionality. Source proper names and source-edition language may remain untranslated.
 
 No native-editor certification has been supplied for this release. Search Console and GA4 account reports also require an authenticated account review; source and route checks do not establish traffic, indexing or field performance.
+
+12 October 2026: German, Italian, Russian, Japanese and Korean were added after targeted sample correction. Samples exposed machine mistranslations of forgiveness and surrender, so stronger translation support must not be treated as certification. Known Tamil journal wording and corrupt Odia word fragments were repaired. The full Odia root quotation was restored. Independent full semantic review remains pending.
