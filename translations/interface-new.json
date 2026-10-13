@@ -987,5 +987,263 @@
       "fallback": "Wybierz i skopiuj powyższy link, aby go udostępnić."
     },
     "copyright": "© 2026 Mind Clarity · Refleksja duchowa i edukacja."
+  },
+  "nl": {
+    "language": "Taal",
+    "chooseLanguage": "Kies taal",
+    "skip": "Ga naar de inhoud",
+    "mainNav": "Hoofdnavigatie",
+    "menu": "Menu",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "browserPrefers": "Uw browser geeft er de voorkeur aan",
+    "openIn": "Open deze pagina binnen",
+    "currentlyAvailable": "Deze pagina is momenteel beschikbaar in __LANGUAGE__; vertalingen worden verbeterd.",
+    "nav": {
+      "home": "Begin hier",
+      "philosophy": "Filosofie",
+      "practice": "Alledaagse voorbeelden",
+      "faq": "Vragen",
+      "reflections": "Reflecties"
+    },
+    "labels": {
+      "home": "Begin hier",
+      "philosophy": "Filosofie",
+      "practice": "Alledaagse voorbeelden",
+      "faq": "Vragen",
+      "reflections": "Reflecties"
+    },
+    "more": "Er worden steeds meer vertalingen verbeterd.",
+    "footerPurpose": "Het herinneren van de Schepper binnen het spel van ervaringen.",
+    "youtube": "Mind Clarity op YouTube",
+    "email": "E-mail",
+    "privacy": "Privacy",
+    "conversation": "Optioneel gesprek",
+    "share": {
+      "title": "Deel een nuttige les",
+      "body": "Als er iemand in je opkomt, stuur hem dan deze pagina en laat hem of haar in zijn eigen tempo ontdekken.",
+      "label": "Link naar deze pagina",
+      "copy": "Kopieer link",
+      "email": "Deel per e-mail",
+      "help": "U kunt de link selecteren en kopiëren.",
+      "copied": "Link gekopieerd. Plak het waar u het wilt delen.",
+      "fallback": "Selecteer en kopieer de bovenstaande link om deze te delen."
+    },
+    "copyright": "© 2026 Mind Clarity · Spirituele reflectie en educatie."
+  },
+  "sv": {
+    "language": "Språk",
+    "chooseLanguage": "Välj språk",
+    "skip": "Hoppa till innehållet",
+    "mainNav": "Huvudnavigering",
+    "menu": "Meny",
+    "openMenu": "Öppna menyn",
+    "closeMenu": "Stäng menyn",
+    "browserPrefers": "Din webbläsare föredrar",
+    "openIn": "Öppna denna sida i",
+    "currentlyAvailable": "Den här sidan är för närvarande tillgänglig i __LANGUAGE__; översättningarna förbättras.",
+    "nav": {
+      "home": "Börja här",
+      "philosophy": "Filosofi",
+      "practice": "Vardagsexempel",
+      "faq": "Frågor",
+      "reflections": "Reflektioner"
+    },
+    "labels": {
+      "home": "Börja här",
+      "philosophy": "Filosofi",
+      "practice": "Vardagsexempel",
+      "faq": "Frågor",
+      "reflections": "Reflektioner"
+    },
+    "more": "Fler översättningar förbättras.",
+    "footerPurpose": "Att minnas Skaparen i upplevelsespelet.",
+    "youtube": "Mind Clarity på YouTube",
+    "email": "E-post",
+    "privacy": "Privatliv",
+    "conversation": "Valfri konversation",
+    "share": {
+      "title": "Dela en användbar lektion",
+      "body": "Om någon kommer att tänka på, skicka den här sidan till dem och låt dem utforska i sin egen takt.",
+      "label": "Länk till denna sida",
+      "copy": "Kopiera länk",
+      "email": "Dela via e-post",
+      "help": "Du kan välja och kopiera länken.",
+      "copied": "Länken har kopierats. Klistra in den där du vill dela den.",
+      "fallback": "Välj och kopiera länken ovan för att dela den."
+    },
+    "copyright": "© 2026 Mind Clarity · Andlig reflektion och utbildning."
+  },
+  "da": {
+    "language": "Sprog",
+    "chooseLanguage": "Vælg sprog",
+    "skip": "Gå til indhold",
+    "mainNav": "Hovednavigation",
+    "menu": "Menu",
+    "openMenu": "Åbn menuen",
+    "closeMenu": "Luk menuen",
+    "browserPrefers": "Din browser foretrækker",
+    "openIn": "Åbn denne side i",
+    "currentlyAvailable": "Denne side er i øjeblikket tilgængelig i __LANGUAGE__; oversættelser bliver forbedret.",
+    "nav": {
+      "home": "Begynd her",
+      "philosophy": "Filosofi",
+      "practice": "Daglige eksempler",
+      "faq": "Spørgsmål",
+      "reflections": "Refleksioner"
+    },
+    "labels": {
+      "home": "Begynd her",
+      "philosophy": "Filosofi",
+      "practice": "Daglige eksempler",
+      "faq": "Spørgsmål",
+      "reflections": "Refleksioner"
+    },
+    "more": "Flere oversættelser bliver forbedret.",
+    "footerPurpose": "At huske Skaberen i oplevelsernes spil.",
+    "youtube": "Mind Clarity på YouTube",
+    "email": "E-mail",
+    "privacy": "Privatliv",
+    "conversation": "Valgfri samtale",
+    "share": {
+      "title": "Del en nyttig lektion",
+      "body": "Hvis nogen kommer i tanke om, så send dem denne side og lad dem udforske i deres eget tempo.",
+      "label": "Link til denne side",
+      "copy": "Kopiér link",
+      "email": "Del via e-mail",
+      "help": "Du kan vælge og kopiere linket.",
+      "copied": "Linket er kopieret. Indsæt det, hvor du vil dele det.",
+      "fallback": "Vælg og kopier linket ovenfor for at dele det."
+    },
+    "copyright": "© 2026 Mind Clarity · Åndelig refleksion og uddannelse."
+  },
+  "nb": {
+    "language": "Språk",
+    "chooseLanguage": "Velg språk",
+    "skip": "Gå til innhold",
+    "mainNav": "Hovednavigasjon",
+    "menu": "Meny",
+    "openMenu": "Åpne menyen",
+    "closeMenu": "Lukk menyen",
+    "browserPrefers": "Nettleseren din foretrekker",
+    "openIn": "Åpne denne siden i",
+    "currentlyAvailable": "Denne siden er tilgjengelig i __LANGUAGE__; oversettelser blir forbedret.",
+    "nav": {
+      "home": "Begynn her",
+      "philosophy": "Filosofi",
+      "practice": "Hverdagseksempler",
+      "faq": "Spørsmål",
+      "reflections": "Refleksjoner"
+    },
+    "labels": {
+      "home": "Begynn her",
+      "philosophy": "Filosofi",
+      "practice": "Hverdagseksempler",
+      "faq": "Spørsmål",
+      "reflections": "Refleksjoner"
+    },
+    "more": "Flere oversettelser blir forbedret.",
+    "footerPurpose": "Å huske Skaperen i spillet med opplevelser.",
+    "youtube": "Mind Clarity på YouTube",
+    "email": "E-post",
+    "privacy": "Privatliv",
+    "conversation": "Valgfri samtale",
+    "share": {
+      "title": "Del en nyttig leksjon",
+      "body": "Hvis noen kommer til tankene, send dem denne siden og la dem utforske i sitt eget tempo.",
+      "label": "Link til denne siden",
+      "copy": "Kopier lenken",
+      "email": "Del på e-post",
+      "help": "Du kan velge og kopiere lenken.",
+      "copied": "Linken er kopiert. Lim den inn der du vil dele den.",
+      "fallback": "Velg og kopier lenken ovenfor for å dele den."
+    },
+    "copyright": "© 2026 Mind Clarity · Åndelig refleksjon og utdanning."
+  },
+  "ro": {
+    "language": "Limbă",
+    "chooseLanguage": "Alegeți limba",
+    "skip": "Treci la conținut",
+    "mainNav": "Navigație principală",
+    "menu": "Meniu",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul",
+    "browserPrefers": "Browserul dvs. preferă",
+    "openIn": "Deschide această pagină în",
+    "currentlyAvailable": "Această pagină este disponibilă în prezent în __LANGUAGE__; traducerile sunt îmbunătățite.",
+    "nav": {
+      "home": "Începeți de aici",
+      "philosophy": "Filozofie",
+      "practice": "Exemple de zi cu zi",
+      "faq": "Întrebări",
+      "reflections": "Reflecții"
+    },
+    "labels": {
+      "home": "Începeți de aici",
+      "philosophy": "Filozofie",
+      "practice": "Exemple de zi cu zi",
+      "faq": "Întrebări",
+      "reflections": "Reflecții"
+    },
+    "more": "Mai multe traduceri sunt îmbunătățite.",
+    "footerPurpose": "Amintirea Creatorului în jocul experiențelor.",
+    "youtube": "Mind Clarity pe YouTube",
+    "email": "E-mail",
+    "privacy": "Confidențialitate",
+    "conversation": "Conversație opțională",
+    "share": {
+      "title": "Împărtășește o lecție utilă",
+      "body": "Dacă cineva vine în minte, trimite-i această pagină și lasă-l să exploreze în ritmul său.",
+      "label": "Link către această pagină",
+      "copy": "Copiați linkul",
+      "email": "Distribuie prin e-mail",
+      "help": "Puteți selecta și copia linkul.",
+      "copied": "Link copiat. Lipiți-l oriunde doriți să îl distribuiți.",
+      "fallback": "Selectează și copiază linkul de mai sus pentru a-l partaja."
+    },
+    "copyright": "© 2026 Mind Clarity · Reflecție și educație spirituală."
+  },
+  "cs": {
+    "language": "Jazyk",
+    "chooseLanguage": "Vyberte jazyk",
+    "skip": "Přejít na obsah",
+    "mainNav": "Hlavní navigace",
+    "menu": "Menu",
+    "openMenu": "Otevřít nabídku",
+    "closeMenu": "Zavřít nabídku",
+    "browserPrefers": "Váš prohlížeč preferuje",
+    "openIn": "Otevřete tuto stránku v",
+    "currentlyAvailable": "Tato stránka je aktuálně dostupná v jazyce __LANGUAGE__; překlady se zdokonalují.",
+    "nav": {
+      "home": "Začněte zde",
+      "philosophy": "Filozofie",
+      "practice": "Každodenní příklady",
+      "faq": "Otázky",
+      "reflections": "Úvahy"
+    },
+    "labels": {
+      "home": "Začněte zde",
+      "philosophy": "Filozofie",
+      "practice": "Každodenní příklady",
+      "faq": "Otázky",
+      "reflections": "Úvahy"
+    },
+    "more": "Vylepšuje se více překladů.",
+    "footerPurpose": "Vzpomínka na Stvořitele ve hře zážitků.",
+    "youtube": "Mind Clarity na YouTube",
+    "email": "E-mail",
+    "privacy": "Soukromí",
+    "conversation": "Volitelný rozhovor",
+    "share": {
+      "title": "Sdílejte užitečnou lekci",
+      "body": "Pokud někoho napadne, pošlete mu tuto stránku a nechte ho prozkoumat svým vlastním tempem.",
+      "label": "Odkaz na tuto stránku",
+      "copy": "Zkopírujte odkaz",
+      "email": "Sdílejte e-mailem",
+      "help": "Odkaz můžete vybrat a zkopírovat.",
+      "copied": "Odkaz zkopírován. Vložte jej kamkoli, kde jej chcete sdílet.",
+      "fallback": "Chcete-li jej sdílet, vyberte a zkopírujte výše uvedený odkaz."
+    },
+    "copyright": "© 2026 Mind Clarity · Duchovní reflexe a vzdělávání."
   }
 }

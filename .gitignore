@@ -11,3 +11,6 @@ dist-home/
 !.env.example
 *.log
 /references/
+
+# Generated server bundle is supplied in the deployment archive.
+/dist/server/index.js

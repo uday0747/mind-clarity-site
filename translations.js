@@ -1,3 +1,9 @@
+import nl from './translations/nl.json' with { type: 'json' };
+import sv from './translations/sv.json' with { type: 'json' };
+import da from './translations/da.json' with { type: 'json' };
+import nb from './translations/nb.json' with { type: 'json' };
+import ro from './translations/ro.json' with { type: 'json' };
+import cs from './translations/cs.json' with { type: 'json' };
 import simplifiedChinese from './translations/zh-Hans.json' with { type: 'json' };
 import traditionalChinese from './translations/zh-Hant.json' with { type: 'json' };
 import turkish from './translations/tr.json' with { type: 'json' };
@@ -25,7 +31,7 @@ import hindi from './translations/hi.json' with { type: 'json' };
 import spanish from './translations/es.json' with { type: 'json' };
 import french from './translations/fr.json' with { type: 'json' };
 import telugu from './translations/te.json' with { type: 'json' };
-export const translations = { 'zh-Hans': simplifiedChinese, 'zh-Hant': traditionalChinese, tr: turkish, vi: vietnamese, pl: polish, de: german, it: italian, ru: russian, ja: japanese, ko: korean, pa: punjabi, or: odia, as: assamese, ur: urdu, bn: bengali, mr: marathi, gu: gujarati, ta: tamil, kn: kannada, ml: malayalam, hi: hindi, es: spanish, fr: french, te: telugu, pt: portuguese, id: indonesian, ar: arabic };
+export const translations = { nl, sv, da, nb, ro, cs, 'zh-Hans': simplifiedChinese, 'zh-Hant': traditionalChinese, tr: turkish, vi: vietnamese, pl: polish, de: german, it: italian, ru: russian, ja: japanese, ko: korean, pa: punjabi, or: odia, as: assamese, ur: urdu, bn: bengali, mr: marathi, gu: gujarati, ta: tamil, kn: kannada, ml: malayalam, hi: hindi, es: spanish, fr: french, te: telugu, pt: portuguese, id: indonesian, ar: arabic };
 export function translateText(source, language) {
   if (language === 'en' || !source.trim()) return source;
   const result = translations[language]?.[source.trim()];

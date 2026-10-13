@@ -85,7 +85,7 @@ blockquote p{margin:0}
 blockquote cite{display:block;margin-top:16px;font:400 .875rem/1.5 Arial,sans-serif;color:var(--muted)}
 .concept-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0 26px}
-.path-grid>div{background:var(--cream);padding:22px 24px}
+.path-grid>div{min-width:0;overflow-wrap:anywhere;background:var(--cream);padding:22px 24px}
 .path-grid h3{margin:0 0 8px;font-size:1.22rem}
 .path-grid p{margin:0}
 .lotus-practice{margin:28px 0;padding:18px 22px;border-inline-start:2px solid var(--gold);background:var(--soft);font-size:1.05rem}

@@ -27,6 +27,12 @@ export const languageOptions = [
   { code: 'tr', nativeName: 'Türkçe', label: 'Turkish' },
   { code: 'vi', nativeName: 'Tiếng Việt', label: 'Vietnamese' },
   { code: 'pl', nativeName: 'Polski', label: 'Polish' },
+  { code: 'nl', nativeName: 'Nederlands', label: 'Dutch' },
+  { code: 'sv', nativeName: 'Svenska', label: 'Swedish' },
+  { code: 'da', nativeName: 'Dansk', label: 'Danish' },
+  { code: 'nb', nativeName: 'Norsk bokmål', label: 'Norwegian Bokmål' },
+  { code: 'ro', nativeName: 'Română', label: 'Romanian' },
+  { code: 'cs', nativeName: 'Čeština', label: 'Czech' },
   { code: 'ar', nativeName: 'العربية', label: 'Arabic' },
 ];
 
@@ -80,7 +86,7 @@ export function browserLanguage() {
     const tag = value.toLowerCase();
     const code = tag.split('-')[0] === 'zh'
       ? (/^zh-(?:hant(?:-|$)|tw(?:-|$)|hk(?:-|$)|mo(?:-|$))/.test(tag) ? 'zh-Hant' : 'zh-Hans')
-      : tag.split('-')[0];
+      : tag.split('-')[0] === 'no' ? 'nb' : tag.split('-')[0];
     if (languageOptions.some(option => option.code === code)) return code;
   }
   return 'en';

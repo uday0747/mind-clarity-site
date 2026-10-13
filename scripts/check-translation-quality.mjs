@@ -24,7 +24,8 @@ try {
     ['zh-CN', 'zh-Hans'], ['zh-SG', 'zh-Hans'], ['zh', 'zh-Hans'],
     ['zh-TW', 'zh-Hant'], ['zh-HK', 'zh-Hant'], ['zh-MO', 'zh-Hant'],
     ['zh-Hans-TW', 'zh-Hans'], ['zh-Hant-CN', 'zh-Hant'],
-    ['tr-TR', 'tr'], ['vi-VN', 'vi'], ['pl-PL', 'pl']
+    ['tr-TR', 'tr'], ['vi-VN', 'vi'], ['pl-PL', 'pl'], ['nl-BE', 'nl'], ['sv-SE', 'sv'], ['da-DK', 'da'],
+    ['nb-NO', 'nb'], ['no-NO', 'nb'], ['ro-MD', 'ro'], ['cs-CZ', 'cs']
   ]) {
     Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { languages: [tag] } });
     assert.equal(browserLanguage(), expected, `Browser preference ${tag}`);
@@ -34,7 +35,7 @@ try {
   else delete globalThis.navigator;
 }
 console.log('PASS: Chinese script/region preferences and Turkish/Vietnamese/Polish regional tags.');
-for (const code of ['zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl']) {
+for (const code of ['zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs']) {
   for (const [source, text] of Object.entries(translations[code])) {
     assert.ok(!/ZX.{0,30}?ZX/u.test(text), `${code}: temporary translation marker remains`);
     if (source.includes('Mind Clarity')) assert.ok(text.includes('Mind Clarity'), `${code}: brand name must be retained`);
