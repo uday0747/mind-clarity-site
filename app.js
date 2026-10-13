@@ -1,3 +1,4 @@
+import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
 import { mount } from './mount.js';
@@ -22,6 +23,7 @@ export function App() {
       e('p', { className: 'eyebrow' }, mission.storyEyebrow),
       e('h2', { id: 'story-title' }, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design),
       e('a', { className: 'text-link', href: '/understanding-god#story' }, mission.storyLink)),
+    e(BenefitsSection, { compact: true }),
     e('section', { className: 'first-practice', 'aria-labelledby': 'first-practice-title' },
       e('div', null, e('p', { className: 'eyebrow' }, 'See the teaching in ordinary life'),
         e('h2', { id: 'first-practice-title' }, 'A mistake is not your whole identity.'),

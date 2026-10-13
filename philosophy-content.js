@@ -1,3 +1,4 @@
+import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
 import teaching from './teaching-content.json' with { type: 'json' };
@@ -51,7 +52,7 @@ export default function Philosophy() {
         e(Reflection, null, 'Consider a small scene you wanted to unfold differently. Recall the Creator who designed and entered this game, whose design cannot be rewritten from inside. Can you distinguish participating in the scene from demanding control of the whole?')),
       e(Lesson, {id:'confidence', number:numberFor('confidence'), title:discussion.confidenceTitle},
         p(discussion.confidenceIntro), p(discussion.confidenceIdentity), p(discussion.confidenceExample), p(discussion.confidenceEnquiry),
-        e(Reflection, null, discussion.confidenceReflection)),
+        e(Reflection, null, discussion.confidenceReflection), e(BenefitsSection)),
       e(Lesson, {id:'one-shakti', number:numberFor('one-shakti'), title:'One Creator, many roles'},
         p('From the root statement follows a distinction between who we are and the role we experience. A parent, friend, worker, or stranger is a role within the game. In this philosophy, the Creator is the shared identity through all of them.'),
         p('This is why recognition includes other people. Claiming a divine identity only for oneself would miss the same source in the person who disagrees. Both praise and criticism occur between roles within the same creation.'),

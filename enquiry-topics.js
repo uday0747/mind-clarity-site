@@ -1,3 +1,4 @@
+import benefits from './benefits-content.json' with { type: 'json' };
 import problems from './problem-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
 import teaching from './teaching-content.json' with { type: 'json' };
@@ -76,3 +77,9 @@ enquiryTopics.push(
     sections:[[overthinking.example,overthinking.scene],['Remembering the Creator',overthinking.remember],['Participating within the game',overthinking.participation]],
     entries:[questionById['quiet-mind'],enquiryGroups.at(-1).entries[2]], reflection:overthinking.reflection, practiceLink:'/practice#overthinking'}
 );
+
+for (const topic of enquiryTopics) {
+  if (["confidence-self-worth-and-self-enquiry", "meditation-and-self-realization"].includes(topic.slug)) topic.modified = "2026-10-13";
+  if (topic.slug === "confidence-self-worth-and-self-enquiry") topic.sections.push(...benefits.items.slice(0, 4).map(item => [item.title, item.text]), [benefits.designTitle, benefits.effort]);
+  if (topic.slug === "meditation-and-self-realization") topic.sections.push([benefits.items[4].title, benefits.items[4].text], [benefits.designTitle, benefits.design]);
+}
