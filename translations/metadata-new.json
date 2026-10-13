@@ -1366,5 +1366,335 @@
       "title": "인공 지능, 공포 및 명확성 | Mind Clarity",
       "description": "인공 지능, 창조주의 디자인, 일, 가난에 대한 영적 성찰, 그리고 희망과 책임으로 불확실성을 만나는 것."
     }
+  },
+  "zh-Hans": {
+    "": {
+      "title": "Mind Clarity |了解上帝并记住我们是谁",
+      "description": "通过 Uday Kumar 的造物主和游戏解释来了解上帝。探索共同的身份、纪念、对每种信仰的尊重以及日常生活中的关怀。"
+    },
+    "ashtavakra-gita": {
+      "title": "Ashtavakra Gita 和造物主意识 | Mind Clarity",
+      "description": "探索有关意识、共享身份和臣服的 Ashtavakra Gita 教义，以及它们与 Uday Kumar 哲学的联系。"
+    },
+    "understanding-god": {
+      "title": "理解上帝和经验的游戏| Mind Clarity",
+      "description": "探索乌代·库马尔 (Uday Kumar) 的造物主和游戏解释、日常生活中的纪念，以及质疑那些为伤害辩护的信念。"
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "生活问题与自我探究：你能探索什么？ | Mind Clarity",
+      "description": "通过乌代·库马尔的哲学探索自信、过度思考、愤怒、内疚、悲伤、人际关系、不确定性和灵性问题，并对健康主张有明确的限制。"
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "自信、自我价值和自我探究 | Mind Clarity",
+      "description": "通过共享的造物主身份探索低自信、比较、拒绝和对失败的恐惧。阅读 Uday Kumar 的解释、工作示例和可选反思。"
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "过度思考、忧虑与自我探究 | Mind Clarity",
+      "description": "通过乌代·库马尔的哲学探索重复的想法、担忧和不确定性。阅读未答复消息的示例以及无需确定性即可参与的方法。"
+    },
+    "philosophy": {
+      "title": "了解造物主和游戏 | Mind Clarity",
+      "description": "探索乌代·库马尔 (Uday Kumar) 对共享造物主、经验游戏、圣经联系以及对每个生命中同一身份的认识的解释。"
+    },
+    "practice": {
+      "title": "活在对造物主的记忆中| Mind Clarity",
+      "description": "将对造物主的理解带入日常场景、关系和分歧中。探索纪念、参与和保护免受伤害。"
+    },
+    "faq": {
+      "title": "了解上帝：问题与解答| Mind Clarity",
+      "description": "探索乌代·库马尔教学中有关上帝、共同身份、经验游戏、宗教、操纵和记忆的问题。"
+    },
+    "reflections": {
+      "title": "对生命和造物主的反思| Mind Clarity",
+      "description": "阅读乌代·库马尔 (Uday Kumar) 对生活、技术、不确定性和造物主体验游戏的反思。"
+    },
+    "privacy": {
+      "title": "隐私 | Mind Clarity",
+      "description": "Mind Clarity 如何处理电子邮件和 WhatsApp 查询、浏览器首选项和分析。管理您的分析选择并了解如何处理反射数据。"
+    },
+    "who-am-i-self-enquiry": {
+      "title": "我是谁？如何开始自我探究 | Mind Clarity",
+      "description": "探索“我是谁？”以及通过 Uday Kumar 的教学实现自我。从好奇心开始，不需要必要的日记、肯定或时间表。"
+    },
+    "surrender-free-will-and-design": {
+      "title": "投降是什么意思？自由意志与设计| Mind Clarity",
+      "description": "了解乌代·库马尔哲学中的投降、努力、自由意志和不确定性。投降不是被动或接受伤害。"
+    },
+    "meditation-and-self-realization": {
+      "title": "冥想与自我实现：探索你是谁 | Mind Clarity",
+      "description": "阅读乌代·库马尔 (Uday Kumar) 关于冥想、头脑清晰和自我实现的描述，其中对健康主张有明确的限制，并且可以按照自己的节奏自由探索。"
+    },
+    "guilt-responsibility-and-boundaries": {
+      "title": "自我探究中的内疚、责任和界限 | Mind Clarity",
+      "description": "探索乌代·库马尔 (Uday Kumar) 修复与自我谴责之间的区别。承认共同的造物主并不意味着接受伤害或逃避责任。"
+    },
+    "ai-fear-and-clarity": {
+      "title": "人工智能、恐惧与清晰| Mind Clarity",
+      "description": "对人工智能、造物主的设计、工作、贫困以及用希望和责任应对不确定性的灵性反思。"
+    }
+  },
+  "zh-Hant": {
+    "": {
+      "title": "Mind Clarity |了解上帝並記得我們是誰",
+      "description": "透過 Uday Kumar 的造物主和遊戲解釋來了解上帝。探索共同的身份、紀念、對每種信仰的尊重以及日常生活中的關懷。"
+    },
+    "ashtavakra-gita": {
+      "title": "Ashtavakra Gita 與造物主意識 | Mind Clarity",
+      "description": "探索有關意識、共享身分和臣服的 Ashtavakra Gita 教義，以及它們與 Uday Kumar 哲學的聯繫。"
+    },
+    "understanding-god": {
+      "title": "理解上帝與經驗的遊戲| Mind Clarity",
+      "description": "探索烏代庫馬爾 (Uday Kumar) 的造物主和遊戲詮釋、日常生活中的紀念，以及質疑那些為傷害辯護的信念。"
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "生活問題與自我探究：你能探索什麼？ | Mind Clarity",
+      "description": "透過烏代·庫馬爾的哲學探索自信、過度思考、憤怒、內疚、悲傷、人際關係、不確定性和靈性問題，並對健康主張有明確的限制。"
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "自信、自我價值與自我探究 | Mind Clarity",
+      "description": "透過共享的造物主身分探索低自信、比較、拒絕和對失敗的恐懼。閱讀 Uday Kumar 的解釋、工作範例和可選反思。"
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "過度思考、憂慮與自我探究 | Mind Clarity",
+      "description": "透過烏代·庫馬爾的哲學探索重複的想法、擔憂和不確定性。閱讀未答覆訊息的範例以及無需確定性即可參與的方法。"
+    },
+    "philosophy": {
+      "title": "了解造物主與遊戲 | Mind Clarity",
+      "description": "探索烏代·庫馬爾 (Uday Kumar) 對共享造物主、經驗遊戲、聖經聯繫以及對每個生命中同一身份的認識的解釋。"
+    },
+    "practice": {
+      "title": "活在對造物主的記憶中| Mind Clarity",
+      "description": "将对造物主的理解带入日常场景、关系和分歧中。探索紀念、參與和保護免受傷害。"
+    },
+    "faq": {
+      "title": "了解上帝：問題與解答| Mind Clarity",
+      "description": "探索烏代庫馬爾教學中有關上帝、共同身分、經驗遊戲、宗教、操縱和記憶的問題。"
+    },
+    "reflections": {
+      "title": "對生命與造物主的反思| Mind Clarity",
+      "description": "閱讀烏代庫馬爾 (Uday Kumar) 對生活、技術、不確定性和造物主體驗遊戲的反思。"
+    },
+    "privacy": {
+      "title": "隱私 | Mind Clarity",
+      "description": "Mind Clarity 如何處理電子郵件和 WhatsApp 查詢、瀏覽器首選項和分析。管理您的分析選擇並了解如何處理反射資料。"
+    },
+    "who-am-i-self-enquiry": {
+      "title": "我是誰？如何開始自我探究 | Mind Clarity",
+      "description": "探索「我是誰？」以及透過 Uday Kumar 的教學實現自我。從好奇心開始，不需要必要的日記、肯定或時間表。"
+    },
+    "surrender-free-will-and-design": {
+      "title": "投降是什麼意思？自由意志與設計| Mind Clarity",
+      "description": "了解烏代·庫馬爾哲學中的投降、努力、自由意志和不確定性。投降不是被動或接受傷害。"
+    },
+    "meditation-and-self-realization": {
+      "title": "冥想與自我實現：探索你是誰 | Mind Clarity",
+      "description": "閱讀烏代·庫馬爾 (Uday Kumar) 關於冥想、頭腦清晰和自我實現的描述，其中對健康主張有明確的限制，並且可以按照自己的節奏自由探索。"
+    },
+    "guilt-responsibility-and-boundaries": {
+      "title": "自我探究中的罪惡感、責任與界線 | Mind Clarity",
+      "description": "探索烏代庫馬爾 (Uday Kumar) 修復與自我譴責之間的差異。承認共同的造物主並不意味著接受傷害或逃避責任。"
+    },
+    "ai-fear-and-clarity": {
+      "title": "人工智慧、恐懼與清晰| Mind Clarity",
+      "description": "對人工智慧、造物主的設計、工作、貧窮以及用希望和責任來應對不確定性的靈性反思。"
+    }
+  },
+  "tr": {
+    "": {
+      "title": "Mind Clarity | Tanrı’yı Anlayın ve Kim Olduğumuzu Hatırlayın",
+      "description": "Uday Kumar'ın Yaratıcı ve oyun açıklaması aracılığıyla Tanrı'yı ​​anlayın. Ortak kimliği, anmayı, her inanca saygıyı ve günlük yaşamdaki özeni keşfedin."
+    },
+    "ashtavakra-gita": {
+      "title": "Ashtavakra Gita ve Yaratıcı Farkındalığı | Mind Clarity",
+      "description": "Farkındalık, paylaşılan kimlik ve teslimiyet hakkındaki kaynaklı Ashtavakra Gita öğretilerini ve bunların Uday Kumar'ın felsefesiyle olan bağlantılarını keşfedin."
+    },
+    "understanding-god": {
+      "title": "Tanrıyı ve Deneyimler Oyununu Anlamak | Mind Clarity",
+      "description": "Uday Kumar'ın yaratıcı ve oyun açıklamasını, günlük hayattaki anıları ve zararı meşrulaştıran inançları sorgulamayı keşfedin."
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "Yaşam sorunları ve kişisel sorgulama: neyi keşfedebilirsiniz? | Mind Clarity",
+      "description": "Uday Kumar'ın felsefesi aracılığıyla güveni, aşırı düşünmeyi, öfkeyi, suçluluğu, kederi, ilişkileri, belirsizliği ve manevi soruları, sağlıkla ilgili iddialara net sınırlamalar getirerek keşfedin."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "Güven, kendine değer verme ve kendini sorgulama | Mind Clarity",
+      "description": "Paylaşılan Yaratıcı kimliği aracılığıyla düşük güveni, karşılaştırmayı, reddedilmeyi ve başarısızlık korkusunu keşfedin. Uday Kumar'ın açıklamasını, bir iş örneğini ve isteğe bağlı düşünceyi okuyun."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Aşırı düşünme, endişelenme ve kendini sorgulama | Mind Clarity",
+      "description": "Uday Kumar'ın felsefesi aracılığıyla tekrarlanan düşünceleri, endişeleri ve belirsizliği keşfedin. Cevaplanmamış mesaj örneğini ve kesinlik talep etmeden katılmanın yollarını okuyun."
+    },
+    "philosophy": {
+      "title": "Yaratıcıyı ve Oyunu Anlayın | Mind Clarity",
+      "description": "Uday Kumar'ın paylaşılan Yaratıcı hakkındaki açıklamasını, deneyimler oyununu, kutsal metinlerdeki bağlantıları ve her yaşamda aynı kimliğin tanınmasını keşfedin."
+    },
+    "practice": {
+      "title": "Yaratıcının Anılmasından Canlı | Mind Clarity",
+      "description": "Yaratıcının anlayışını günlük sahnelere, ilişkilere ve anlaşmazlıklara taşıyın. Anmayı, katılımı ve zarardan korunmayı keşfedin."
+    },
+    "faq": {
+      "title": "Tanrı'yı ​​Anlamak: Sorular ve Cevaplar | Mind Clarity",
+      "description": "Uday Kumar'ın öğretisinde Tanrı, paylaşılan kimlik, deneyim oyunu, din, manipülasyon ve hatırlama hakkındaki soruları keşfedin."
+    },
+    "reflections": {
+      "title": "Hayat ve Yaratıcı Üzerine Düşünceler | Mind Clarity",
+      "description": "Uday Kumar'ın hayat, teknoloji, belirsizlik ve Yaratıcı'nın deneyim oyunu hakkındaki düşüncelerini okuyun."
+    },
+    "privacy": {
+      "title": "Gizlilik | Mind Clarity",
+      "description": "Mind Clarity, e-posta ve WhatsApp sorgularını, tarayıcı tercihlerini ve analizlerini nasıl ele alıyor? Analitik seçiminizi yönetin ve yansıma verilerinin nasıl işlendiğini öğrenin."
+    },
+    "who-am-i-self-enquiry": {
+      "title": "Ben kimim? Kendi kendine sorgulamaya nasıl başlanır | Mind Clarity",
+      "description": "“Ben kimim?” konusunu keşfedin ve Uday Kumar'ın öğretisi aracılığıyla kendini gerçekleştirme. Gerekli bir günlük, onay veya zaman çizelgesi olmadan merakla başlayın."
+    },
+    "surrender-free-will-and-design": {
+      "title": "teslim olmak ne demek? Özgür İrade ve Tasarım | Mind Clarity",
+      "description": "Uday Kumar'ın felsefesindeki teslimiyeti, çabayı, özgür iradeyi ve belirsizliği anlayın. Surrender is not passivity or accepting harm."
+    },
+    "meditation-and-self-realization": {
+      "title": "Meditasyon ve kendini gerçekleştirme: kim olduğunuzu keşfetmek | Mind Clarity",
+      "description": "Uday Kumar'ın meditasyon, zihinsel berraklık ve kendini gerçekleştirme hakkındaki açıklamasını okuyun; sağlık iddiaları ve kendi hızınızda araştırma yapma özgürlüğü konusunda net sınırlamalar getirin."
+    },
+    "guilt-responsibility-and-boundaries": {
+      "title": "Kendini sorgulamada suçluluk, sorumluluk ve sınırlar | Mind Clarity",
+      "description": "Uday Kumar'ın onarım ve kendini kınama arasındaki farkını keşfedin. Ortak bir Yaratıcıyı tanımak, zararı kabul etmek veya sorumluluktan kaçınmak anlamına gelmez."
+    },
+    "ai-fear-and-clarity": {
+      "title": "Yapay Zeka, Korku ve Netlik | Mind Clarity",
+      "description": "Yapay zekanın, Yaratıcının tasarımının, çalışmasının, yoksulluğunun ve belirsizliğin umut ve sorumlulukla karşılanmasının ruhsal bir yansıması."
+    }
+  },
+  "vi": {
+    "": {
+      "title": "Mind Clarity | Hiểu Chúa và nhớ chúng ta là ai",
+      "description": "Hiểu Chúa qua lời giải thích về Người sáng tạo và trò chơi của Uday Kumar. Khám phá bản sắc chung, sự tưởng nhớ, sự tôn trọng mọi đức tin và sự quan tâm trong cuộc sống hàng ngày."
+    },
+    "ashtavakra-gita": {
+      "title": "Ashtavakra Gita và Nhận thức của Người sáng tạo | Mind Clarity",
+      "description": "Khám phá các bài giảng Ashtavakra Gita có nguồn gốc về nhận thức, bản sắc chung và sự đầu hàng cũng như mối liên hệ của chúng với triết lý của Uday Kumar."
+    },
+    "understanding-god": {
+      "title": "Hiểu Chúa và Trò Chơi Trải Nghiệm | Mind Clarity",
+      "description": "Khám phá lời giải thích về Người sáng tạo và trò chơi của Uday Kumar, ký ức về cuộc sống hàng ngày và đặt câu hỏi về những niềm tin biện minh cho tác hại."
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "Các vấn đề trong cuộc sống và sự tự vấn bản thân: bạn có thể khám phá những gì? | Mind Clarity",
+      "description": "Khám phá sự tự tin, suy nghĩ quá mức, tức giận, cảm giác tội lỗi, đau buồn, các mối quan hệ, sự không chắc chắn và các câu hỏi về tâm linh thông qua triết lý của Uday Kumar, với những giới hạn rõ ràng về các yêu cầu về sức khỏe."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "Sự tự tin, giá trị bản thân và khả năng tự tìm tòi | Mind Clarity",
+      "description": "Khám phá sự tự tin thấp, sự so sánh, sự từ chối và nỗi sợ thất bại thông qua danh tính chung của Người sáng tạo. Đọc phần giải thích của Uday Kumar, ví dụ về công việc và phản ánh tùy chọn."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Suy nghĩ quá nhiều, lo lắng và tự vấn bản thân | Mind Clarity",
+      "description": "Khám phá những suy nghĩ, lo lắng và bất an lặp đi lặp lại thông qua triết lý của Uday Kumar. Đọc ví dụ về tin nhắn chưa được trả lời và cách tham gia mà không đòi hỏi sự chắc chắn."
+    },
+    "philosophy": {
+      "title": "Hiểu người sáng tạo và trò chơi | Mind Clarity",
+      "description": "Khám phá lời giải thích của Uday Kumar về Đấng sáng tạo chung, trò chơi trải nghiệm, kết nối kinh thánh và sự công nhận danh tính giống nhau trong mọi cuộc sống."
+    },
+    "practice": {
+      "title": "Sống Từ Tưởng Nhớ Đấng Tạo Hóa | Mind Clarity",
+      "description": "Mang sự hiểu biết về Đấng Tạo Hóa vào những bối cảnh, mối quan hệ và bất đồng hàng ngày. Khám phá sự tưởng nhớ, sự tham gia và bảo vệ khỏi bị tổn hại."
+    },
+    "faq": {
+      "title": "Hiểu Chúa: Hỏi Đáp | Mind Clarity",
+      "description": "Khám phá các câu hỏi về Chúa, danh tính chung, trò chơi trải nghiệm, tôn giáo, thao túng và tưởng nhớ trong bài giảng của Uday Kumar."
+    },
+    "reflections": {
+      "title": "Suy Nghĩ Về Cuộc Sống Và Đấng Tạo Hóa | Mind Clarity",
+      "description": "Đọc những suy ngẫm của Uday Kumar về cuộc sống, công nghệ, sự không chắc chắn và trò chơi trải nghiệm của Người sáng tạo."
+    },
+    "privacy": {
+      "title": "Quyền riêng tư | Mind Clarity",
+      "description": "Cách Mind Clarity xử lý các yêu cầu qua email và WhatsApp, tùy chọn và phân tích trình duyệt. Quản lý lựa chọn phân tích của bạn và tìm hiểu cách xử lý dữ liệu phản ánh."
+    },
+    "who-am-i-self-enquiry": {
+      "title": "Tôi là ai? Làm thế nào để bắt đầu tự tìm hiểu | Mind Clarity",
+      "description": "Khám phá “Tôi là ai?” và nhận thức bản thân thông qua lời dạy của Uday Kumar. Bắt đầu với sự tò mò mà không cần nhật ký, lời khẳng định hay thời gian biểu bắt buộc."
+    },
+    "surrender-free-will-and-design": {
+      "title": "Đầu hàng nghĩa là gì? Ý chí tự do và thiết kế | Mind Clarity",
+      "description": "Hiểu sự đầu hàng, nỗ lực, ý chí tự do và sự không chắc chắn trong triết lý của Uday Kumar. Đầu hàng không phải là thụ động hay chấp nhận tổn hại."
+    },
+    "meditation-and-self-realization": {
+      "title": "Thiền và nhận thức bản thân: khám phá bạn là ai | Mind Clarity",
+      "description": "Đọc tài liệu của Uday Kumar về thiền định, tinh thần minh mẫn và nhận thức về bản thân, với những giới hạn rõ ràng về yêu cầu về sức khỏe và quyền tự do tìm hiểu theo tốc độ của riêng bạn."
+    },
+    "guilt-responsibility-and-boundaries": {
+      "title": "Cảm giác tội lỗi, trách nhiệm và ranh giới trong việc tự tìm hiểu | Mind Clarity",
+      "description": "Khám phá sự khác biệt giữa sửa chữa và tự lên án của Uday Kumar. Công nhận một Đấng Tạo Hóa chung không có nghĩa là chấp nhận tổn hại hoặc trốn tránh trách nhiệm."
+    },
+    "ai-fear-and-clarity": {
+      "title": "Trí tuệ nhân tạo, nỗi sợ hãi và sự rõ ràng | Mind Clarity",
+      "description": "Một suy tư thiêng liêng về trí tuệ nhân tạo, thiết kế của Đấng Tạo Hóa, công việc, sự nghèo đói và việc gặp phải sự bất ổn bằng hy vọng và trách nhiệm."
+    }
+  },
+  "pl": {
+    "": {
+      "title": "Mind Clarity | Zrozum Boga i pamiętaj, kim jesteśmy",
+      "description": "Zrozum Boga dzięki wyjaśnieniom Udaya Kumara o Stwórcy i grze. Odkryj wspólną tożsamość, pamięć, szacunek dla każdej wiary i troskę w życiu codziennym."
+    },
+    "ashtavakra-gita": {
+      "title": "Ashtavakra Gita i świadomość Stwórcy | Mind Clarity",
+      "description": "Zapoznaj się z naukami Ashtavakra Gity na temat świadomości, wspólnej tożsamości i poddania się oraz ich powiązaniami z filozofią Udaya Kumara."
+    },
+    "understanding-god": {
+      "title": "Rozumienie Boga i gra doświadczeń | Mind Clarity",
+      "description": "Zapoznaj się z wyjaśnieniami Udaya Kumara na temat Stwórcy i gry, pamięci w życiu codziennym i kwestionowania przekonań, które usprawiedliwiają krzywdę."
+    },
+    "life-problems-and-self-enquiry": {
+      "title": "Problemy życiowe i wgląd w siebie: co możesz odkryć? | Mind Clarity",
+      "description": "Poznaj pewność siebie, nadmierne myślenie, złość, poczucie winy, smutek, relacje, niepewność i kwestie duchowe poprzez filozofię Udaya Kumara, z wyraźnymi ograniczeniami dotyczącymi oświadczeń zdrowotnych."
+    },
+    "confidence-self-worth-and-self-enquiry": {
+      "title": "Pewność siebie, poczucie własnej wartości i samoposzukiwanie | Mind Clarity",
+      "description": "Odkryj niską pewność siebie, porównania, odrzucenie i strach przed porażką dzięki wspólnej tożsamości Stwórcy. Przeczytaj wyjaśnienia Udaya Kumara, przykład pracy i opcjonalną refleksję."
+    },
+    "overthinking-worry-and-uncertainty": {
+      "title": "Nadmierne myślenie, zmartwienia i dociekanie | Mind Clarity",
+      "description": "Poznaj powtarzające się myśli, zmartwienia i niepewność poprzez filozofię Udaya Kumara. Przeczytaj przykład wiadomości bez odpowiedzi i sposoby uczestniczenia bez wymagania pewności."
+    },
+    "philosophy": {
+      "title": "Zrozum Stwórcę i Grę | Mind Clarity",
+      "description": "Zapoznaj się z wyjaśnieniami Udaya Kumara na temat wspólnego Stwórcy, gry doświadczeń, powiązań z pism świętych i rozpoznawania tej samej tożsamości w każdym życiu."
+    },
+    "practice": {
+      "title": "Na żywo z Pamięci Stwórcy | Mind Clarity",
+      "description": "Wprowadź zrozumienie Stwórcy w codzienne sceny, relacje i nieporozumienia. Poznaj pamięć, uczestnictwo i ochronę przed krzywdą."
+    },
+    "faq": {
+      "title": "Zrozumienie Boga: pytania i odpowiedzi | Mind Clarity",
+      "description": "Zapoznaj się z pytaniami o Boga, wspólną tożsamością, grą doświadczeń, religią, manipulacją i pamięcią w nauczaniu Udaya Kumara."
+    },
+    "reflections": {
+      "title": "Refleksje o życiu i Stwórcy | Mind Clarity",
+      "description": "Przeczytaj refleksje Udaya Kumara na temat życia, technologii, niepewności i gry doświadczeń Stwórcy."
+    },
+    "privacy": {
+      "title": "Prywatność | Mind Clarity",
+      "description": "Jak Mind Clarity obsługuje zapytania e-mailowe i WhatsApp, preferencje przeglądarki i analizy. Zarządzaj swoimi wyborami analitycznymi i dowiedz się, jak obsługiwane są dane odbicia."
+    },
+    "who-am-i-self-enquiry": {
+      "title": "Kim jestem? Jak rozpocząć samopoznanie | Mind Clarity",
+      "description": "Odkryj „Kim jestem?” i samorealizacja poprzez nauki Udaya Kumara. Zacznij od ciekawości, bez wymaganego dziennika, afirmacji czy harmonogramu."
+    },
+    "surrender-free-will-and-design": {
+      "title": "Co oznacza poddanie się? Wolna wola i projekt | Mind Clarity",
+      "description": "Zrozum poddanie, wysiłek, wolną wolę i niepewność w filozofii Udaya Kumara. Poddanie się nie oznacza bierności ani akceptacji krzywdy."
+    },
+    "meditation-and-self-realization": {
+      "title": "Medytacja i samorealizacja: odkrywanie tego, kim jesteś | Mind Clarity",
+      "description": "Przeczytaj relację Udaya Kumara na temat medytacji, jasności umysłu i samorealizacji, z wyraźnymi ograniczeniami dotyczącymi oświadczeń zdrowotnych i swobodą zadawania pytań we własnym tempie."
+    },
+    "guilt-responsibility-and-boundaries": {
+      "title": "Wina, odpowiedzialność i granice w badaniu siebie | Mind Clarity",
+      "description": "Poznaj rozróżnienie Udaya Kumara między naprawą a samopotępieniem. Uznanie wspólnego Stwórcy nie oznacza zaakceptowania krzywdy ani uniknięcia odpowiedzialności."
+    },
+    "ai-fear-and-clarity": {
+      "title": "Sztuczna inteligencja, strach i jasność | Mind Clarity",
+      "description": "Duchowa refleksja nad sztuczną inteligencją, zamysłem Stwórcy, pracą, biedą i spotkaniem niepewności z nadzieją i odpowiedzialnością."
+    }
   }
 }

@@ -79,15 +79,15 @@ function Privacy() {
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
 export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => !['index', 'consultation-info'].includes(page)).map(([page, Component]) => [`te/${page}`, Component])) };
-for (const language of ['hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko']) {
+for (const language of ['hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl']) {
   for (const slug of ['ashtavakra-gita', 'understanding-god']) pages[`${language}/${slug}`] = pages[slug];
 }
-for (const language of ['pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko']) {
+for (const language of ['pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl']) {
   pages[language] = App;
   for (const page of localizedPageSlugs) pages[`${language}/${page}`] = pages[page];
 }
 pages['life-problems-and-self-enquiry'] = ProblemGuide;
-for (const language of ['hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko']) {
+for (const language of ['hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl']) {
   for (const slug of ['life-problems-and-self-enquiry','confidence-self-worth-and-self-enquiry','overthinking-worry-and-uncertainty']) pages[`${language}/${slug}`] = pages[slug];
 }
 if (typeof document !== 'undefined') {

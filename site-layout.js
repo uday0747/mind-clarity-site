@@ -10,7 +10,7 @@ import { introductionVideos } from './introduction-videos.js';
 const e = React.createElement;
 export function Footer({ language = 'en' }) {
   const ui = interfaceFor(language);
-  const localized = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(language);
+  const localized = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl'].includes(language);
   const introduction = introductionVideos[language];
   return e('footer', { className: 'site-footer', lang: language },
     e('p', null, 'Mind Clarity', e('span', { className: 'footer-purpose' }, ui.footerPurpose)),
@@ -28,9 +28,9 @@ export function Footer({ language = 'en' }) {
 export function Page({ eyebrow, title, intro, children, home = false, lang, share = true, overview }) {
   const pathname = useContext(PagePathContext) ?? (typeof location === 'undefined' ? '/' : location.pathname);
   const documentLanguage = lang || pageLanguage(pathname);
-  const uiLanguage = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(documentLanguage) ? documentLanguage : 'en';
+  const uiLanguage = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl'].includes(documentLanguage) ? documentLanguage : 'en';
   const ui = interfaceFor(uiLanguage);
-  const basePath = pathname.replace(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
+  const basePath = pathname.replace(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko|zh-Hans|zh-Hant|tr|vi|pl)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
   const canShare = share && basePath !== '/privacy';
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content', lang: uiLanguage }, ui.skip),

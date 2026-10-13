@@ -19,7 +19,7 @@ import { localizedMoreMeta } from '../localized-more.js';
 import { localizedAIMeta } from '../localized-ai.js';
 import { contentSecurityPolicy, scriptIntegrity } from './security-policy.mjs';
 
-const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].map(language => [language, {
+const allLocalizedMeta = Object.fromEntries(['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl'].map(language => [language, {
   ...localizedMeta[language], ...localizedMoreMeta[language], ...localizedAIMeta[language], ...additionalMeta[language],
 }]));
 
@@ -36,9 +36,9 @@ const bundleIntegrity = scriptIntegrity(await readFile(path.join(dist, 'site.js'
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
-  const localizedRoute = page.match(/^(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko)\/(.+)$/) || (['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(page) ? [page, page, ''] : null);
+  const localizedRoute = page.match(/^(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko|zh-Hans|zh-Hant|tr|vi|pl)\/(.+)$/) || (['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl'].includes(page) ? [page, page, ''] : null);
   const localizedTopic = localizedRoute && enquiryTopics.find(topic => topic.slug === localizedRoute[2]);
-  const templatePage = ['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko'].includes(page) ? 'index' : page.split('/').pop();
+  const templatePage = ['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl'].includes(page) ? 'index' : page.split('/').pop();
   let template = await readFile(path.join(root, `${topic || localizedTopic ? 'faq' : templatePage}.html`), 'utf8');
   if (localizedRoute) {
     const [, language, basePage] = localizedRoute;

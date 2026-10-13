@@ -22,6 +22,11 @@ export const languageOptions = [
   { code: 'ru', nativeName: 'Русский', label: 'Russian' },
   { code: 'ja', nativeName: '日本語', label: 'Japanese' },
   { code: 'ko', nativeName: '한국어', label: 'Korean' },
+  { code: 'zh-Hans', nativeName: '简体中文', label: 'Chinese (Simplified)' },
+  { code: 'zh-Hant', nativeName: '繁體中文', label: 'Chinese (Traditional)' },
+  { code: 'tr', nativeName: 'Türkçe', label: 'Turkish' },
+  { code: 'vi', nativeName: 'Tiếng Việt', label: 'Vietnamese' },
+  { code: 'pl', nativeName: 'Polski', label: 'Polish' },
   { code: 'ar', nativeName: 'العربية', label: 'Arabic' },
 ];
 
@@ -72,7 +77,10 @@ export function browserLanguage() {
   if (typeof navigator === 'undefined') return 'en';
   const languages = [...(navigator.languages || []), navigator.language].filter(Boolean);
   for (const value of languages) {
-    const code = value.toLowerCase().split('-')[0];
+    const tag = value.toLowerCase();
+    const code = tag.split('-')[0] === 'zh'
+      ? (/^zh-(?:hant(?:-|$)|tw(?:-|$)|hk(?:-|$)|mo(?:-|$))/.test(tag) ? 'zh-Hant' : 'zh-Hans')
+      : tag.split('-')[0];
     if (languageOptions.some(option => option.code === code)) return code;
   }
   return 'en';

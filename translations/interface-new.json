@@ -772,5 +772,220 @@
       "fallback": "공유하려면 위 링크를 선택하고 복사하세요."
     },
     "copyright": "© 2026 Mind Clarity · 영적 성찰과 교육."
+  },
+  "zh-Hans": {
+    "language": "语言",
+    "chooseLanguage": "选择语言",
+    "skip": "跳至内容",
+    "mainNav": "主导航",
+    "menu": "菜单",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "browserPrefers": "您的浏览器偏好",
+    "openIn": "打开此页面",
+    "currentlyAvailable": "该页面目前在__LANGUAGE__可用；翻译正在改进中。",
+    "nav": {
+      "home": "从这里开始",
+      "philosophy": "哲学",
+      "practice": "日常例子",
+      "faq": "问题",
+      "reflections": "反思"
+    },
+    "labels": {
+      "home": "从这里开始",
+      "philosophy": "哲学",
+      "practice": "日常例子",
+      "faq": "问题",
+      "reflections": "反思"
+    },
+    "more": "更多翻译正在改进中。",
+    "footerPurpose": "在体验游戏中记住造物主。",
+    "youtube": "YouTube 上的 Mind Clarity",
+    "email": "电子邮件",
+    "privacy": "隐私",
+    "conversation": "可选对话",
+    "share": {
+      "title": "分享一个有用的教训",
+      "body": "如果想到有人，请向他们发送此页面，让他们按照自己的节奏进行探索。",
+      "label": "链接到此页面",
+      "copy": "复制链接",
+      "email": "通过电子邮件分享",
+      "help": "您可以选择并复制链接。",
+      "copied": "链接已复制。将其粘贴到您想要共享的任何位置。",
+      "fallback": "选择并复制上面的链接以共享它。"
+    },
+    "copyright": "© 2026 Mind Clarity · 灵性反思与教育。"
+  },
+  "zh-Hant": {
+    "language": "語言",
+    "chooseLanguage": "選擇語言",
+    "skip": "跳至內容",
+    "mainNav": "主導航",
+    "menu": "選單",
+    "openMenu": "開啟選單",
+    "closeMenu": "關閉選單",
+    "browserPrefers": "您的瀏覽器偏好",
+    "openIn": "開啟此頁面",
+    "currentlyAvailable": "該頁面目前在__LANGUAGE__可用；翻譯正在改進中。",
+    "nav": {
+      "home": "從這裡開始",
+      "philosophy": "哲學",
+      "practice": "日常例子",
+      "faq": "問題",
+      "reflections": "反思"
+    },
+    "labels": {
+      "home": "從這裡開始",
+      "philosophy": "哲學",
+      "practice": "日常例子",
+      "faq": "問題",
+      "reflections": "反思"
+    },
+    "more": "更多翻譯正在改進中。",
+    "footerPurpose": "在體驗遊戲中記得造物主。",
+    "youtube": "YouTube 上的 Mind Clarity",
+    "email": "電子郵件",
+    "privacy": "隱私",
+    "conversation": "可選對話",
+    "share": {
+      "title": "分享一個有用的教訓",
+      "body": "如果想到有人，請向他們發送此頁面，讓他們按照自己的步調進行探索。",
+      "label": "連結到此頁面",
+      "copy": "複製連結",
+      "email": "透過電子郵件分享",
+      "help": "您可以選擇並複製連結。",
+      "copied": "連結已複製。將其貼到您想要共享的任何位置。",
+      "fallback": "選擇並複製上面的連結以共享它。"
+    },
+    "copyright": "© 2026 Mind Clarity · 心靈反思與教育。"
+  },
+  "tr": {
+    "language": "Dil",
+    "chooseLanguage": "Dil seçin",
+    "skip": "İçeriğe atla",
+    "mainNav": "Ana gezinme",
+    "menu": "Menü",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "browserPrefers": "Tarayıcınız tercih ediyor",
+    "openIn": "Bu sayfayı şurada aç",
+    "currentlyAvailable": "Bu sayfa şu anda __LANGUAGE__'te mevcuttur; çeviriler geliştirilmektedir.",
+    "nav": {
+      "home": "Buradan başlayın",
+      "philosophy": "Felsefe",
+      "practice": "Günlük örnekler",
+      "faq": "Sorular",
+      "reflections": "Yansımalar"
+    },
+    "labels": {
+      "home": "Buradan başlayın",
+      "philosophy": "Felsefe",
+      "practice": "Günlük örnekler",
+      "faq": "Sorular",
+      "reflections": "Yansımalar"
+    },
+    "more": "Daha fazla çeviri geliştirilmektedir.",
+    "footerPurpose": "Deneyimler oyunu içinde Yaratıcıyı hatırlamak.",
+    "youtube": "YouTube'da Mind Clarity",
+    "email": "E-posta",
+    "privacy": "Mahremiyet",
+    "conversation": "İsteğe bağlı konuşma",
+    "share": {
+      "title": "Yararlı bir ders paylaşın",
+      "body": "Aklınıza biri gelirse, ona bu sayfayı gönderin ve kendi hızlarında keşfetmelerine izin verin.",
+      "label": "Bu sayfaya bağlantı",
+      "copy": "Bağlantıyı kopyala",
+      "email": "E-postayla paylaş",
+      "help": "Bağlantıyı seçip kopyalayabilirsiniz.",
+      "copied": "Bağlantı kopyalandı. Paylaşmak istediğiniz yere yapıştırın.",
+      "fallback": "Paylaşmak için yukarıdaki bağlantıyı seçip kopyalayın."
+    },
+    "copyright": "© 2026 Mind Clarity · Manevi yansıma ve eğitim."
+  },
+  "vi": {
+    "language": "Ngôn ngữ",
+    "chooseLanguage": "Chọn ngôn ngữ",
+    "skip": "Chuyển đến nội dung",
+    "mainNav": "Điều hướng chính",
+    "menu": "Thực đơn",
+    "openMenu": "Mở trình đơn",
+    "closeMenu": "Đóng trình đơn",
+    "browserPrefers": "Trình duyệt của bạn thích",
+    "openIn": "Mở trang này trong",
+    "currentlyAvailable": "Trang này hiện có sẵn trong __LANGUAGE__; bản dịch đang được cải thiện.",
+    "nav": {
+      "home": "Bắt đầu ở đây",
+      "philosophy": "Triết lý",
+      "practice": "Ví dụ hàng ngày",
+      "faq": "Câu hỏi",
+      "reflections": "Phản ánh"
+    },
+    "labels": {
+      "home": "Bắt đầu ở đây",
+      "philosophy": "Triết lý",
+      "practice": "Ví dụ hàng ngày",
+      "faq": "Câu hỏi",
+      "reflections": "Phản ánh"
+    },
+    "more": "Nhiều bản dịch đang được cải thiện.",
+    "footerPurpose": "Tưởng nhớ Đấng Tạo Hóa trong trò chơi trải nghiệm.",
+    "youtube": "Mind Clarity trên YouTube",
+    "email": "E-mail",
+    "privacy": "Sự riêng tư",
+    "conversation": "Cuộc trò chuyện tùy chọn",
+    "share": {
+      "title": "Chia sẻ bài học hữu ích",
+      "body": "Nếu ai đó nghĩ đến, hãy gửi cho họ trang này và để họ khám phá theo tốc độ của riêng họ.",
+      "label": "Liên kết đến trang này",
+      "copy": "Sao chép liên kết",
+      "email": "Chia sẻ qua email",
+      "help": "Bạn có thể chọn và sao chép liên kết.",
+      "copied": "Đã sao chép liên kết. Dán nó vào bất cứ nơi nào bạn muốn chia sẻ nó.",
+      "fallback": "Chọn và sao chép liên kết ở trên để chia sẻ nó."
+    },
+    "copyright": "© 2026 Mind Clarity · Suy tư và giáo dục tâm linh."
+  },
+  "pl": {
+    "language": "Język",
+    "chooseLanguage": "Wybierz język",
+    "skip": "Przejdź do treści",
+    "mainNav": "Główna nawigacja",
+    "menu": "Menu",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "browserPrefers": "Twoja przeglądarka woli",
+    "openIn": "Otwórz tę stronę w",
+    "currentlyAvailable": "Ta strona jest obecnie dostępna w __LANGUAGE__; tłumaczenia są ulepszane.",
+    "nav": {
+      "home": "Zacznij tutaj",
+      "philosophy": "Filozofia",
+      "practice": "Codzienne przykłady",
+      "faq": "Pytania",
+      "reflections": "Refleksje"
+    },
+    "labels": {
+      "home": "Zacznij tutaj",
+      "philosophy": "Filozofia",
+      "practice": "Codzienne przykłady",
+      "faq": "Pytania",
+      "reflections": "Refleksje"
+    },
+    "more": "Coraz więcej tłumaczeń jest ulepszanych.",
+    "footerPurpose": "Pamiętanie o Stwórcy w grze doświadczeń.",
+    "youtube": "Mind Clarity na YouTube",
+    "email": "E-mail",
+    "privacy": "Prywatność",
+    "conversation": "Opcjonalna rozmowa",
+    "share": {
+      "title": "Podziel się użyteczną lekcją",
+      "body": "Jeśli ktoś przyjdzie ci do głowy, wyślij mu tę stronę i pozwól mu odkrywać ją we własnym tempie.",
+      "label": "Link do tej strony",
+      "copy": "Skopiuj link",
+      "email": "Udostępnij e-mailem",
+      "help": "Możesz wybrać i skopiować link.",
+      "copied": "Link skopiowany. Wklej go tam, gdzie chcesz go udostępnić.",
+      "fallback": "Wybierz i skopiuj powyższy link, aby go udostępnić."
+    },
+    "copyright": "© 2026 Mind Clarity · Refleksja duchowa i edukacja."
   }
 }
