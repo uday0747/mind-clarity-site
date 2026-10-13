@@ -1,3 +1,4 @@
+import entry from './creator-entry-content.json' with { type: 'json' };
 import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
@@ -21,7 +22,7 @@ export function App() {
     e('p', { className: 'welcome-meaning' }, mission.homeMeaning),
     e('section', { className: 'home-section mission-story', 'aria-labelledby': 'story-title' },
       e('p', { className: 'eyebrow' }, mission.storyEyebrow),
-      e('h2', { id: 'story-title' }, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design),
+      e('h2', { id: 'story-title' }, mission.storyTitle), e('p', null, mission.story), e('h3', null, entry.title), e('p', null, entry.identity), e('p', null, entry.example), e('p', null, mission.design),
       e('a', { className: 'text-link', href: '/understanding-god#story' }, mission.storyLink)),
     e(BenefitsSection, { compact: true }),
     e('section', { className: 'first-practice', 'aria-labelledby': 'first-practice-title' },

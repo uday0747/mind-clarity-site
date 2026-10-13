@@ -1,3 +1,4 @@
+import entry from './creator-entry-content.json' with { type: 'json' };
 import benefits from './benefits-content.json' with { type: 'json' };
 import problems from './problem-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
@@ -82,4 +83,9 @@ for (const topic of enquiryTopics) {
   if (["confidence-self-worth-and-self-enquiry", "meditation-and-self-realization"].includes(topic.slug)) topic.modified = "2026-10-13";
   if (topic.slug === "confidence-self-worth-and-self-enquiry") topic.sections.push(...benefits.items.slice(0, 4).map(item => [item.title, item.text]), [benefits.designTitle, benefits.effort]);
   if (topic.slug === "meditation-and-self-realization") topic.sections.push([benefits.items[4].title, benefits.items[4].text], [benefits.designTitle, benefits.design]);
+}
+
+for (const topic of enquiryTopics) {
+  if (topic.slug === "who-am-i-self-enquiry") { topic.sections.push([entry.title, entry.identity], [entry.question, entry.example]); topic.modified = "2026-10-14"; }
+  if (topic.slug === "meditation-and-self-realization") { topic.sections.push([entry.meditationTitle, entry.meditation], [entry.title, entry.recognition]); topic.modified = "2026-10-14"; }
 }

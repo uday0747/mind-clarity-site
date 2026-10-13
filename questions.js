@@ -1,3 +1,4 @@
+import entry from './creator-entry-content.json' with { type: 'json' };
 import mission from './mission-content.json' with { type: 'json' };
 import problems from './problem-content.json' with { type: 'json' };
 import teaching from './teaching-content.json' with { type: 'json' };
@@ -39,7 +40,7 @@ export const enquiryGroups = [
     ['Is there a deadline for enlightenment?', 'No. There is no required timetable or guarantee that these pages will produce realization. Continue ordinary life and explore without turning enquiry into pressure.']
   ] },
   { title: 'Identity and the design', entries: [
-    ['Does being the Creator mean I have supernatural powers?', 'No. In Uday’s account, the shared Creator entered embodied life for experience without direct control over the whole design. The statement concerns identity, not personal omnipotence or superiority.'],
+    ['Does being the Creator mean I have supernatural powers?', entry.recognition],
     ['Is surrender the same as doing nothing?', 'No. In this teaching, surrender concerns the total design, not submission to another person. Work, protection, learning, and repair remain part of life. Do what is reasonably in your hands without demanding control of every outcome.'],
     ['Can we know everything that will happen?', 'Uday says we do not know the next scene. He describes uncertainty as part of the experience. These pages do not offer certain predictions of your future.'],
     ['How does Uday understand past lives?', 'In these written statements, Uday rejects past-life explanations and places experience in the present unfolding of the design. This is his position; the website does not present it as the position of every Indian spiritual tradition.'],
@@ -139,3 +140,5 @@ enquiryGroups.splice(enquiryGroups.length - 1, 0, {
   examples: problems.categories.map(category=>category.example),
   entryLinks: problems.categories.map(category=>`/life-problems-and-self-enquiry#${category.id}`)
 });
+
+enquiryGroups[1].entries.push([entry.question, entry.identity]);

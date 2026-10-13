@@ -1,3 +1,4 @@
+import entry from './creator-entry-content.json' with { type: 'json' };
 import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
@@ -45,6 +46,7 @@ export default function Philosophy() {
       e(Lesson, {id:'mula-siddhanta', number:numberFor('mula-siddhanta'), title:'Mula Siddhanta: the root statement'},
         e('blockquote', null, p('“' + teaching.original + '”'), e('cite', null, 'Uday’s original statement · 16 September 2026')),
         p('The one Creator was alone before the multiplicity of experience. In Uday’s account, the Creator made this game and entered its many lives and roles to experience it. “We are the creators” and “we are the Creator” express that same shared identity. God is not absent from the game: the source, the world of experience, and its deepest experiencer belong to one reality in this teaching.'),
+        e('h3', null, entry.title), p(entry.identity), p(entry.example), p(entry.recognition),
         e('h3', null, 'A complete design, experienced from within'),
         p('Having designed the game before entering, we cannot change its design from inside it. This includes the movement of time, forgetting, remembrance, effort, and learning. No individual can step outside the whole to replace its course. We do not know the next scene in advance.'),
         p('Deciding, speaking, repairing, and building still occur within life. They are themselves parts of the unfolding game. Remembering the Creator changes the way a scene is understood within the teaching; it does not grant the individual control over the total design.'),

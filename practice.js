@@ -1,3 +1,4 @@
+import entry from './creator-entry-content.json' with { type: 'json' };
 import benefits from './benefits-content.json' with { type: 'json' };
 import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
@@ -14,7 +15,7 @@ export default function Practice() {
     e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
       e(Lesson, { id: 'five-minutes', number: numberFor('five-minutes'), title: 'Remember the whole teaching' },
-        p(teaching.meaning),
+        p(teaching.meaning), p(entry.recognition),
         e('details', null, e('summary', null, 'Explore the teaching in a daily experience'),
           e('ol', { className: 'practice-steps' }, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
           e(Reflection, null, teaching.practiceReflection)),
