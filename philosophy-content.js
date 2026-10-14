@@ -1,3 +1,4 @@
+import yuga from './yuga-content.json' with { type: 'json' };
 import entry from './creator-entry-content.json' with { type: 'json' };
 import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
@@ -137,6 +138,7 @@ export default function Philosophy() {
         p('The website’s purpose is to make this understanding available through reading and reflection. Every lesson returns to the same root; every practice examines remembrance inside an ordinary scene. This is the direction of the teaching, rather than a promise that reading will produce an identical state in everyone.'),
         e(Reflection, null, 'Consider the wish for a beautiful world as part of the Creator’s experience. What does the root statement mean for the way you meet one person or place today? How is that meeting itself within the game?')),
       e(Lesson, {id:'beautiful-world', number:numberFor('beautiful-world'), title:'A Beautiful World within the game'},
+        e('h3', null, yuga.title), p(yuga.personal), p(yuga.vision),
         p('If the world is the Creator’s shared creation, caring for people and nature has a direct connection to remembering who we are. Uday’s vision develops from this recognition: a world in which life has room for awareness, relationship, creativity, and joy.'),
         p('Improving a shared place, helping someone learn, or resolving a misunderstanding occurs within the unfolding game. Such activity does not require a role to rewrite the total design from outside. Inner recognition and the practical conditions of living meet in those experiences.'),
         e('h3', null, 'Technology in the service of experience'),

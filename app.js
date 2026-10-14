@@ -1,3 +1,4 @@
+import yuga from './yuga-content.json' with { type: 'json' };
 import entry from './creator-entry-content.json' with { type: 'json' };
 import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
@@ -17,6 +18,9 @@ export function App() {
   const introduction = introductionVideos[pageLanguage(pathname)];
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
     title: mission.homeTitle, intro: teaching.statement },
+    e('section', { className: 'home-section', id: 'clarity-and-yugas', 'aria-labelledby': 'yuga-title' },
+      e('h2', { id: 'yuga-title' }, yuga.title),
+      e('p', null, yuga.personal), e('p', null, yuga.vision)),
     e('nav', { className: 'reading-links', 'aria-label': 'Choose a starting point' },
       e('a', { className: 'button', href: '/understanding-god' }, mission.understandLink)),
     e('p', { className: 'welcome-meaning' }, mission.homeMeaning),
