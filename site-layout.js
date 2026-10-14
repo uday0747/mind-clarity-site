@@ -32,6 +32,11 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
   const ui = interfaceFor(uiLanguage);
   const basePath = pathname.replace(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko|zh-Hans|zh-Hant|tr|vi|pl|nl|sv|da|nb|ro|cs)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
   const canShare = share && basePath !== '/privacy';
+  const nextStep = home ? ['/understanding-god', mission.understandLink]
+    : basePath === '/understanding-god' ? ['/philosophy', 'Read the complete philosophy →']
+    : basePath === '/philosophy' ? ['/practice', mission.practiceLink]
+    : basePath === '/practice' ? ['/faq#enquiry-title', 'Find an answer to your question']
+    : ['/', mission.homeTitle];
   return e(React.Fragment, null,
     e('a', { className: 'skip-link', href: '#main-content', lang: uiLanguage }, ui.skip),
     e(Header),
@@ -40,12 +45,15 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
       e('h1', null, title),
       intro && e('p', { className: 'intro' }, intro),
       !home && canShare && e('nav', { className: 'mission-path', 'aria-label': mission.journeyLabel },
+        e('a', { href: '/' }, mission.homeTitle),
         e('a', { href: '/understanding-god' }, mission.understandLink),
+        e('a', { href: '/philosophy' }, 'Read the complete philosophy →'),
         e('a', { href: '/practice' }, mission.practiceLink),
-        e('a', { href: '/understanding-god#questioning' }, mission.peaceLink)),
+        e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
       overview && e('aside', { className:'reading-overview', 'aria-label':'In brief' }, e('p', {className:'eyebrow'}, 'In brief'), e('p', null, overview), e('p', {className:'reading-duration quiet-note'}, 'Full reading', ' · ', e('span', {'data-reading-minutes':true}, '–'), ' ', e('span', null, 'minutes'), ' · ', 'Explore at your own pace.')),
       children,
-      canShare && e('aside', { className: 'mission-return' }, e('p', null, mission.missionNote)),
+      canShare && e('aside', { className: 'mission-return' }, e('p', null, mission.missionNote),
+        e('a', { className: 'text-link', href: nextStep[0] }, nextStep[1])),
       canShare && e(ShareLearning, { pathname, title })),
     e(Footer, { language: uiLanguage }));
 }

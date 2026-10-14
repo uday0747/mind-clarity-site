@@ -11,7 +11,7 @@ export default function Practice() {
   const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['faith-and-division', mission.practicePeaceTitle], ['daily', 'Return throughout the day']];
   const numberFor = id => String(contents.findIndex(([sectionId]) => sectionId === id) + 1).padStart(2, '0');
   return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement, overview:'Choose one everyday scene. Read its connection to the teaching, open the worked example if useful, and examine what remembrance changes for you.' },
-    p(mission.practiceIntro), p(yuga.personal), p(benefits.state), p(benefits.effort),
+    p(mission.practiceIntro), p(benefits.state), p(benefits.effort),
     e('a', { href: '/philosophy#benefits' }, benefits.link),
     e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
