@@ -3,6 +3,7 @@ import discussion from './discussion-content.json' with { type: 'json' };
 import yuga from './yuga-content.json' with { type: 'json' };
 import entry from './creator-entry-content.json' with { type: 'json' };
 import { BenefitsSection } from './benefits-section.js';
+import benefits from './benefits-content.json' with { type: 'json' };
 import mission from './mission-content.json' with { type: 'json' };
 import React from 'react';
 import { mount } from './mount.js';
@@ -20,8 +21,12 @@ export function App() {
   return e(Page, { home: true, eyebrow: 'Mind Clarity · Uday Kumar’s spiritual philosophy',
     title: mission.homeTitle, intro: mission.homeIdentity },
     e('nav', { className: 'discovery-path', 'aria-label': 'Choose a starting point' },
-      e('a', { href: '#why-no-powers' }, guide.begin),
+      e('a', { href: '#identity-and-roles' }, mission.homeTitle),
+      e('a', { href: '#why-no-powers' }, guide.powers),
+      e('a', { href: '#benefits' }, benefits.title),
+      e('a', { href: '#clarity-and-yugas' }, yuga.title),
       e('a', { href: '#everyday-scenes' }, guide.choose),
+      e('a', { href: '/who-am-i-self-enquiry' }, 'Who am I? How to begin self-enquiry'),
       e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
     e('section', { className: 'home-section discovery-card', id: 'why-no-powers', 'aria-labelledby': 'powers-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '01'),
