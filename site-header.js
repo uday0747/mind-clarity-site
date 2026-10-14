@@ -50,7 +50,8 @@ export default function Header() {
         e('span', null, ui.language),
         e('select', { id: 'language-select', 'aria-label': ui.chooseLanguage || 'Choose language', 'data-current-language': currentLanguage,
           'data-browser-prefers': ui.browserPrefers, 'data-open-in': ui.openIn, 'data-currently-available': ui.currentlyAvailable('__LANGUAGE__'), defaultValue: currentLanguage },
-          availableLanguages.map(option => e('option', { key: option.code, value: option.code, 'data-href': variants[option.code] }, option.nativeName)))),
+          availableLanguages.map(option => e('option', { key: option.code, value: option.code, 'data-href': variants[option.code] },
+            option.nativeName === option.label ? option.nativeName : `${option.nativeName} · ${option.label}`)))),
       availableLanguages.length === 1 && e('span', { className: 'language-note' }, ui.more),
       e('p', { className: 'language-suggestion', id: 'language-suggestion', hidden: true, role: 'status', 'aria-live': 'polite' })
     ));

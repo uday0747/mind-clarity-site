@@ -10,7 +10,7 @@ export function EnquiryLinks() {
       e('h3', null, e('a', { href: `/${topic.slug}` }, topic.title)), e('p', null, topic.description)))));
 }
 function EnquiryPage({ topic }) {
-  return e(Page, { eyebrow: 'Self-enquiry · Uday Kumar’s teaching', title: topic.title, intro: topic.answer },
+  return e(Page, { eyebrow: 'Self-enquiry · Uday Kumar’s teaching', title: topic.title, intro: topic.answer, overview: topic.description },
     e('nav', { 'aria-label': 'Breadcrumb', className: 'reading-links' }, e('a', { href: '/' }, 'Mind Clarity'), e('a', { href: '/faq' }, 'Questions and answers')),
     e('p', { className: 'quiet-note' }, 'Teaching: Uday Kumar · Adapted from his written discussions and clarifications · Updated 11 October 2026. Explore how understanding the Creator carries into this question and the way we participate in life.'),
     e('article', { className: 'compact-reading' },

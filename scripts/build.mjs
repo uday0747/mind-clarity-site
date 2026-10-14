@@ -11,7 +11,7 @@ import { pages } from '../page-app.js';
 import { PagePathContext } from '../site-header.js';
 import { completeMetadata } from './metadata.mjs';
 import { enquiryTopics } from '../enquiry-topics.js';
-import { pageLanguage } from '../language-options.js';
+import { languageOptions, languageVariants, pageLanguage } from '../language-options.js';
 import { translateMarkup } from './translate-markup.mjs';
 import additionalMeta from '../translations/metadata-new.json' with { type: 'json' };
 import { localizedMeta } from '../localized-core.js';
@@ -31,6 +31,23 @@ const assets = ['page.css', 'react-home.css', 'assets-brand.png', 'assets-brand-
   'mind-clarity-mark.png', 'mind-clarity-mark-desktop.png', 'assets', 'robots.txt', 'sitemap.xml', '_redirects', '404.html'];
 for (const asset of assets) await cp(path.join(root, asset), path.join(dist, asset), { recursive: true });
 await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
+
+// Give search engines the complete relationship between each translated page.
+// The browser-facing HTML already carries the same hreflang set; this keeps
+// discovery consistent for crawlers that begin with the sitemap.
+const sitemapPath = path.join(dist, 'sitemap.xml');
+let sitemap = await readFile(sitemapPath, 'utf8');
+sitemap = sitemap.replace('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">');
+sitemap = sitemap.replace(/<url><loc>(https:\/\/mindclarity\.co\.in([^<]*))<\/loc><lastmod>([^<]+)<\/lastmod><\/url>/g,
+  (_, url, pathname, lastmod) => {
+    const variants = languageVariants(pathname || '/');
+    if (Object.keys(variants).length === 1) return `<url><loc>${url}</loc><lastmod>${lastmod}</lastmod></url>`;
+    const alternates = languageOptions.map(option =>
+      `<xhtml:link rel="alternate" hreflang="${option.code}" href="https://mindclarity.co.in${variants[option.code]}"/>`).join('');
+    return `<url><loc>${url}</loc><lastmod>${lastmod}</lastmod>${alternates}<xhtml:link rel="alternate" hreflang="x-default" href="https://mindclarity.co.in${variants.en}"/></url>`;
+  });
+await writeFile(sitemapPath, sitemap);
 const bundleIntegrity = scriptIntegrity(await readFile(path.join(dist, 'site.js')));
 
 const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);

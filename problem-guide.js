@@ -14,7 +14,7 @@ export function ProblemLinks({ compact = false, featured = false }) {
     compact && e('a', {className:'text-link', href:'/life-problems-and-self-enquiry'}, problems.homeLink));
 }
 export default function ProblemGuide() {
-  return e(Page, {eyebrow:'Self-enquiry · Uday Kumar’s teaching', title:problems.title, intro:problems.intro},
+  return e(Page, {eyebrow:'Self-enquiry · Uday Kumar’s teaching', title:problems.title, intro:problems.intro, overview:problems.scope},
     e('p', null, teaching.statement), e('p', {className:'quiet-note'}, problems.scope),
     e('div', {className:'reading-grid'}, e(Contents, {items:problems.categories.map(c=>[c.id,c.title])}),
       e('div', {className:'reading-body'}, problems.categories.map((category,index)=>e('section', {key:category.id,id:category.id,className:'lesson'},
