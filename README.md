@@ -52,6 +52,8 @@ Use the Sites building/hosting workflow and the existing `.openai/hosting.json`.
 
 Never store source credentials in Git configuration, remote URLs, files or this document. Never put secrets or private project notes in `dist/`.
 
+After publishing changed or removed URLs, run `node scripts/submit-indexnow.mjs` to notify Bing through IndexNow. It first verifies the deployed `indexnow-key.txt` ownership file on both indexed hostnames, then submits the canonical sitemap URLs and known retired listings. The verification file is intentionally served publicly for this protocol; it grants no hosting or account access. Receipts are written under `audits/`. An accepted notification does not guarantee when Bing will refresh its search results.
+
 ## Agreed content and scope
 
 ### Retained reference

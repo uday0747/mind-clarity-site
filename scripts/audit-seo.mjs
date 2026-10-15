@@ -36,6 +36,10 @@ for (const host of ['mindclarity.co.in', 'www.mindclarity.co.in']) {
     for (const suffix of ['', '/', '.html', '.html/']) cases.push([`https://${host}/${path}${suffix}?ref=google`, 410]);
   }
   cases.push([`https://${host}/blog/old-article`, 410]);
+  for (const slug of ['discover-your-empowerment', 'virtual-consultation', 'discovery-call']) {
+    cases.push([`https://${host}/service-page/${slug}`, 410]);
+  }
+  cases.push([`https://${host}/indexnow-key.txt`, 200]);
 }
 // Retired conversation URLs go directly to the matching language homepage.
 for (const language of ['en','hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs']) {

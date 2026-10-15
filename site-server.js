@@ -29,12 +29,14 @@ export function createSiteServer(assets, redirects) {
       }
       const retired = ['/contact', '/blank-1', '/blank-2', '/blank-3', '/blank-4', '/blog', '/book-online'];
       const normalized = url.pathname.replace(/\/$/, '').replace(/\.html$/, '');
-      if (retired.includes(normalized) || url.pathname.startsWith('/blog/')) {
+      if (retired.includes(normalized) || url.pathname.startsWith('/blog/') || url.pathname.startsWith('/service-page/')) {
         return new Response(request.method === 'HEAD' ? null : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page removed | Mind Clarity</title></head><body><main><h1>This page has been removed</h1><p>This page is no longer part of Mind Clarity.</p><p><a href="/">Begin here</a> or explore the <a href="/practice">daily practice</a>.</p></main></body></html>', { status: 410, headers: { ...htmlHeaders(), 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex' } });
       }
       const canonicalHost = ['mindclarity.co.in', 'www.mindclarity.co.in'].includes(url.hostname);
       const redirectPath = publicRedirects.get(url.pathname) || (url.pathname.endsWith('.html/') ? publicRedirects.get(url.pathname.slice(0, -1)) : null);
-      if (redirectPath || (canonicalHost && (url.hostname !== 'mindclarity.co.in' || url.protocol !== 'https:'))) {
+      // IndexNow must verify ownership on both indexed hostnames directly.
+      const indexNowVerification = url.pathname === '/indexnow-key.txt';
+      if (redirectPath || (canonicalHost && (url.protocol !== 'https:' || (url.hostname !== 'mindclarity.co.in' && !indexNowVerification)))) {
         if (redirectPath) url.pathname = redirectPath;
         if (canonicalHost) {
           url.hostname = 'mindclarity.co.in';
