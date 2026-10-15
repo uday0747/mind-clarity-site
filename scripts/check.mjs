@@ -78,7 +78,7 @@ for (const page of pages) {
     const entries = [...questions, ...enquiryGroups.flatMap(group => group.entries)];
     const faqSchema = [...html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/g)]
       .map(match => JSON.parse(match[1])).find(item => item['@type'] === 'FAQPage');
-    assert.equal((html.match(/<details[ >]/g) || []).length, entries.length, 'Every FAQ answer is rendered');
+    assert.equal((html.match(/<details(?![^>]*class="[^"]*astrology-sources)[ >]/g) || []).length, entries.length, 'Every FAQ answer is rendered separately from the source disclosure');
     assert.deepEqual(faqSchema.mainEntity.map(item => [item.name, item.acceptedAnswer.text]), entries, 'FAQ structured data matches the reviewed answers');
     assert.equal(new Set(entries.map(([question]) => question)).size, entries.length, 'FAQ questions are unique');
     assert.ok(html.includes('id="evidence-notes"'), 'FAQ research notes are rendered');

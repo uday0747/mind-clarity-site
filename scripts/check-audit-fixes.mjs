@@ -27,7 +27,7 @@ for (const language of ['en','hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml
     const sectionIds = [...html.matchAll(/<section id="([^"]+)" class="lesson">/g)].map(match => match[1]);
     const numbers = [...html.matchAll(/class="lesson-number" aria-hidden="true">(\d+)/g)].map(match=>match[1]);
     assert.deepEqual(numbers,sectionIds.map((_,index)=>String(index+1).padStart(2,'0')),`${prefix}${page}: every lesson is sequential`);
-    assert.ok(sectionIds.length === (page === 'practice' ? 9 : 18));
+    assert.ok(sectionIds.length === (page === 'practice' ? 11 : 20));
     assert.match(html,/data-reading-minutes="true">\d+</,`${prefix}${page}: reading time is generated`);
     assert.match(html,/class="contents-disclosure" open=""/,`${prefix}${page}: contents remain usable before enhancement`);
   }

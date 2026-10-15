@@ -1,4 +1,5 @@
 import mission from './mission-content.json' with { type: 'json' };
+import journey from './design-journey-content.json' with { type: 'json' };
 import { translateText } from './translations.js';
 import { interfaceFor } from './interface-copy.js';
 import React, { useContext } from 'react';
@@ -48,6 +49,7 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
         e('a', { href: '/' }, mission.homeTitle),
         e('a', { href: '/understanding-god' }, mission.understandLink),
         e('a', { href: '/philosophy' }, 'Read the complete philosophy →'),
+        e('a', { href: '/philosophy#astrology' }, journey.astrologyTitle),
         e('a', { href: '/practice' }, mission.practiceLink),
         e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
       overview && e('aside', { className:'reading-overview', 'aria-label':'In brief' }, e('p', {className:'eyebrow'}, 'In brief'), e('p', null, overview), e('p', {className:'reading-duration quiet-note'}, 'Full reading', ' · ', e('span', {'data-reading-minutes':true}, '–'), ' ', e('span', null, 'minutes'), ' · ', 'Explore at your own pace.')),

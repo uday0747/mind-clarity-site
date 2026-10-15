@@ -53,7 +53,7 @@ groups = json.loads(subprocess.check_output([node, '--input-type=module', '-e', 
 p('MIND CLARITY  /  PHILOSOPHY REFERENCE', 'Small Note')
 doc.add_paragraph('Uday Philosophy', 'Title')
 p('The Creator and the game of experiences')
-p('Uday Kumar  |  Updated 10 October 2026  |  Version 1.8', 'Small Note')
+p('Uday Kumar  |  Updated 15 October 2026  |  Version 1.9', 'Small Note')
 p('The current teaching, later clarifications, traditional foundations, everyday examples and Beautiful World vision are organised by topic. Original statements remain in separate source files; this document is the consolidated reference for sharing and continuing the work.')
 p('Claims stated as Uday\'s views preserve his position. Editorial distinctions separate those views from verified findings and historical assistant proposals.', 'Small Note')
 doc.add_page_break()
@@ -112,7 +112,9 @@ for block in text.splitlines():
     block = block.strip()
     if not block or block.startswith('# '):
         continue
-    if block.startswith('## '):
+    if block.startswith('### '):
+        h(block[4:],2)
+    elif block.startswith('## '):
         h(block[3:],1)
     elif block == '[ORIGINAL_MULA]':
         label('Original statement supplied by Uday on 16 September 2026')
@@ -161,6 +163,8 @@ for entry in [
     'references/archive/enlightenment-mission-statement-2026-10-01.md — earlier 19-part statement collection',
     'source-notes/project-original-philosophy-statements.json — selected substantive text from five earlier project chats',
     'source-notes/2026-10-10-uday-original-statements-te.md — original Telugu statements and confirmed correction',
+    'references/archive/raw-statements/Uday_Raw_Statements.md — collected original teaching statements including four astrology statements of 15 October 2026',
+    'source-notes/2026-10-15-astrology-original-statements.json — exact received messages and source identifiers',
     'teaching-content.json — shared Mula Siddhanta, practices and six examples',
     'questions.js — 56 current website question and answer pairs',
     'references/archive/decision-making-evidence-review-2026-10-02.md and references/archive/inner-clarity-and-eeg-review-2026-10-02.md — retained evidence reviews',
@@ -172,4 +176,4 @@ doc.core_properties.title = 'Uday Philosophy'
 doc.core_properties.author = 'Uday Kumar'
 doc.core_properties.subject = 'The Creator and the game of experiences'
 doc.save(OUT)
-print(f'{OUT}\nConsolidated reference version 1.8 with {len(seen_questions)} FAQ catalogue entries')
+print(f'{OUT}\nConsolidated reference version 1.9 with {len(seen_questions)} FAQ catalogue entries')

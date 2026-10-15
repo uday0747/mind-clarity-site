@@ -1,4 +1,5 @@
 import mission from './mission-content.json' with { type: 'json' };
+import { journey, AstrologyExplanation } from './design-journey.js';
 import UnderstandingGod from './understanding-god-page.js';
 import AshtavakraResearch from './ashtavakra-page.js';
 import ProblemGuide from './problem-guide.js';
@@ -50,6 +51,7 @@ function FAQ() {
       e('section', {id:'technology'}, e('h2', null, 'Technology'), technologyQuestions.map(([q,a]) => e('details', {key:q},e('summary',null,q),p(a)))),
       e('section', { 'aria-labelledby': 'evidence-notes' },
         e('h2', { id: 'evidence-notes' }, 'Research and its limits'),
+        e(AstrologyExplanation), p(journey.reason),
         p('Spiritual teaching, personal experience, and research answer different kinds of questions. The sources below support specific findings; they do not establish that we created the universe or that enlightenment guarantees health, wealth, or correct decisions.'),
         e('p', {className:'reading-links'}, e('a', {href:'/philosophy#research-across-traditions'}, comparative.traditionsTitle), e('a', {href:'/philosophy#research-health-and-time'}, comparative.healthTitle)),
         e('p', null, e('a', { href: 'https://www.insead.edu/faculty-research/publications/journal-articles/debiasing-mind-through-meditation-mindfulness-and' }, 'Mindfulness and sunk-cost bias — INSEAD'), ': four studies suggest that mindfulness can reduce the tendency to let unrecoverable past costs drive a present decision. This is a specific decision-making benefit, not proof that every choice will be right.'),

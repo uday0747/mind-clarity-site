@@ -1,4 +1,5 @@
 import yuga from './yuga-content.json' with { type: 'json' };
+import { journey, AstrologyExplanation } from './design-journey.js';
 import entry from './creator-entry-content.json' with { type: 'json' };
 import { BenefitsSection } from './benefits-section.js';
 import mission from './mission-content.json' with { type: 'json' };
@@ -12,6 +13,7 @@ const e = React.createElement;
 const p = (text) => e('p', null, text);
 const sourceCards = entries => entries.map(entry => e('details', {key:entry.title}, e('summary', null, entry.title), p(entry.text), e('ul', null, entry.links.map(([label,href]) => e('li', {key:href}, e('a', {href}, label))))));
 const sections = [["purpose",mission.philosophyPurposeTitle],["mula-siddhanta","The root statement"],["confidence",discussion.confidenceTitle],["one-shakti","One Creator, many roles"],["witnessing","Remembering during experience"],["surrender","The movie and the lotus"],["four-paths","Four paths to recognition"],["sthitaprajna","Steady wisdom"],["two-levels","Relationships and natural care"],["family-care",discussion.familyTitle],["money","Possessions within creation"],["intelligence","Silence and intelligence"],["scripture","Ten scriptural pointers"],["research-connections",research.title],["earlier-teachings",discussion.traditionTitle],["intention","The central intention"],["beautiful-world","A Beautiful World"],["living","Living with the understanding"]];
+sections.splice(2, 0, ['astrology', journey.astrologyTitle], ['reasoning', journey.reasonTitle]);
 const numberFor = id => String(sections.findIndex(([sectionId]) => sectionId === id) + 1).padStart(2, '0');
 const sources = [
   ['ప్రజ్ఞానం బ్రహ్మ','Prajñānam Brahma','Consciousness is Brahman.','Aitareya Upanishad 3.1.3 · Rig Veda tradition'],
@@ -53,6 +55,12 @@ export default function Philosophy() {
         p('Deciding, speaking, repairing, and building still occur within life. They are themselves parts of the unfolding game. Remembering the Creator changes the way a scene is understood within the teaching; it does not grant the individual control over the total design.'),
         p('The names of God in the original statement express Uday’s personal synthesis across religious vocabularies. Traditions differ in their meanings. “Energy” here is spiritual language.'),
         e(Reflection, null, 'Consider a small scene you wanted to unfold differently. Recall the Creator who designed and entered this game, whose design cannot be rewritten from inside. Can you distinguish participating in the scene from demanding control of the whole?')),
+      e(Lesson, {id:'astrology', number:numberFor('astrology'), title:journey.astrologyTitle},
+        e(AstrologyExplanation), e('p', null, journey.design),
+        e(Reflection, null, journey.question)),
+      e(Lesson, {id:'reasoning', number:numberFor('reasoning'), title:journey.reasonTitle},
+        p(journey.reason), p(journey.connection), p(journey.joy),
+        e('div', {className:'reading-links'}, e('a', {href:'/practice#connection'}, journey.connectionTitle))),
       e(Lesson, {id:'confidence', number:numberFor('confidence'), title:discussion.confidenceTitle},
         p(discussion.confidenceIntro), p(discussion.confidenceIdentity), p(discussion.confidenceExample), p(discussion.confidenceEnquiry),
         e(Reflection, null, discussion.confidenceReflection), e(BenefitsSection)),

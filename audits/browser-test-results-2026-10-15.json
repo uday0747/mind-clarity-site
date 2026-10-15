@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-10-15T01:52:58.978Z",
+  "origin": "http://127.0.0.1:4173",
+  "browser": "Google Chrome (Playwright Chromium)",
+  "executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "totalRoutes": 544,
+  "stats": {
+    "routeChecksDesktop": 544,
+    "routeChecksMobile": 544,
+    "routeChecksPassed": 1088,
+    "routeChecksFailed": 0,
+    "interactionChecks": 11,
+    "interactionPassed": 11,
+    "interactionFailed": 0,
+    "totalConsoleErrors": 0,
+    "totalPageErrors": 0,
+    "totalFailedRequests": 0
+  },
+  "failures": [],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "interactionResults": [
+    {
+      "name": "Mobile Menu Open/Close & Escape Focus (English)",
+      "status": "PASSED"
+    },
+    {
+      "name": "Mobile Menu Open/Close & Escape Focus (Telugu)",
+      "status": "PASSED"
+    },
+    {
+      "name": "Keyboard Tab & Skip Link Navigation",
+      "status": "PASSED"
+    },
+    {
+      "name": "Native Details Disclosure Toggling",
+      "status": "PASSED"
+    },
+    {
+      "name": "FAQ Deep-Link Auto-Expansion (English: #life-confidence)",
+      "status": "PASSED"
+    },
+    {
+      "name": "FAQ Deep-Link Auto-Expansion (Telugu: #life-confidence)",
+      "status": "PASSED"
+    },
+    {
+      "name": "Language Switching via Dropdown & Storage",
+      "status": "PASSED"
+    },
+    {
+      "name": "Browser Language Suggestion Banner (Telugu browser on English URL)",
+      "status": "PASSED"
+    },
+    {
+      "name": "Privacy Page Analytics Opt-Out and Reset Controls",
+      "status": "PASSED"
+    },
+    {
+      "name": "Representative RTL Routes (Arabic /ar & Urdu /ur)",
+      "status": "PASSED"
+    },
+    {
+      "name": "Visual Renderings (Desktop & Mobile for English & Telugu)",
+      "status": "PASSED"
+    }
+  ],
+  "screenshots": [
+    "mobile-menu-open-en.png",
+    "mobile-menu-open-te.png",
+    "skip-link-focused.png",
+    "faq-deeplink-expanded-en.png",
+    "faq-deeplink-expanded-te.png",
+    "privacy-optout-status.png",
+    "desktop-home-ar.png",
+    "desktop-home-ur.png",
+    "desktop-home-en.png",
+    "mobile-home-en.png",
+    "desktop-home-te.png",
+    "mobile-home-te.png"
+  ]
+}

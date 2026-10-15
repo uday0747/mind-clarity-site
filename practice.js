@@ -1,4 +1,5 @@
 import yuga from './yuga-content.json' with { type: 'json' };
+import journey from './design-journey-content.json' with { type: 'json' };
 import entry from './creator-entry-content.json' with { type: 'json' };
 import benefits from './benefits-content.json' with { type: 'json' };
 import mission from './mission-content.json' with { type: 'json' };
@@ -8,7 +9,7 @@ import teaching from './teaching-content.json' with { type: 'json' };
 const e = React.createElement;
 const p = text => e('p', null, text);
 export default function Practice() {
-  const contents = [['five-minutes', 'Remember the whole teaching'], ...teaching.cases.map(({id,title}) => [id,title]), ['faith-and-division', mission.practicePeaceTitle], ['daily', 'Return throughout the day']];
+  const contents = [['five-minutes', 'Remember the whole teaching'], ['connection', journey.connectionTitle], ['ordinary-joy', journey.joyTitle], ...teaching.cases.map(({id,title}) => [id,title]), ['faith-and-division', mission.practicePeaceTitle], ['daily', 'Return throughout the day']];
   const numberFor = id => String(contents.findIndex(([sectionId]) => sectionId === id) + 1).padStart(2, '0');
   return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement, overview:'Choose one everyday scene. Read its connection to the teaching, open the worked example if useful, and examine what remembrance changes for you.' },
     p(mission.practiceIntro), p(benefits.state), p(benefits.effort),
@@ -21,6 +22,12 @@ export default function Practice() {
           e('ol', { className: 'practice-steps' }, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
           e(Reflection, null, teaching.practiceReflection)),
         p('The examples below are optional ways to explore the teaching, not conditions for realization. You do not need to write anything. If reflection becomes overwhelming, stop and return to an ordinary activity or suitable support. No particular feeling has to appear for enquiry to be honest.')),
+      e(Lesson, {id:'connection', number:numberFor('connection'), title:journey.connectionTitle},
+        p(journey.identity), p(journey.connection), p(journey.design),
+        e(Reflection, null, journey.question),
+        e('a', {className:'text-link',href:'/philosophy#astrology'}, journey.astrologyTitle)),
+      e(Lesson, {id:'ordinary-joy', number:numberFor('ordinary-joy'), title:journey.joyTitle}, p(journey.joy),
+        e(Reflection, null, teaching.practiceReflection)),
       ...teaching.cases.map((item, i) => e(Lesson, { key:item.id, id:item.id, number:numberFor(item.id), title:item.title },
         p(item.connection),
         e('details', null, e('summary', null, 'Worked example: ' + item.example),

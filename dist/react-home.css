@@ -1,6 +1,10 @@
 /* Home-specific reading rhythm; shared layout is in page.css. */
 .home-main>h1{max-width:850px}
 .home-main>.intro{max-width:700px}
+.journey-step{position:relative;padding:10px 0 28px 32px;border-inline-start:2px solid var(--line);max-width:52rem}
+.journey-step .discovery-number{position:relative;margin-inline-start:-47px;width:28px;background:var(--cream);padding:4px 0;text-align:center}
+.journey-step h2{max-width:40rem}
+.journey-step .astrology-sources{margin-bottom:22px}
 /* Guided discovery: native disclosures keep every exercise keyboard-accessible. */
 .discovery-path{display:flex;flex-wrap:wrap;gap:12px 24px;margin:28px 0 40px;padding:18px 0;border-block:1px solid var(--line)}
 .discovery-path a{font-weight:650;text-underline-offset:5px}

@@ -1,4 +1,5 @@
 import React from 'react';
+import journey from './design-journey-content.json' with { type: 'json' };
 import research from './research-content.json' with { type: 'json' };
 import { Page, Reflection } from './site-layout.js';
 import { enquiryTopics } from './enquiry-topics.js';
@@ -19,6 +20,9 @@ function EnquiryPage({ topic }) {
       e('h2', null, 'Related questions'),
       ...topic.entries.map(([q,a]) => e('section', { key: q }, e('h3', null, q), e('p', null, a))),
       e(Reflection, null, topic.reflection),
+      e('section', {className:'journey-connection'}, e('h2', null, journey.connectionTitle),
+        e('p', null, journey.connection),
+        e('div', {className:'reading-links'}, e('a', {href:'/philosophy#astrology'}, journey.astrologyTitle), e('a', {href:'/philosophy#reasoning'}, journey.reasonTitle))),
       e('div', { className: 'reading-links' }, e('a', { href: topic.practiceLink }, 'Explore an optional everyday example'), e('a', { href: '/philosophy' }, 'Read the full philosophy'), e('a', { href: '/faq#enquiry-title' }, 'Find another answer'))),
     e(EnquiryLinks));
 }

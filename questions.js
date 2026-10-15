@@ -1,4 +1,5 @@
 import entry from './creator-entry-content.json' with { type: 'json' };
+import journey from './design-journey-content.json' with { type: 'json' };
 import mission from './mission-content.json' with { type: 'json' };
 import problems from './problem-content.json' with { type: 'json' };
 import teaching from './teaching-content.json' with { type: 'json' };
@@ -142,3 +143,13 @@ enquiryGroups.splice(enquiryGroups.length - 1, 0, {
 });
 
 enquiryGroups[1].entries.push([entry.question, entry.identity]);
+
+enquiryGroups.push({ id:'design-and-astrology', title:journey.title, entries:[
+  [journey.designTitle, journey.design],
+  [journey.astrologyTitle, journey.astrology],
+  [journey.periodTitle, journey.period],
+  [journey.planetsTitle, journey.planets],
+  [journey.reasonTitle, journey.reason],
+  [journey.connectionTitle, journey.connection],
+  [journey.joyTitle, journey.joy]
+]});
