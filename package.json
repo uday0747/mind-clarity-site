@@ -6,13 +6,13 @@
     "dev": "vite --config vite.dev.config.js",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/preview.mjs",
-    "check": "node scripts/check-translation-quality.mjs && node scripts/check.mjs && node scripts/audit-seo.mjs && node scripts/check-discovery.mjs && node scripts/check-reading-analytics.mjs && node scripts/check-audit-fixes.mjs && node scripts/check-security.mjs"
+    "check": "node scripts/check-translation-quality.mjs && node scripts/check.mjs && node scripts/audit-seo.mjs && node scripts/check-discovery.mjs && node scripts/check-reading-analytics.mjs && node scripts/check-audit-fixes.mjs && node scripts/check-security.mjs",
+    "deploy": "npm run build && rm -rf dist/server && npx wrangler pages deploy dist --project-name mind-clarity-site --branch main --commit-dirty=true && git commit -am 'Update site' && git push && node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.1.1",
-    "vite": "8.3.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
-  },
-  "devDependencies": {}
+    "react-dom": "19.3.0",
+    "vite": "8.3.0"
+  }
 }
