@@ -44,15 +44,16 @@ export function App() {
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '02'),
           e('h3', null, guide.powers),
-          e('p', null, journey.designTitle)
+          e('p', null, journey.design)
         ),
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '03'),
           e('h3', null, journey.reasonTitle),
-          e('p', null, guide.choose)
+          e('p', null, journey.reason)
         )
       )
     ),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }),
     e('section', { className: 'home-section discovery-card', id: 'identity-and-roles', 'aria-labelledby': 'roles-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '01'),
       e('h2', { id: 'roles-title' }, guide.roles),
@@ -106,6 +107,7 @@ export function App() {
           e('source', { type: 'image/webp', srcSet: '/assets/pond-mobile-480.webp 480w, /assets/pond-mobile-960.webp 960w', sizes: 'calc(100vw - 92px)' }),
           e('img', { src: '/assets/pond-fallback.jpg', alt: 'A quiet moment beside a lotus pond', width: 600, height: 400, fetchPriority: 'high', decoding: 'async' })),
         e('figcaption', null, 'The lotus: within life, with light attachment to its passing scenes.'))),
+    e('div', { className: 'interactive-practice-section', 'data-practice-studio': 'true' }),
     e(BenefitsSection, { compact: true }),
     e('section', { className: 'home-section yuga-introduction', id: 'clarity-and-yugas', 'aria-labelledby': 'yuga-title' },
       e('h2', { id: 'yuga-title' }, yuga.title),

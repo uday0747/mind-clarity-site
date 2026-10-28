@@ -27,7 +27,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 await build({ configFile: path.join(root, 'vite.config.js'), root });
 await mkdir(path.join(root, '.sites-runtime'), { recursive: true });
 const dist = await mkdtemp(path.join(root, '.sites-runtime/build-'));
-const assets = ['page.css', 'react-home.css', 'assets-brand.png', 'assets-brand-desktop.png',
+const assets = ['page.css', 'react-home.css', 'studios.js', 'assets-brand.png', 'assets-brand-desktop.png',
   'mind-clarity-mark.png', 'mind-clarity-mark-desktop.png', 'assets', 'robots.txt', 'sitemap.xml', 'indexnow-key.txt', '_redirects', '404.html'];
 for (const asset of assets) await cp(path.join(root, asset), path.join(dist, asset), { recursive: true });
 await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
