@@ -30,6 +30,29 @@ export function App() {
       e('a', { href: '#astrology' }, journey.astrologyTitle),
       e('a', { href: '#examine-the-game' }, journey.reasonTitle),
       e('a', { href: '#everyday-scenes' }, guide.choose)),
+    e('section', { className: 'home-section three-card-story' },
+      e('div', { className: 'story-header' },
+        e('span', { className: 'story-eyebrow' }, mission.homeTitle),
+        e('h2', { className: 'story-title-text' }, journey.title)
+      ),
+      e('div', { className: 'three-card-grid' },
+        e('div', { className: 'story-card' },
+          e('span', { className: 'card-number' }, '01'),
+          e('h3', null, mission.homeTitle),
+          e('p', null, journey.identity)
+        ),
+        e('div', { className: 'story-card' },
+          e('span', { className: 'card-number' }, '02'),
+          e('h3', null, guide.powers),
+          e('p', null, journey.designTitle)
+        ),
+        e('div', { className: 'story-card' },
+          e('span', { className: 'card-number' }, '03'),
+          e('h3', null, journey.reasonTitle),
+          e('p', null, guide.choose)
+        )
+      )
+    ),
     e('section', { className: 'home-section discovery-card', id: 'identity-and-roles', 'aria-labelledby': 'roles-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '01'),
       e('h2', { id: 'roles-title' }, guide.roles),
