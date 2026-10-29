@@ -86,8 +86,8 @@
             <div class="control-group">
               <span class="control-label">Aspect Ratio</span>
               <div class="studio-toggle-group">
-                <button type="button" class="studio-btn toggle-active" id="cs-btn-sq">Square 1:1</button>
-                <button type="button" class="studio-btn" id="cs-btn-st">Story 9:16</button>
+                <button type="button" class="studio-btn toggle-active" id="cs-btn-sq">Square (Post · 1:1)</button>
+                <button type="button" class="studio-btn" id="cs-btn-st">Story / WhatsApp Status (9:16)</button>
               </div>
             </div>
           </div>
@@ -309,7 +309,8 @@
 
     cardEl.querySelector('#cs-btn-wa').onclick = () => {
       const q = quotes[selectedIdx] || quotes[0];
-      const text = `"${q}"\n— Uday Kumar (Mind Clarity)\n\nhttps://mindclarity.co.in/`;
+      const shareUrl = (typeof location !== 'undefined' && location.href) ? location.href.split('#')[0] : 'https://mindclarity.co.in/';
+      const text = `"${q}"\n— Uday Kumar (Mind Clarity)\n\n${shareUrl}`;
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
       statusMsg.textContent = 'Opened in WhatsApp!';
       setTimeout(() => { statusMsg.textContent = ''; }, 3500);
@@ -317,7 +318,8 @@
 
     cardEl.querySelector('#cs-btn-cp').onclick = async () => {
       const q = quotes[selectedIdx] || quotes[0];
-      const text = `"${q}"\n— Uday Kumar (Mind Clarity)\nhttps://mindclarity.co.in/`;
+      const shareUrl = (typeof location !== 'undefined' && location.href) ? location.href.split('#')[0] : 'https://mindclarity.co.in/';
+      const text = `"${q}"\n— Uday Kumar (Mind Clarity)\n${shareUrl}`;
       try {
         await navigator.clipboard.writeText(text);
         statusMsg.textContent = 'Quote copied to clipboard!';
