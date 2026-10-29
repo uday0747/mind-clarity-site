@@ -12,7 +12,7 @@ enhanceSharing(document.querySelector('.share-lesson'));
 
 if (document.querySelector('[data-card-studio="true"], [data-practice-studio="true"]')) {
   const script = document.createElement('script');
-  script.src = '/studios.js?v=20261029h';
+  script.src = '/studios.js?v=20261029i';
   script.defer = true;
   document.head.appendChild(script);
 }

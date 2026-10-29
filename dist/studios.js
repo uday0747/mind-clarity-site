@@ -3,6 +3,315 @@
 
 (function() {
   // Phase 2: Viral Clarity Card Studio
+  const oneMinuteByLang = {
+    "en": {
+      "badge": "The One-Minute Essence · Uday Kumar",
+      "text": "Imagine you are the only being in existence. You can create anything, but there is nobody to meet. So you create an entire world of experiences and enter it through billions of lives. That is Uday Kumar's teaching: <strong>we are all the same Creator</strong>, playing different roles in the same game. The person who frustrates you? Same source. The person you love? Same source. Remembering this changes how you meet every scene.",
+      "btn": "Share 60-Second Story on WhatsApp",
+      "waTitle": "*The 60-Second Essence of Mind Clarity (Uday Kumar)*",
+      "waP1": "Imagine you are the only being in existence. You can create anything, but there is nobody to meet. So you create a world of experiences and enter it through billions of lives.",
+      "waP2": "That is Uday Kumar's teaching: *We are all the same Creator*, playing different roles in the same game. The person who frustrates you? Same source. The person you love? Same source. Remembering this changes how you meet every scene.",
+      "waFoot": "Read more at:"
+    },
+    "te": {
+      "badge": "ఒక నిమిషం సారాంశం · ఉదయ్ కుమార్",
+      "text": "మీరు మాత్రమే ఉన్నారని ఊహించండి. మీరు దేన్నైనా సృష్టించగలరు, కానీ అనుభవించడానికి ఎవరూ లేరు. అందుకే మీరు ఈ అనుభవాల ప్రపంచాన్ని సృష్టించి, బిలియన్ల పాత్రల ద్వారా ఇందులోకి ప్రవేశించారు. ఇదే ఉదయ్ కుమార్ గారి బోధన: <strong>మనమందరం ఒకే సృష్టికర్తలం</strong>, ఒకే ఆటలో వేర్వేరు పాత్రలు పోషిస్తున్నాము. మిమ్మల్ని బాధపెట్టే వ్యక్తి? అదే మూలం. మీరు ప్రేమించే వ్యక్తి? అదే మూలం. ఈ స్పృహ మీ జీవితంలోని ప్రతి సన్నివేశాన్ని చూసే విధానాన్ని మారుస్తుంది.",
+      "btn": "ఈ 60-సెకన్ల కథను వాట్సాప్‌లో పంపండి",
+      "waTitle": "*ఒక నిమిషంలో మైండ్ క్లారిటీ దర్శనం (ఉదయ్ కుమార్)*",
+      "waP1": "మీరు మాత్రమే ఉన్నారని ఊహించండి. మీరు దేన్నైనా సృష్టించగలరు, కానీ కలవడానికి ఎవరూ లేరు. అందుకే ఈ అనుభవాల ఆటను సృష్టించి, బిలియన్ల పాత్రల ద్వారా ఇందులోకి ప్రవేశించారు.",
+      "waP2": "మనమందరం ఒకే సృష్టికర్తలం — ఒకే ఆటలో వేర్వేరు పాత్రలం. మిమ్మల్ని ఇబ్బంది పెట్టే వ్యక్తి అయినా, ప్రేమించే వ్యక్తి అయినా అదే మూలం. ఇది గుర్తున్నప్పుడు ప్రతి సన్నివేశాన్ని ప్రశాంతంగా, సహజమైన దయతో ఎదుర్కొంటాము.",
+      "waFoot": "పూర్తిగా చదవండి:"
+    },
+    "hi": {
+      "badge": "एक मिनट का सार · उदय कुमार",
+      "text": "कल्पना कीजिए कि केवल आप ही अस्तित्व में हैं। आप कुछ भी बना सकते हैं, पर मिलने के लिए कोई दूसरा नहीं है। इसलिए आपने अनुभवों की यह दुनिया बनाई और अनगिनत जिंदगियों के ज़रिए इसमें प्रवेश किया। यही उदय कुमार जी की मूल सीख है: <strong>हम सब वही एक सृष्टिकर्ता हैं</strong>, जो एक ही खेल में अलग-अलग रोल निभा रहे हैं। जो आपको परेशान करता है? वही स्रोत। जिसे आप प्यार करते हैं? वही स्रोत। यह याद आते ही हर दृश्य को देखने का नज़रिया बदल जाता है।",
+      "btn": "यह 60-सेकंड की कहानी व्हाट्सएप पर शेयर करें",
+      "waTitle": "*एक मिनट में माइंड क्लैरिटी दर्शन (उदय कुमार)*",
+      "waP1": "कल्पना कीजिए कि सिर्फ आप ही अस्तित्व में हैं। आप कुछ भी बना सकते हैं, पर मिलने के लिए कोई दूसरा नहीं है। इसलिए आपने अनुभवों का यह खेल बनाया और अनगिनत जिंदगियों के ज़रिए इसमें प्रवेश किया।",
+      "waP2": "हम सब वही एक सृष्टिकर्ता हैं — जो एक ही खेल में अलग-अलग रोल निभा रहे हैं। जो आपको परेशान करता है, वह भी उसी स्रोत से है। जिसे आप प्यार करते हैं, वह भी। यह याद आते ही जीवन के हर दृश्य को देखने का नज़रिया बदल जाता है।",
+      "waFoot": "पूरी समझ यहाँ पढ़ें:"
+    },
+    "ta": {
+      "badge": "ஒரு நிமிட சாரம் · உதய் குமார்",
+      "text": "நீங்கள் மட்டுமே உள்ளீர்கள் என்று கற்பனை செய்யுங்கள். நீங்கள் எதையும் உருவாக்கலாம், ஆனால் சந்திப்பதற்கு வேறு யாரும் இல்லை. எனவே நீங்கள் இந்த அனுபவங்களின் உலகத்தை உருவாக்கி, கோடிக்கணக்கான உயிர்களின் வழியாக இதற்குள் நுழைந்தீர்கள். இதுவே உதய் குமாரின் போதனை: <strong>நாம் அனைவரும் ஒரே படைப்பாளர்</strong>, ஒரே விளையாட்டில் வெவ்வேறு பாத்திரங்களை ஏற்றுள்ளோம். உங்களை வேதனைப்படுத்துபவர் யார்? அதே மூலம். நீங்கள் நேசிப்பவர் யார்? அதே மூலம். இந்த நினைவு ஒவ்வொரு சூழ்நிலையையும் நீங்கள் எதிர்கொள்ளும் விதத்தை மாற்றுகிறது.",
+      "btn": "இந்த 60-வினாடி கதையை வாட்ஸ்அப்பில் பகிரவும்",
+      "waTitle": "*மனத் தெளிவின் 60-வினாடி சாரம் (உதய் குமார்)*",
+      "waP1": "நீங்கள் மட்டுமே உள்ளீர்கள் என்று கற்பனை செய்யுங்கள். நீங்கள் எதையும் உருவாக்கலாம், ஆனால் சந்திப்பதற்கு வேறு யாரும் இல்லை. எனவே இந்த அனுபவங்களின் விளையாட்டை உருவாக்கி, பல கோடி உயிர்களின் வழியாக உள்ளே நுழைந்தீர்கள்.",
+      "waP2": "நாம் அனைவரும் ஒரே படைப்பாளர் — ஒரே விளையாட்டில் வெவ்வேறு பாத்திரங்கள். உங்களை காயப்படுத்துபவரும் சரி, நீங்கள் நேசிப்பவரும் சரி, அதே மூலம் தான். இந்த நினைவு வாழ்க்கையின் ஒவ்வொரு காட்சியையும் அமைதியோடும் கனிவோடும் அணுக வைக்கிறது.",
+      "waFoot": "முழுமையாகப் படிக்க:"
+    },
+    "kn": {
+      "badge": "ಒಂದು ನಿಮಿಷದ ಸಾರ · ಉದಯ್ ಕುಮಾರ್",
+      "text": "ನೀವು ಮಾತ್ರ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದೀರಿ ಎಂದು ಊಹಿಸಿಕೊಳ್ಳಿ. ನೀವು ಏನನ್ನಾದರೂ ಸೃಷ್ಟಿಸಬಹುದು, ಆದರೆ ಭೇಟಿಯಾಗಲು ಯಾರೂ ಇಲ್ಲ. ಅದಕ್ಕಾಗಿಯೇ ನೀವು ಅನುಭವಗಳ ಈ ಜಗತ್ತನ್ನು ಸೃಷ್ಟಿಸಿ, ಕೋಟ್ಯಂತರ ಜೀವಗಳ ಮೂಲಕ ಇದರೊಳಗೆ ಪ್ರವೇಶಿಸಿದ್ದೀರಿ. ಇದುವೇ ಉದಯ್ ಕುಮಾರ್ ಅವರ ಬೋಧನೆ: <strong>ನಾವೆಲ್ಲರೂ ಅದೇ ಒಬ್ಬನೇ ಸೃಷ್ಟಿಕರ್ತ</strong>, ಒಂದೇ ಆಟದಲ್ಲಿ ಬೇರೆ ಬೇರೆ ಪಾತ್ರಗಳನ್ನು ನಿರ್ವಹಿಸುತ್ತಿದ್ದೇವೆ. ನಿಮಗೆ ನೋವುಂಟುಮಾಡುವ ವ್ಯಕ್ತಿ? ಅದೇ ಮೂಲ. ನೀವು ಪ್ರೀತಿಸುವ ವ್ಯಕ್ತಿ? ಅದೇ ಮೂಲ. ಈ ಅರಿವು ಪ್ರತಿಯೊಂದು ಸನ್ನಿವೇಶವನ್ನು ಎದುರಿಸುವ ವಿಧಾನವನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ.",
+      "btn": "ಈ 60-ಸೆಕೆಂಡಿನ ಕಥೆಯನ್ನು ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಹಂಚಿಕೊಳ್ಳಿ",
+      "waTitle": "*ಮೈಂಡ್ ಕ್ಲಾರಿಟಿಯ 60-ಸೆಕೆಂಡಿನ ಸಾರ (ಉದಯ್ ಕುಮಾರ್)*",
+      "waP1": "ನೀವು ಮಾತ್ರ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದೀರಿ ಎಂದು ಊಹಿಸಿಕೊಳ್ಳಿ. ನೀವು ಏನನ್ನಾದರೂ ಸೃಷ್ಟಿಸಬಹುದು, ಆದರೆ ಭೇಟಿಯಾಗಲು ಯಾರೂ ಇಲ್ಲ. ಅದಕ್ಕಾಗಿಯೇ ಅನುಭವಗಳ ಈ ಆಟವನ್ನು ಸೃಷ್ಟಿಸಿ, ಕೋಟ್ಯಂತರ ಪಾತ್ರಗಳ ಮೂಲಕ ಪ್ರವೇಶಿಸಿದ್ದೀರಿ.",
+      "waP2": "ನಾವೆಲ್ಲರೂ ಅದೇ ಸೃಷ್ಟಿಕರ್ತ — ಒಂದೇ ಆಟದಲ್ಲಿ ವಿಭಿನ್ನ ಪಾತ್ರಗಳು. ನಿಮ್ಮನ್ನು ನೋಯಿಸುವ ವ್ಯಕ್ತಿಯೂ ಅದೇ ಮೂಲ, ನೀವು ಪ್ರೀತಿಸುವ ವ್ಯಕ್ತಿಯೂ ಅದೇ ಮೂಲ. ಇದನ್ನು ನೆನಪಿನಲ್ಲಿಟ್ಟುಕೊಳ್ಳುವುದು ಪ್ರತಿ ಸನ್ನಿವೇಶವನ್ನು ನೋಡುವ ದೃಷ್ಟಿಯನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ.",
+      "waFoot": "ಪೂರ್ಣವಾಗಿ ಓದಿ:"
+    },
+    "ml": {
+      "badge": "ഒരു മിനിറ്റ് സാരം · ഉദയ് കുമാർ",
+      "text": "നിങ്ങൾ മാത്രമാണ് നിലനിൽക്കുന്നത് എന്ന് സങ്കൽപ്പിക്കുക. നിങ്ങൾക്ക് എന്തും സൃഷ്ടിക്കാം, എന്നാൽ കണ്ടുമുട്ടാൻ മറ്റാരുമില്ല. അതിനാൽ നിങ്ങൾ അനുഭവങ്ങളുടെ ഈ ലോകം സൃഷ്ടിച്ച്, കോടിക്കണക്കിന് ജീവനുകളിലൂടെ ഇതിലേക്ക് പ്രവേശിച്ചു. ഇതാണ് ഉദയ് കുമാറിന്റെ ദർശനം: <strong>നാം എല്ലാവരും ഒരേ സ്രഷ്ടാവാണ്</strong>, ഒരേ കളിയിൽ വ്യത്യസ്ത വേഷങ്ങൾ ചെയ്യുന്നു. നിങ്ങളെ വേദനിപ്പിക്കുന്ന വ്യക്തി? അതേ ഉറവിടം. നിങ്ങൾ സ്നേഹിക്കുന്ന വ്യക്തി? അതേ ഉറവിടം. ഈ ഓർമ്മ ജീവിതത്തിലെ ഓരോ രംഗത്തെയും അഭിമുഖീകരിക്കുന്ന രീതിയെ മാറ്റുന്നു.",
+      "btn": "ഈ 60-സെക്കൻഡ് കഥ വാട്ട്‌സ്ആപ്പിൽ പങ്കിടുക",
+      "waTitle": "*മൈൻഡ് ക്ലാരിറ്റിയുടെ 60-സെക്കൻഡ് സാരം (ഉദയ് കുമാർ)*",
+      "waP1": "നിങ്ങൾ മാത്രമാണ് നിലനിൽക്കുന്നത് എന്ന് സങ്കൽപ്പിക്കുക. നിങ്ങൾക്ക് എന്തും സൃഷ്ടിക്കാം, എന്നാൽ കാണാൻ മറ്റാരുമില്ല. അങ്ങനെ അനുഭവങ്ങളുടെ ഈ കളി സൃഷ്ടിച്ച്, കോടിക്കണക്കിന് ജീവിതങ്ങളിലൂടെ നിങ്ങൾ ഇതിൽ പ്രവേശിച്ചു.",
+      "waP2": "നാം എല്ലാവരും ഒരേ സ്രഷ്ടാവാണ് — ഒരേ കളിയിൽ വ്യത്യസ്ത വേഷങ്ങൾ. നിങ്ങളെ വിഷമിപ്പിക്കുന്നയാളും സ്നേഹിക്കുന്നയാളും ഒരേ ഉറവിടം തന്നെയാണ്. ഈ തിരിച്ചറിവ് ജീവിതത്തിലെ ഓരോ രംഗത്തെയും ദയയോടെ കാണാൻ സഹായിക്കുന്നു.",
+      "waFoot": "കൂടുതൽ വായിക്കുക:"
+    },
+    "bn": {
+      "badge": "এক মিনিটের সারসংক্ষেপ · উদয় কুমার",
+      "text": "কল্পনা করুন আপনি ছাড়া আর কেউ অস্তিত্বে নেই। আপনি সবকিছু সৃষ্টি করতে পারেন, কিন্তু দেখা করার মতো কেউ নেই। তাই আপনি অভিজ্ঞতার এই জগৎ সৃষ্টি করলেন এবং কোটি কোটি জীবনের মধ্য দিয়ে এতে প্রবেশ করলেন। এটাই উদয় কুমারের মূল শিক্ষা: <strong>আমরা সবাই একই স্রষ্টা</strong>, একই খেলায় ভিন্ন ভিন্ন চরিত্রে অভিনয় করছি। যে আপনাকে কষ্ট দেয়? সেও একই উৎস। যাকে আপনি ভালোবাসেন? সেও একই উৎস। এই স্মরণ প্রতিটি পরিস্থিতি মোকাবেলার দৃষ্টিভঙ্গি বদলে দেয়।",
+      "btn": "এই ৬০-সেকেন্ডের গল্পটি হোয়াটসঅ্যাপে শেয়ার করুন",
+      "waTitle": "*মাইন্ড ক্ল্যারিটির ৬০-সেকেন্ডের সারকথা (উদয় কুমার)*",
+      "waP1": "কল্পনা করুন শুধুমাত্র আপনিই অস্তিত্বে আছেন। আপনি যা খুশি সৃষ্টি করতে পারেন, কিন্তু দেখা করার মতো কেউ নেই। তাই অভিজ্ঞতার এই খেলা সৃষ্টি করে কোটি কোটি জীবনের মাধ্যমে এতে প্রবেশ করলেন।",
+      "waP2": "আমরা সবাই একই স্রষ্টা — একই খেলায় ভিন্ন ভূমিকা। যে আপনাকে বিরক্ত করে কিংবা যাকে আপনি ভালোবাসেন, উৎস একই। এটি মনে রাখলে জীবনের প্রতিটি দৃশ্যকে দেখার দৃষ্টিভঙ্গি পাল্টে যায়।",
+      "waFoot": "বিস্তারিত পড়ুন:"
+    },
+    "mr": {
+      "badge": "एक मिनिटाचा सारांश · उदय कुमार",
+      "text": "कल्पना करा की केवळ तुमचेच अस्तित्व आहे. तुम्ही काहीही निर्माण करू शकता, पण भेटायला कोणीच नाही. म्हणूनच तुम्ही अनुभवांचे हे जग निर्माण केले आणि कोट्यवधी जीवांच्या रूपात यात प्रवेश केला. हीच उदय कुमार यांची शिकवण आहे: <strong>आपण सर्व तोच एक सृष्टीकर्ता आहोत</strong>, एकाच खेळात वेगवेगळ्या भूमिका साकारत आहोत. जो तुम्हाला त्रास देतो? तोच मूळ स्रोत. ज्याच्यावर तुम्ही प्रेम करता? तोच मूळ स्रोत. ही जाणीव प्रत्येक परिस्थितीकडे पाहण्याचा दृष्टिकोन बदलते.",
+      "btn": "ही ६०-सेकंदांची गोष्ट व्हॉट्सॲपवर शेअर करा",
+      "waTitle": "*माइंड क्लॅरिटीचे ६० सेकंदांचे सार (उदय कुमार)*",
+      "waP1": "कल्पना करा की केवळ तुमचेच अस्तित्व आहे. तुम्ही काहीही निर्माण करू शकता, पण भेटायला कोणीच नाही. म्हणून तुम्ही अनुभवांचा हा खेळ रचला आणि अनंत जीवनांमधून यात प्रवेश केला.",
+      "waP2": "आपण सर्व एकच सृष्टीकर्ता आहोत — एकाच खेळात वेगवेगळ्या भूमिका. जो तुम्हाला छळतो किंवा ज्याच्यावर तुम्ही प्रेम करता, मूळ स्रोत एकच आहे. हे स्मरणात ठेवल्यास जीवनातील प्रत्येक प्रसंगाकडे पाहण्याचा दृष्टिकोन बदलतो.",
+      "waFoot": "अधिक वाचा:"
+    },
+    "gu": {
+      "badge": "એક મિનિટનો સાર · ઉદય કુમાર",
+      "text": "કલ્પના કરો કે માત્ર તમારું જ અસ્તિત્વ છે. તમે ગમે તે સર્જી શકો છો, પણ મળવા માટે કોઈ નથી. તેથી તમે અનુભવોની આ દુનિયા રચી અને અબજો જીવો દ્વારા તેમાં પ્રવેશ કર્યો. આ જ ઉદય કુમારનો બોધ છે: <strong>આપણે બધા એક જ સર્જનહાર છીએ</strong>, એક જ રમતમાં જુદા જુદા પાત્રો ભજવી રહ્યા છીએ. જે તમને દુઃખ આપે છે? એ જ સ્ત્રોત. જેને તમે પ્રેમ કરો છો? એ જ સ્ત્રોત. આ યાદ આવતાં જ દરેક દ્રશ્યને જોવાનો દ્રષ્ટિકોણ બદલાઈ જાય છે.",
+      "btn": "આ 60-સેકન્ડની વાર્તા વૉટ્સએપ પર શૅર કરો",
+      "waTitle": "*માઇન્ડ ક્લેરિટીનો 60-સેકન્ડનો સાર (ઉદય કુમાર)*",
+      "waP1": "કલ્પના કરો કે માત્ર તમે જ અસ્તિત્વમાં છો. તમે કંઈ પણ રચી શકો છો, પણ મળવા કોઈ નથી. તેથી તમે અનુભવોની આ રમત બનાવી અને અસંખ્ય જીવો દ્વારા તેમાં પ્રવેશ કર્યો.",
+      "waP2": "આપણે બધા એક જ સર્જનહાર છીએ — એક જ રમતમાં વિવિધ પાત્રો. જે તમને પરેશાન કરે છે કે જેને તમે પ્રેમ કરો છો, સ્ત્રોત એક જ છે. આ સ્મરણ જીવનના દરેક દ્રશ્યને શાંતિથી સ્વીકારવામાં મદદ કરે છે.",
+      "waFoot": "વધુ વાંચો:"
+    },
+    "pa": {
+      "badge": "ਇੱਕ ਮਿੰਟ ਦਾ ਸਾਰ · ਉਦੈ ਕੁਮਾਰ",
+      "text": "ਕਲਪਨਾ ਕਰੋ ਕਿ ਸਿਰਫ਼ ਤੁਸੀਂ ਹੀ ਹੋਂਦ ਵਿੱਚ ਹੋ। ਤੁਸੀਂ ਕੁਝ ਵੀ ਸਿਰਜ ਸਕਦੇ ਹੋ, ਪਰ ਮਿਲਣ ਲਈ ਕੋਈ ਦੂਜਾ ਨਹੀਂ ਹੈ। ਇਸ ਲਈ ਤੁਸੀਂ ਅਨੁਭਵਾਂ ਦੀ ਇਹ ਦੁਨੀਆ ਬਣਾਈ ਅਤੇ ਅਰਬਾਂ ਜੀਵਨਾਂ ਰਾਹੀਂ ਇਸ ਵਿੱਚ ਪ੍ਰਵੇਸ਼ ਕੀਤਾ। ਇਹੀ ਉਦੈ ਕੁਮਾਰ ਦੀ ਸਿੱਖਿਆ ਹੈ: <strong>ਅਸੀਂ ਸਾਰੇ ਇੱਕ ਹੀ ਸਿਰਜਣਹਾਰ ਹਾਂ</strong>, ਇੱਕੋ ਖੇਡ ਵਿੱਚ ਵੱਖ-ਵੱਖ ਭੂਮਿਕਾਵਾਂ ਨਿਭਾ ਰਹੇ ਹਾਂ। ਜੋ ਤੁਹਾਨੂੰ ਦੁੱਖ ਦਿੰਦਾ ਹੈ? ਉਹੀ ਸਰੋਤ। ਜਿਸਨੂੰ ਤੁਸੀਂ ਪਿਆਰ ਕਰਦੇ ਹੋ? ਉਹੀ ਸਰੋਤ। ਇਹ ਚੇਤਾ ਹਰ ਸਥਿਤੀ ਨੂੰ ਵੇਖਣ ਦਾ ਨਜ਼ਰੀਆ ਬਦਲ ਦਿੰਦਾ ਹੈ।",
+      "btn": "ਇਹ 60-ਸਕਿੰਟ ਦੀ ਕਹਾਣੀ ਵਟਸਐਪ 'ਤੇ ਸਾਂਝੀ ਕਰੋ",
+      "waTitle": "*ਮਾਈਂਡ ਕਲੈਰਿਟੀ ਦਾ 60-ਸਕਿੰਟ ਦਾ ਸਾਰ (ਉਦੈ ਕੁਮਾਰ)*",
+      "waP1": "ਕਲਪਨਾ ਕਰੋ ਕਿ ਸਿਰਫ਼ ਤੁਸੀਂ ਹੀ ਹੋ। ਤੁਸੀਂ ਕੁਝ ਵੀ ਬਣਾ ਸਕਦੇ ਹੋ, ਪਰ ਮਿਲਣ ਲਈ ਕੋਈ ਨਹੀਂ। ਇਸ ਲਈ ਤੁਸੀਂ ਅਨੁਭਵਾਂ ਦੀ ਖੇਡ ਰਚੀ ਅਤੇ ਅਰਬਾਂ ਰੂਪਾਂ ਵਿੱਚ ਇਸ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਏ।",
+      "waP2": "ਅਸੀਂ ਸਾਰੇ ਉਹੀ ਇੱਕ ਸਿਰਜਣਹਾਰ ਹਾਂ — ਇੱਕੋ ਖੇਡ ਵਿੱਚ ਵੱਖ-ਵੱਖ ਰੋਲ। ਤੁਹਾਨੂੰ ਪਰੇਸ਼ਾਨ ਕਰਨ ਵਾਲਾ ਵੀ ਅਤੇ ਜਿਸਨੂੰ ਤੁਸੀਂ ਪਿਆਰ ਕਰਦੇ ਹੋ ਉਹ ਵੀ, ਸਰੋਤ ਇੱਕੋ ਹੈ। ਇਸ ਸਮਝ ਨਾਲ ਜ਼ਿੰਦਗੀ ਦਾ ਹਰ ਦ੍ਰਿਸ਼ ਬਦਲ ਜਾਂਦਾ ਹੈ।",
+      "waFoot": "ਪੂਰਾ ਪੜ੍ਹੋ:"
+    },
+    "or": {
+      "badge": "ଏକ ମିନିଟ୍‌ର ସାର · ଉଦୟ କୁମାର",
+      "text": "କଳ୍ପନା କରନ୍ତୁ ଯେ କେବଳ ଆପଣ ହିଁ ଅସ୍ତିତ୍ୱରେ ଅଛନ୍ତି। ଆପଣ ଯାହା ଚାହିଁବେ ସୃଷ୍ଟି କରିପାରିବେ, କିନ୍ତୁ ଭେଟିବାକୁ କେହି ନାହାନ୍ତି। ତେଣୁ ଆପଣ ଅନୁଭବର ଏହି ଜଗତ ସୃଷ୍ଟି କଲେ ଏବଂ କୋଟି କୋଟି ଜୀବନ ମାଧ୍ୟମରେ ଏଥିରେ ପ୍ରବେଶ କଲେ। ଏହା ହିଁ ଉଦୟ କୁମାରଙ୍କ ଶିକ୍ଷା: <strong>ଆମେ ସମସ୍ତେ ସେହି ଏକା ସୃଷ୍ଟିକର୍ତ୍ତା</strong>, ଗୋଟିଏ ଖେଳରେ ଭିନ୍ନ ଭିନ୍ନ ଭୂମିକା ତୁଲାଉଛୁ। ଯିଏ ଆପଣଙ୍କୁ କଷ୍ଟ ଦିଏ? ସେହି ଏକା ଉତ୍ସ। ଯାହାକୁ ଆପଣ ଭଲପାଆନ୍ତି? ସେହି ଏକା ଉତ୍ସ। ଏହା ମନେ ରଖିଲେ ପ୍ରତ୍ୟେକ ଦୃଶ୍ୟକୁ ସାମ୍ନା କରିବାର ଦୃଷ୍ଟିକୋଣ ବଦଳିଯାଏ।",
+      "btn": "ଏହି ୬୦-ସେକେଣ୍ଡର କାହାଣୀ ହ୍ୱାଟ୍ସଆପ୍‌ରେ ସେୟାର କରନ୍ତୁ",
+      "waTitle": "*ମାଇଣ୍ଡ କ୍ଲାରିଟିର ୬୦-ସେକେଣ୍ଡ ସାର (ଉଦୟ କୁମାର)*",
+      "waP1": "କଳ୍ପନା କରନ୍ତୁ କେବଳ ଆପଣ ହିଁ ଅଛନ୍ତି। ଆପଣ ସବୁକିଛି ସୃଷ୍ଟି କରିପାରିବେ, କିନ୍ତୁ ଭେଟିବାକୁ କେହି ନାହିଁ। ତେଣୁ ଅନୁଭବର ଏହି ଖେଳ ସୃଷ୍ଟି କରି ଅଗଣିତ ଜୀବନ ଦେଇ ଏଥିରେ ପ୍ରବେଶ କଲେ।",
+      "waP2": "ଆମେ ସମସ୍ତେ ସେହି ଏକା ସୃଷ୍ଟିକର୍ତ୍ତା — ଗୋଟିଏ ଖେଳରେ ବିଭିନ୍ନ ଭୂମିକା। ଯିଏ ଆପଣଙ୍କୁ ଦୁଃଖ ଦିଏ ଏବଂ ଯାହାକୁ ଆପଣ ଭଲ ପାଆନ୍ତି, ଉତ୍ସ ସମାନ। ଏହି ଚେତନା ଜୀବନର ପ୍ରତିଟି ପରିସ୍ଥିତିକୁ ଶାନ୍ତିରେ ସ୍ୱୀକାର କରିବା ଶିଖାଏ।",
+      "waFoot": "ଅଧିକ ପଢ଼ନ୍ତୁ:"
+    },
+    "as": {
+      "badge": "এক মিনিটৰ সাৰাংশ · উদয় কুমাৰ",
+      "text": "কল্পনা কৰক যে কেৱল আপুনিয়েই অস্তিত্বত আছে। আপুনি যিকোনো বস্তু সৃষ্টি কৰিব পাৰে, কিন্তু লগ পাবলৈ কোনো নাই। সেয়েহে আপুনি অভিজ্ঞতাৰ এই জগতখন সৃষ্টি কৰি কোটি কোটি জীৱনৰ মাধ্যমেৰে ইয়াত প্ৰৱেশ কৰিলে। এইটোৱেই উদয় কুমাৰৰ মূল শিক্ষা: <strong>আমি সকলোৱে একেজন সৃষ্টিকৰ্তা</strong>, একেটা খেলতে ভিন্ন চৰিত্ৰ ৰূপায়ণ কৰি আছোঁ। যিয়ে আপোনাক কষ্ট দিয়ে? একেটা উৎস। যাক আপুনি ভাল পায়? একেটা উৎস। এই স্মৃতিয়ে প্ৰতিটো পৰিস্থিতিৰ সন্মুখীন হোৱাৰ দৃষ্টিভংগী সলনি কৰি পেলায়।",
+      "btn": "এই ৬০ ছেকেণ্ডৰ কাহিনীটো হোৱাটছএপত শ্বেয়াৰ কৰক",
+      "waTitle": "*মাইণ্ড ক্লেৰিটিৰ ৬০ ছেকেণ্ডৰ সাৰাংশ (উদয় কুমাৰ)*",
+      "waP1": "কল্পনা কৰক কেৱল আপুনিয়েই অস্তিত্বত আছে। আপুনি সকলো সৃষ্টি কৰিব পাৰে, কিন্তু লগ পাবলৈ কোনো নাই। সেয়ে অভিজ্ঞতাৰ এই খেলখন সৃষ্টি কৰি কোটি কোটি জীৱনৰ মাজেৰে প্ৰৱেশ কৰিলে।",
+      "waP2": "আমি সকলো একেজন সৃষ্টিকৰ্তা — একেটা খেলৰ ভিন্ন চৰিত্ৰ। যিয়ে আপোনাক কষ্ট দিয়ে বা যাক আপুনি ভাল পায়, উৎস একেটাই। এই অনুভৱে জীৱনৰ প্ৰতিটো দৃশ্য শান্তভাৱে গ্ৰহণ কৰাত সহায় কৰে।",
+      "waFoot": "অধিক পঢ়ক:"
+    },
+    "ur": {
+      "badge": "ایک منٹ کا نچوڑ · ادے کمار",
+      "text": "تصور کریں کہ کائنات میں صرف آپ ہی کا وجود ہے۔ آپ کچھ بھی تخلیق کر سکتے ہیں، مگر ملنے کے لیے کوئی دوسرا نہیں۔ چنانچہ آپ نے تجربات کی یہ دنیا بنائی اور اربوں زندگیوں کے ذریعے اس میں داخل ہوئے۔ یہی ادے کمار کی بنیادی تعلیم ہے: <strong>ہم سب وہی ایک خالق ہیں</strong>، جو ایک ہی کھیل میں مختلف کردار نبھا رہے ہیں۔ وہ شخص جو آپ کو ستاتا ہے؟ وہی ماخذ۔ جسے آپ چاہتے ہیں؟ وہی ماخذ۔ یہ یاد آتے ہی ہر منظر کو دیکھنے کا انداز بدل جاتا ہے۔",
+      "btn": "یہ 60 سیکنڈ کی کہانی واٹس ایپ پر شیئر کریں",
+      "waTitle": "*مائنڈ کلیرٹی کا 60 سیکنڈ کا نچوڑ (ادے کمار)*",
+      "waP1": "تصور کریں کہ صرف آپ ہی موجود ہیں۔ آپ سب کچھ بنا سکتے ہیں، لیکن ملنے کے لیے کوئی دوسرا نہیں۔ اس لیے آپ نے تجربات کا کھیل بنایا اور اربوں زندگیوں کے روپ میں داخل ہوئے۔",
+      "waP2": "ہم سب وہی ایک خالق ہیں — ایک ہی کھیل میں الگ الگ کردار۔ جو آپ کو دکھ دیتا ہے یا جس سے آپ محبت کرتے ہیں، دونوں کا ماخذ ایک ہی ہے۔ یہ احساس زندگی کے ہر منظر کو بدل دیتا ہے۔",
+      "waFoot": "مزید پڑھیں:"
+    },
+    "es": {
+      "badge": "La Esencia en Un Minuto · Uday Kumar",
+      "text": "Imagina que eres el único ser en la existencia. Puedes crear cualquier cosa, pero no hay nadie a quien conocer. Así que creas un mundo entero de experiencias y entras en él a través de miles de millones de vidas. Esa es la enseñanza de Uday Kumar: <strong>todos somos el mismo Creador</strong>, jugando diferentes papeles en el mismo juego. ¿La persona que te frustra? La misma fuente. ¿La persona que amas? La misma fuente. Recordar esto transforma la manera en que vives cada escena.",
+      "btn": "Compartir historia de 60 segundos por WhatsApp",
+      "waTitle": "*La Esencia de Mind Clarity en 60 Segundos (Uday Kumar)*",
+      "waP1": "Imagina que eres el único ser existente. Puedes crear cualquier cosa, pero no hay nadie con quien encontrarte. Por eso creas un mundo de experiencias y entras en él a través de miles de millones de vidas.",
+      "waP2": "Esa es la enseñanza de Uday Kumar: *Todos somos el mismo Creador*, desempeñando distintos roles en el mismo juego. ¿Quien te incomoda? La misma fuente. ¿A quien amas? La misma fuente. Recordarlo transforma cada escena de la vida.",
+      "waFoot": "Lee más en:"
+    },
+    "fr": {
+      "badge": "L'Essence en Une Minute · Uday Kumar",
+      "text": "Imaginez que vous soyez le seul être existant. Vous pouvez tout créer, mais il n'y a personne à rencontrer. Vous créez alors tout un monde d'expériences et vous y entrez à travers des milliards de vies. Telle est la vision d'Uday Kumar : <strong>nous sommes tous le même Créateur</strong>, jouant des rôles différents dans un même jeu. La personne qui vous contrarie ? Même source. Celle que vous aimez ? Même source. Se rappeler cela transforme notre regard sur chaque scène.",
+      "btn": "Partager l'histoire de 60 secondes sur WhatsApp",
+      "waTitle": "*L'Essence de Mind Clarity en 60 Secondes (Uday Kumar)*",
+      "waP1": "Imaginez que vous soyez le seul être au monde. Vous pouvez tout créer, mais il n'y a personne à rencontrer. Vous créez donc un monde d'expériences et y entrez à travers des milliards de vies.",
+      "waP2": "C'est l'enseignement d'Uday Kumar : *Nous sommes tous le même Créateur*, jouant différents rôles dans le même jeu. La personne qui vous blesse ? Même source. Celle que vous aimez ? Même source. S'en souvenir transforme chaque instant.",
+      "waFoot": "En savoir plus :"
+    },
+    "pt": {
+      "badge": "A Essência em Um Minuto · Uday Kumar",
+      "text": "Imagine que você é o único ser em existência. Você pode criar qualquer coisa, mas não há ninguém para encontrar. Então você cria um mundo inteiro de experiências e entra nele através de bilhões de vidas. Esse é o ensinamento de Uday Kumar: <strong>todos somos o mesmo Criador</strong>, desempenhando papéis diferentes no mesmo jogo. A pessoa que o frustra? A mesma fonte. A pessoa que você ama? A mesma fonte. Lembrar-se disso muda a forma como você encara cada cena.",
+      "btn": "Compartilhar história de 60 segundos no WhatsApp",
+      "waTitle": "*A Essência de Clareza Mental em 60 Segundos (Uday Kumar)*",
+      "waP1": "Imagine que você é o único ser em existência. Pode criar tudo, mas não há ninguém para encontrar. Então cria um mundo de experiências e entra nele por bilhões de vidas.",
+      "waP2": "Esse é o ensinamento de Uday Kumar: *Todos somos o mesmo Criador*, vivendo papéis diferentes no mesmo jogo. Quem o irrita ou quem você ama vem da mesma fonte. Lembrar disso traz paz a cada cena.",
+      "waFoot": "Leia mais em:"
+    },
+    "id": {
+      "badge": "Intisari Satu Menit · Uday Kumar",
+      "text": "Bayangkan Anda adalah satu-satunya keberadaan. Anda dapat menciptakan apa pun, tetapi tidak ada siapa pun untuk dijumpai. Maka Anda menciptakan seluruh dunia pengalaman dan memasukinya melalui miliaran kehidupan. Itulah ajaran Uday Kumar: <strong>kita semua adalah Sang Pencipta yang sama</strong>, memainkan peran berbeda dalam permainan yang sama. Orang yang membuat Anda kesal? Sumber yang sama. Orang yang Anda cintai? Sumber yang sama. Mengingat hal ini mengubah cara Anda memandang setiap peristiwa.",
+      "btn": "Bagikan Kisah 60 Detik di WhatsApp",
+      "waTitle": "*Intisari Mind Clarity dalam 60 Detik (Uday Kumar)*",
+      "waP1": "Bayangkan Anda adalah satu-satunya wujud yang ada. Anda bisa menciptakan segalanya, tetapi tak ada orang lain untuk ditemui. Maka Anda menciptakan permainan pengalaman dan memasukinya lewat miliaran peran.",
+      "waP2": "Inilah ajaran Uday Kumar: *Kita semua adalah Sang Pencipta yang sama*, memainkan peran berbeda. Orang yang menyakiti Anda maupun yang Anda cintai berasal dari sumber yang sama. Kesadaran ini menenangkan setiap langkah.",
+      "waFoot": "Baca selengkapnya di:"
+    },
+    "ar": {
+      "badge": "خلاصة دقيقة واحدة · أوداي كومار",
+      "text": "تخيّل أنك الكيان الوحيد الموجود في الوجود. يمكنك خلق أي شيء، لكن لا يوجد أحد لتلتقي به. لذا أوجدت عالمًا كاملاً من التجارب ودخلت فيه عبر مليارات الأرواح. هذه هي حكمة أوداي كومار: <strong>كلنا نفس الخالق</strong>، نلعب أدوارًا مختلفة في اللعبة ذاتها. الشخص الذي يزعجك؟ نفس المصدر. والشخص الذي تحبه؟ نفس المصدر. تذكّر هذا يغيّر طريقة استقبالك لكل مشهد في الحياة.",
+      "btn": "مشاركة قصة الـ 60 ثانية عبر واتساب",
+      "waTitle": "*خلاصة وضوح العقل في 60 ثانية (أوداي كومار)*",
+      "waP1": "تخيّل أنك الكائن الوحيد في الوجود. تستطيع خلق كل شيء لكن لا أحد لتلقاه. لذلك خلقت لعبة التجارب ودخلت فيها عبر مليارات الأرواح.",
+      "waP2": "هذا هو تعليم أوداي كومار: *نحن جميعًا نفس الخالق*، نؤدي أدوارًا مختلفة في نفس اللعبة. من يزعجك ومن تحبه كلاهما من نفس المصدر. تذكّر هذا يمنحك سلامًا عميقًا في كل مشهد.",
+      "waFoot": "اقرأ المزيد على:"
+    },
+    "de": {
+      "badge": "Die Ein-Minuten-Essenz · Uday Kumar",
+      "text": "Stellen Sie sich vor, Sie wären das einzige Wesen im Dasein. Sie können alles erschaffen, aber es gibt niemanden zu treffen. Also erschaffen Sie eine ganze Welt der Erfahrungen und treten durch Milliarden von Leben in sie ein. Das ist die Lehre von Uday Kumar: <strong>Wir alle sind derselbe Schöpfer</strong>, der verschiedene Rollen im selben Spiel spielt. Der Mensch, der Sie ärgert? Dieselbe Quelle. Der Mensch, den Sie lieben? Dieselbe Quelle. Sich daran zu erinnern, verändert die Begegnung mit jeder Szene.",
+      "btn": "60-Sekunden-Geschichte auf WhatsApp teilen",
+      "waTitle": "*Die 60-Sekunden-Essenz von Mind Clarity (Uday Kumar)*",
+      "waP1": "Stellen Sie sich vor, Sie sind das einzige Wesen im Universum. Sie können alles erschaffen, aber niemanden treffen. Also erschaffen Sie ein Spiel der Erfahrungen und treten durch Milliarden Leben hinein.",
+      "waP2": "Das ist die Lehre von Uday Kumar: *Wir alle sind derselbe Schöpfer*, der verschiedene Rollen im selben Spiel spielt. Wer Sie kränkt oder wen Sie lieben — dieselbe Quelle. Dieses Erinnern schenkt jeder Szene tiefen Frieden.",
+      "waFoot": "Mehr lesen unter:"
+    },
+    "it": {
+      "badge": "L'Essenza in Un Minuto · Uday Kumar",
+      "text": "Immagina di essere l'unico essere esistente. Puoi creare qualsiasi cosa, ma non c'è nessuno da incontrare. Così crei un intero mondo di esperienze ed entri in esso attraverso miliardi di vite. Questo è l'insegnamento di Uday Kumar: <strong>siamo tutti lo stesso Creatore</strong>, che interpreta ruoli diversi nello stesso gioco. La persona che ti irrita? La stessa fonte. La persona che ami? La stessa fonte. Ricordare questo trasforma il modo in cui affronti ogni scena.",
+      "btn": "Condividi la storia di 60 secondi su WhatsApp",
+      "waTitle": "*L'Essenza di Mind Clarity in 60 Secondi (Uday Kumar)*",
+      "waP1": "Immagina di essere l'unico essere esistente. Puoi creare tutto, ma non c'è nessuno da incontrare. Crei così un gioco di esperienze ed entri attraverso miliardi di vite.",
+      "waP2": "Questo è l'insegnamento di Uday Kumar: *Siamo tutti lo stesso Creatore*, con ruoli diversi nello stesso gioco. Chi ti ferisce o chi ami proviene dalla stessa fonte. Ricordarlo cambia ogni scena della vita.",
+      "waFoot": "Leggi di più su:"
+    },
+    "ru": {
+      "badge": "Суть за одну минуту · Удай Кумар",
+      "text": "Представьте, что вы — единственное сущее существо. Вы можете создать всё что угодно, но встретить некого. И тогда вы создаёте целый мир переживаний и входите в него через миллиарды жизней. В этом учение Удая Кумара: <strong>все мы — один и тот же Творец</strong>, играющий разные роли в одной игре. Человек, который вас раздражает? Тот же источник. Человек, которого вы любите? Тот же источник. Память об этом меняет отношение к каждой сцене жизни.",
+      "btn": "Поделиться 60-секундной историей в WhatsApp",
+      "waTitle": "*Суть «Ясности Ума» за 60 секунд (Удай Кумар)*",
+      "waP1": "Представьте, что вы — единственное бытие. Вы можете сотворить всё, но встретить некого. Поэтому вы создаёте игру опыта и входите в неё через миллиарды жизней.",
+      "waP2": "Учение Удая Кумара гласит: *Все мы — один Творец*, играющий разные роли в одной игре. Тот, кто вас задевает, и тот, кого вы любите — один и тот же источник. Это понимание преображает каждую сцену.",
+      "waFoot": "Читать далее:"
+    },
+    "ja": {
+      "badge": "1分間の本質 · ウダイ・クマール",
+      "text": "自分がこの宇宙で唯一の存在であると想像してみてください。何でも創造できますが、出会う相手は誰もいません。そこで体験の世界を創り出し、無数の生命を通して自らその中に入りました。これがウダイ・クマールの教えです：<strong>私たちは皆、同じ創造主であり</strong>、同じゲームの中で異なる役割を演じています。あなたを苛立たせる人も、愛する人も、同じ源です。これを思い出すことが、すべての場面との向き合い方を変えます。",
+      "btn": "60秒ストーリーをWhatsAppでシェア",
+      "waTitle": "*マインド・クラリティの60秒エッセンス（ウダイ・クマール）*",
+      "waP1": "存在しているのは自分だけだと想像してみてください。何でも創り出せますが、出会う相手はいません。そこで経験のゲームを創り、数え切れない命を通して自らそこへ入りました。",
+      "waP2": "これがウダイ・クマールの教えです：*私たちは皆、同じ創造主*であり、同じゲームの異なる役を演じています。嫌な相手も、愛する人も同じ源。これを思い出すと、すべての出会いが変わります。",
+      "waFoot": "詳細はこちら："
+    },
+    "ko": {
+      "badge": "1분의 본질 · 우다이 쿠마르",
+      "text": "온 우주에 오직 당신만 존재한다고 상상해 보세요. 무엇이든 창조할 수 있지만, 만날 사람은 아무도 없습니다. 그래서 수많은 경험의 세상을 만들고, 수십억 개의 삶을 통해 그 속으로 들어왔습니다. 이것이 바로 우다이 쿠마르의 가르침입니다: <strong>우리는 모두 같은 창조자이며</strong>, 같은 게임 안에서 서로 다른 역할을 하고 있을 뿐입니다. 당신을 힘들게 하는 사람도, 사랑하는 사람도 모두 같은 근원입니다. 이를 기억할 때 삶의 모든 장면을 마주하는 태도가 달라집니다.",
+      "btn": "60초 이야기 WhatsApp으로 공유하기",
+      "waTitle": "*마인드 클래러티 60초 핵심 요약 (우다이 쿠마르)*",
+      "waP1": "오직 당신만이 존재한다고 상상해 보세요. 무엇이든 창조할 수 있지만 만날 존재가 없습니다. 그래서 경험의 게임을 만들고 무수한 삶을 통해 들어왔습니다.",
+      "waP2": "우다이 쿠마르의 핵심 가르침: *우리는 모두 같은 창조자*이며, 하나의 게임에서 각기 다른 역할을 맡고 있습니다. 괴로움을 주는 이도, 사랑하는 이도 같은 근원입니다. 이를 기억하면 모든 순간이 새로워집니다.",
+      "waFoot": "더 읽어보기:"
+    },
+    "zh-Hans": {
+      "badge": "一分钟精髓 · 乌代·库马尔",
+      "text": "想象一下，整片存在中只有你一人。你可以创造一切，却没有相遇的同伴。于是你创造了整个体验世界，并通过数十亿个生命进入其中。这就是乌代·库马尔的核心教导：<strong>我们所有人都是同一位造物主</strong>，在同一场游戏中扮演着不同的角色。那个让你烦恼的人？来自同一源头。你深爱的人？也来自同一源头。忆起这一点，便会彻底改变你面对生活中每一个场景的心境。",
+      "btn": "在 WhatsApp 上分享 60 秒故事",
+      "waTitle": "*心智澄明 60 秒精髓（乌代·库马尔）*",
+      "waP1": "想象一下，整个存在中只有你一人。你能创造万物，却无相逢之人。于是你创造了体验的游戏，通过数十亿生命投入其中。",
+      "waP2": "这就是乌代·库马尔的教导：*我们都是同一位造物主*，在同一个游戏中扮演不同角色。让你痛苦的人和让你深爱的人，皆源自同处。忆起这一真相，生命里的每一幕都将变得安详。",
+      "waFoot": "阅读更多："
+    },
+    "zh-Hant": {
+      "badge": "一分鐘精髓 · 烏代·庫馬爾",
+      "text": "想像一下，整個存在之中只有你一人。你可以創造一切，卻沒有相遇的同伴。於是你創造了整個體驗的世界，並透過數十億個生命進入其中。這就是烏代·庫馬爾的核心教導：<strong>我們所有人都是同一位造物主</strong>，在同一場遊戲中扮演著不同的角色。那個讓你煩惱的人？來自同一源頭。你深愛的人？也來自同一源頭。憶起這一點，便會徹底改變你面對生活中每一個場景的心境。",
+      "btn": "在 WhatsApp 上分享 60 秒故事",
+      "waTitle": "*心智澄明 60 秒精髓（烏代·庫馬爾）*",
+      "waP1": "想像一下，整片存在中只有你一人。你能創造萬物，卻沒有可以遇見的他者。於是你創造了體驗的遊戲，透過數十億生命投入其中。",
+      "waP2": "這就是烏代·庫馬爾的教導：*我們都是同一位造物主*，在同一個遊戲裡演繹不同角色。讓你心煩的人與你深愛的人，皆源自同處。憶起這一真相，生命中的每一幕都將歸於安詳。",
+      "waFoot": "閱讀更多："
+    },
+    "tr": {
+      "badge": "Bir Dakikalık Öz · Uday Kumar",
+      "text": "Varlıkta yalnızca sizin olduğunuzu hayal edin. Her şeyi yaratabilirsiniz ama tanışacak hiç kimse yoktur. Bu yüzden deneyimler dünyasını yaratır ve milyarlarca yaşam aracılığıyla onun içine girersiniz. Uday Kumar'ın öğretisi tam olarak budur: <strong>Hepimiz aynı Yaratıcıyız</strong>, aynı oyunda farklı roller oynuyoruz. Sizi üzen kişi mi? Aynı kaynak. Sevdiğiniz kişi mi? Aynı kaynak. Bunu hatırlamak, her sahneyi karşılama biçiminizi dönüştürür.",
+      "btn": "60 Saniyelik Hikayeyi WhatsApp'ta Paylaş",
+      "waTitle": "*Zihin Berraklığı'nın 60 Saniyelik Özü (Uday Kumar)*",
+      "waP1": "Yalnızca sizin var olduğunuzu hayal edin. Her şeyi yaratabilirsiniz ama karşılaşacak kimse yok. Bu yüzden bu deneyimler oyununu yarattınız ve milyarlarca rolle içine girdiniz.",
+      "waP2": "Uday Kumar'ın öğretisi: *Hepimiz aynı Yaratıcıyız*, aynı oyunda farklı rolleri oynuyoruz. Sizi rahatsız eden de sevdiğiniz de aynı kaynaktandır. Bunu hatırlamak her sahneye derin bir huzur getirir.",
+      "waFoot": "Daha fazlasını okuyun:"
+    },
+    "vi": {
+      "badge": "Tinh Túy Trong Một Phút · Uday Kumar",
+      "text": "Hãy tưởng tượng bạn là thực thể duy nhất tồn tại. Bạn có thể tạo ra bất cứ điều gì, nhưng không có ai để gặp gỡ. Vì vậy, bạn tạo ra toàn bộ thế giới của những trải nghiệm và bước vào đó thông qua hàng tỷ kiếp sống. Đó chính là lời dạy của Uday Kumar: <strong>chúng ta đều là cùng một Đấng Tạo Hóa</strong>, đang đóng các vai khác nhau trong cùng một trò chơi. Người làm bạn thất vọng? Cùng một nguồn cội. Người bạn yêu thương? Cùng một nguồn cội. Nhớ lại điều này sẽ làm thay đổi cách bạn đón nhận mọi khoảnh khắc.",
+      "btn": "Chia sẻ câu chuyện 60 giây qua WhatsApp",
+      "waTitle": "*Tinh Túy 60 Giây Về Sự Sáng Suốt Tâm Trí (Uday Kumar)*",
+      "waP1": "Hãy tưởng tượng bạn là thực thể duy nhất. Bạn có thể tạo ra muôn loài nhưng không có ai để tương phùng. Vì thế bạn tạo ra trò chơi trải nghiệm và bước vào qua hàng tỷ sinh mệnh.",
+      "waP2": "Lời dạy của Uday Kumar: *Tất cả chúng ta đều là cùng một Đấng Tạo Hóa*, đóng những vai khác nhau trong cùng một vở kịch. Người khiến bạn tổn thương hay người bạn yêu quý đều chung một cội nguồn. Nhận biết điều này mang lại an yên cho mọi khoảnh khắc.",
+      "waFoot": "Đọc tiếp tại:"
+    },
+    "pl": {
+      "badge": "Istota w jedną minutę · Uday Kumar",
+      "text": "Wyobraź sobie, że jesteś jedynym bytem w całym istnieniu. Możesz stworzyć wszystko, ale nie ma kogo spotkać. Tworzysz więc cały świat doświadczeń i wchodzisz do niego poprzez miliardy istnień. Na tym polega nauka Udaya Kumara: <strong>wszyscy jesteśmy tym samym Stwórcą</strong>, odgrywającym różne role w tej samej grze. Człowiek, który cię frustruje? To samo źródło. Człowiek, którego kochasz? To samo źródło. Pamiętanie o tym zmienia sposób, w jaki przyjmujesz każdą scenę.",
+      "btn": "Udostępnij tę 60-sekundową historię na WhatsApp",
+      "waTitle": "*Istota Jasności Umysłu w 60 sekund (Uday Kumar)*",
+      "waP1": "Wyobraź sobie, że jesteś jedynym bytem. Możesz stworzyć cokolwiek, lecz nie ma nikogo do spotkania. Stwarzasz więc grę doświadczeń i wchodzisz w nią przez miliardy ról.",
+      "waP2": "Oto nauka Udaya Kumara: *Wszyscy jesteśmy tym samym Stwórcą*, grającym różne role w tej samej grze. Ten, kto cię rani, i ten, kogo kochasz, pochodzą z tego samego źródła. Świadomość tego wnosi spokój w każdą scenę życia.",
+      "waFoot": "Czytaj więcej na:"
+    },
+    "nl": {
+      "badge": "De Eén-Minuut Kern · Uday Kumar",
+      "text": "Stel je voor dat je het enige wezen in het bestaan bent. Je kunt alles creëren, maar er is niemand om te ontmoeten. Dus creëer je een hele wereld van ervaringen en treed je daarin via miljarden levens. Dat is het inzicht van Uday Kumar: <strong>we zijn allemaal dezelfde Schepper</strong>, die verschillende rollen speelt in hetzelfde spel. De persoon die je frustreert? Dezelfde bron. De persoon van wie je houdt? Dezelfde bron. Dit herinneren verandert hoe je elke scène tegemoet treedt.",
+      "btn": "Deel 60-seconden verhaal op WhatsApp",
+      "waTitle": "*De 60-Seconden Essentie van Mind Clarity (Uday Kumar)*",
+      "waP1": "Stel je voor dat je het enige wezen bent. Je kunt alles scheppen, maar niemand ontmoeten. Dus schep je een spel van ervaringen en stap je erin via miljarden levens.",
+      "waP2": "Dat is Uday Kumars leer: *We zijn allemaal dezelfde Schepper*, spelend in verschillende rollen binnen hetzelfde spel. Degene die je kwetst en degene die je liefhebt delen dezelfde bron. Dit herinneren geeft rust in elke situatie.",
+      "waFoot": "Lees meer op:"
+    },
+    "sv": {
+      "badge": "En-minuts essensen · Uday Kumar",
+      "text": "Föreställ dig att du är det enda väsendet i tillvaron. Du kan skapa vad som helst, men det finns ingen att möta. Så du skapar en hel värld av upplevelser och kliver in i den genom miljarder liv. Det är Uday Kumars undervisning: <strong>vi är alla samma Skapare</strong>, som spelar olika roller i samma spel. Personen som frustrerar dig? Samma källa. Personen du älskar? Samma källa. Att minnas detta förändrar hur du möter varje scen.",
+      "btn": "Dela 60-sekundersberättelse på WhatsApp",
+      "waTitle": "*Kärnan i Sinnets Klarhet på 60 sekunder (Uday Kumar)*",
+      "waP1": "Tänk dig att du är det enda väsendet i tillvaron. Du kan skapa allt, men det finns ingen att möta. Därför skapar du upplevelsernas spel och kliver in genom miljarder roller.",
+      "waP2": "Det är Uday Kumars budskap: *Vi är alla samma Skapare*, i olika roller inom samma spel. Den som gör dig arg eller den du älskar härstammar från samma källa. Att minnas detta förändrar varje möte.",
+      "waFoot": "Läs mer på:"
+    },
+    "da": {
+      "badge": "Ét-minuts essensen · Uday Kumar",
+      "text": "Forestil dig, at du er det eneste væsen i eksistensen. Du kan skabe hvad som helst, men der er ingen at møde. Så du skaber en hel verden af oplevelser og træder ind i den gennem milliarder af liv. Det er Uday Kumars lære: <strong>vi er alle den samme Skaber</strong>, som spiller forskellige roller i det samme spil. Den, der frustrerer dig? Samme kilde. Den, du elsker? Samme kilde. At huske dette ændrer, hvordan du møder enhver scene.",
+      "btn": "Del 60-sekunders historie på WhatsApp",
+      "waTitle": "*Sindets Klarhed på 60 sekunder (Uday Kumar)*",
+      "waP1": "Forestil dig, at du er det eneste væsen i verden. Du kan skabe alt, men der er ingen at møde. Derfor skaber du oplevelsernes spil og træder ind gennem milliarder af liv.",
+      "waP2": "Det er Uday Kumars budskab: *Vi er alle den samme Skaber*, der udfylder forskellige roller i det samme spil. Både den, der sårer dig, og den, du elsker, udspringer af samme kilde. Denne bevidsthed bringer ro til hvert øjeblik.",
+      "waFoot": "Læs mere på:"
+    },
+    "nb": {
+      "badge": "Ett-minutts essensen · Uday Kumar",
+      "text": "Forestill deg at du er det eneste vesenet i eksistensen. Du kan skape hva som helst, men det er ingen å møte. Så du skaper en hel verden av opplevelser og trer inn i den gjennom milliarder av liv. Dette er Uday Kumars lære: <strong>vi er alle den samme Skaperen</strong>, som spiller ulike roller i det samme spillet. Personen som frustrerer deg? Samme kilde. Personen du elsker? Samme kilde. Å huske dette forandrer hvordan du møter enhver scene.",
+      "btn": "Del 60-sekunders historie på WhatsApp",
+      "waTitle": "*Kjernen i Sinnsro på 60 sekunder (Uday Kumar)*",
+      "waP1": "Forestill deg at du er det eneste vesenet i tilværelsen. Du kan skape alt, men det finnes ingen å møte. Så du skaper opplevelsenes spill og trer inn gjennom milliarder av liv.",
+      "waP2": "Dette er Uday Kumars lære: *Vi er alle den samme Skaperen*, som spiller ulike roller i det samme spillet. Den som sårer deg og den du elsker, har samme opphav. Dette minnet gir fred i hvert øyeblikk.",
+      "waFoot": "Les mer på:"
+    },
+    "ro": {
+      "badge": "Esența într-un minut · Uday Kumar",
+      "text": "Imaginați-vă că sunteți singura ființă din existență. Puteți crea orice, dar nu există nimeni pe care să-l întâlniți. Așa că creați o întreagă lume de experiențe și intrați în ea prin miliarde de vieți. Aceasta este învățătura lui Uday Kumar: <strong>toți suntem același Creator</strong>, jucând roluri diferite în același joc. Persoana care vă frustrează? Aceeași sursă. Persoana pe care o iubiți? Aceeași sursă. Amintirea acestui lucru schimbă felul în care întâmpinați fiecare scenă.",
+      "btn": "Distribuie povestea de 60 de secunde pe WhatsApp",
+      "waTitle": "*Esența Clarității Mentale în 60 de Secunde (Uday Kumar)*",
+      "waP1": "Imaginați-vă că sunteți singura ființă din existență. Puteți crea orice, dar nu aveți pe cine întâlni. Așa că ați creat jocul experiențelor și ați intrat prin miliarde de vieți.",
+      "waP2": "Aceasta este învățătura lui Uday Kumar: *Toți suntem același Creator*, jucând roluri diferite în același joc. Cel care vă rănește și cel pe care îl iubiți provin din aceeași sursă. Această amintire aduce pace fiecărei clipe.",
+      "waFoot": "Citește mai mult la:"
+    },
+    "cs": {
+      "badge": "Podstata v jedné minutě · Uday Kumar",
+      "text": "Představte si, že jste jedinou bytostí v existenci. Můžete stvořit cokoli, ale není tu nikdo, s kým byste se setkali. A tak vytvoříte celý svět prožitků a vstoupíte do něj skrze miliardy životů. To je učení Udaye Kumara: <strong>všichni jsme týž Stvořitel</strong>, hrající různé role ve stejné hře. Člověk, který vás rozčiluje? Stejný zdroj. Člověk, kterého milujete? Stejný zdroj. Vědomí této pravdy mění způsob, jakým prožíváte každou scénu.",
+      "btn": "Sdílet 60sekundový příběh na WhatsApp",
+      "waTitle": "*Podstata Jasnosti Mysli v 60 sekundách (Uday Kumar)*",
+      "waP1": "Představte si, že jste jedinou bytostí v existenci. Můžete stvořit cokoli, ale není s kým se setkat. Proto jste vytvořili hru prožitků a vstoupili do ní skrze miliardy životů.",
+      "waP2": "To je učení Udaye Kumara: *Všichni jsme týž Stvořitel*, hrající různé role ve stejné hře. Ten, kdo vás zraňuje, i ten, koho milujete, pocházejí ze stejného zdroje. Toto uvědomění proměňuje každou scénu.",
+      "waFoot": "Více na:"
+    }
+  };
+
   function initCardStudio() {
     const cardEls = document.querySelectorAll('[data-card-studio="true"]');
     if (!cardEls || cardEls.length === 0) return;
@@ -73,15 +382,10 @@
     let isStory = false;
     let currentPalette = 'parchment'; // 'parchment' | 'emerald' | 'sunrise' | 'night'
 
-    const oneMinuteBadge = lang === 'te' ? 'ఒక నిమిషం సారాంశం · ఉదయ్ కుమార్'
-      : (lang === 'hi' ? 'एक मिनट का सार · उदय कुमार' : 'The One-Minute Essence · Uday Kumar');
-    const oneMinuteText = lang === 'te'
-      ? 'మీరు మాత్రమే ఉన్నారని ఊహించండి. మీరు దేన్నైనా సృష్టించగలరు, కానీ అనుభవించడానికి ఎవరూ లేరు. అందుకే మీరు ఈ అనుభవాల ప్రపంచాన్ని సృష్టించి, బిలియన్ల పాత్రల ద్వారా ఇందులోకి ప్రవేశించారు. ఇదే ఉదయ్ కుమార్ గారి బోధన: <strong>మనమందరం ఒకే సృష్టికర్తలం</strong>, ఒకే ఆటలో వేర్వేరు పాత్రలు పోషిస్తున్నాము. మిమ్మల్ని బాధపెట్టే వ్యక్తి? అదే మూలం. మీరు ప్రేమించే వ్యక్తి? అదే మూలం. ఈ స్పృహ మీ జీవితంలోని ప్రతి సన్నివేశాన్ని చూసే విధానాన్ని మారుస్తుంది.'
-      : (lang === 'hi'
-        ? 'कल्पना कीजिए कि केवल आप ही अस्तित्व में हैं। आप कुछ भी बना सकते हैं, पर मिलने के लिए कोई दूसरा नहीं है। इसलिए आपने अनुभवों की यह दुनिया बनाई और अनगिनत जिंदगियों के ज़रिए इसमें प्रवेश किया। यही उदय कुमार जी की मूल सीख है: <strong>हम सब वही एक सृष्टिकर्ता हैं</strong>, जो एक ही खेल में अलग-अलग रोल निभा रहे हैं। जो आपको परेशान करता है? वही स्रोत। जिसे आप प्यार करते हैं? वही स्रोत। यह याद आते ही हर दृश्य को देखने का नज़रिया बदल जाता है।'
-        : 'Imagine you are the only being in existence. You can create anything, but there is nobody to meet. So you create an entire world of experiences and enter it through billions of lives. That is Uday Kumar\'s teaching: <strong>we are all the same Creator</strong>, playing different roles in the same game. The person who frustrates you? Same source. The person you love? Same source. Remembering this changes how you meet every scene.');
-    const oneMinuteShareLabel = lang === 'te' ? 'ఈ 60-సెకన్ల కథను వాట్సాప్‌లో పంపండి'
-      : (lang === 'hi' ? 'यह 60-सेकंड की कहानी व्हाट्सएप पर शेयर करें' : 'Share 60-Second Story on WhatsApp');
+    const activeOneMin = oneMinuteByLang[lang] || oneMinuteByLang.en;
+    const oneMinuteBadge = activeOneMin.badge;
+    const oneMinuteText = activeOneMin.text;
+    const oneMinuteShareLabel = activeOneMin.btn;
 
     cardEl.innerHTML = `
       <div class="one-minute-summary">
@@ -317,11 +621,8 @@
     if (oneMinBtn) {
       oneMinBtn.onclick = () => {
         const shareUrl = (typeof location !== 'undefined' && location.href) ? location.href.split('#')[0] : 'https://mindclarity.co.in/';
-        const storyText = lang === 'te'
-          ? `*ఒక నిమిషంలో మైండ్ క్లారిటీ దర్శనం (ఉదయ్ కుమార్)*\n\nమీరు మాత్రమే ఉన్నారని ఊహించండి. మీరు దేన్నైనా సృష్టించగలరు, కానీ కలవడానికి ఎవరూ లేరు. అందుకే ఈ అనుభవాల ఆటను సృష్టించి, బిలియన్ల పాత్రల ద్వారా ఇందులోకి ప్రవేశించారు.\n\nమనమందరం ఒకే సృష్టికర్తలం — ఒకే ఆటలో వేర్వేరు పాత్రలం. మిమ్మల్ని ఇబ్బంది పెట్టే వ్యక్తి అయినా, ప్రేమించే వ్యక్తి అయినా అదే మూలం. ఇది గుర్తున్నప్పుడు ప్రతి సన్నివేశాన్ని ప్రశాంతంగా, సహజమైన దయతో ఎదుర్కొంటాము.\n\nపూర్తిగా చదవండి: ${shareUrl}`
-          : (lang === 'hi'
-            ? `*एक मिनट में माइंड क्लैरिटी दर्शन (उदय कुमार)*\n\nकल्पना कीजिए कि सिर्फ आप ही अस्तित्व में हैं। आप कुछ भी बना सकते हैं, पर मिलने के लिए कोई दूसरा नहीं है। इसलिए आपने अनुभवों का यह खेल बनाया और अनगिनत जिंदगियों के ज़रिए इसमें प्रवेश किया।\n\nहम सब वही एक सृष्टिकर्ता हैं — जो एक ही खेल में अलग-अलग रोल निभा रहे हैं। जो आपको परेशान करता है, वह भी उसी स्रोत से है। जिसे आप प्यार करते हैं, वह भी। यह याद आते ही जीवन के हर दृश्य को देखने का नज़रिया बदल जाता है।\n\nपूरी समझ यहाँ पढ़ें: ${shareUrl}`
-            : `*The 60-Second Essence of Mind Clarity (Uday Kumar)*\n\nImagine you are the only being in existence. You can create anything, but there is nobody to meet. So you create a world of experiences and enter it through billions of lives.\n\nThat is Uday Kumar's teaching: *We are all the same Creator*, playing different roles in the same game. The person who frustrates you? Same source. The person you love? Same source. Remembering this changes how you meet every scene.\n\nRead more at: ${shareUrl}`);
+        const active = oneMinuteByLang[lang] || oneMinuteByLang.en;
+        const storyText = `${active.waTitle}\n\n${active.waP1}\n\n${active.waP2}\n\n${active.waFoot} ${shareUrl}`;
         window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(storyText)}`, '_blank', 'noopener,noreferrer');
         statusMsg.textContent = 'Opened in WhatsApp!';
         setTimeout(() => { statusMsg.textContent = ''; }, 3500);
