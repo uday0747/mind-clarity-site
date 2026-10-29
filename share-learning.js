@@ -19,6 +19,7 @@ export default function ShareLearning({ pathname, title }) {
     e('div', { className: 'share-actions' },
       e('input', { id: 'share-url', type: 'url', readOnly: true, value: url, 'aria-describedby': 'share-help' }),
       e('button', { type: 'button', className: 'button secondary', 'data-copy-link': true, hidden: true }, copy.copy),
+      e('a', { className: 'button secondary whatsapp-share-link', href: `https://api.whatsapp.com/send?text=${encodeURIComponent(`${translatedTitle} | Mind Clarity\n${url}`)}`, target: '_blank', rel: 'noopener noreferrer', 'data-whatsapp-share': 'true' }, 'WhatsApp'),
       e('a', { href: `mailto:?subject=${encodeURIComponent(`${translatedTitle} | Mind Clarity`)}&body=${encodeURIComponent(`${copy.body}\n\n${url}`)}` }, copy.email)),
     e('p', { id: 'share-help', className: 'quiet-note' }, copy.help),
     e('p', { className: 'share-status', role: 'status', 'aria-live': 'polite' }));
