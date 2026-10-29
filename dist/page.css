@@ -66,7 +66,7 @@ main:focus{outline:none}
 .topic-index,.lesson-number{color:var(--gold);font-size:.875rem;letter-spacing:.08em}
 .philosophy-intro{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
 .first-practice>*,.topic-grid>*,.philosophy-intro>*,.concept-pair>*{min-width:0}
-.reflection{background:var(--soft);border-inline-start:3px solid var(--green);padding:22px 25px;margin:28px 0;font-size:1rem}
+.reflection{background:var(--soft);border-inline-start:4px solid var(--green);border-radius:0 8px 8px 0;padding:22px 26px;margin:32px 0;font-size:1.02rem;box-shadow:0 1px 4px rgba(0,0,0,.03)}
 .reflection p:last-child{margin-bottom:0}
 .reading-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:55px;align-items:start;margin-top:44px}
 .reading-grid>.reading-contents{position:sticky;top:calc(var(--header-height,88px) + 20px);border-top:1px solid var(--line);padding-top:22px;max-height:calc(100vh - var(--header-height,88px) - 42px);overflow-y:auto}
@@ -75,7 +75,7 @@ main:focus{outline:none}
 .reading-contents li{padding-inline-start:3px;margin-bottom:4px}
 .reading-contents a{display:block;padding:5px 0;min-height:32px;text-decoration:none}.reading-contents a:hover{text-decoration:underline}
 .reading-body{min-width:0;max-width:70ch}
-.lesson{padding:0 0 38px;margin:0 0 34px;border-bottom:1px solid var(--line)}
+.lesson{padding:0 0 42px;margin:0 0 42px;border-bottom:1px solid var(--line)}
 .lesson-number{display:block;margin-bottom:12px}
 .lesson h2{font-size:clamp(1.85rem,2.8vw,2.4rem)}
 .lesson ul,.lesson ol{padding-inline-start:24px}
@@ -462,7 +462,32 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
   padding: 2rem;
 }
 .scenario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 1.75rem;
+}
+.practice-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366 !important;
+  color: #073b30 !important;
+  border: none !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+}
+.practice-wa-btn:hover, .practice-wa-btn:focus-visible {
+  background: #20ba5a !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.35);
 }
 .scenario-eyebrow {
   font-size: 0.85rem;

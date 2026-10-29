@@ -4,9 +4,11 @@
 (function() {
   // Phase 2: Viral Clarity Card Studio
   function initCardStudio() {
-    const cardEl = document.querySelector('[data-card-studio="true"]');
-    if (!cardEl || cardEl.dataset.initialized) return;
-    cardEl.dataset.initialized = 'true';
+    const cardEls = document.querySelectorAll('[data-card-studio="true"]');
+    if (!cardEls || cardEls.length === 0) return;
+    cardEls.forEach(cardEl => {
+      if (cardEl.dataset.initialized) return;
+      cardEl.dataset.initialized = 'true';
 
     const lang = document.documentElement.lang || 'en';
     const curatedEn = [
@@ -336,6 +338,7 @@
     };
 
     renderCanvas();
+    });
   }
 
   // Phase 3: Interactive Practice Studio
@@ -345,10 +348,17 @@
     pracEl.dataset.initialized = 'true';
 
     // Extract real everyday scenes already localized in HTML
-    const cases = Array.from(document.querySelectorAll('#everyday-scenes details')).map(d => ({
+    let cases = Array.from(document.querySelectorAll('#everyday-scenes details')).map(d => ({
       title: d.querySelector('summary')?.textContent?.trim() || 'Everyday Scene',
       paragraphs: Array.from(d.querySelectorAll('p')).map(p => p.textContent?.trim()).filter(Boolean)
     })).filter(c => c.paragraphs.length >= 2);
+
+    if (cases.length === 0) {
+      cases = Array.from(document.querySelectorAll('.lesson details')).map(d => ({
+        title: d.querySelector('summary')?.textContent?.trim() || d.closest('.lesson')?.querySelector('h2')?.textContent?.trim() || 'Everyday Scene',
+        paragraphs: Array.from(d.querySelectorAll('p')).map(p => p.textContent?.trim()).filter(Boolean)
+      })).filter(c => c.paragraphs.length >= 2);
+    }
 
     if (cases.length === 0) return;
 
@@ -371,8 +381,14 @@
 
           <div class="scenario-display-card" role="tabpanel">
             <div class="scenario-header">
-              <span class="scenario-eyebrow">Interactive Contemplation</span>
-              <h3 class="scenario-title">${item.title}</h3>
+              <div>
+                <span class="scenario-eyebrow">Interactive Contemplation</span>
+                <h3 class="scenario-title">${item.title}</h3>
+              </div>
+              <button type="button" class="button secondary small-btn practice-wa-btn" id="practice-share-wa">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.02.79.81-2.94-.19-.3a8.21 8.21 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+                <span>Share on WhatsApp</span>
+              </button>
             </div>
 
             <div class="three-pillar-flow">
@@ -425,6 +441,18 @@
         clearBtn.onclick = () => {
           sessionStorage.removeItem(`mindclarity_note_${activeCase}`);
           if (noteInput) noteInput.value = '';
+        };
+      }
+
+      const waBtn = pracEl.querySelector('#practice-share-wa');
+      if (waBtn) {
+        waBtn.onclick = () => {
+          const title = item.title;
+          const p1 = item.paragraphs[0] || '';
+          const p2 = item.paragraphs[1] || '';
+          const currentUrl = window.location.origin + window.location.pathname + '#everyday-scenes';
+          const text = `*Mind Clarity · Everyday Contemplation*\n"${title}"\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\nExplore at: ${currentUrl}`;
+          window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         };
       }
     }
