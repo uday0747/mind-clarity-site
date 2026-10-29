@@ -73,7 +73,28 @@
     let isStory = false;
     let currentPalette = 'parchment'; // 'parchment' | 'emerald' | 'sunrise' | 'night'
 
+    const oneMinuteBadge = lang === 'te' ? 'ఒక నిమిషం సారాంశం · ఉదయ్ కుమార్'
+      : (lang === 'hi' ? 'एक मिनट का सार · उदय कुमार' : 'The One-Minute Essence · Uday Kumar');
+    const oneMinuteText = lang === 'te'
+      ? 'మీరు మాత్రమే ఉన్నారని ఊహించండి. మీరు దేన్నైనా సృష్టించగలరు, కానీ అనుభవించడానికి ఎవరూ లేరు. అందుకే మీరు ఈ అనుభవాల ప్రపంచాన్ని సృష్టించి, బిలియన్ల పాత్రల ద్వారా ఇందులోకి ప్రవేశించారు. ఇదే ఉదయ్ కుమార్ గారి బోధన: <strong>మనమందరం ఒకే సృష్టికర్తలం</strong>, ఒకే ఆటలో వేర్వేరు పాత్రలు పోషిస్తున్నాము. మిమ్మల్ని బాధపెట్టే వ్యక్తి? అదే మూలం. మీరు ప్రేమించే వ్యక్తి? అదే మూలం. ఈ స్పృహ మీ జీవితంలోని ప్రతి సన్నివేశాన్ని చూసే విధానాన్ని మారుస్తుంది.'
+      : (lang === 'hi'
+        ? 'कल्पना कीजिए कि केवल आप ही अस्तित्व में हैं। आप कुछ भी बना सकते हैं, पर मिलने के लिए कोई दूसरा नहीं है। इसलिए आपने अनुभवों की यह दुनिया बनाई और अनगिनत जिंदगियों के ज़रिए इसमें प्रवेश किया। यही उदय कुमार जी की मूल सीख है: <strong>हम सब वही एक सृष्टिकर्ता हैं</strong>, जो एक ही खेल में अलग-अलग रोल निभा रहे हैं। जो आपको परेशान करता है? वही स्रोत। जिसे आप प्यार करते हैं? वही स्रोत। यह याद आते ही हर दृश्य को देखने का नज़रिया बदल जाता है।'
+        : 'Imagine you are the only being in existence. You can create anything, but there is nobody to meet. So you create an entire world of experiences and enter it through billions of lives. That is Uday Kumar\'s teaching: <strong>we are all the same Creator</strong>, playing different roles in the same game. The person who frustrates you? Same source. The person you love? Same source. Remembering this changes how you meet every scene.');
+    const oneMinuteShareLabel = lang === 'te' ? 'ఈ 60-సెకన్ల కథను వాట్సాప్‌లో పంపండి'
+      : (lang === 'hi' ? 'यह 60-सेकंड की कहानी व्हाट्सएप पर शेयर करें' : 'Share 60-Second Story on WhatsApp');
+
     cardEl.innerHTML = `
+      <div class="one-minute-summary">
+        <div class="one-minute-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>${oneMinuteBadge}</span>
+        </div>
+        <p class="one-minute-text">${oneMinuteText}</p>
+        <button type="button" class="one-minute-wa-btn" id="cs-btn-onemin-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.02.79.81-2.94-.19-.3a8.21 8.21 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+          <span>${oneMinuteShareLabel}</span>
+        </button>
+      </div>
       <div class="studio-workspace">
         <div class="studio-controls" role="region" aria-label="Wisdom Card Studio">
           <div class="control-group">
@@ -291,6 +312,21 @@
         renderCanvas();
       };
     });
+
+    const oneMinBtn = cardEl.querySelector('#cs-btn-onemin-wa');
+    if (oneMinBtn) {
+      oneMinBtn.onclick = () => {
+        const shareUrl = (typeof location !== 'undefined' && location.href) ? location.href.split('#')[0] : 'https://mindclarity.co.in/';
+        const storyText = lang === 'te'
+          ? `*ఒక నిమిషంలో మైండ్ క్లారిటీ దర్శనం (ఉదయ్ కుమార్)*\n\nమీరు మాత్రమే ఉన్నారని ఊహించండి. మీరు దేన్నైనా సృష్టించగలరు, కానీ కలవడానికి ఎవరూ లేరు. అందుకే ఈ అనుభవాల ఆటను సృష్టించి, బిలియన్ల పాత్రల ద్వారా ఇందులోకి ప్రవేశించారు.\n\nమనమందరం ఒకే సృష్టికర్తలం — ఒకే ఆటలో వేర్వేరు పాత్రలం. మిమ్మల్ని ఇబ్బంది పెట్టే వ్యక్తి అయినా, ప్రేమించే వ్యక్తి అయినా అదే మూలం. ఇది గుర్తున్నప్పుడు ప్రతి సన్నివేశాన్ని ప్రశాంతంగా, సహజమైన దయతో ఎదుర్కొంటాము.\n\nపూర్తిగా చదవండి: ${shareUrl}`
+          : (lang === 'hi'
+            ? `*एक मिनट में माइंड क्लैरिटी दर्शन (उदय कुमार)*\n\nकल्पना कीजिए कि सिर्फ आप ही अस्तित्व में हैं। आप कुछ भी बना सकते हैं, पर मिलने के लिए कोई दूसरा नहीं है। इसलिए आपने अनुभवों का यह खेल बनाया और अनगिनत जिंदगियों के ज़रिए इसमें प्रवेश किया।\n\nहम सब वही एक सृष्टिकर्ता हैं — जो एक ही खेल में अलग-अलग रोल निभा रहे हैं। जो आपको परेशान करता है, वह भी उसी स्रोत से है। जिसे आप प्यार करते हैं, वह भी। यह याद आते ही जीवन के हर दृश्य को देखने का नज़रिया बदल जाता है।\n\nपूरी समझ यहाँ पढ़ें: ${shareUrl}`
+            : `*The 60-Second Essence of Mind Clarity (Uday Kumar)*\n\nImagine you are the only being in existence. You can create anything, but there is nobody to meet. So you create a world of experiences and enter it through billions of lives.\n\nThat is Uday Kumar's teaching: *We are all the same Creator*, playing different roles in the same game. The person who frustrates you? Same source. The person you love? Same source. Remembering this changes how you meet every scene.\n\nRead more at: ${shareUrl}`);
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(storyText)}`, '_blank', 'noopener,noreferrer');
+        statusMsg.textContent = 'Opened in WhatsApp!';
+        setTimeout(() => { statusMsg.textContent = ''; }, 3500);
+      };
+    }
 
     cardEl.querySelector('#cs-btn-dl').onclick = () => {
       try {
@@ -536,6 +572,113 @@
 
     const journeyDays = lang === 'te' ? journeyDaysTe : (lang === 'hi' ? journeyDaysHi : journeyDaysEn);
 
+    const coreMetaphorsEn = [
+      {
+        title: "Metaphor 1 · The Movie & The Lotus (Immersion with Freedom)",
+        paragraphs: [
+          "Grief, sharp criticism, or intoxicating praise hits you. The mind gets completely absorbed in the emotional drama.",
+          "When you leave a cinema hall, you know it was only a movie. And in the pond, the lotus rests upon the water without drowning. You are the stillness experiencing the movement.",
+          "Feel the scene completely with genuine presence. Then silently remember: 'I am the screen on which this movie plays; the water does not alter who I am.'"
+        ]
+      },
+      {
+        title: "Metaphor 2 · 'Your Freedom Stops at My Shoulder' (Boundaries Without Hatred)",
+        paragraphs: [
+          "Someone mistreats you, crosses a boundary, or acts unjustly. The mind either succumbs to passivity or burns with vengeful rage.",
+          "Recognizing the same Creator in everyone does not mean permitting abuse. Uday's teaching explicitly commands lawful protection and clear limits without inward hatred.",
+          "Speak firmly: set clear, proportionate boundaries. Defend yourself and others through appropriate lawful action, keeping your heart clean of malice."
+        ]
+      },
+      {
+        title: "Metaphor 3 · Gold, Diamonds & Creation (True Inward Worth)",
+        paragraphs: [
+          "Comparing possessions, worrying about social status, or feeling lesser because of wealth or material loss.",
+          "Gold, diamonds, and currency are small parts of our creation. They cannot enlarge or diminish the Creator. Things are meant to be used, not worshipped.",
+          "Take diligent practical care of your livelihood and obligations, but never measure human dignity or your own peace by worldly possessions."
+        ]
+      },
+      {
+        title: "Metaphor 4 · Oxygen & Natural Ease (Releasing the Next Scene)",
+        paragraphs: [
+          "Mind racing with anxiety about tomorrow, shallow chest breathing, obsessively trying to force certainty.",
+          "Anxiety is the role demanding control over the total design. When the demand to control the future ceases, breathing deepens naturally and inner clarity returns.",
+          "Take three slow, full breaths. Entrust the unfolding design to what is beyond your hands, and attend wholeheartedly to what is right here today."
+        ]
+      }
+    ];
+
+    const coreMetaphorsTe = [
+      {
+        title: "ఉపమానం 1 · సినిమా మరియు తామర పువ్వు (అలౌకిక స్వేచ్ఛ)",
+        paragraphs: [
+          "తీవ్రమైన విమర్శ, నష్టం లేదా గొప్ప ప్రశంస వచ్చినప్పుడు ఆ భావోద్వేగంలో మనస్సు పూర్తిగా కొట్టుకుపోతుంది.",
+          "థియేటర్ నుంచి బయటకు వచ్చాక అది సినిమా మాత్రమేనని తెలుస్తుంది. అలాగే కొలనులోని తామర పువ్వు నీటిలో ఉంటూ కూడా తడవదు. మీరు నిశ్చలమైన సాక్షి.",
+          "సన్నివేశాన్ని సహజంగా అనుభవించండి, కానీ 'నేను ఈ సినిమా నడిచే తెరకు సమానం, భావోద్వేగాలు నా శాశ్వత గుర్తింపు కాదు' అని గుర్తుచేసుకోండి."
+        ]
+      },
+      {
+        title: "ఉపమానం 2 · మీ స్వేచ్ఛ నా భుజం వరకు మాత్రమే (ద్వేషం లేని హద్దులు)",
+        paragraphs: [
+          "ఎవరైనా మీ హద్దులు దాటి ప్రవర్తించినప్పుడు లేదా అన్యాయం చేసినప్పుడు మనస్సు పగతో లేదా నిస్సహాయతతో రగిలిపోతుంది.",
+          "అందరిలోనూ సృష్టికర్తను చూడటం అంటే అన్యాయాన్ని మౌనంగా భరించడం కాదు. ఉదయ్ కుమార్ గారి స్పష్టమైన బోధన: ద్వేషం లేకుండా చట్టబద్ధమైన రక్షణ, దృఢమైన సరిహద్దులు ఉంచాలి.",
+          "శాంతియుతమైన కానీ తిరుగులేని దృఢత్వంతో హద్దులను నిర్దేశించండి. కక్ష సాధింపు లేకుండా, ఆత్మరక్షణ మరియు సత్యం కోసం సరైన చర్య తీసుకోండి."
+        ]
+      },
+      {
+        title: "ఉపమానం 3 · బంగారం, వజ్రాలు మరియు సంపద (నిజమైన అంతరంగిక విలువ)",
+        paragraphs: [
+          "ఆస్తులు, డబ్బు లేదా హోదాను ఇతరులతో పోల్చుకుంటూ లేదా నష్టం వచ్చినప్పుడు నిరాశకు గురవుతున్నారు.",
+          "బంగారం, వజ్రాలు, డబ్బు మన సృష్టిలోని చిన్న భాగాలు. అవి సృష్టికర్తను పెద్దగా గానీ, చిన్నగా గానీ చేయలేవు. వస్తువులు ఉపయోగించుకోవడానికి మాత్రమే.",
+          "మీ బాధ్యతలను, సంపాదనను నిబద్ధతతో నిర్వహించండి, కానీ మీ విలువను లేదా ఎదుటివారి గౌరవాన్ని వస్తువులతో ఎప్పుడూ కొలవకండి."
+        ]
+      },
+      {
+        title: "ఉపమానం 4 · ఆక్సిజన్ మరియు ప్రశాంత శ్వాస (ఫలితంపై పట్టుదల వీడటం)",
+        paragraphs: [
+          "రేపటి గురించి విపరీతమైన ఆందోళన, నిస్సారమైన శ్వాస, భవిష్యత్తును తన చేతుల్లోకి తీసుకోవాలనే తీవ్రమైన తాపత్రయం.",
+          "మొత్తం డిజైన్‌ను తానే నియంత్రించాలనే అహంకారమే ఆందోళనగా మారుతుంది. పట్టుదల వీడినప్పుడు సహజమైన ఆక్సిజన్, ప్రశాంతత వాటంతట అవే వస్తాయి.",
+          "మూడు ప్రశాంతమైన దీర్ఘ శ్వాసలు తీసుకోండి. ఫలితాన్ని డిజైన్‌కు వదిలేసి, ప్రస్తుత క్షణంలో మీ ముందున్న పనిపై పూర్తి శ్రద్ధ పెట్టండి."
+        ]
+      }
+    ];
+
+    const coreMetaphorsHi = [
+      {
+        title: "उपमा 1 · फिल्म और कमल का फूल (मुक्त भाव से जीना)",
+        paragraphs: [
+          "तीव्र दुख, आलोचना या बहुत बड़ी वाहवाही मिलने पर मन उसी भाव में पूरी तरह डूब जाता है।",
+          "थिएटर से बाहर आते ही पता होता है कि वह सिर्फ एक फिल्म थी। और तालाब में कमल पानी में रहकर भी बिना भीगे तैरता है। आप वह स्थिर स्क्रीन हैं जिस पर फिल्म चल रही है।",
+          "हर दृश्य को पूरे मन से अनुभव करें, पर याद रखें: 'मैं वह पर्दा हूँ जिस पर यह दृश्य चल रहा है, दृश्य मुझे बदल नहीं सकता।'"
+        ]
+      },
+      {
+        title: "उपमा 2 · आपकी आज़ादी मेरे कंधे तक है (बिना द्वेष के मर्यादा)",
+        paragraphs: [
+          "जब कोई मर्यादा का उल्लंघन करे, दुर्व्यवहार करे या अन्याय करे, तो मन में क्रोध या लाचारी भर जाती है।",
+          "सबमें एक ही सृष्टिकर्ता को देखने का अर्थ अन्याय सहना नहीं है। उदय कुमार जी का स्पष्ट निर्देश है: बिना द्वेष के शांत, विधिपूर्वक मर्यादा और रक्षा आवश्यक है।",
+          "बदले की भावना के बिना शांत और दृढ़ता से सीमा तय करें। न्यायसंगत और उचित कदम उठाएं।"
+        ]
+      },
+      {
+        title: "उपमा 3 · सोना, हीरे और संपत्ति (भीतरी गरिमा)",
+        paragraphs: [
+          "पैसों, संपत्ति या प्रतिष्ठा की होड़ में खुद को या दूसरों को कमतर आंकना।",
+          "सोना, हीरे और धन हमारी रचना के छोटे हिस्से हैं। वे सृष्टिकर्ता को बड़ा या छोटा नहीं बना सकते। वस्तुएं उपयोग के लिए हैं, पहचान के लिए नहीं।",
+          "अपनी आजीविका का ध्यान रखें, लेकिन अपने आत्मसम्मान और शांति को कभी सांसारिक वस्तुओं में न बांधें।"
+        ]
+      },
+      {
+        title: "उपमा 4 · ऑक्सीजन और सहज श्वास (नियंत्रण की ज़िद छोड़ना)",
+        paragraphs: [
+          "भविष्य को लेकर बेचैनी, उखड़ी हुई सांसें और आने वाले कल को अपने हिसाब से मोड़ने की ज़िद।",
+          "जब आने वाले दृश्य को अपने वश में करने की ज़िद छूटती है, तो मन में सहज ऑक्सीजन, हल्कापन और स्पष्टता लौट आती है।",
+          "तीन गहरी और शांत सांसें लें। परिणाम को खेल के डिज़ाइन पर छोड़ दें और वर्तमान में जो सामने है उसे सचेत भाव से करें।"
+        ]
+      }
+    ];
+
+    const coreMetaphors = lang === 'te' ? coreMetaphorsTe : (lang === 'hi' ? coreMetaphorsHi : coreMetaphorsEn);
+
     // Extract real everyday scenes already localized in HTML
     let cases = Array.from(document.querySelectorAll('#everyday-scenes details')).map(d => ({
       title: d.querySelector('summary')?.textContent?.trim() || 'Everyday Scene',
@@ -549,13 +692,19 @@
       })).filter(c => c.paragraphs.length >= 2);
     }
 
-    let activeMode = 'scenarios'; // 'scenarios' or 'journey'
+    let activeMode = 'scenarios'; // 'scenarios' | 'journey' | 'metaphors'
     let activeCase = 0;
 
     function renderPractice() {
-      const activeList = activeMode === 'journey' ? journeyDays : cases;
+      const activeList = activeMode === 'journey' ? journeyDays : (activeMode === 'metaphors' ? coreMetaphors : cases);
       const item = activeList[activeCase] || activeList[0];
       const savedNote = sessionStorage.getItem(`mindclarity_note_${activeMode}_${activeCase}`) || '';
+
+      const modeTitle = activeMode === 'journey'
+        ? (lang === 'te' ? '7 రోజుల సాధన ప్రయాణం' : (lang === 'hi' ? '7-दिवसीय साधना यात्रा' : '7-Day Guided Journey'))
+        : (activeMode === 'metaphors'
+          ? (lang === 'te' ? 'ఉదయ్ కుమార్ ముఖ్యమైన ఉపమానాలు' : (lang === 'hi' ? 'उदय कुमार की मूल उपमाएँ' : 'Core Teaching Metaphors'))
+          : (lang === 'te' ? 'రోజువారీ పరిస్థితులు' : (lang === 'hi' ? 'दैनिक परिस्थितियाँ' : 'Everyday Scenarios')));
 
       pracEl.innerHTML = `
         <div class="practice-studio-wrapper">
@@ -564,7 +713,10 @@
               <span>${lang === 'te' ? 'రోజువారీ పరిస్థితులు' : (lang === 'hi' ? 'दैनिक परिस्थितियाँ' : 'Everyday Scenarios')}</span>
             </button>
             <button type="button" class="mode-tab ${activeMode === 'journey' ? 'mode-active' : ''}" id="pm-journey">
-              <span>${lang === 'te' ? '7 రోజుల సాధన ప్రయాణం' : (lang === 'hi' ? '7-दिवसीय साधना यात्रा' : '7-Day Contemplative Journey')}</span>
+              <span>${lang === 'te' ? '7 రోజుల ప్రయాణం' : (lang === 'hi' ? '7-दिवसीय यात्रा' : '7-Day Journey')}</span>
+            </button>
+            <button type="button" class="mode-tab ${activeMode === 'metaphors' ? 'mode-active' : ''}" id="pm-metaphors">
+              <span>${lang === 'te' ? 'ముఖ్యమైన ఉపమానాలు' : (lang === 'hi' ? 'मूल उपमाएँ' : 'Core Metaphors')}</span>
             </button>
           </div>
 
@@ -580,7 +732,7 @@
           <div class="scenario-display-card" role="tabpanel">
             <div class="scenario-header">
               <div>
-                <span class="scenario-eyebrow">${activeMode === 'journey' ? '7-Day Guided Journey' : 'Interactive Contemplation'}</span>
+                <span class="scenario-eyebrow">${modeTitle}</span>
                 <h3 class="scenario-title">${item.title}</h3>
               </div>
               <button type="button" class="button secondary small-btn practice-wa-btn" id="practice-share-wa">
@@ -638,6 +790,15 @@
         };
       }
 
+      const pmMetaphors = pracEl.querySelector('#pm-metaphors');
+      if (pmMetaphors) {
+        pmMetaphors.onclick = () => {
+          activeMode = 'metaphors';
+          activeCase = 0;
+          renderPractice();
+        };
+      }
+
       pracEl.querySelectorAll('.scenario-tab').forEach(btn => {
         btn.onclick = () => {
           activeCase = parseInt(btn.dataset.idx, 10);
@@ -667,10 +828,12 @@
           const p1 = item.paragraphs[0] || '';
           const p2 = item.paragraphs[1] || '';
           const p3 = item.paragraphs[2] || '';
-          const currentUrl = window.location.origin + window.location.pathname + '#everyday-scenes';
+          const currentUrl = (typeof location !== 'undefined' && location.href) ? location.href.split('#')[0] + '#everyday-scenes' : 'https://mindclarity.co.in/practice#everyday-scenes';
           const text = activeMode === 'journey'
             ? `*Mind Clarity · 7-Day Journey (${title})*\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\n*Action:* ${p3}\n\nExplore at: ${currentUrl}`
-            : `*Mind Clarity · Everyday Contemplation*\n"${title}"\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\nExplore at: ${currentUrl}`;
+            : (activeMode === 'metaphors'
+              ? `*Mind Clarity · Core Metaphor (${title})*\n\n*Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\n*Practice:* ${p3}\n\nExplore at: ${currentUrl}`
+              : `*Mind Clarity · Everyday Contemplation*\n"${title}"\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\nExplore at: ${currentUrl}`);
           window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         };
       }
