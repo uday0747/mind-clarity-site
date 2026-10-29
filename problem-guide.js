@@ -25,5 +25,6 @@ export default function ProblemGuide() {
     e('div', {className:'reading-links'},
       e('a', {href:'https://www.nimh.nih.gov/health/topics/depression'}, 'Depression: symptoms and treatment — NIMH'),
       e('a', {href:'https://www.nccih.nih.gov/health/meditation-and-mindfulness-effectiveness-and-safety'}, 'Meditation: effectiveness and safety — NCCIH')),
-    e('div', {className:'reading-links'}, e('a', {href:'/faq#enquiry-title'}, 'Find another answer'), e('a',{href:'/philosophy'},'Read the full philosophy')));
+    e('div', {className:'reading-links'}, e('a', {href:'/faq#enquiry-title'}, 'Find another answer'), e('a',{href:'/philosophy'},'Read the full philosophy')),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }

@@ -24,6 +24,7 @@ function EnquiryPage({ topic }) {
         e('p', null, journey.connection),
         e('div', {className:'reading-links'}, e('a', {href:'/philosophy#astrology'}, journey.astrologyTitle), e('a', {href:'/philosophy#reasoning'}, journey.reasonTitle))),
       e('div', { className: 'reading-links' }, e('a', { href: topic.practiceLink }, 'Explore an optional everyday example'), e('a', { href: '/philosophy' }, 'Read the full philosophy'), e('a', { href: '/faq#enquiry-title' }, 'Find another answer'))),
-    e(EnquiryLinks));
+    e(EnquiryLinks),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }
 export const enquiryPages = Object.fromEntries(enquiryTopics.map(topic => [topic.slug, () => e(EnquiryPage, {topic})]));

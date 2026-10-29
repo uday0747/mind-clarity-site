@@ -32,7 +32,8 @@ function Reflections() {
       e('h2', null, e('a', {href:'/ai-fear-and-clarity'}, 'Can we meet artificial intelligence with clarity instead of fear?')),
       p('A reflection on work, fear, gratitude, and care as technology changes our lives.'),
       e('p', {className:'quiet-note'}, e('span', {'data-reading-minutes':true, 'data-reading-article':'ai-fear-and-clarity'}, '–'), ' ', 'minutes'),
-      e('a', {className:'text-link',href:'/ai-fear-and-clarity'}, 'Read the reflection')));
+      e('a', {className:'text-link',href:'/ai-fear-and-clarity'}, 'Read the reflection')),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 
 }
 function FAQ() {
@@ -62,7 +63,8 @@ function FAQ() {
         p('Found a factual error or a misattributed quotation? Please share the passage and a source by email so it can be checked.'), e('p', null, email())),
       e('div', { className: 'reading-links' }, e('a', { href: '/practice' }, 'Try a daily practice'), e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement'))),
     e(EnquiryLinks),
-    e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')));
+    e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }
 function Privacy() {
   return e(Page, { eyebrow: 'Your information', title: 'Privacy information' },
