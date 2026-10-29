@@ -22,5 +22,6 @@ export default function UnderstandingGod() {
           ...section.paragraphs.map(text => e('p', { key: text }, text)),
           section.links && e('ul', null, section.links.map(([label, href]) => e('li', { key: href }, e('a', { href }, label)))))),
         e(Reflection, null, content.reflection),
-        e('a', { href: '/philosophy' }, 'Read Uday’s full philosophy'))));
+        e('a', { href: '/philosophy' }, 'Read Uday’s full philosophy'))),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }

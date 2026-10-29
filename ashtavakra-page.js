@@ -13,5 +13,6 @@ export default function AshtavakraResearch() {
         e('ul', null, entry.links.map(([label, href]) => e('li', { key: href }, e('a', { href }, label)))))),
       e('p', { className: 'quiet-note' }, research.scope),
       e(Reflection, null, research.reflection),
-      e('a', { href: '/philosophy#research-connections' }, 'Continue exploring the philosophy and its sources')));
+      e('a', { href: '/philosophy#research-connections' }, 'Continue exploring the philosophy and its sources')),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }
