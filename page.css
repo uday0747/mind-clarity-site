@@ -338,32 +338,27 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
 }
-.whatsapp-studio-btn {
-  background: #25D366;
-  color: #ffffff !important;
-  border-color: #25D366;
-  font-weight: 600;
-}
-.whatsapp-studio-btn:hover,
-.whatsapp-studio-btn:focus-visible {
-  background: #20bd5a;
-  border-color: #20bd5a;
-  color: #ffffff !important;
-}
-.whatsapp-share-link {
-  background: #25D366;
-  color: #ffffff !important;
-  border-color: #25D366;
-  font-weight: 600;
+.button.whatsapp-studio-btn,
+.button.whatsapp-share-link {
+  background: #25D366 !important;
+  color: #073b30 !important;
+  border: 1px solid #1ebc59 !important;
+  font-weight: 700 !important;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
-.whatsapp-share-link:hover,
-.whatsapp-share-link:focus-visible {
-  background: #20bd5a;
-  border-color: #20bd5a;
-  color: #ffffff !important;
+.button.whatsapp-studio-btn svg {
+  fill: #073b30 !important;
+  color: #073b30 !important;
+}
+.button.whatsapp-studio-btn:hover,
+.button.whatsapp-studio-btn:focus-visible,
+.button.whatsapp-share-link:hover,
+.button.whatsapp-share-link:focus-visible {
+  background: #1ebc59 !important;
+  border-color: #169b47 !important;
+  color: #041c17 !important;
 }
 .studio-actions {
   display: flex;
