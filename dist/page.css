@@ -149,13 +149,13 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
 .language-picker option{unicode-bidi:isolate}
 
 /* Put the first useful choices close to the opening, including on small screens. */
-.featured-concerns{padding-top:8px;margin-bottom:20px}
-.featured-concerns h2{font-size:1.6rem;margin-bottom:14px}
-.featured-concerns .topic-grid{display:flex;flex-wrap:wrap;gap:10px}
+.featured-concerns{padding:28px;margin:36px 0;background:#f7faf7;border:1px solid var(--line);border-radius:16px}
+.featured-concerns h2{font-size:1.6rem;margin-top:0;margin-bottom:14px;color:var(--deep)}
+.featured-concerns .topic-grid{display:flex;flex-wrap:wrap;gap:12px}
 .featured-concerns article h3{margin:0;font:700 1rem/1.4 Arial,sans-serif}
-.featured-concerns article a{display:flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:20px;background:#ffffff;color:var(--deep);text-decoration:none;transition:all .2s ease;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.featured-concerns article a:hover,.featured-concerns article a:focus-visible{border-color:var(--green);background:var(--cream);transform:translateY(-1px);box-shadow:0 4px 8px rgba(24,61,54,.08);text-decoration:none}
-.featured-concerns>.text-link{display:inline-block;min-height:44px;padding-top:12px}
+.featured-concerns article a{display:flex;align-items:center;min-height:44px;padding:10px 18px;border:1px solid var(--line);border-radius:24px;background:#ffffff;color:var(--deep);text-decoration:none;transition:all .2s ease;box-shadow:0 1px 4px rgba(0,0,0,.04);font-weight:600}
+.featured-concerns article a:hover,.featured-concerns article a:focus-visible{border-color:var(--green);background:var(--cream);transform:translateY(-2px);box-shadow:0 4px 10px rgba(24,61,54,.10);text-decoration:none}
+.featured-concerns>.text-link{display:inline-block;min-height:44px;padding-top:16px;font-weight:600}
 @media(max-width:900px){
  .site-header{padding:8px 22px;gap:4px 12px}
  .mobile-page{display:block}
@@ -163,7 +163,7 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
  .language-picker select{min-height:36px;padding-top:4px;padding-bottom:4px}
  .home-main>.intro{margin-bottom:18px}
  .home-main>.welcome-meaning{font-size:1rem;margin-bottom:18px}
- .featured-concerns{padding-top:0}
+ .featured-concerns{padding:20px;margin:24px 0}
 }
 
 /* The shared journey connects explanation, remembrance, and relationships. */
