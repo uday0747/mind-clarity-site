@@ -23,7 +23,10 @@
       "A lotus in the pond — living within life with inward lightness.",
       "An enlightened person cannot live happily while others suffer — they are part of the same source.",
       "Devotion is respecting the Creator in the living person before you.",
-      "Sadness and compassion can be present without losing deeper clarity."
+      "Sadness and compassion can be present without losing deeper clarity.",
+      "Recognize the Self in all beings and all beings in the Self.",
+      "Like an ocean unaffected by the rising and falling of waves, remain steady in who you are.",
+      "In the Creator we live, move, and have our being. We share the same source."
     ];
     const curatedTe = [
       "మనం సృష్టికర్తలం. ఈ అనుభవాల ఆటను మనమే సృష్టించి, ఇందులోకి ప్రవేశించాము.",
@@ -34,7 +37,9 @@
       "జీవితమనే కొలనులో తామర పువ్వులా అలౌకికంగా జీవించు.",
       "లోపల నుండి మనం ఆట రూపకల్పనను మార్చలేము. కానీ ప్రతి సన్నివేశాన్ని మనం ఎలా స్వీకరిస్తామో మార్చవచ్చు.",
       "ఎదుటి వ్యక్తిలోని సృష్టికర్తను గౌరవించడమే నిజమైన భక్తి.",
-      "ఈ ప్రపంచాన్ని నివసించడానికి ఒక అందమైన ప్రదేశంగా మార్చడమే మీ ముఖ్య లక్ష్యం కావాలి."
+      "ఈ ప్రపంచాన్ని నివసించడానికి ఒక అందమైన ప్రదేశంగా మార్చడమే మీ ముఖ్య లక్ష్యం కావాలి.",
+      "అన్ని ప్రాణులలోని ఆత్మను, ఆత్మలోని అన్ని ప్రాణులను గుర్తించండి.",
+      "తరంగాల ఒడిదుడుకులకు చలించని సముద్రంలా మీ అంతరంగంలో స్థిరంగా ఉండండి."
     ];
     const curatedHi = [
       "हम ही सृष्टिकर्ता हैं। हमने अनुभवों का यह खेल बनाया और इसमें प्रवेश किया।",
@@ -45,7 +50,9 @@
       "कमल की तरह जियो — जीवन में रहते हुए भी भीतर से मुक्त और हल्के।",
       "भीतर से हम खेल के डिज़ाइन को नहीं बदल सकते। लेकिन हम हर दृश्य का सामना कैसे करते हैं, इसे बदल सकते हैं।",
       "सामने वाले व्यक्ति में सृष्टिकर्ता का सम्मान करना ही सच्ची भक्ति है।",
-      "आपका मुख्य लक्ष्य इस दुनिया को रहने के लिए एक सुंदर जगह बनाना होना चाहिए।"
+      "आपका मुख्य लक्ष्य इस दुनिया को रहने के लिए एक सुंदर जगह बनाना होना चाहिए।",
+      "सभी प्राणियों में स्वयं को और स्वयं में सभी प्राणियों को पहचानें।",
+      "लहरों के उठने-गिरने से अप्रभावित समुद्र की तरह अपने भीतर स्थिर रहें।"
     ];
     const curatedByLang = lang === 'te' ? curatedTe : (lang === 'hi' ? curatedHi : curatedEn);
 
