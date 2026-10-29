@@ -81,14 +81,14 @@
                 <button type="button" class="studio-btn" id="cs-btn-st">Story 9:16</button>
               </div>
             </div>
-            <div class="control-group">
-              <span class="control-label">Visual Palette</span>
-              <div class="studio-toggle-group studio-palette-group">
-                <button type="button" class="studio-btn toggle-active" id="cs-btn-p" title="Warm Parchment">Parchment</button>
-                <button type="button" class="studio-btn" id="cs-btn-e" title="Sacred Emerald">Emerald</button>
-                <button type="button" class="studio-btn" id="cs-btn-s" title="Sunrise Gold">Sunrise</button>
-                <button type="button" class="studio-btn" id="cs-btn-n" title="Ocean Night">Night</button>
-              </div>
+          </div>
+          <div class="control-group">
+            <span class="control-label">Visual Palette (4 Themes)</span>
+            <div class="studio-toggle-group studio-palette-group">
+              <button type="button" class="studio-btn toggle-active" id="cs-btn-p" title="Warm Parchment">Warm Parchment</button>
+              <button type="button" class="studio-btn" id="cs-btn-e" title="Sacred Emerald">Sacred Emerald</button>
+              <button type="button" class="studio-btn" id="cs-btn-s" title="Sunrise Gold">Sunrise Gold</button>
+              <button type="button" class="studio-btn" id="cs-btn-n" title="Ocean Night">Ocean Night</button>
             </div>
           </div>
           <div class="studio-actions">

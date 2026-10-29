@@ -336,7 +336,16 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
 .studio-palette-group {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+  gap: 4px;
+}
+#cs-btn-p::before { content: "● "; color: #795b2b; }
+#cs-btn-e::before { content: "● "; color: #163b32; }
+#cs-btn-s::before { content: "● "; color: #b8860b; }
+#cs-btn-n::before { content: "● "; color: #1b263b; }
+@media (max-width: 600px) {
+  .studio-palette-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .button.whatsapp-studio-btn,
 .button.whatsapp-share-link {
