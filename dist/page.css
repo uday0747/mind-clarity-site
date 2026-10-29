@@ -80,9 +80,10 @@ main:focus{outline:none}
 .lesson h2{font-size:clamp(1.85rem,2.8vw,2.4rem)}
 .lesson ul,.lesson ol{padding-inline-start:24px}
 .lesson p:last-child{margin-bottom:0}
-blockquote{font:400 1.25rem/1.8 Georgia,"Noto Serif",serif;margin:32px 0;padding:18px 24px 18px 28px;background:var(--soft);border-radius:0 8px 8px 0;border-inline-start:4px solid var(--gold)}
-blockquote p{margin:0;color:var(--deep);font-style:italic}
-blockquote cite{display:block;margin-top:12px;font:600 .85rem/1.5 Arial,sans-serif;color:var(--gold);letter-spacing:.05em;text-transform:uppercase}
+blockquote{position:relative;font:400 1.25rem/1.8 Georgia,"Noto Serif",serif;margin:36px 0;padding:22px 28px 22px 34px;background:#faf8f2;border-radius:0 10px 10px 0;border-inline-start:4px solid var(--gold);box-shadow:0 2px 8px rgba(121,91,43,.06)}
+blockquote::before{content:"\201C";position:absolute;top:-8px;inset-inline-start:12px;font-size:3.5rem;line-height:1;font-family:Georgia,serif;color:rgba(184,134,11,.15);pointer-events:none}
+blockquote p{margin:0;color:var(--deep);font-style:italic;position:relative;z-index:1}
+blockquote cite{display:block;margin-top:12px;font:600 .85rem/1.5 Arial,sans-serif;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;position:relative;z-index:1}
 .concept-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0 26px}
 .path-grid>div{min-width:0;overflow-wrap:anywhere;background:var(--cream);padding:22px 24px}

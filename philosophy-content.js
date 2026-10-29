@@ -160,5 +160,6 @@ export default function Philosophy() {
           e('ol', {className:'practice-steps'}, teaching.steps.map(([title,text]) => e('li', {key:title}, e('strong', null, title + '. '), text))),
           e(Reflection, null, teaching.practiceReflection)),
         e('a', {className:'button', href:'/practice#five-minutes'}, 'Explore the teaching in a daily experience'),
-        e('p', {className:'quiet-note'}, 'Spiritual reflection does not replace appropriate practical or professional help. Seeking help, too, can be part of participation in life.')))));
+        e('p', {className:'quiet-note'}, 'Spiritual reflection does not replace appropriate practical or professional help. Seeking help, too, can be part of participation in life.')))),
+    e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }
