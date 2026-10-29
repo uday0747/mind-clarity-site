@@ -13,28 +13,36 @@
       "We are the Creator. We created this game of experiences and entered it, leaving unrestricted powers behind.",
       "To hate another is to hate yourself. There is no separate 'other' outside.",
       "Recognizing the same Creator in every person dissolves hatred and inspires natural compassion.",
+      "Play the game like a game. When you leave the movie theater, you know it was a movie.",
       "A mistake belongs to a changing role. It is not the whole of who you are.",
       "Gold, diamonds, and money are small parts of our creation. They cannot make the Creator larger.",
       "We cannot rewrite the game from inside. But we can change how we meet each scene.",
-      "Sadness and compassion can be present without losing deeper clarity.",
+      "Your freedom stops when my shoulder starts. We are both the Creator.",
       "A lotus in the pond — living within life with inward lightness.",
-      "Your main goal should be to make this world a beautiful place to live in.",
-      "The person who disagrees with you shares the same source."
+      "An enlightened person cannot live happily while others suffer — they are part of the same source.",
+      "Devotion is respecting the Creator in the living person before you.",
+      "Sadness and compassion can be present without losing deeper clarity."
     ];
     const curatedTe = [
       "మనం సృష్టికర్తలం. ఈ అనుభవాల ఆటను మనమే సృష్టించి, ఇందులోకి ప్రవేశించాము.",
       "ఇంకొకరిని ద్వేషించడం అంటే మనల్ని మనం ద్వేషించుకోవడమే. బయట వేరే 'ఇతరులు' ఎవరూ లేరు.",
       "ప్రతి వ్యక్తిలోనూ అదే సృష్టికర్తను గుర్తించడం ద్వేషాన్ని కరిగిస్తుంది, సహజమైన దయను నింపుతుంది.",
+      "ఈ జీవితమనే ఆటను క్రీడా స్ఫూర్తితో ఆడు. సినిమా పూర్తయ్యాక అది సినిమా అని ఎలా గుర్తుంచుకుంటావో అలాగే జీవించు.",
       "పొరపాటు అనేది మారుతున్న పాత్రకు చెందుతుంది. అది మీ అసలు గుర్తింపు కాదు.",
+      "జీవితమనే కొలనులో తామర పువ్వులా అలౌకికంగా జీవించు.",
       "లోపల నుండి మనం ఆట రూపకల్పనను మార్చలేము. కానీ ప్రతి సన్నివేశాన్ని మనం ఎలా స్వీకరిస్తామో మార్చవచ్చు.",
+      "ఎదుటి వ్యక్తిలోని సృష్టికర్తను గౌరవించడమే నిజమైన భక్తి.",
       "ఈ ప్రపంచాన్ని నివసించడానికి ఒక అందమైన ప్రదేశంగా మార్చడమే మీ ముఖ్య లక్ష్యం కావాలి."
     ];
     const curatedHi = [
       "हम ही सृष्टिकर्ता हैं। हमने अनुभवों का यह खेल बनाया और इसमें प्रवेश किया।",
       "किसी दूसरे से नफ़रत करना खुद से नफ़रत करना है। बाहर कोई दूसरा नहीं है।",
       "हर व्यक्ति में उसी सृष्टिकर्ता को पहचानना नफ़रत को पिघला देता है और सहज करुणा जगाता है।",
+      "खेल को खेल की तरह खेलो। थिएटर से बाहर आने पर आपको पता होता है कि यह सिर्फ एक फिल्म थी।",
       "गलती किसी बदलते हुए रोल की होती है। वह आपकी पूरी पहचान नहीं है।",
+      "कमल की तरह जियो — जीवन में रहते हुए भी भीतर से मुक्त और हल्के।",
       "भीतर से हम खेल के डिज़ाइन को नहीं बदल सकते। लेकिन हम हर दृश्य का सामना कैसे करते हैं, इसे बदल सकते हैं।",
+      "सामने वाले व्यक्ति में सृष्टिकर्ता का सम्मान करना ही सच्ची भक्ति है।",
       "आपका मुख्य लक्ष्य इस दुनिया को रहने के लिए एक सुंदर जगह बनाना होना चाहिए।"
     ];
     const curatedByLang = lang === 'te' ? curatedTe : (lang === 'hi' ? curatedHi : curatedEn);
@@ -91,6 +99,10 @@
             <button type="button" class="button whatsapp-studio-btn studio-action-btn" id="cs-btn-wa">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.07l-.29-.17-3.02.79.81-2.94-.19-.3a8.21 8.21 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
               <span>WhatsApp</span>
+            </button>
+            <button type="button" class="button secondary studio-action-btn" id="cs-btn-cp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copy Quote</span>
             </button>
             <button type="button" class="button secondary studio-action-btn" id="cs-btn-sh">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -292,6 +304,18 @@
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
       statusMsg.textContent = 'Opened in WhatsApp!';
       setTimeout(() => { statusMsg.textContent = ''; }, 3500);
+    };
+
+    cardEl.querySelector('#cs-btn-cp').onclick = async () => {
+      const q = quotes[selectedIdx] || quotes[0];
+      const text = `"${q}"\n— Uday Kumar (Mind Clarity)\nhttps://mindclarity.co.in/`;
+      try {
+        await navigator.clipboard.writeText(text);
+        statusMsg.textContent = 'Quote copied to clipboard!';
+        setTimeout(() => { statusMsg.textContent = ''; }, 3500);
+      } catch (err) {
+        statusMsg.textContent = 'Select and copy the quote above.';
+      }
     };
 
     cardEl.querySelector('#cs-btn-sh').onclick = () => {

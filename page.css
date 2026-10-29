@@ -80,9 +80,9 @@ main:focus{outline:none}
 .lesson h2{font-size:clamp(1.85rem,2.8vw,2.4rem)}
 .lesson ul,.lesson ol{padding-inline-start:24px}
 .lesson p:last-child{margin-bottom:0}
-blockquote{font:400 1.2rem/1.8 Georgia,serif;margin:26px 0;padding-inline-start:24px;border-inline-start:2px solid var(--gold)}
-blockquote p{margin:0}
-blockquote cite{display:block;margin-top:16px;font:400 .875rem/1.5 Arial,sans-serif;color:var(--muted)}
+blockquote{font:400 1.25rem/1.8 Georgia,"Noto Serif",serif;margin:32px 0;padding:18px 24px 18px 28px;background:var(--soft);border-radius:0 8px 8px 0;border-inline-start:4px solid var(--gold)}
+blockquote p{margin:0;color:var(--deep);font-style:italic}
+blockquote cite{display:block;margin-top:12px;font:600 .85rem/1.5 Arial,sans-serif;color:var(--gold);letter-spacing:.05em;text-transform:uppercase}
 .concept-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0 26px}
 .path-grid>div{min-width:0;overflow-wrap:anywhere;background:var(--cream);padding:22px 24px}
@@ -153,8 +153,8 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
 .featured-concerns h2{font-size:1.6rem;margin-bottom:14px}
 .featured-concerns .topic-grid{display:flex;flex-wrap:wrap;gap:10px}
 .featured-concerns article h3{margin:0;font:700 1rem/1.4 Arial,sans-serif}
-.featured-concerns article a{display:flex;align-items:center;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:5px;background:var(--soft);text-decoration:none}
-.featured-concerns article a:hover{border-color:var(--green);text-decoration:underline}
+.featured-concerns article a{display:flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:20px;background:#ffffff;color:var(--deep);text-decoration:none;transition:all .2s ease;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.featured-concerns article a:hover,.featured-concerns article a:focus-visible{border-color:var(--green);background:var(--cream);transform:translateY(-1px);box-shadow:0 4px 8px rgba(24,61,54,.08);text-decoration:none}
 .featured-concerns>.text-link{display:inline-block;min-height:44px;padding-top:12px}
 @media(max-width:900px){
  .site-header{padding:8px 22px;gap:4px 12px}
