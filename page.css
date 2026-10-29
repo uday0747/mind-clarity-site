@@ -1,4 +1,4 @@
-:root{--green:#24574d;--deep:#183d36;--ink:#26332e;--cream:#faf8f2;--gold:#795b2b;--line:#d9e4dc;--muted:#53645b;--soft:#edf2ec}
+:root{--green:#24574d;--deep:#183d36;--ink:#26332e;--cream:#faf8f2;--gold:#795b2b;--line:#d9e4dc;--muted:#485a51;--soft:#edf2ec}
 *{box-sizing:border-box}
 html{color-scheme:light}
 html{scroll-padding-top:calc(var(--header-height,95px) + 20px)}
@@ -648,5 +648,78 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
   .pillar-arrow {
     text-align: center;
     transform: rotate(90deg);
+  }
+}
+
+/* Automatic Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --green: #489b88;
+    --deep: #e0ebe6;
+    --ink: #d4ded9;
+    --cream: #131a17;
+    --gold: #c99e58;
+    --line: #26352e;
+    --muted: #8fa398;
+    --soft: #19221e;
+  }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+  }
+  .studio-workspace,
+  .interactive-practice-section,
+  .pillar-box,
+  .reflection-scratchpad,
+  .compact-reading details,
+  .faq-topics a,
+  .topic-link {
+    background: #1a2520 !important;
+    border-color: var(--line) !important;
+    color: var(--ink) !important;
+  }
+  .scenario-display-card {
+    background: #16201b !important;
+  }
+  .scenario-tab {
+    background: #16201b;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  .scenario-tab:hover {
+    background: #1f2e27;
+  }
+  .scenario-tab.tab-active {
+    background: var(--green);
+    color: #ffffff;
+  }
+  .mode-tab {
+    color: var(--deep);
+  }
+  .mode-tab.mode-active {
+    background: var(--green);
+    color: #ffffff;
+  }
+  .one-minute-summary {
+    background: #17221d;
+    border-color: var(--line);
+  }
+  .one-minute-text {
+    color: var(--ink);
+  }
+  .studio-select,
+  .scratchpad-textarea {
+    background: #131a17;
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .purpose-section,
+  .three-card-story {
+    background: var(--soft);
+    border-color: var(--line);
+  }
+  .three-card-grid .story-card {
+    background: #1a2520;
+    border-color: var(--line);
   }
 }
