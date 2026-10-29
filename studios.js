@@ -347,6 +347,186 @@
     if (!pracEl || pracEl.dataset.initialized) return;
     pracEl.dataset.initialized = 'true';
 
+    const lang = document.documentElement.lang || 'en';
+    const journeyDaysEn = [
+      {
+        title: "Day 1 · Who am I? (Curiosity)",
+        paragraphs: [
+          "You are rushing through your day. The demands of work, family, and expectations press in. You feel defined entirely by whether you succeed or fail in these tasks.",
+          "These roles are scenes in a game. You are the Creator who created this game of experiences and entered it. The roles change and pass, but the Creator who experiences them remains untouched.",
+          "Take three slow breaths. Feel your feet on the ground. When you speak to the next person, remember that you are both the Creator playing different scenes."
+        ]
+      },
+      {
+        title: "Day 2 · The Game (Design & Acceptance)",
+        paragraphs: [
+          "Something does not go your way today. A plan falls through, an opportunity is missed, or someone cancels. Frustration and resistance arise immediately.",
+          "Having designed the game before entering, we cannot change its design from inside. Resentment comes from demanding control over the unfolding design.",
+          "Notice the frustration without fighting it. Do what is practically useful in the scene, and release the demand that life must follow your script."
+        ]
+      },
+      {
+        title: "Day 3 · The Roles (Separating Mistake from Identity)",
+        paragraphs: [
+          "You made a mistake, forgot a commitment, or stumbled. A harsh inner voice says: 'You are a failure. You never get it right.'",
+          "A mistake belongs to a changing role. It is not the whole of who you are. The Creator who designed the game included mistakes, forgetting, and learning.",
+          "Acknowledge the mistake plainly and repair it practically. Release the self-condemnation; it serves no one and only contracts your spirit."
+        ]
+      },
+      {
+        title: "Day 4 · The Other Person (Dissolving Hatred)",
+        paragraphs: [
+          "Someone criticizes you, disagrees sharply, or behaves selfishly. Your mind immediately labels them an opponent or adversary.",
+          "To hate another is to hate yourself. There is no separate 'other' outside. The same Creator who animates your breath sits within them, playing a different role.",
+          "Set healthy practical boundaries where needed, but hold no inward hatred. Realize: 'Your freedom stops where my shoulder starts; we are both the Creator.'",
+        ]
+      },
+      {
+        title: "Day 5 · The Movie (Feeling Without Getting Absorbed)",
+        paragraphs: [
+          "A sudden surge of grief, anxiety, or intoxicating praise overtakes you. It feels all-consuming, as if this moment is all that exists.",
+          "When you leave a movie theater, you know it was a movie. Experience every scene with complete sincerity, but keep the theater exit in your awareness.",
+          "Allow the feeling to move through without freezing it into your permanent identity. You are the screen on which the movie plays."
+        ]
+      },
+      {
+        title: "Day 6 · The Lotus (Inward Lightness & Possessions)",
+        paragraphs: [
+          "The pursuit of money, property, status, or comparison creates an exhausting treadmill of always needing more.",
+          "Gold, diamonds, and status are small parts of our creation. They cannot make the Creator larger. Live like a lotus resting on water without being soaked.",
+          "Enjoy good things when present, and work diligently. But let your inner worth rest on knowing who you are, not on what you accumulate."
+        ]
+      },
+      {
+        title: "Day 7 · The Beautiful World (Natural Compassion & Duty)",
+        paragraphs: [
+          "You look at the suffering, conflict, and confusion in the world and wonder: 'What is the point of living?'",
+          "An awakened person cannot live happily while others suffer. Recognizing the shared Creator dissolves cruelty and inspires natural compassion and responsibility.",
+          "Your primary aim is to make this world a beautiful place to live in. Carry that into today with one simple, unselfish act of kindness."
+        ]
+      }
+    ];
+
+    const journeyDaysTe = [
+      {
+        title: "01వ రోజు · నేను ఎవరు? (ఆత్మ విచారణ)",
+        paragraphs: [
+          "రోజంతా పనుల్లో మునిగిపోతూ, ఉద్యోగం, బాధ్యతలే మీరని భావిస్తున్నారు. ఆ పనుల్లో గెలుపు ఓటములే మీ గుర్తింపుగా మారి భారం అనిపిస్తుంది.",
+          "ఈ పాత్రలన్నీ ఆటలోని సన్నివేశాలు మాత్రమే. అనుభవాల కోసం ఈ ఆటను సృష్టించి ప్రవేశించిన సృష్టికర్త మీరే. పాత్రలు మారుతాయి, కానీ చూసే సృష్టికర్త శాశ్వతంగా ఉంటారు.",
+          "మూడు ప్రశాంతమైన శ్వాసలు తీసుకోండి. ఎదుటి వ్యక్తిని కలిసినప్పుడు, మీరిద్దరూ వేర్వేరు పాత్రలు పోషిస్తున్న ఒకే సృష్టికర్త అని గుర్తుంచుకోండి."
+        ]
+      },
+      {
+        title: "02వ రోజు · ఆట మరియు డిజైన్ (స్వీకారం)",
+        paragraphs: [
+          "ఈ రోజు ఏదో ఒక విషయం మీరు అనుకున్నట్లు జరగలేదు. కోపం, అసహనం, నిరాశ మనస్సులో వెంటనే మొదలవుతాయి.",
+          "ఆటలోకి ప్రవేశించక ముందే డిజైన్ చేయబడింది. లోపల నుండి మనం డిజైన్‌ను మార్చలేము. సన్నివేశాన్ని మార్చాలని పట్టుబట్టడం వల్లే బాధ కలుగుతుంది.",
+          "అసహనాన్ని గమనించండి. ప్రస్తుత సన్నివేశంలో చేయవలసిన ఆచరణాత్మక పని చేయండి, ఫలితంపై పట్టుదలను వదిలివేయండి."
+        ]
+      },
+      {
+        title: "03వ రోజు · పాత్రల గుర్తింపు (తప్పు నుంచి విముక్తి)",
+        paragraphs: [
+          "మీరు ఒక పొరపాటు చేశారు లేదా చెప్పిన సమయానికి చేయలేకపోయారు. 'నేను పనికిరానివాడిని' అని లోపల నింద మొదలవుతుంది.",
+          "పొరపాటు అనేది మారుతున్న పాత్రకు చెందుతుంది, అది మీ అసలు గుర్తింపు కాదు. సృష్టికర్త ఆటలో నేర్చుకోవడం, మరచిపోవడం కూడా భాగమే.",
+          "పొరపాటును నిజాయితీగా అంగీకరించి ఆచరణాత్మకంగా సరిదిద్దండి. కానీ ఆత్మ-ఖండనను వదిలేయండి."
+        ]
+      },
+      {
+        title: "04వ రోజు · ఎదుటి వ్యక్తి (ద్వేషం కరిగిపోవడం)",
+        paragraphs: [
+          "ఎవరో మీతో కఠినంగా ప్రవర్తించారు లేదా వ్యతిరేకించారు. వారిపై కోపం, శత్రుభావం వెంటనే కలుగుతాయి.",
+          "ఇంకొకరిని ద్వేషించడం అంటే మిమ్మల్ని మీరు ద్వేషించుకోవడమే. బయట వేరే 'ఇతరులు' ఎవరూ లేరు; ఇద్దరిలోనూ ఉన్నది ఒకే సృష్టికర్త.",
+          "సరిహద్దులు అవసరమైతే గౌరవంగా ఉంచండి, కానీ ద్వేషాన్ని పెంచుకోవద్దు. మీరిద్దరూ ఒకే మూలం నుండి వచ్చారు."
+        ]
+      },
+      {
+        title: "05వ రోజు · సినిమా రూపకం (తాదాత్మ్యం చెందకుండా జీవించడం)",
+        paragraphs: [
+          "ఒక బాధాకరమైన సంఘటన లేదా గొప్ప ప్రశంస ఎదురైంది. ఆ భావోద్వేగంలో పూర్తిగా కొట్టుకుపోతున్నారు.",
+          "సినిమా చూసేటప్పుడు తెరపై జరిగేది అనుభవించినా, బయటకు వచ్చినప్పుడు అది సినిమా అని తెలుసు. జీవితాన్ని కూడా క్రీడా స్ఫూర్తితో గమనించండి.",
+          "భావోద్వేగాలను స్వీకరించండి, కానీ అది మీ శాశ్వత సత్యం కాదని గుర్తుంచుకోండి. మీరు చూసే సాక్షి, తెర మాత్రమే."
+        ]
+      },
+      {
+        title: "06వ రోజు · తామర పువ్వు (అలౌకిక తేలికదనం)",
+        paragraphs: [
+          "డబ్బు, హోదా, ఆస్తులు, పోలికల ఒత్తిడి మిమ్మల్ని నిరంతరం అసంతృప్తికి గురిచేస్తున్నాయి.",
+          "బంగారం, డబ్బు మన సృష్టిలోని చిన్న భాగాలు. అవి సృష్టికర్తను మరింత గొప్పగా చేయలేవు. కొలనులోని తామర పువ్వులా నీటిలో ఉంటూనే తడవకుండా జీవించండి.",
+          "బాధ్యతలను చక్కగా నిర్వహించండి, కానీ మీ విలువ మీ ఆస్తులపై కాకుండా మీరు ఎవరో తెలుసుకోవడంపై ఆధారపడి ఉంటుంది."
+        ]
+      },
+      {
+        title: "07వ రోజు · అందమైన ప్రపంచం (సహజ కరుణ)",
+        paragraphs: [
+          "ప్రపంచంలోని బాధలు, గందరగోళం చూసి 'జీవితం ఎందుకు?' అని నిరాశ కలుగుతుంది.",
+          "ఒక మేల్కొన్న వ్యక్తి ఇతరులు బాధపడుతుంటే ప్రశాంతంగా ఉండలేరు. అందరిలోనూ ఒకే సృష్టికర్తను చూడటం వల్ల సహజమైన దయ, బాధ్యత పుడతాయి.",
+          "ఈ ప్రపంచాన్ని అందమైన ప్రదేశంగా మార్చడమే మీ ప్రధాన లక్ష్యం. ఈ రోజు ఒకరి పట్ల చిన్న దయ లేదా సహాయంతో ప్రారంభించండి."
+        ]
+      }
+    ];
+
+    const journeyDaysHi = [
+      {
+        title: "दिन 1 · मैं कौन हूँ? (जिज्ञासा)",
+        paragraphs: [
+          "दिन भर की भागदौड़ में काम और अपेक्षाओं का बोझ भारी लगता है। आप खुद को केवल अपनी सफलता या असफलता से परिभाषित महसूस करते हैं।",
+          "ये रोल केवल खेल के दृश्य हैं। आप वही सृष्टिकर्ता हैं जिसने अनुभवों के लिए यह खेल बनाया और इसमें प्रवेश किया। रोल बदलते हैं, पर सृष्टिकर्ता अछूता रहता है।",
+          "तीन गहरी साँसें लें। सामने वाले व्यक्ति से बात करते समय याद रखें कि आप दोनों एक ही खेल में अलग-अलग रोल निभा रहे हैं।"
+        ]
+      },
+      {
+        title: "दिन 2 · खेल और डिज़ाइन (स्वीकृति)",
+        paragraphs: [
+          "आज कोई योजना असफल हो गई या किसी ने मना कर दिया। भीतर तुरंत झुंझलाहट और प्रतिरोध जाग उठता है।",
+          "खेल में आने से पहले ही इसका डिज़ाइन तय था। हम भीतर से इसे नहीं बदल सकते। पीड़ा दृश्य को जबरन बदलने की माँग से होती है।",
+          "झुंझलाहट को बिना लड़े देखें। जो व्यावहारिक कदम उठाना है उठाएं, और परिणाम पर नियंत्रण की ज़िद छोड़ दें।"
+        ]
+      },
+      {
+        title: "दिन 3 · रोल की पहचान (गलती से मुक्ति)",
+        paragraphs: [
+          "आपसे कोई भूल हो गई। भीतर की आवाज़ कहती है: 'तुम असफल हो, तुमसे कुछ सही नहीं होता।'",
+          "भूल किसी बदलते रोल की होती है, वह आपकी संपूर्ण पहचान नहीं है। खेल में सीखना और भूलना भी शामिल है।",
+          "भूल को सहजता से स्वीकारें और व्यावहारिक रूप से सुधारें। लेकिन आत्म-निंदा को छोड़ दें; यह किसी के काम नहीं आती।"
+        ]
+      },
+      {
+        title: "दिन 4 · सामने वाला व्यक्ति (नफ़रत का अंत)",
+        paragraphs: [
+          "किसी ने आपसे कठोर बात कही या विरोध किया। मन तुरंत उन्हें विरोधी मान लेता है।",
+          "दूसरे से नफ़रत करना खुद से नफ़रत करना है। बाहर कोई 'दूसरा' नहीं है; दोनों में एक ही सृष्टिकर्ता मौजूद है।",
+          "ज़रूरत पड़ने पर व्यावहारिक सीमाएं तय करें, पर भीतर द्वेष न रखें। दोनों एक ही स्रोत से हैं।"
+        ]
+      },
+      {
+        title: "दिन 5 · फिल्म का उदाहरण (बिना उलझे जीना)",
+        paragraphs: [
+          "अचानक कोई दुख या बहुत बड़ी प्रशंसा मन को पूरी तरह घेर लेती है।",
+          "सिनेमा हॉल से निकलते ही पता होता है कि वह सिर्फ एक फिल्म थी। खेल के हर दृश्य को पूरी निष्ठा से जिएं, लेकिन याद रखें कि यह एक खेल है।",
+          "भावनाओं को बहने दें, उन्हें अपनी स्थायी पहचान न बनाएं। आप वह स्क्रीन हैं जिस पर फिल्म चल रही है।"
+        ]
+      },
+      {
+        title: "दिन 6 · कमल का फूल (हल्कापन)",
+        paragraphs: [
+          "धन, पद और तुलना की होड़ आपको लगातार थका रही है।",
+          "सोना और धन हमारी रचना के छोटे हिस्से हैं। वे सृष्टिकर्ता को बड़ा नहीं बना सकते। पानी में रहकर भी बिना भीगे कमल की तरह जिएं।",
+          "अपनी जिम्मेदारियों को अच्छे से निभाएं, पर अपनी गरिमा को सांसारिक वस्तुओं में न बांधें।"
+        ]
+      },
+      {
+        title: "दिन 7 · सुंदर संसार (सहज करुणा)",
+        paragraphs: [
+          "दुनिया का दुख और अशांति देखकर मन पूछता है: 'जीवन का उद्देश्य क्या है?'",
+          "जब दूसरे पीड़ित हों, तो एक जागा हुआ व्यक्ति चैन से नहीं बैठ सकता। सबमें एक ही स्रोत को देखना सहज करुणा और उत्तरदायित्व जगाता है।",
+          "आपका मुख्य उद्देश्य इस संसार को रहने के लिए सुंदर बनाना है। आज किसी के साथ एक निस्वार्थ भलाई करके इसकी शुरुआत करें।"
+        ]
+      }
+    ];
+
+    const journeyDays = lang === 'te' ? journeyDaysTe : (lang === 'hi' ? journeyDaysHi : journeyDaysEn);
+
     // Extract real everyday scenes already localized in HTML
     let cases = Array.from(document.querySelectorAll('#everyday-scenes details')).map(d => ({
       title: d.querySelector('summary')?.textContent?.trim() || 'Everyday Scene',
@@ -360,18 +540,27 @@
       })).filter(c => c.paragraphs.length >= 2);
     }
 
-    if (cases.length === 0) return;
-
+    let activeMode = 'scenarios'; // 'scenarios' or 'journey'
     let activeCase = 0;
 
     function renderPractice() {
-      const item = cases[activeCase];
-      const savedNote = sessionStorage.getItem(`mindclarity_note_${activeCase}`) || '';
+      const activeList = activeMode === 'journey' ? journeyDays : cases;
+      const item = activeList[activeCase] || activeList[0];
+      const savedNote = sessionStorage.getItem(`mindclarity_note_${activeMode}_${activeCase}`) || '';
 
       pracEl.innerHTML = `
         <div class="practice-studio-wrapper">
-          <div class="scenario-selector-bar" role="tablist" aria-label="Everyday difficulty scenarios">
-            ${cases.map((c, idx) => `
+          <div class="practice-mode-bar" role="tablist" aria-label="Practice Mode">
+            <button type="button" class="mode-tab ${activeMode === 'scenarios' ? 'mode-active' : ''}" id="pm-scenarios">
+              <span>${lang === 'te' ? 'రోజువారీ పరిస్థితులు' : (lang === 'hi' ? 'दैनिक परिस्थितियाँ' : 'Everyday Scenarios')}</span>
+            </button>
+            <button type="button" class="mode-tab ${activeMode === 'journey' ? 'mode-active' : ''}" id="pm-journey">
+              <span>${lang === 'te' ? '7 రోజుల సాధన ప్రయాణం' : (lang === 'hi' ? '7-दिवसीय साधना यात्रा' : '7-Day Contemplative Journey')}</span>
+            </button>
+          </div>
+
+          <div class="scenario-selector-bar" role="tablist" aria-label="Difficulty scenarios">
+            ${activeList.map((c, idx) => `
               <button type="button" role="tab" class="scenario-tab ${idx === activeCase ? 'tab-active' : ''}" data-idx="${idx}" aria-selected="${idx === activeCase}">
                 <span class="tab-number">0${idx + 1}</span>
                 <span class="tab-text">${c.title}</span>
@@ -382,7 +571,7 @@
           <div class="scenario-display-card" role="tabpanel">
             <div class="scenario-header">
               <div>
-                <span class="scenario-eyebrow">Interactive Contemplation</span>
+                <span class="scenario-eyebrow">${activeMode === 'journey' ? '7-Day Guided Journey' : 'Interactive Contemplation'}</span>
                 <h3 class="scenario-title">${item.title}</h3>
               </div>
               <button type="button" class="button secondary small-btn practice-wa-btn" id="practice-share-wa">
@@ -422,6 +611,24 @@
         </div>
       `;
 
+      const pmScenarios = pracEl.querySelector('#pm-scenarios');
+      if (pmScenarios) {
+        pmScenarios.onclick = () => {
+          activeMode = 'scenarios';
+          activeCase = 0;
+          renderPractice();
+        };
+      }
+
+      const pmJourney = pracEl.querySelector('#pm-journey');
+      if (pmJourney) {
+        pmJourney.onclick = () => {
+          activeMode = 'journey';
+          activeCase = 0;
+          renderPractice();
+        };
+      }
+
       pracEl.querySelectorAll('.scenario-tab').forEach(btn => {
         btn.onclick = () => {
           activeCase = parseInt(btn.dataset.idx, 10);
@@ -432,14 +639,14 @@
       const noteInput = pracEl.querySelector('#practice-note-textarea');
       if (noteInput) {
         noteInput.oninput = (e) => {
-          sessionStorage.setItem(`mindclarity_note_${activeCase}`, e.target.value);
+          sessionStorage.setItem(`mindclarity_note_${activeMode}_${activeCase}`, e.target.value);
         };
       }
 
       const clearBtn = pracEl.querySelector('#practice-note-clear');
       if (clearBtn) {
         clearBtn.onclick = () => {
-          sessionStorage.removeItem(`mindclarity_note_${activeCase}`);
+          sessionStorage.removeItem(`mindclarity_note_${activeMode}_${activeCase}`);
           if (noteInput) noteInput.value = '';
         };
       }
@@ -450,8 +657,11 @@
           const title = item.title;
           const p1 = item.paragraphs[0] || '';
           const p2 = item.paragraphs[1] || '';
+          const p3 = item.paragraphs[2] || '';
           const currentUrl = window.location.origin + window.location.pathname + '#everyday-scenes';
-          const text = `*Mind Clarity · Everyday Contemplation*\n"${title}"\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\nExplore at: ${currentUrl}`;
+          const text = activeMode === 'journey'
+            ? `*Mind Clarity · 7-Day Journey (${title})*\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\n*Action:* ${p3}\n\nExplore at: ${currentUrl}`
+            : `*Mind Clarity · Everyday Contemplation*\n"${title}"\n\n*The Scene:* ${p1}\n\n*Creator Remembrance:* ${p2}\n\nExplore at: ${currentUrl}`;
           window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         };
       }

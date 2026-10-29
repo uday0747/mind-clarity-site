@@ -414,6 +414,36 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(24, 61, 54, 0.06);
 }
+.practice-mode-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  background: var(--soft);
+  padding: 5px;
+  border-radius: 30px;
+  border: 1px solid var(--line);
+  width: fit-content;
+}
+.mode-tab {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  font-weight: 650;
+  font-size: 0.92rem;
+  color: var(--deep);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mode-tab.mode-active {
+  background: var(--deep);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(24, 61, 54, 0.2);
+}
+@media(max-width:600px){
+  .practice-mode-bar { width: 100%; justify-content: center; }
+  .mode-tab { flex: 1; text-align: center; padding: 8px 12px; font-size: 0.85rem; }
+}
 .scenario-selector-bar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
