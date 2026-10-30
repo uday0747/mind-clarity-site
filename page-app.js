@@ -26,7 +26,7 @@ const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
 function Reflections() {
-  return e(Page, {eyebrow:'Reflections', title:'Reflections on life and the Creator', intro:'Read Uday Kumar’s reflections on technology, uncertainty, and the way we meet life.'},
+  return e(Page, {eyebrow:'Reflections', title:'Reflections on life and the Creator', intro:'Read reflections on technology, uncertainty, and the way we meet life.'},
     e('article', {className:'reflection-card'},
       e('p', {className:'quiet-note'}, e('time', {dateTime:'2026-10-03'}, '2026-10-03'), ' · ', 'Updated', ' ', e('time', {dateTime:'2026-10-11'}, '2026-10-11')),
       e('h2', null, e('a', {href:'/ai-fear-and-clarity'}, 'Can we meet artificial intelligence with clarity instead of fear?')),

@@ -129,7 +129,7 @@ export function App() {
       e('a', {className:'text-link', href:'/understanding-god#story'}, mission.storyLink)),
     introduction && e('section', { className: 'watch-lesson', 'aria-labelledby': 'watch-title' },
       e('div', null, e('h2', { id: 'watch-title' }, 'Watch the Mind Clarity introduction'),
-        e('p', null, 'Explore Uday Kumar’s main teaching through a simple everyday example, then read and question the philosophy for yourself.')),
+        e('p', null, 'Explore the core teaching through a simple everyday example, then read and question the philosophy for yourself.')),
       e('a', { className: 'button secondary', href: introduction.href }, 'Watch the introduction on YouTube')),
     e('section', {className:'home-section learning-journey', 'aria-labelledby':'journey-title'},
       e('h2', {id:'journey-title'}, 'Explore at your own pace.'),
