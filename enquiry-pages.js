@@ -22,6 +22,7 @@ function EnquiryPage({ topic }) {
       e(Reflection, null, topic.reflection),
       e('section', {className:'journey-connection'}, e('h2', null, journey.connectionTitle),
         e('p', null, journey.connection),
+        journey.connectionNote && e('p', {className:'quiet-note'}, journey.connectionNote),
         e('div', {className:'reading-links'}, e('a', {href:'/philosophy#astrology'}, journey.astrologyTitle), e('a', {href:'/philosophy#reasoning'}, journey.reasonTitle))),
       e('div', { className: 'reading-links' }, e('a', { href: topic.practiceLink }, 'Explore an optional everyday example'), e('a', { href: '/philosophy' }, 'Read the full philosophy'), e('a', { href: '/faq#enquiry-title' }, 'Find another answer'))),
     e(EnquiryLinks),

@@ -53,6 +53,7 @@ function FAQ() {
       e('section', { 'aria-labelledby': 'evidence-notes' },
         e('h2', { id: 'evidence-notes' }, 'Research and its limits'),
         e(AstrologyExplanation), p(journey.reason),
+        journey.reasonNote && e('p', {className:'quiet-note'}, journey.reasonNote),
         p('Spiritual teaching, personal experience, and research answer different kinds of questions. The sources below support specific findings; they do not establish that we created the universe or that enlightenment guarantees health, wealth, or correct decisions.'),
         e('p', {className:'reading-links'}, e('a', {href:'/philosophy#research-across-traditions'}, comparative.traditionsTitle), e('a', {href:'/philosophy#research-health-and-time'}, comparative.healthTitle)),
         e('p', null, e('a', { href: 'https://www.insead.edu/faculty-research/publications/journal-articles/debiasing-mind-through-meditation-mindfulness-and' }, 'Mindfulness and sunk-cost bias — INSEAD'), ': four studies suggest that mindfulness can reduce the tendency to let unrecoverable past costs drive a present decision. This is a specific decision-making benefit, not proof that every choice will be right.'),

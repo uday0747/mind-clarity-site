@@ -9,8 +9,8 @@ export default function UnderstandingGod() {
   sections.splice(3, 0,
     {id:'design-and-time', title:journey.designTitle, paragraphs:[journey.design]},
     {id:'astrology', title:journey.astrologyTitle, paragraphs:[], astrology:true},
-    {id:'reasoning', title:journey.reasonTitle, paragraphs:[journey.reason]},
-    {id:'connection', title:journey.connectionTitle, paragraphs:[journey.connection, journey.joy]});
+    {id:'reasoning', title:journey.reasonTitle, paragraphs:[journey.reason, journey.reasonNote]},
+    {id:'connection', title:journey.connectionTitle, paragraphs:[journey.connection, journey.connectionNote, journey.joy]});
   return e(Page, { eyebrow: 'Understanding and enquiry', title: content.title, intro: content.intro },
     e('p', null, teaching.statement),
     e('div', { className: 'reading-grid' },
@@ -19,7 +19,10 @@ export default function UnderstandingGod() {
         ...sections.map(section => e('section', { id: section.id, key: section.id },
           e('h2', null, section.title),
           section.astrology && e(AstrologyExplanation),
-          ...section.paragraphs.map(text => e('p', { key: text }, text)),
+          ...section.paragraphs.map(text => {
+            const isNote = text === journey.reasonNote || text === journey.connectionNote;
+            return e('p', { key: text, className: isNote ? 'quiet-note' : undefined }, text);
+          }),
           section.links && e('ul', null, section.links.map(([label, href]) => e('li', { key: href }, e('a', { href }, label)))))),
         e(Reflection, null, content.reflection),
         e('a', { href: '/philosophy' }, 'Read Uday’s full philosophy'))),
