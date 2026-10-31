@@ -15,7 +15,7 @@ for (const [language, dictionary] of Object.entries(translations)) {
 }
 const localizedPages = ['hi', 'es', 'fr', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs'].flatMap(language => [...localizedPageSlugs].map(page => `${language}/${page}`));
 const teluguPages = ['te', ...[...localizedPageSlugs].filter(page => page !== 'ai-fear-and-clarity').map(page => `te/${page}`)];
-const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
+const pages = ['ai-fear-and-clarity-telugu', 'reflections', 'ai-fear-and-clarity', 'why-we-entered-to-feel', 'index', 'hi', 'es', 'fr', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs', ...teluguPages, ...localizedPages, 'philosophy', 'ashtavakra-gita', 'understanding-god', 'practice', 'faq', 'privacy', ...enquiryTopics.map(topic => topic.slug)];
 assert.ok(!existsSync(path.join(dist, 'contact.html')), 'Retired Contact page is not published');
 const resolveLocal = (url, base = 'https://mindclarity.co.in/') => {
   const pathname = new URL(url, base).pathname;

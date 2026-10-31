@@ -43,6 +43,7 @@ export const localizedPageSlugs = new Set([
   'life-problems-and-self-enquiry', 'confidence-self-worth-and-self-enquiry', 'overthinking-worry-and-uncertainty',
   'philosophy', 'practice', 'faq', 'reflections', 'privacy',
   'who-am-i-self-enquiry', 'surrender-free-will-and-design', 'meditation-and-self-realization', 'guilt-responsibility-and-boundaries', 'ai-fear-and-clarity',
+  'why-we-entered-to-feel',
 ]);
 
 export function localizedPath(language, page = '') {

@@ -16,7 +16,9 @@ export function completeMetadata(head) {
   const canonical = head.match(/rel="canonical" href="([^"]+)"/)?.[1];
   if (!title || !description || !canonical) throw new Error('Missing page metadata');
   const decode = value => value.replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'");
-  const reflection = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
+  const isFeel = /\/why-we-entered-to-feel$/.test(canonical);
+  const isAIFear = /\/ai-fear-and-clarity(?:-telugu)?$/.test(canonical);
+  const reflection = isFeel || isAIFear;
   const canonicalPath = new URL(canonical).pathname.replace(/\/$/, '') || '/';
   const language = pageLanguage(canonicalPath);
   const localizedRoute = canonicalPath.match(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko|zh-Hans|zh-Hant|tr|vi|pl|nl|sv|da|nb|ro|cs)\/([^/]+)$/);
@@ -61,11 +63,11 @@ export function completeMetadata(head) {
     graph['@graph'].push({ '@type': 'BlogPosting', '@id': `${canonical}#article`,
       headline: decode(title).replace(/ \| Mind Clarity$/, ''), description: decode(description),
       author, publisher: { '@id': 'https://mindclarity.co.in/#website' },
-      datePublished: '2026-10-03', dateModified: '2026-10-11',
+      datePublished: isFeel ? '2026-10-31' : '2026-10-03', dateModified: isFeel ? '2026-10-31' : '2026-10-11',
       image: 'https://mindclarity.co.in/assets/social-preview.jpg',
       mainEntityOfPage: { '@id': `${canonical}#webpage` }, inLanguage: language });
-    tags.push(['property', 'article:published_time', '2026-10-03'],
-      ['property', 'article:modified_time', '2026-10-11']);
+    tags.push(['property', 'article:published_time', isFeel ? '2026-10-31' : '2026-10-03'],
+      ['property', 'article:modified_time', isFeel ? '2026-10-31' : '2026-10-11']);
     graph['@graph'].push({ '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Mind Clarity', item: `https://mindclarity.co.in${home}` },
       { '@type': 'ListItem', position: 2, name: translateText('Reflections', language), item: `https://mindclarity.co.in${index}` },
@@ -73,9 +75,11 @@ export function completeMetadata(head) {
     ] });
   }
   if (canonicalPath === '/reflections' || localizedPage === 'reflections') {
-    const article = languageVariants('/ai-fear-and-clarity')[language];
+    const article1 = languageVariants('/why-we-entered-to-feel')[language];
+    const article2 = languageVariants('/ai-fear-and-clarity')[language];
     graph['@graph'][1].mainEntity = { '@type': 'ItemList', itemListElement: [
-      { '@type': 'ListItem', position: 1, url: `https://mindclarity.co.in${article}`, name: translateText('Can we meet artificial intelligence with clarity instead of fear?', language) }
+      { '@type': 'ListItem', position: 1, url: `https://mindclarity.co.in${article1}`, name: translateText('From Survival to Satya: Why We Entered to Feel, Technology’s Role, and the Timing of Awakening', language) },
+      { '@type': 'ListItem', position: 2, url: `https://mindclarity.co.in${article2}`, name: translateText('Can we meet artificial intelligence with clarity instead of fear?', language) }
     ] };
   }
   if (topic) {

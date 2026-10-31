@@ -12,6 +12,7 @@ import { Page } from './site-layout.js';
 import Philosophy from './philosophy-content.js';
 import AIReflection from './ai-reflection.js';
 import TeluguAIReflection from './ai-reflection-te.js';
+import WhyWeEnteredToFeel from './why-we-entered-to-feel.js';
 import Practice from './practice.js';
 import teaching from './teaching-content.json' with { type: 'json' };
 import comparative from './comparative-research.json' with { type: 'json' };
@@ -27,6 +28,12 @@ const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
 function Reflections() {
   return e(Page, {eyebrow:'Reflections', title:'Reflections on life and the Creator', intro:'Read reflections on technology, uncertainty, and the way we meet life.'},
+    e('article', {className:'reflection-card'},
+      e('p', {className:'quiet-note'}, e('time', {dateTime:'2026-10-31'}, '2026-10-31')),
+      e('h2', null, e('a', {href:'/why-we-entered-to-feel'}, 'From Survival to Satya: Why We Entered to Feel, Technology’s Role, and the Timing of Awakening')),
+      p('A reflection on human history, religious dualism, why the Creator took form to feel, and how technology and mass awakening unfold within the design.'),
+      e('p', {className:'quiet-note'}, e('span', {'data-reading-minutes':true, 'data-reading-article':'why-we-entered-to-feel'}, '–'), ' ', 'minutes'),
+      e('a', {className:'text-link',href:'/why-we-entered-to-feel'}, 'Read the reflection')),
     e('article', {className:'reflection-card'},
       e('p', {className:'quiet-note'}, e('time', {dateTime:'2026-10-03'}, '2026-10-03'), ' · ', 'Updated', ' ', e('time', {dateTime:'2026-10-11'}, '2026-10-11')),
       e('h2', null, e('a', {href:'/ai-fear-and-clarity'}, 'Can we meet artificial intelligence with clarity instead of fear?')),
@@ -83,9 +90,9 @@ function Privacy() {
       p('Contact us if you want to ask about information you have sent directly. Reflection answers and question-finder searches are not collected by this website.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, philosophy: Philosophy, practice: Practice, faq: FAQ, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => !['index', 'consultation-info'].includes(page)).map(([page, Component]) => [`te/${page}`, Component])) };
+export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, 'why-we-entered-to-feel': WhyWeEnteredToFeel, philosophy: Philosophy, practice: Practice, faq: FAQ, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => !['index', 'consultation-info'].includes(page)).map(([page, Component]) => [`te/${page}`, Component])) };
 for (const language of ['hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs']) {
-  for (const slug of ['ashtavakra-gita', 'understanding-god']) pages[`${language}/${slug}`] = pages[slug];
+  for (const slug of ['ashtavakra-gita', 'understanding-god', 'why-we-entered-to-feel']) pages[`${language}/${slug}`] = pages[slug];
 }
 for (const language of ['pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs']) {
   pages[language] = App;

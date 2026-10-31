@@ -96,7 +96,14 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const readingMinutes = Math.max(1, Math.ceil(readingText.replace(/<[^>]*>/g,' ').split(/\s+/).filter(Boolean).length / 200));
   const articleText = renderToStaticMarkup(React.createElement(pages['ai-fear-and-clarity']));
   const articleMinutes = Math.max(1, Math.ceil(articleText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
-  markup = markup.replace(/(<span data-reading-minutes="true"([^>]*)>)–(<\/span>)/g, (_, open, attributes, close) => open + (attributes.includes('data-reading-article') ? articleMinutes : readingMinutes) + close);
+  const feelText = renderToStaticMarkup(React.createElement(pages['why-we-entered-to-feel']));
+  const feelMinutes = Math.max(1, Math.ceil(feelText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
+  markup = markup.replace(/(<span data-reading-minutes="true"([^>]*)>)–(<\/span>)/g, (_, open, attributes, close) => {
+    let minutes = readingMinutes;
+    if (attributes.includes('why-we-entered-to-feel')) minutes = feelMinutes;
+    else if (attributes.includes('data-reading-article')) minutes = articleMinutes;
+    return open + minutes + close;
+  });
   if (language !== 'en') markup = translateMarkup(markup, language);
   const html = `<!doctype html>\n<html lang="${pageLanguage(pathname)}"${['ar', 'ur'].includes(language) ? ' dir="rtl"' : ''}><head>${head}</head><body><div id="root">${markup}</div><script defer src="/site.js?v=${await revision('site.js')}" integrity="${bundleIntegrity}" crossorigin="anonymous"></script></body></html>\n`;
   const outputFile = path.join(dist, `${page}.html`);
