@@ -33,8 +33,6 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
   const ui = interfaceFor(uiLanguage);
   const basePath = pathname.replace(/^\/(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko|zh-Hans|zh-Hant|tr|vi|pl|nl|sv|da|nb|ro|cs)(?=\/)/, '').replace(/\.html$/, '').replace(/\/$/, '');
   const canShare = share && basePath !== '/privacy';
-  const isReflection = ['/why-we-entered-to-feel', '/ai-fear-and-clarity', '/reflections'].includes(basePath);
-  const showMissionPath = !home && canShare && !isReflection;
   const nextStep = home ? ['/understanding-god', mission.understandLink]
     : basePath === '/understanding-god' ? ['/philosophy', 'Read the complete philosophy →']
     : basePath === '/philosophy' ? ['/practice', mission.practiceLink]
@@ -47,13 +45,6 @@ export function Page({ eyebrow, title, intro, children, home = false, lang, shar
       eyebrow && e('p', { className: 'eyebrow' }, eyebrow),
       e('h1', null, title),
       intro && e('p', { className: 'intro' }, intro),
-      showMissionPath && e('nav', { className: 'mission-path', 'aria-label': mission.journeyLabel },
-        e('a', { href: '/' }, mission.homeTitle),
-        e('a', { href: '/understanding-god' }, mission.understandLink),
-        e('a', { href: '/philosophy' }, 'Read the complete philosophy →'),
-        e('a', { href: '/philosophy#astrology' }, journey.astrologyTitle),
-        e('a', { href: '/practice' }, mission.practiceLink),
-        e('a', { href: '/faq#enquiry-title' }, 'Find an answer to your question')),
       overview && e('aside', { className:'reading-overview', 'aria-label':'In brief' }, e('p', {className:'eyebrow'}, 'In brief'), e('p', null, overview), e('p', {className:'reading-duration quiet-note'}, 'Full reading', ' · ', e('span', {'data-reading-minutes':true}, '–'), ' ', e('span', null, 'minutes'), ' · ', 'Explore at your own pace.')),
       children,
       canShare && e('aside', { className: 'mission-return' }, e('p', null, mission.missionNote),
