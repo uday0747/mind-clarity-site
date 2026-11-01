@@ -24,3 +24,4 @@
 .discovery-reflection{padding:28px;border-radius:18px;background:#eaf0e9}
 .home-main .first-practice{align-items:start}
 @media(max-width:600px){.discovery-card{padding:22px}.yuga-introduction{padding:20px}.yuga-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.discovery-path{gap:14px;flex-direction:column}.discovery-reflection{padding:22px}}
+@media(prefers-color-scheme:dark){.discovery-card{background:#1a2520;border-color:var(--line)}.discovery-reflection{background:#16201b}.yuga-introduction{background:#1e241c;border-inline-start-color:var(--gold)}.discovery-number{color:var(--gold)}}

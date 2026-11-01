@@ -667,16 +667,84 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
     background: var(--cream);
     color: var(--ink);
   }
+  .clarity-card-studio-section,
   .studio-workspace,
   .interactive-practice-section,
   .pillar-box,
   .reflection-scratchpad,
   .compact-reading details,
   .faq-topics a,
-  .topic-link {
+  .topic-link,
+  #research-across-traditions details,
+  #research-health-and-time details,
+  .discovery-card,
+  .reflection-card {
     background: #1a2520 !important;
     border-color: var(--line) !important;
     color: var(--ink) !important;
+  }
+  .three-card-grid .story-card {
+    background: #1a2520;
+    border-color: var(--line);
+  }
+  .card-number {
+    background: var(--green);
+    color: #ffffff;
+  }
+  .studio-btn.toggle-active {
+    background: #24352d;
+    color: var(--deep);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  .featured-concerns {
+    background: #16201b;
+    border-color: var(--line);
+  }
+  .featured-concerns article a {
+    background: #1a2520;
+    border-color: var(--line);
+    color: var(--deep);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  .featured-concerns article a:hover,
+  .featured-concerns article a:focus-visible {
+    background: #24352d;
+    border-color: var(--green);
+    color: #ffffff;
+  }
+  .faq-topics a:hover,
+  .topic-link:hover {
+    background: #24352d !important;
+    border-color: var(--green) !important;
+    color: var(--deep) !important;
+  }
+  blockquote {
+    background: #1a231f;
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+  .mission-return,
+  .mission-story {
+    background: #18221d;
+    border-color: var(--line);
+  }
+  .share-actions input,
+  .language-picker select,
+  .language-suggestion {
+    background: #131a17;
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  .discovery-reflection {
+    background: #16201b;
+    border-color: var(--line);
+  }
+  .yuga-introduction {
+    background: #1e241c;
+    border-inline-start-color: var(--gold);
+  }
+  .discovery-number {
+    color: var(--gold);
   }
   .scenario-display-card {
     background: #16201b !important;
@@ -716,10 +784,6 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
   .purpose-section,
   .three-card-story {
     background: var(--soft);
-    border-color: var(--line);
-  }
-  .three-card-grid .story-card {
-    background: #1a2520;
     border-color: var(--line);
   }
 }
