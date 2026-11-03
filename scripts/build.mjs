@@ -98,9 +98,12 @@ for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const articleMinutes = Math.max(1, Math.ceil(articleText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
   const feelText = renderToStaticMarkup(React.createElement(pages['why-we-entered-to-feel']));
   const feelMinutes = Math.max(1, Math.ceil(feelText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
+  const beyondText = renderToStaticMarkup(React.createElement(pages['beyond-the-disconnected-role']));
+  const beyondMinutes = Math.max(1, Math.ceil(beyondText.replace(/<[^>]*>/g, ' ').split(/\s+/).filter(Boolean).length / 200));
   markup = markup.replace(/(<span data-reading-minutes="true"([^>]*)>)–(<\/span>)/g, (_, open, attributes, close) => {
     let minutes = readingMinutes;
-    if (attributes.includes('why-we-entered-to-feel')) minutes = feelMinutes;
+    if (attributes.includes('beyond-the-disconnected-role')) minutes = beyondMinutes;
+    else if (attributes.includes('why-we-entered-to-feel')) minutes = feelMinutes;
     else if (attributes.includes('data-reading-article')) minutes = articleMinutes;
     return open + minutes + close;
   });
