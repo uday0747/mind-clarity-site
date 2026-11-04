@@ -1,4 +1,5 @@
 import entry from './creator-entry-content.json' with { type: 'json' };
+import guide from './guided-home-content.json' with { type: 'json' };
 import benefits from './benefits-content.json' with { type: 'json' };
 import problems from './problem-content.json' with { type: 'json' };
 import discussion from './discussion-content.json' with { type: 'json' };
@@ -86,6 +87,6 @@ for (const topic of enquiryTopics) {
 }
 
 for (const topic of enquiryTopics) {
-  if (topic.slug === "who-am-i-self-enquiry") { topic.sections.push([entry.title, entry.identity], [entry.question, entry.example]); topic.modified = "2026-10-14"; }
+  if (topic.slug === "who-am-i-self-enquiry") { topic.sections.push([entry.title, entry.identity], [guide.powers, entry.example]); topic.modified = "2026-10-14"; }
   if (topic.slug === "meditation-and-self-realization") { topic.sections.push([entry.meditationTitle, entry.meditation], [entry.title, entry.recognition]); topic.modified = "2026-10-14"; }
 }

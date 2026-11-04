@@ -46,7 +46,7 @@ export function App() {
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '02'),
           e('h3', null, guide.powers),
-          e('p', null, journey.design)
+          e('p', null, entry.example)
         ),
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '03'),
