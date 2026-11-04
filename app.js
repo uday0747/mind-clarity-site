@@ -41,7 +41,7 @@ export function App() {
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '01'),
           e('h3', null, mission.homeTitle),
-          e('p', null, journey.identity)
+          e('p', null, mission.homeIdentity)
         ),
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '02'),
@@ -59,7 +59,7 @@ export function App() {
     e('section', { className: 'home-section discovery-card', id: 'identity-and-roles', 'aria-labelledby': 'roles-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '01'),
       e('h2', { id: 'roles-title' }, guide.roles),
-      e('p', null, journey.identity),
+      e('p', null, mission.homeIdentity),
       e('svg', { className: 'roles-illustration', viewBox:'0 0 400 130', 'aria-hidden':true, focusable:'false' },
         e('path', { d:'M200 25 L70 65 M200 25 L200 65 M200 25 L330 65', fill:'none', stroke:'currentColor', strokeWidth:2 }),
         e('circle', { cx:200, cy:22, r:16, fill:'currentColor' }),
