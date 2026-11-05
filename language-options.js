@@ -39,6 +39,7 @@ export const languageOptions = [
 export const languagePreferenceKey = 'mind-clarity-language';
 
 export const localizedPageSlugs = new Set([
+  'foundations', 'rules-of-the-game', 'daily-life', 'inner-enquiry', 'world-vision',
   'ashtavakra-gita', 'understanding-god',
   'life-problems-and-self-enquiry', 'confidence-self-worth-and-self-enquiry', 'overthinking-worry-and-uncertainty',
   'philosophy', 'practice', 'faq', 'reflections', 'privacy',

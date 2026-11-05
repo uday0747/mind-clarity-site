@@ -7,10 +7,13 @@ export const PagePathContext = createContext(null);
 const e = React.createElement;
 const links = [
   ['home', 'Begin here', '/'],
-  ['philosophy', 'Philosophy', '/philosophy'],
-  ['practice', 'Everyday examples', '/practice'],
-  ['faq', 'Questions', '/faq'],
-  ['reflections', 'Reflections', '/reflections']
+  ['foundations', 'Foundations', '/foundations'],
+  ['rules-of-the-game', 'Rules of the Game', '/rules-of-the-game'],
+  ['daily-life', 'Daily Life', '/daily-life'],
+  ['inner-enquiry', 'Inner Enquiry', '/inner-enquiry'],
+  ['world-vision', 'World Vision', '/world-vision'],
+  ['reflections', 'Reflections', '/reflections'],
+  ['faq', 'Questions', '/faq']
 ];
 export function pageFromPath(pathname) {
   const segments = pathname.replace(/\/+$/, '').split('/').filter(Boolean).map(segment => segment.replace(/\.html$/, ''));
@@ -29,13 +32,14 @@ export default function Header() {
   const localizedUi = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs'].includes(currentLanguage) ? currentLanguage : 'en';
   const localizedNavigation = ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs'].includes(localizedUi);
   const ui = interfaceFor(localizedUi);
-  const page = ['ashtavakra-gita', 'understanding-god'].includes(current) ? 'philosophy' : ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu', 'why-we-entered-to-feel', 'beyond-the-disconnected-role'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
+  const page = ['ashtavakra-gita', 'understanding-god', 'philosophy'].includes(current) ? 'foundations' : ['practice'].includes(current) ? 'inner-enquiry' : ['hi', 'es', 'fr', 'te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs'].includes(current) ? 'home' : ['ai-fear-and-clarity', 'ai-fear-and-clarity-telugu', 'why-we-entered-to-feel', 'beyond-the-disconnected-role'].includes(current) ? 'reflections' : enquiryTopics.some(topic => topic.slug === current) ? 'faq' : current;
   const variants = languageVariants(pathname);
   const availableLanguages = languageOptions.filter(option => variants[option.code]);
-  const navLinks = links.map(([id, , href]) => {
+  const navLinks = links.map(([id, defaultLabel, href]) => {
     const pageSlug = id === 'home' ? '' : id === 'faq' ? 'faq' : id;
     const localizedHref = localizedNavigation && (id === 'home' || localizedPageSlugs.has(pageSlug)) ? localizedPath(localizedUi, pageSlug) : href;
-    return [id, ui.nav[id], localizedHref];
+    const label = ui.nav?.[id] || defaultLabel;
+    return [id, label, localizedHref];
   });
   const brandHref = localizedNavigation ? localizedPath(localizedUi) : '/';
   return e('header', { className: 'site-header', ref: header, lang: localizedUi },
@@ -44,7 +48,7 @@ export default function Header() {
       'aria-label': ui.openMenu, 'data-menu-label': ui.menu, 'data-open-label': ui.openMenu, 'data-close-label': ui.closeMenu, 'aria-controls': 'primary-navigation' }, ui.menu),
     e('nav', { id: 'primary-navigation', 'aria-label': ui.mainNav },
       navLinks.map(([id,label,href])=>e('a', { key:id, href, 'aria-current': id===page?'page':undefined },label))),
-    e('p', { className: 'mobile-page' }, ui.labels[page] || 'Mind Clarity'),
+    e('p', { className: 'mobile-page' }, ui.labels?.[page] || 'Mind Clarity'),
     e('div', { className: 'language-tools' },
       e('label', { className: 'language-picker', htmlFor: 'language-select' },
         e('span', null, ui.language),

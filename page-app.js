@@ -24,11 +24,29 @@ import { localizedComponents } from './localized-core.js';
 import { localizedMoreComponents } from './localized-more.js';
 import { localizedAIComponents } from './localized-ai.js';
 import { TeluguStaticPages } from './telugu-static.js';
+import FoundationsPage from './foundations-page.js';
+import RulesPage from './rules-page.js';
+import DailyLifePage from './daily-life-page.js';
+import InnerEnquiryPage from './inner-enquiry-page.js';
+import WorldVisionPage from './world-vision-page.js';
+import { FutureExpansionsCard, CategoryPagination } from './category-helpers.js';
+
 const e = React.createElement;
 const p = (text) => e('p', null, text);
 const email = () => e('a', { href: 'mailto:pudaykumar12@gmail.com' }, 'pudaykumar12@gmail.com');
+
 function Reflections() {
-  return e(Page, {eyebrow:'Reflections', title:'Reflections on life and the Creator', intro:'Read reflections on technology, uncertainty, and the way we meet life.'},
+  const futureItems = [
+    'Spiritual commentaries on ancient epics and characters',
+    'Modern science, quantum consciousness, and the Game of Life',
+    'New personal dialogues and questions from seekers'
+  ];
+  return e(Page, {
+    eyebrow: 'Category 06 · Reflections & Ancient Dialogue',
+    title: 'Reflections on Life, Technology and the Creator',
+    intro: 'Read in-depth essays, cultural reflections, and philosophical commentaries exploring the game of life, fearlessness, leadership, and our shared origin.',
+    overview: 'Essays by Uday Kumar exploring ancient epics (Rama, Krishna, Shiva, Durga), technological evolution and AI, Vedic pointers, and Ashtavakra Gita awareness.'
+  },
     e('article', {className:'reflection-card'},
       e('p', {className:'quiet-note'}, e('time', {dateTime:'2026-11-03'}, '2026-11-03')),
       e('h2', null, e('a', {href:'/beyond-the-disconnected-role'}, 'Beyond the Disconnected Role: Shiva’s Snake, Durga’s Tiger, and the Power of Universal Connection')),
@@ -47,9 +65,22 @@ function Reflections() {
       p('A reflection on work, fear, gratitude, and care as technology changes our lives.'),
       e('p', {className:'quiet-note'}, e('span', {'data-reading-minutes':true, 'data-reading-article':'ai-fear-and-clarity'}, '–'), ' ', 'minutes'),
       e('a', {className:'text-link',href:'/ai-fear-and-clarity'}, 'Read the reflection')),
+    e('article', {className:'reflection-card'},
+      e('h2', null, e('a', {href:'/ashtavakra-gita'}, 'Ashtavakra Gita & Creator Awareness')),
+      p('Ashtavakra Gita: awareness within experience'),
+      e('a', {className:'text-link',href:'/ashtavakra-gita'}, 'Explore Ashtavakra Gita')),
+    e('article', {className:'reflection-card'},
+      e('h2', null, e('a', {href:'/philosophy#scripture'}, 'Ten Vedic and Upanishadic Pointers')),
+      p('Read the ten scriptural pointers'),
+      e('a', {className:'text-link',href:'/philosophy#scripture'}, 'Explore the Ten Pointers')),
+    e(FutureExpansionsCard, { categoryTitle: 'Reflections & Ancient Dialogue', items: futureItems }),
+    e(CategoryPagination, {
+      prev: { href: '/world-vision', label: '05. World Vision & The Yugas' },
+      next: { href: '/foundations', label: '01. The Foundations' }
+    }),
     e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
-
 }
+
 function FAQ() {
   return e(Page, { eyebrow: 'Questions about the teaching', title: mission.faqTitle, intro: teaching.statement, overview:'Browse the questions below. Open any question to read the full answer.' },
     e('section', { className: 'question-introduction', 'aria-labelledby': 'enquiry-title' },
@@ -80,6 +111,7 @@ function FAQ() {
     e('p', { className: 'reading-links' }, e('a', { href: '/ai-fear-and-clarity' }, 'Read the reflection: Can we meet artificial intelligence with clarity instead of fear?')),
     e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }
+
 function Privacy() {
   return e(Page, { eyebrow: 'Your information', title: 'Privacy information' },
     e('div', { className: 'compact-reading' },
@@ -96,9 +128,41 @@ function Privacy() {
       p('Contact us if you want to ask about information you have sent directly. Reflection answers and question-finder searches are not collected by this website.'),
       e('h2', null, 'Questions'), e('p', null, 'For privacy questions, contact ', email(), '.')));
 }
-export const pages = { 'understanding-god': UnderstandingGod, 'ashtavakra-gita': AshtavakraResearch, hi: HindiHome, es: SpanishHome, fr: FrenchHome, te: TeluguStaticPages.index, 'ai-fear-and-clarity-telugu': TeluguAIReflection, reflections: Reflections, 'ai-fear-and-clarity': AIReflection, 'why-we-entered-to-feel': WhyWeEnteredToFeel, 'beyond-the-disconnected-role': BeyondTheDisconnectedRole, philosophy: Philosophy, practice: Practice, faq: FAQ, privacy: Privacy, ...enquiryPages, ...localizedComponents, ...localizedMoreComponents, ...localizedAIComponents, ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => !['index', 'consultation-info'].includes(page)).map(([page, Component]) => [`te/${page}`, Component])) };
+
+export const pages = {
+  foundations: FoundationsPage,
+  'rules-of-the-game': RulesPage,
+  'daily-life': DailyLifePage,
+  'inner-enquiry': InnerEnquiryPage,
+  'world-vision': WorldVisionPage,
+  'understanding-god': UnderstandingGod,
+  'ashtavakra-gita': AshtavakraResearch,
+  hi: HindiHome,
+  es: SpanishHome,
+  fr: FrenchHome,
+  te: TeluguStaticPages.index,
+  'ai-fear-and-clarity-telugu': TeluguAIReflection,
+  reflections: Reflections,
+  'ai-fear-and-clarity': AIReflection,
+  'why-we-entered-to-feel': WhyWeEnteredToFeel,
+  'beyond-the-disconnected-role': BeyondTheDisconnectedRole,
+  philosophy: Philosophy,
+  practice: Practice,
+  faq: FAQ,
+  privacy: Privacy,
+  ...enquiryPages,
+  ...localizedComponents,
+  ...localizedMoreComponents,
+  ...localizedAIComponents,
+  ...Object.fromEntries(Object.entries(TeluguStaticPages).filter(([page]) => !['index', 'consultation-info'].includes(page)).map(([page, Component]) => [`te/${page}`, Component]))
+};
+
+const categorySlugs = ['foundations', 'rules-of-the-game', 'daily-life', 'inner-enquiry', 'world-vision'];
+
 for (const language of ['hi','es','fr','te','pt','id','ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs']) {
-  for (const slug of ['ashtavakra-gita', 'understanding-god', 'why-we-entered-to-feel', 'beyond-the-disconnected-role']) pages[`${language}/${slug}`] = pages[slug];
+  for (const slug of ['ashtavakra-gita', 'understanding-god', 'why-we-entered-to-feel', 'beyond-the-disconnected-role', ...categorySlugs]) {
+    pages[`${language}/${slug}`] = pages[slug];
+  }
 }
 for (const language of ['pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs']) {
   pages[language] = App;
