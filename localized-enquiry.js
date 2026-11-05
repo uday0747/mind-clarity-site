@@ -284,10 +284,6 @@ export const localizedEnquiry = {
       "Sí. Uday acepta explícitamente que puede cometer errores y que debe examinar las correcciones válidas, incluidas las citas mal atribuidas y las afirmaciones sin fundamento. Rendirse ante el diseño no significa negarse a aprender. El desacuerdo respetuoso puede revelar información útil; no es automáticamente una señal de que quien pregunta no está preparado."
     ],
     [
-      "¿Un EEG prueba que alguien está iluminado?",
-      "Las fuentes revisadas aquí no establecen una prueba EEG para la iluminación. El sitio web de Sadhguru cuenta una historia personal sobre experimentadores que dijeron que una máquina indicaba la muerte, sin proporcionar la grabación original ni un informe detallado de ese episodio. Un pequeño estudio separado de nueve practicantes de Isha informó cambios en los ritmos y la coherencia del EEG, no una ausencia de actividad cerebral. Estos relatos no prueban la identidad compartida del Creador, el juicio perfecto o la ausencia de enfermedades."
-    ],
-    [
       "¿Declarar que el daño es parte del diseño elimina la necesidad de prevenirlo?",
       "No. En esta filosofía, la prevención, la protección, la investigación y la reparación también pertenecen al desarrollo de la vida. Esto se aplica a las personas, las instituciones y la tecnología, incluida la IA. La explicación espiritual no debe utilizarse para excusar daños evitables ni para desestimar a personas que plantean preocupaciones de seguridad."
     ]
@@ -430,10 +426,6 @@ export const localizedEnquiry = {
       "Oui. Uday accepte explicitement qu'il peut commettre des erreurs et qu'il doit examiner les corrections valides, y compris les citations mal attribuées et les affirmations non étayées. S’abandonner au design ne signifie pas refuser d’apprendre. Un désaccord respectueux peut révéler des informations utiles ; ce n’est pas automatiquement un signe que celui qui pose la question n’est pas prêt."
     ],
     [
-      "Un EEG prouve-t-il que quelqu'un est illuminé ?",
-      "Les sources examinées ici n'établissent pas de test EEG pour l'illumination. Le site Web de Sadhguru raconte l’histoire personnelle d’expérimentateurs affirmant qu’une machine indiquait la mort, sans fournir l’enregistrement original ni un rapport détaillé de cet épisode. Une petite étude distincte menée auprès de neuf praticiens d'Isha a rapporté des changements dans les rythmes et la cohérence de l'EEG, et non une absence d'activité cérébrale. Ces récits ne prouvent pas l’identité commune du Créateur, un jugement parfait ou l’absence de maladie."
-    ],
-    [
       "Qualifier un préjudice de partie de la conception du jeu supprime-t-il la nécessité de le prévenir ?",
       "Non. Dans cette philosophie, la prévention, la protection, l’investigation et la réparation appartiennent également au déroulement de la vie. Cela s’applique aux personnes, aux institutions et à la technologie, y compris l’IA. L’explication spirituelle ne doit pas être utilisée pour excuser un préjudice évitable ou écarter les personnes qui soulèvent des préoccupations en matière de sécurité."
     ]
@@ -574,10 +566,6 @@ export const localizedEnquiry = {
     [
       "ఉదయ్ లేదా ఈ వెబ్‌సైట్ తప్పులు చేయగలదా?",
       "అవును. ఉదయ్ తాను తప్పులు చేయగలనని స్పష్టంగా అంగీకరిస్తాడు మరియు తప్పుగా ఆపాదించబడిన కొటేషన్లు మరియు మద్దతు లేని క్లెయిమ్‌లతో సహా చెల్లుబాటు అయ్యే దిద్దుబాట్లను పరిశీలించాలి. డిజైన్‌కు లొంగిపోవడం అంటే నేర్చుకోవడానికి నిరాకరించడం కాదు. గౌరవప్రదమైన అసమ్మతి ఉపయోగకరమైన సమాచారాన్ని బహిర్గతం చేయవచ్చు; ప్రశ్నించేవారు సిద్ధంగా లేరనడానికి ఇది స్వయంచాలకంగా సంకేతం కాదు."
-    ],
-    [
-      "ఎవరైనా జ్ఞానోదయం పొందారని EEG రుజువు చేస్తుందా?",
-      "ఇక్కడ సమీక్షించబడిన మూలాధారాలు జ్ఞానోదయం కోసం EEG పరీక్షను ఏర్పాటు చేయలేదు. సద్గురు వెబ్‌సైట్ ప్రయోగాలు చేసేవారి వ్యక్తిగత కథనాన్ని వివరిస్తుంది, ఒక యంత్రం మరణాన్ని సూచించింది, అసలు రికార్డింగ్ లేదా ఆ ఎపిసోడ్ యొక్క వివరణాత్మక నివేదికను అందించలేదు. తొమ్మిది మంది ఇషా అభ్యాసకులపై ఒక ప్రత్యేక చిన్న అధ్యయనం EEG లయలు మరియు పొందికలో మార్పులను నివేదించింది-మెదడు కార్యకలాపాలు లేకపోవడం కాదు. ఈ వృత్తాంతాలు భాగస్వామ్య సృష్టికర్త గుర్తింపు, ఖచ్చితమైన తీర్పు లేదా అనారోగ్యం నుండి విముక్తిని నిరూపించవు."
     ],
     [
       "హానిని రూపకల్పనలో భాగమని చెప్పడం వల్ల దాన్ని నివారించాల్సిన అవసరం పోతుందా?",
