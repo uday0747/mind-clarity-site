@@ -13,6 +13,7 @@ import teaching from './teaching-content.json' with { type: 'json' };
 import problems from './problem-content.json' with { type: 'json' };
 import { ProblemLinks } from './problem-guide.js';
 import { EnquiryLinks } from './enquiry-pages.js';
+import { CategoriesSection } from './categories-section.js';
 import { PagePathContext } from './site-header.js';
 import { pageLanguage } from './language-options.js';
 import { introductionVideos } from './introduction-videos.js';
@@ -31,7 +32,8 @@ export function App() {
       e('a', { href: '#astrology' }, journey.astrologyTitle),
       e('a', { href: '#examine-the-game' }, journey.reasonTitle),
       e('a', { href: '#everyday-scenes' }, guide.choose),
-      e('a', { href: '#life-concerns' }, problems.homeTitle)),
+      e('a', { href: '#life-concerns' }, problems.homeTitle),
+      e('a', { href: '#categories' }, '6 Core Categories')),
     e('section', { className: 'home-section three-card-story' },
       e('div', { className: 'story-header' },
         e('span', { className: 'story-eyebrow' }, mission.homeTitle),
@@ -133,6 +135,7 @@ export function App() {
         e('li', null, e('h3', null, e('a', {href:'/practice#self-judgment'}, 'Explore an optional everyday example')), e('p', null, 'Connect the teaching with one ordinary scene or relationship.')),
         e('li', null, e('h3', null, e('a', {href:'/faq#enquiry-title'}, 'Find an answer to your question')), e('p', null, 'Browse the questions below. Open any question to read the full answer.')))),
     e(ProblemLinks, {compact:true, featured:true}),
+    e(CategoriesSection),
     e('details', {className:'learning-library'}, e('summary', null, 'Explore the full learning library'),
       e('div', {className:'reading-links'}, e('a', {href:'/philosophy'}, 'Read the complete philosophy →'), e('a', {href:'/ashtavakra-gita'}, mission.ashtavakraLink), e('a', {href:'/philosophy#beautiful-world'}, 'The Beautiful World vision')),
       e(EnquiryLinks),

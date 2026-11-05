@@ -1,0 +1,225 @@
+{
+  "title": "The 6 Core Categories of Mind Clarity",
+  "subtitle": "Explore the complete teachings organized by category, including current readings and upcoming topics in preparation.",
+  "categories": [
+    {
+      "id": "foundations",
+      "number": "01",
+      "title": "The Foundations",
+      "theme": "Understanding God, the Cosmic Story, and our True Divine Identity.",
+      "currentTopics": [
+        {
+          "title": "Understanding God & The Cosmic Story",
+          "href": "/understanding-god",
+          "description": "The state of aloneness, the desire for experience, and creating the universe."
+        },
+        {
+          "title": "The Root Statement (Mula Siddhanta)",
+          "href": "/philosophy#mula-siddhanta",
+          "description": "The unalterable design and entering the game of experiences."
+        },
+        {
+          "title": "Why We Left Our Powers Behind",
+          "href": "/understanding-god#entry-and-identity",
+          "description": "Why unlimited powers would collapse the game and eliminate experience."
+        },
+        {
+          "title": "One Creator, Many Roles",
+          "href": "/philosophy#one-shakti",
+          "description": "Distinguishing the eternal actor from the temporary passing roles."
+        }
+      ],
+      "futureTitle": "Future Expansions",
+      "futureExpansions": [
+        "What existed before creation?",
+        "Why contrast and limitation are necessary for rich experiences",
+        "God as living shared reality vs. an external punishing ruler"
+      ]
+    },
+    {
+      "id": "design-and-time",
+      "number": "02",
+      "title": "The Rules of the Game",
+      "theme": "Time, Astrology, Free Will, and the Art of True Surrender.",
+      "currentTopics": [
+        {
+          "title": "If Everything is Designed, Why Act?",
+          "href": "/surrender-free-will-and-design",
+          "description": "Effort, learning, and choices as natural parts of the unfolding script."
+        },
+        {
+          "title": "Time & Planetary Cycles (Astrology)",
+          "href": "/philosophy#astrology",
+          "description": "How moods and events move automatically with planetary time and dashas."
+        },
+        {
+          "title": "The Movie and the Lotus",
+          "href": "/philosophy#surrender",
+          "description": "Experiencing life fully while remaining inwardly untouched by passing scenes."
+        },
+        {
+          "title": "Quieting the Mind & Releasing Control",
+          "href": "/philosophy#reasoning",
+          "description": "Ending the exhausting demand to dictate the game's next scene."
+        }
+      ],
+      "futureTitle": "Future Expansions",
+      "futureExpansions": [
+        "Understanding Karma within a pre-designed game",
+        "Why difficult periods occur in the planetary cycle",
+        "Surrender as effortless understanding, not passive helplessness"
+      ]
+    },
+    {
+      "id": "daily-life",
+      "number": "03",
+      "title": "Daily Life & Relationships",
+      "theme": "Bringing remembrance into real-world challenges, conflicts, and family.",
+      "currentTopics": [
+        {
+          "title": "Seeing the Same Creator in Everyone",
+          "href": "/philosophy#two-levels",
+          "description": "Dissolving hatred and enmity by recognizing the single shared source in others."
+        },
+        {
+          "title": "When a Conversation Hurts (Conflict)",
+          "href": "/practice#conflict",
+          "description": "Responding with composure instead of reacting from an offended role."
+        },
+        {
+          "title": "Guilt, Responsibility & Boundaries",
+          "href": "/guilt-responsibility-and-boundaries",
+          "description": "Practical repair without self-punishment; setting boundaries without hostility."
+        },
+        {
+          "title": "Possessions, Wealth & Work",
+          "href": "/philosophy#money",
+          "description": "Possessions as small parts of creation; keeping matter from overshadowing people."
+        },
+        {
+          "title": "Religious Harmony & Questioning Division",
+          "href": "/practice#faith-and-division",
+          "description": "Recognizing the one divine reality across all traditions; refusing harm."
+        }
+      ],
+      "futureTitle": "Future Expansions",
+      "futureExpansions": [
+        "Dealing with grief, loss, and loneliness",
+        "Parenting and raising children with Creator-awareness",
+        "Workplace pressure and competition without losing inner peace"
+      ]
+    },
+    {
+      "id": "inner-enquiry",
+      "number": "04",
+      "title": "Inner Enquiry & Practice",
+      "theme": "The tools of self-realization: stillness, witnessing, and equanimity.",
+      "currentTopics": [
+        {
+          "title": "Who Am I? How to Begin Self-Enquiry",
+          "href": "/who-am-i-self-enquiry",
+          "description": "Inquiring into the experiencer without formal rituals or rigid timetables."
+        },
+        {
+          "title": "Meditation & Silence: Awareness without Performance",
+          "href": "/meditation-and-self-realization",
+          "description": "Quiet remembrance of the Creator rather than straining for powers."
+        },
+        {
+          "title": "Four Paths to One Recognition",
+          "href": "/philosophy#four-paths",
+          "description": "Synthesizing Karma, Bhakti, Jnana, and Raja Yoga into one realization."
+        },
+        {
+          "title": "Steady Wisdom (Sthitaprajna)",
+          "href": "/philosophy#sthitaprajna",
+          "description": "Remaining balanced during praise and blame, success and failure."
+        },
+        {
+          "title": "Remembering During Experience (Witnessing)",
+          "href": "/philosophy#witnessing",
+          "description": "Observing emotions without letting passing scenes define your identity."
+        }
+      ],
+      "futureTitle": "Future Expansions",
+      "futureExpansions": [
+        "Moving from thinking into pure witnessing",
+        "Maintaining inner silence amidst modern noise and digital distractions",
+        "Spiritual equanimity vs emotional suppression"
+      ]
+    },
+    {
+      "id": "world-vision",
+      "number": "05",
+      "title": "World Vision & The Yugas",
+      "theme": "Collective awakening, the evolution of society, and the future of humanity.",
+      "currentTopics": [
+        {
+          "title": "A Beautiful World within the Game",
+          "href": "/philosophy#beautiful-world",
+          "description": "Caring for people and nature as expressions of our shared creation."
+        },
+        {
+          "title": "The Progression of the Yugas",
+          "href": "/understanding-god#clarity-and-yugas",
+          "description": "Moving from Kali Yuga to Satya Yuga as mass awareness spreads."
+        },
+        {
+          "title": "Technology in the Service of Experience",
+          "href": "/philosophy#beautiful-world",
+          "description": "Using AI and automation to eliminate survival drudgery for human growth."
+        },
+        {
+          "title": "The Central Intention",
+          "href": "/philosophy#intention",
+          "description": "Making this world a beautiful place to live in peace and happiness."
+        }
+      ],
+      "futureTitle": "Future Expansions",
+      "futureExpansions": [
+        "Education and living in Satya Yuga",
+        "Cooperation over survival struggle in future societies",
+        "Living in deep harmony with nature and all living beings"
+      ]
+    },
+    {
+      "id": "reflections",
+      "number": "06",
+      "title": "Reflections & Ancient Dialogue",
+      "theme": "In-depth essays, scriptural connections, and cultural reflections.",
+      "currentTopics": [
+        {
+          "title": "Beyond the Disconnected Role",
+          "href": "/beyond-the-disconnected-role",
+          "description": "Shiva’s snake, Durga’s tiger, Rama, Krishna, fearlessness, and leadership."
+        },
+        {
+          "title": "From Survival to Satya: Why We Entered to Feel",
+          "href": "/why-we-entered-to-feel",
+          "description": "Human history, religious dualism, and the timing of collective awakening."
+        },
+        {
+          "title": "AI: Meeting Technology with Clarity Instead of Fear",
+          "href": "/ai-fear-and-clarity",
+          "description": "Meeting artificial intelligence with peace and human warmth."
+        },
+        {
+          "title": "Ten Vedic and Upanishadic Pointers",
+          "href": "/philosophy#scripture",
+          "description": "Ancient Mahavakyas pointing to the non-dual Creator within."
+        },
+        {
+          "title": "Ashtavakra Gita & Creator Awareness",
+          "href": "/ashtavakra-gita",
+          "description": "Timeless teachings on effortless awareness and oneness."
+        }
+      ],
+      "futureTitle": "Future Expansions",
+      "futureExpansions": [
+        "Spiritual commentaries on ancient epics and characters",
+        "Modern science, quantum consciousness, and the Game of Life",
+        "New personal dialogues and questions from seekers"
+      ]
+    }
+  ]
+}
