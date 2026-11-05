@@ -120,11 +120,12 @@ details p:last-child{margin-bottom:0}
 @media(max-width:900px){
  main{padding:28px 22px 50px}h1{font-size:clamp(2rem,6vw + .5rem,2.7rem)}.intro{font-size:1.1rem}
  .brand{font-size:1.25rem;gap:8px}.brand:before{width:28px;height:28px}
- .site-header{flex-wrap:wrap;gap:8px 12px;padding:12px 20px}.site-header.is-enhanced .menu-toggle{display:block;order:2}.site-header nav{display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0;order:3;max-height:45vh;overflow-y:auto;border-top:none;padding-top:0}
+ .site-header{flex-wrap:wrap;gap:8px 12px;padding:12px 20px}.site-header.is-enhanced .menu-toggle{display:block;order:2}
+ .mobile-page{display:block;width:100%;margin:0;color:var(--muted);font-size:.875rem;order:3}
+ .site-header nav{display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0;order:4;max-height:45vh;overflow-y:auto;border-top:none;padding-top:0}
  .site-header.is-enhanced nav:not(.is-open){display:none}
  .site-header:not(.is-enhanced){position:static}
- .mobile-page{display:block;width:100%;margin:0;color:var(--muted);font-size:.875rem}
- .language-tools{order:4;width:100%;margin:4px 0 0;align-items:flex-start;flex-wrap:wrap}
+ .language-tools{order:5;width:100%;margin:4px 0 0;align-items:flex-start;flex-wrap:wrap}
  .language-suggestion{position:static;flex-basis:100%;box-shadow:none}
  .first-practice{display:block;padding:24px;margin-top:25px}.practice-image{margin-top:28px}.practice-image img{height:190px}
  .topic-grid,.philosophy-intro,.concept-pair,.path-grid{grid-template-columns:1fr}
