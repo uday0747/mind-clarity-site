@@ -16,7 +16,7 @@ main:focus{outline:none}
 .intro{font-size:1.2rem;line-height:1.7;max-width:760px;margin-bottom:32px}
 .eyebrow{font-size:.875rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
 .site-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;max-width:1280px;margin:auto;padding:18px 40px;background:var(--cream);border-bottom:1px solid var(--line)}
-.brand{display:inline-flex;align-items:center;gap:10px;max-width:100%;min-width:0;font:700 1.45rem Georgia,serif;color:var(--deep);text-decoration:none}
+.brand{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;white-space:nowrap;word-break:keep-all;font:700 1.45rem Georgia,serif;color:var(--deep);text-decoration:none}
 .brand:before{content:"";width:34px;height:34px;flex-shrink:0;border-radius:50%;background:url("/assets/mark-68.png") center/cover}
 .site-header nav{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin-inline-start:auto;flex-shrink:0}
 .site-header nav a{display:flex;align-items:center;min-height:44px;padding:6px 14px;font-size:1rem;text-decoration:none;border-radius:4px;white-space:nowrap;overflow-wrap:normal;word-break:normal}
@@ -119,6 +119,7 @@ details p:last-child{margin-bottom:0}
 }
 @media(max-width:900px){
  main{padding:28px 22px 50px}h1{font-size:clamp(2rem,6vw + .5rem,2.7rem)}.intro{font-size:1.1rem}
+ .brand{font-size:1.25rem;gap:8px}.brand:before{width:28px;height:28px}
  .site-header{flex-wrap:wrap;gap:8px 12px}.site-header.is-enhanced .menu-toggle{display:block}.site-header nav{display:grid;grid-template-columns:1fr 1fr;width:100%;margin:0;order:3;max-height:45vh;overflow-y:auto}
  .site-header.is-enhanced nav:not(.is-open){display:none}
  .site-header:not(.is-enhanced){position:static}
