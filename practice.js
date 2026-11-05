@@ -13,8 +13,6 @@ export default function Practice() {
   const numberFor = id => String(contents.findIndex(([sectionId]) => sectionId === id) + 1).padStart(2, '0');
   return e(Page, { eyebrow: 'Daily practice · Exploring Uday Kumar’s philosophy', title: 'Remember the Creator within each experience.', intro: teaching.statement, overview:'Choose one everyday scene. Read its connection to the teaching, open the worked example if useful, and examine what remembrance changes for you.' },
     p(mission.practiceIntro), p(benefits.state), p(benefits.effort),
-    e('a', { href: '/philosophy#benefits' }, benefits.link),
-    e('div', { className: 'reading-links' }, e('a', { href: '/philosophy#mula-siddhanta' }, 'Read the root statement and its meaning')),
     e('div', { className: 'reading-grid' }, e(Contents, {items: contents}), e('div', {className: 'reading-body'},
       e(Lesson, { id: 'five-minutes', number: numberFor('five-minutes'), title: 'Remember the whole teaching' },
         p(teaching.meaning), p(entry.recognition),
@@ -26,8 +24,7 @@ export default function Practice() {
         p(journey.identity), p(journey.connection),
         journey.connectionNote && e('p', {className:'quiet-note'}, journey.connectionNote),
         p(journey.design),
-        e(Reflection, null, journey.question),
-        e('a', {className:'text-link',href:'/philosophy#astrology'}, journey.astrologyTitle)),
+        e(Reflection, null, journey.question)),
       e(Lesson, {id:'ordinary-joy', number:numberFor('ordinary-joy'), title:journey.joyTitle}, p(journey.joy),
         e(Reflection, null, teaching.practiceReflection)),
       ...teaching.cases.map((item, i) => e(Lesson, { key:item.id, id:item.id, number:numberFor(item.id), title:item.title },
@@ -50,7 +47,6 @@ export default function Practice() {
           'When I returned to the central understanding, what changed in my experience—and what did not?'
         ].map(text => e('li', {key:text}, text))),
         p('Return to the teaching without turning the day into a score. Its intended movement is from remembrance toward natural care. A difficult emotion or an unresolved question is something to examine, not evidence of personal failure.'),
-        e('div', {className:'reading-links'}, e('a', {href:'/philosophy#living'}, 'Living with the understanding'), e('a', {href:'/faq'}, 'Questions about the game')),
         e('p', {className:'quiet-note'}, 'These are spiritual reflections, not treatment or a promise of particular outcomes. Appropriate professional support remains available when needed.')))),
     e('div', { className: 'clarity-card-studio-section', 'data-card-studio': 'true' }));
 }

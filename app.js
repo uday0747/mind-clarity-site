@@ -77,12 +77,10 @@ export function App() {
         e('summary', null, guide.simpler), e('p', null, mission.story))),
     e('section', { className: 'home-section journey-step', id: 'design-and-time', 'aria-labelledby': 'design-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '03'),
-      e('h2', { id: 'design-title' }, journey.designTitle), e('p', null, journey.design),
-      e('a', { className: 'text-link', href: '/surrender-free-will-and-design' }, 'Explore a question in depth')),
+      e('h2', { id: 'design-title' }, journey.designTitle), e('p', null, journey.design)),
     e('section', { className: 'home-section journey-step', id: 'astrology', 'aria-labelledby': 'astrology-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '04'),
-      e('h2', { id: 'astrology-title' }, journey.astrologyTitle), e(AstrologyExplanation),
-      e('a', { className: 'text-link', href: '/philosophy#astrology' }, 'Read the complete philosophy →')),
+      e('h2', { id: 'astrology-title' }, journey.astrologyTitle), e(AstrologyExplanation)),
     e('section', { className: 'home-section journey-step', id: 'examine-the-game', 'aria-labelledby': 'reason-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '05'),
       e('h2', { id: 'reason-title' }, journey.reasonTitle), e('p', null, journey.reason),
@@ -102,8 +100,7 @@ export function App() {
           const item=teaching.cases.find(example => example.id===id);
           return e('details', { key:id, className:'discovery-reveal', name:'everyday-scene' },
             e('summary', null, item.title), e('p', null, item.scene), e('p', null, item.remember),
-            e('p', null, item.participation),
-            e('a', { className:'text-link', href:'/practice#'+id }, 'Explore the complete example'));
+            e('p', null, item.participation));
         })),
       e('figure', { className: 'practice-image' },
         e('picture', null,
@@ -121,12 +118,9 @@ export function App() {
     e('section', { className:'home-section discovery-reflection', id:'one-reflection', 'aria-labelledby':'reflection-title' },
       e('h2', {id:'reflection-title'}, 'Try this reflection'),
       e('h3', null, journey.joyTitle), e('p', null, journey.joy),
-      e('p', null, guide.reflection),
-      e('div', {className:'reading-links'}, e('a', {className:'button', href:'/practice'}, 'Explore an optional everyday example'),
-        e('a', {className:'text-link', href:'/faq#enquiry-title'}, 'Find an answer to your question'))),
+      e('p', null, guide.reflection)),
     e('details', { className:'home-section discovery-reveal', id:'story', open: true },
-      e('summary', {id:'story-title'}, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design),
-      e('a', {className:'text-link', href:'/understanding-god#story'}, mission.storyLink)),
+      e('summary', {id:'story-title'}, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design)),
     introduction && e('section', { className: 'watch-lesson', 'aria-labelledby': 'watch-title' },
       e('div', null, e('h2', { id: 'watch-title' }, 'Watch the Mind Clarity introduction'),
         e('p', null, 'Explore the core teaching through a simple everyday example, then read and question the philosophy for yourself.')),
@@ -149,7 +143,6 @@ export function App() {
     e('section', {className:'home-section author-introduction', 'aria-labelledby':'author-title'},
       e('h2', {id:'author-title'}, 'About Uday Kumar'),
       e('p', null, 'Uday Kumar shares his Creator-and-game philosophy through written discussions, clarifications, and everyday examples. This website adapts those explanations for reading and self-enquiry.'),
-      e('p', {className:'quiet-note'}, 'Original statements and editorial explanations are distinguished. Questions and corrections are welcome.'),
-      e('a', {className:'text-link',href:'/philosophy'}, 'Read the complete philosophy →')));
+      e('p', {className:'quiet-note'}, 'Original statements and editorial explanations are distinguished. Questions and corrections are welcome.')));
 }
 if (typeof document !== 'undefined') mount(App);
