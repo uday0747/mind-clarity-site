@@ -95,9 +95,9 @@ export function App() {
         e('p', null, 'Connect the teaching with one ordinary scene or relationship.'),
         e('details', { className: 'discovery-reveal', name:'everyday-scene' },
           e('summary', null, 'Confidence through knowing who we are'),
-          e('p', null, discussion.confidenceIntro),
-          e('p', null, discussion.confidenceIdentity),
-          e('p', null, discussion.confidenceEnquiry)),
+          e('p', null, discussion.confidenceScene),
+          e('p', null, discussion.confidenceRemember),
+          e('p', null, discussion.confidenceAction)),
         ...['conflict','money-relationships'].map(id => {
           const item=teaching.cases.find(example => example.id===id);
           return e('details', { key:id, className:'discovery-reveal', name:'everyday-scene' },
