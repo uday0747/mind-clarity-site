@@ -92,13 +92,13 @@ export function App() {
       e('div', null,
         e('span', { className: 'discovery-number', 'aria-hidden':true }, '06'),
         e('h2', { id:'first-practice-title' }, guide.choose),
-        e('h3', null, journey.connectionTitle), e('p', null, journey.connection),
-        journey.connectionNote && e('p', { className: 'quiet-note' }, journey.connectionNote),
         e('p', null, 'Connect the teaching with one ordinary scene or relationship.'),
         e('details', { className: 'discovery-reveal', name:'everyday-scene' },
-          e('summary', null, 'Confidence through knowing who we are'), e('p', null, discussion.confidenceExample),
-          e('p', { className:'quiet-note' }, discussion.confidenceReflection)),
-        ...['conflict','self-judgment'].map(id => {
+          e('summary', null, 'Confidence through knowing who we are'),
+          e('p', null, discussion.confidenceIntro),
+          e('p', null, discussion.confidenceIdentity),
+          e('p', null, discussion.confidenceEnquiry)),
+        ...['conflict','money-relationships'].map(id => {
           const item=teaching.cases.find(example => example.id===id);
           return e('details', { key:id, className:'discovery-reveal', name:'everyday-scene' },
             e('summary', null, item.title), e('p', null, item.scene), e('p', null, item.remember),
