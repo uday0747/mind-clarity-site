@@ -35,9 +35,10 @@ main:focus{outline:none}
 .mobile-page{display:none}
 .skip-link{position:fixed;top:8px;inset-inline-start:8px;z-index:30;transform:translateY(-200%);background:var(--deep);color:white;padding:10px 16px}
 .skip-link:focus{transform:none}
-.button{display:inline-block;padding:12px 20px;min-height:44px;background:var(--green);color:white;text-decoration:none;border-radius:5px;font-weight:700;font-size:1rem}
+.button{display:inline-block;padding:12px 20px;min-height:44px;background:var(--green);color:white;text-decoration:none;border-radius:5px;font-weight:700;font-size:1rem;transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
 .button:hover{background:var(--deep)}
 .button.secondary{background:transparent;color:var(--green);border:1px solid var(--green)}
+.button.secondary:hover{background:var(--soft);color:var(--deep)}
 .text-link{font-weight:700}
 .first-practice{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;background:var(--soft);padding:34px;margin:36px 0 0;border-radius:8px}
 .first-practice h2{font-size:1.8rem;max-width:430px}
@@ -796,6 +797,30 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
     background: var(--soft);
     border-color: var(--line);
   }
+  .button {
+    background: #275d50;
+    color: #ffffff;
+    border: 1px solid #377767;
+  }
+  .button:hover,
+  .button:focus-visible {
+    background: #347667;
+    color: #ffffff;
+    border-color: #499885;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+  .button.secondary {
+    background: transparent;
+    color: #5bb5a0;
+    border: 1px solid #2d4c42;
+  }
+  .button.secondary:hover,
+  .button.secondary:focus-visible {
+    background: #1c2b23;
+    color: #72cfba;
+    border-color: #438271;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
 }
 
 /* Category Pages & Navigation */
@@ -819,6 +844,10 @@ html[dir="rtl"] input[type="url"],html[dir="rtl"] a[href^="mailto:"],html[dir="r
   text-align: center;
   font-weight: 700;
   border-radius: 6px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+.category-explore-btn:hover {
+  transform: translateY(-1px);
 }
 .category-upcoming-note {
   font-size: 0.85rem;

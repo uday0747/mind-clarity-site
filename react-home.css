@@ -59,5 +59,6 @@
 }
 @media(prefers-color-scheme:dark){
   .category-card{background:#17221c;border-color:var(--line)}
+  .category-card:hover{border-color:#34483e;box-shadow:0 6px 20px rgba(0,0,0,.35)}
   .future-expansions-card{background:#1e2c24}
 }
