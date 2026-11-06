@@ -31,6 +31,11 @@ const assets = ['page.css', 'react-home.css', 'studios.js', 'assets-brand.png', 
   'mind-clarity-mark.png', 'mind-clarity-mark-desktop.png', 'assets', 'robots.txt', 'sitemap.xml', 'indexnow-key.txt', '_redirects', '404.html'];
 for (const asset of assets) await cp(path.join(root, asset), path.join(dist, asset), { recursive: true });
 await cp(path.join(root, 'dist-bundle/site.js'), path.join(dist, 'site.js'));
+const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
+const studiosRev = await revision('studios.js');
+let siteJs = await readFile(path.join(dist, 'site.js'), 'utf8');
+siteJs = siteJs.replace(/\/studios\.js(?:\?v=[a-zA-Z0-9_-]+)?/g, `/studios.js?v=${studiosRev}`);
+await writeFile(path.join(dist, 'site.js'), siteJs);
 
 // Give search engines the complete relationship between each translated page.
 // The browser-facing HTML already carries the same hreflang set; this keeps
@@ -50,7 +55,6 @@ sitemap = sitemap.replace(/<url><loc>(https:\/\/mindclarity\.co\.in([^<]*))<\/lo
 await writeFile(sitemapPath, sitemap);
 const bundleIntegrity = scriptIntegrity(await readFile(path.join(dist, 'site.js')));
 
-const revision = async (name) => createHash('sha256').update(await readFile(path.join(dist, name))).digest('hex').slice(0, 12);
 for (const [page, Component] of Object.entries({ index: App, ...pages })) {
   const topic = enquiryTopics.find(topic => topic.slug === page);
   const localizedRoute = page.match(/^(hi|es|fr|te|pt|id|ar|ta|kn|ml|bn|mr|gu|pa|or|as|ur|de|it|ru|ja|ko|zh-Hans|zh-Hant|tr|vi|pl|nl|sv|da|nb|ro|cs)\/(.+)$/) || (['te', 'pt', 'id', 'ar', 'ta', 'kn', 'ml', 'bn', 'mr', 'gu', 'pa', 'or', 'as', 'ur', 'de', 'it', 'ru', 'ja', 'ko', 'zh-Hans', 'zh-Hant', 'tr', 'vi', 'pl', 'nl', 'sv', 'da', 'nb', 'ro', 'cs'].includes(page) ? [page, page, ''] : null);

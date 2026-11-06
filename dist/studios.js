@@ -2021,8 +2021,8 @@
 
       // Quote Body
       const quoteText = quotes[selectedIdx] || quotes[0];
-      const isCJK = /[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(quoteText);
-      const isNonLatin = /[\u0600-\u06FF\u0900-\u0DFF\u0E00-\u0E7F\u3000-\u9FFF\uAC00-\uD7AF]/.test(quoteText);
+      const hasEastAsian = /[\u1100-\u11FF\u3000-\u30FF\u3130-\u318F\u4E00-\u9FFF\uAC00-\uD7AF\uF900-\uFAFF\uFF00-\uFFEF]/.test(quoteText);
+      const isNonLatin = /[\u0600-\u06FF\u0900-\u0DFF\u0E00-\u0E7F\u1100-\u11FF\u3000-\u9FFF\uAC00-\uD7AF]/.test(quoteText);
       const fontStyle = isNonLatin ? '500' : 'italic 400';
       const maxW = w - 240;
 
@@ -2030,16 +2030,16 @@
       const footerTop = isStory ? h - 250 : h - 170;
       const availH = footerTop - headerBottom;
 
-      const isCJKChar = (ch) => /[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(ch);
+      const isEastAsianChar = (ch) => /[\u1100-\u11FF\u3000-\u30FF\u3130-\u318F\u4E00-\u9FFF\uAC00-\uD7AF\uF900-\uFAFF\uFF00-\uFFEF]/.test(ch);
       const noLineStartPunct = /^[\u3001\u3002\uff0c\uff0e\uff01\uff1f\uff1b\uff1a\u3009\u300b\u300d\u300f\uff09\u2019\u201d\u2026\.,;:!?)]/;
 
       let tokens = [];
-      if (!isCJK) {
+      if (!hasEastAsian) {
         tokens = quoteText.split(/\s+/).map((w, i) => (i === 0 ? w : ' ' + w));
       } else {
         let buffer = '';
         for (const ch of quoteText) {
-          if (isCJKChar(ch)) {
+          if (isEastAsianChar(ch)) {
             if (buffer) { tokens.push(buffer); buffer = ''; }
             tokens.push(ch);
           } else if (/\s/.test(ch)) {
@@ -2055,7 +2055,7 @@
       let baseFontSize = isStory
         ? (quoteText.length > 120 ? 34 : quoteText.length > 50 ? 40 : 46)
         : (quoteText.length > 120 ? 26 : quoteText.length > 50 ? 32 : 38);
-      if (isCJK) {
+      if (hasEastAsian) {
         baseFontSize = isStory
           ? (quoteText.length > 100 ? 30 : quoteText.length > 40 ? 36 : 40)
           : (quoteText.length > 100 ? 26 : quoteText.length > 40 ? 30 : 36);
@@ -2080,6 +2080,15 @@
               lines.push(cur.trim());
               cur = tok === ' ' ? '' : tok;
             }
+          } else if (ctx.measureText(test).width > maxW && !cur) {
+            for (const ch of tok) {
+              if (ctx.measureText(cur + ch).width > maxW && cur) {
+                lines.push(cur.trim());
+                cur = ch;
+              } else {
+                cur += ch;
+              }
+            }
           } else {
             cur = test;
           }
@@ -2090,7 +2099,7 @@
 
       let fontSize = baseFontSize;
       let lines = breakLines(fontSize);
-      let lineHeight = fontSize * (isCJK ? 1.6 : 1.55);
+      let lineHeight = fontSize * (hasEastAsian ? 1.6 : 1.55);
       let totalH = lines.length * lineHeight;
 
       function getMaxLineWidth(lns) {
@@ -2102,9 +2111,9 @@
         return m;
       }
 
-      while ((totalH > availH || getMaxLineWidth(lines) > maxW) && fontSize > 18) {
+      while ((totalH > availH || getMaxLineWidth(lines) > maxW) && fontSize > 16) {
         fontSize -= 2;
-        lineHeight = fontSize * (isCJK ? 1.6 : 1.55);
+        lineHeight = fontSize * (hasEastAsian ? 1.6 : 1.55);
         lines = breakLines(fontSize);
         totalH = lines.length * lineHeight;
       }
