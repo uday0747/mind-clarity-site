@@ -2021,31 +2021,101 @@
 
       // Quote Body
       const quoteText = quotes[selectedIdx] || quotes[0];
-      const fontSize = isStory ? (quoteText.length > 90 ? 42 : 48) : (quoteText.length > 90 ? 36 : 42);
-      ctx.fillStyle = theme.text;
+      const isCJK = /[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(quoteText);
       const isNonLatin = /[\u0600-\u06FF\u0900-\u0DFF\u0E00-\u0E7F\u3000-\u9FFF\uAC00-\uD7AF]/.test(quoteText);
       const fontStyle = isNonLatin ? '500' : 'italic 400';
+      const maxW = w - 240;
+
+      const headerBottom = isStory ? 390 : 280;
+      const footerTop = isStory ? h - 250 : h - 170;
+      const availH = footerTop - headerBottom;
+
+      const isCJKChar = (ch) => /[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\uF900-\uFAFF\uFF00-\uFFEF]/.test(ch);
+      const noLineStartPunct = /^[\u3001\u3002\uff0c\uff0e\uff01\uff1f\uff1b\uff1a\u3009\u300b\u300d\u300f\uff09\u2019\u201d\u2026\.,;:!?)]/;
+
+      let tokens = [];
+      if (!isCJK) {
+        tokens = quoteText.split(/\s+/).map((w, i) => (i === 0 ? w : ' ' + w));
+      } else {
+        let buffer = '';
+        for (const ch of quoteText) {
+          if (isCJKChar(ch)) {
+            if (buffer) { tokens.push(buffer); buffer = ''; }
+            tokens.push(ch);
+          } else if (/\s/.test(ch)) {
+            if (buffer) { tokens.push(buffer); buffer = ''; }
+            tokens.push(' ');
+          } else {
+            buffer += ch;
+          }
+        }
+        if (buffer) tokens.push(buffer);
+      }
+
+      let baseFontSize = isStory
+        ? (quoteText.length > 120 ? 34 : quoteText.length > 50 ? 40 : 46)
+        : (quoteText.length > 120 ? 26 : quoteText.length > 50 ? 32 : 38);
+      if (isCJK) {
+        baseFontSize = isStory
+          ? (quoteText.length > 100 ? 30 : quoteText.length > 40 ? 36 : 40)
+          : (quoteText.length > 100 ? 26 : quoteText.length > 40 ? 30 : 36);
+      }
+
+      function breakLines(fs) {
+        ctx.font = `${fontStyle} ${fs}px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif", "Noto Sans", Georgia, serif`;
+        const lines = [];
+        let cur = '';
+
+        for (let i = 0; i < tokens.length; i++) {
+          const tok = tokens[i];
+          if (!cur && tok === ' ') continue;
+          const test = cur + tok;
+          if (ctx.measureText(test).width > maxW && cur) {
+            if (noLineStartPunct.test(tok.trim()) && cur.length > 1) {
+              const lastChar = cur.slice(-1);
+              const curWithoutLast = cur.slice(0, -1).trim();
+              lines.push(curWithoutLast);
+              cur = lastChar + tok;
+            } else {
+              lines.push(cur.trim());
+              cur = tok === ' ' ? '' : tok;
+            }
+          } else {
+            cur = test;
+          }
+        }
+        if (cur) lines.push(cur.trim());
+        return lines;
+      }
+
+      let fontSize = baseFontSize;
+      let lines = breakLines(fontSize);
+      let lineHeight = fontSize * (isCJK ? 1.6 : 1.55);
+      let totalH = lines.length * lineHeight;
+
+      function getMaxLineWidth(lns) {
+        let m = 0;
+        for (const l of lns) {
+          const lw = ctx.measureText(l).width;
+          if (lw > m) m = lw;
+        }
+        return m;
+      }
+
+      while ((totalH > availH || getMaxLineWidth(lines) > maxW) && fontSize > 18) {
+        fontSize -= 2;
+        lineHeight = fontSize * (isCJK ? 1.6 : 1.55);
+        lines = breakLines(fontSize);
+        totalH = lines.length * lineHeight;
+      }
+
+      ctx.fillStyle = theme.text;
       ctx.font = `${fontStyle} ${fontSize}px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Serif", "Noto Sans", Georgia, serif`;
 
-      const maxW = w - 240;
-      const words = quoteText.split(/\s+/);
-      const lines = [];
-      let currentLine = '';
-
-      for (let i = 0; i < words.length; i++) {
-        const testLine = currentLine ? currentLine + ' ' + words[i] : words[i];
-        if (ctx.measureText(testLine).width > maxW && currentLine) {
-          lines.push(currentLine);
-          currentLine = words[i];
-        } else {
-          currentLine = testLine;
-        }
+      let startY = (h / 2) - (totalH / 2) + (isStory ? 35 : 15);
+      if (startY < headerBottom) {
+        startY = headerBottom + 10;
       }
-      if (currentLine) lines.push(currentLine);
-
-      const lineHeight = fontSize * 1.55;
-      const totalH = lines.length * lineHeight;
-      const startY = (h / 2) - (totalH / 2) + 20;
 
       for (let l = 0; l < lines.length; l++) {
         ctx.fillText(lines[l], w / 2, startY + (l * lineHeight));
