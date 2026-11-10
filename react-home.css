@@ -53,6 +53,7 @@
 .future-list li{display:flex;gap:8px;margin-bottom:6px;align-items:baseline}
 .future-list li:last-child{margin-bottom:0}
 .bullet-icon{color:var(--gold);font-size:.75rem;flex-shrink:0}
+.category-upcoming-wrapper{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:6px}
 @media(max-width:600px){
   .categories-grid{grid-template-columns:1fr;gap:22px}
   .category-card{padding:22px 18px}
@@ -61,4 +62,7 @@
   .category-card{background:#17221c;border-color:var(--line)}
   .category-card:hover{border-color:#34483e;box-shadow:0 6px 20px rgba(0,0,0,.35)}
   .future-expansions-card{background:#1e2c24}
+  .topics-heading{color:var(--gold)}
+  .future-badge{background:#8c6d23;color:#fff}
+  .category-upcoming-note{color:#a4beaf}
 }

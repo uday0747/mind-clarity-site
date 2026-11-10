@@ -1,6 +1,7 @@
 import { questions, enquiryGroups } from '../questions.js';
 import { enquiryTopics } from '../enquiry-topics.js';
 import { localizedPageSlugs, pageLanguage, languageVariants } from '../language-options.js';
+import { introductionVideos } from '../introduction-videos.js';
 import problems from '../problem-content.json' with { type: 'json' };
 import { translateText } from '../translations.js';
 import { readFileSync } from 'node:fs';
@@ -48,12 +49,35 @@ export function completeMetadata(head) {
   ];
   const graph = {
     '@context': 'https://schema.org', '@graph': [
-      { '@type': 'WebSite', '@id': 'https://mindclarity.co.in/#website', name: 'Mind Clarity', url: 'https://mindclarity.co.in/', inLanguage: Object.keys(languageVariants('/')), publisher: { '@id':'https://mindclarity.co.in/#uday-kumar' } },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://mindclarity.co.in/#website',
+        name: 'Mind Clarity',
+        alternateName: ['Mind Clarity · Uday Kumar', 'Mind Clarity Philosophy'],
+        url: 'https://mindclarity.co.in/',
+        inLanguage: Object.keys(languageVariants('/')),
+        description: 'Uday Kumar’s spiritual philosophy: we are the one Creator who entered this pre-designed game of experiences without unrestricted powers.',
+        genre: 'Spiritual Philosophy',
+        about: {
+          '@type': 'Thing',
+          name: 'Spiritual Philosophy & Non-Dual Self-Enquiry',
+          description: 'Philosophical understanding of the Creator, the game of experiences, and living without hatred or fear.'
+        },
+        publisher: { '@id':'https://mindclarity.co.in/#uday-kumar' }
+      },
       { '@type': (canonicalPath === '/reflections' || localizedPage === 'reflections') || canonicalPath.endsWith('/life-problems-and-self-enquiry') ? 'CollectionPage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: decode(title), description: decode(description), inLanguage: language, isPartOf: { '@id': 'https://mindclarity.co.in/#website' } }
     ]
   };
   const topic = enquiryTopics.find(topic => canonicalPath === '/' + topic.slug || localizedPage === topic.slug);
-  const author = { '@type': 'Person', '@id': 'https://mindclarity.co.in/#uday-kumar', name: 'Uday Kumar', url:'https://mindclarity.co.in/#author-title' };
+  const author = {
+    '@type': 'Person',
+    '@id': 'https://mindclarity.co.in/#uday-kumar',
+    name: 'Uday Kumar',
+    jobTitle: 'Philosopher & Author',
+    description: 'Author and teacher of the Mind Clarity spiritual philosophy: we are the Creator who created this game of experiences and entered it.',
+    url:'https://mindclarity.co.in/#author-title',
+    ...(introductionVideos[language] ? { sameAs: [introductionVideos[language].href] } : {})
+  };
   graph['@graph'][1].author = author;
   graph['@graph'][1].dateModified = pageUpdates.get(canonical);
   graph['@graph'][1].primaryImageOfPage = { '@type':'ImageObject', url:'https://mindclarity.co.in/assets/social-preview.jpg', width:1200, height:800 };

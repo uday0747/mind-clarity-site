@@ -1857,6 +1857,14 @@
       quotes.push(langQuotes[0] || 'We are the Creator. We created this game of experiences and entered it.');
     }
 
+    const formatQuotePreview = (text, maxLen = 60) => {
+      if (text.length <= maxLen) return text;
+      const sliced = text.slice(0, maxLen);
+      const lastSpace = sliced.lastIndexOf(' ');
+      const cleanSlice = lastSpace > 28 ? sliced.slice(0, lastSpace) : sliced;
+      return cleanSlice.trim() + '…';
+    };
+
     let selectedIdx = 0;
     let isStory = false;
     let currentPalette = 'parchment'; // 'parchment' | 'emerald' | 'sunrise' | 'night'
@@ -1883,7 +1891,7 @@
           <div class="control-group">
             <span class="control-label">${ui.quote}</span>
             <select class="studio-select" id="cs-quote-select" aria-label="${ui.quote}">
-              ${quotes.map((q, i) => `<option value="${i}">"${q.length > 58 ? q.slice(0, 55) + '…' : q}"</option>`).join('')}
+              ${quotes.map((q, i) => `<option value="${i}">"${formatQuotePreview(q)}"</option>`).join('')}
             </select>
           </div>
           <div class="control-row">
