@@ -51,8 +51,20 @@ main:focus{outline:none}
 .home-section>p{max-width:760px}
 .welcome-meaning{max-width:760px}
 .reading-links{align-items:center}
-.watch-lesson{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
-.watch-lesson>div{max-width:68ch}.watch-lesson h2{font-size:1.45rem;margin:0 0 8px}.watch-lesson p{margin:0;font-size:1rem}.watch-lesson>.button{flex-shrink:0}
+.watch-lesson{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:32px;padding:32px;background:var(--cream);border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 12px rgba(0,0,0,.04);margin:40px 0}
+.watch-lesson h2{font-size:1.55rem;margin:0 0 10px;font-family:Georgia,serif;color:var(--deep)}
+.watch-lesson p{margin:0 0 20px;font-size:1.02rem;line-height:1.55;color:var(--ink)}
+.video-facade-poster-wrap{position:relative;display:block;overflow:hidden;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.12);aspect-ratio:16/9;background:#0d1a15;transition:transform .2s ease,box-shadow .2s ease}
+.video-facade-poster-wrap:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.video-facade-poster{display:block;width:100%;height:100%;object-fit:cover}
+.video-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(36,87,77,.92);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.35);transition:transform .2s ease,background .2s ease}
+.video-facade-poster-wrap:hover .video-play-icon{transform:translate(-50%,-50%) scale(1.12);background:var(--green)}
+@media(max-width:760px){.watch-lesson{grid-template-columns:1fr;gap:22px;padding:22px}}
+@media(prefers-color-scheme:dark){
+  .watch-lesson{background:#17221c;border-color:var(--line);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  .video-play-icon{background:rgba(168,140,79,.92);color:#17221c}
+  .video-facade-poster-wrap:hover .video-play-icon{background:var(--gold)}
+}
 .share-lesson{border-top:1px solid var(--line);margin-top:52px;padding-top:28px;max-width:760px}
 .share-lesson h2{font-size:1.6rem;margin-bottom:12px}.share-lesson label{display:block;font-weight:700;font-size:1rem;margin-bottom:8px}
 .share-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}.share-actions input{flex:1 1 280px;min-width:0;width:100%;padding:12px;font:inherit;border:1px solid #78978c;border-radius:5px;color:var(--ink);background:white}

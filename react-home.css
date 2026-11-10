@@ -12,9 +12,12 @@
 .discovery-number{display:block;font-size:.8rem;letter-spacing:.18em;font-weight:700;color:#74633d;margin-bottom:12px}
 .discovery-question{font-size:1.2rem;max-width:42rem}
 .discovery-reveal{border-top:1px solid var(--line);padding:18px 0;margin-top:12px}
-.discovery-reveal summary{cursor:pointer;font-weight:650;line-height:1.6;text-underline-offset:4px}
-.discovery-reveal summary:hover{text-decoration:underline}
-.discovery-reveal summary:focus-visible{outline:3px solid #24574d;outline-offset:6px;border-radius:3px}
+.discovery-reveal summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:650;line-height:1.6;padding:10px 16px;background:var(--soft);border:1px solid var(--line);border-radius:10px;transition:background-color .15s ease,border-color .15s ease;list-style:none}
+.discovery-reveal summary::-webkit-details-marker{display:none}
+.discovery-reveal summary::after{content:"+";font-size:1.25rem;font-weight:400;color:var(--green);transition:transform .2s ease}
+.discovery-reveal[open] summary::after{content:"−"}
+.discovery-reveal summary:hover{background:#e2ede7;border-color:var(--green)}
+.discovery-reveal summary:focus-visible{outline:3px solid #24574d;outline-offset:3px;border-radius:10px}
 .discovery-reveal[open] summary{margin-bottom:16px}
 .discovery-reveal p:last-child{margin-bottom:0}
 .yuga-introduction{padding:24px 28px;border-inline-start:4px solid #a88c4f;background:#f6f0e4}
@@ -65,4 +68,7 @@
   .topics-heading{color:var(--gold)}
   .future-badge{background:#8c6d23;color:#fff}
   .category-upcoming-note{color:#a4beaf}
+  .discovery-reveal summary{background:#1c2b23;border-color:#2b3e34}
+  .discovery-reveal summary:hover{background:#23372c;border-color:var(--gold)}
+  .discovery-reveal summary::after{color:var(--gold)}
 }

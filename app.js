@@ -48,7 +48,7 @@ export function App() {
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '02'),
           e('h3', null, guide.powers),
-          e('p', null, entry.example)
+          e('p', null, guide.question)
         ),
         e('div', { className: 'story-card' },
           e('span', { className: 'card-number' }, '03'),
@@ -61,20 +61,19 @@ export function App() {
     e('section', { className: 'home-section discovery-card', id: 'identity-and-roles', 'aria-labelledby': 'roles-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '01'),
       e('h2', { id: 'roles-title' }, guide.roles),
-      e('p', null, mission.homeIdentity),
+      e('p', null, entry.identity),
       e('svg', { className: 'roles-illustration', viewBox:'0 0 400 130', 'aria-hidden':true, focusable:'false' },
         e('path', { d:'M200 25 L70 65 M200 25 L200 65 M200 25 L330 65', fill:'none', stroke:'currentColor', strokeWidth:2 }),
         e('circle', { cx:200, cy:22, r:16, fill:'currentColor' }),
         ...[70,200,330].map(x => e('g', {key:x}, e('circle', {cx:x,cy:78,r:14,fill:'currentColor'}), e('path', {d:`M${x-26} 120 Q${x} 85 ${x+26} 120`, fill:'none',stroke:'currentColor',strokeWidth:5,strokeLinecap:'round'})))),
       e('p', null, guide.analogy),
       e('details', { className: 'discovery-reveal' }, e('summary', null, guide.simpler),
-        e('p', null, entry.identity), e('p', null, entry.recognition))),
+        e('p', null, entry.recognition))),
     e('section', { className: 'home-section discovery-card', id: 'why-no-powers', 'aria-labelledby': 'powers-title' },
       e('span', { className: 'discovery-number', 'aria-hidden': true }, '02'),
       e('h2', { id: 'powers-title' }, guide.imagine),
       e('p', { className: 'discovery-question' }, guide.question),
-      e('details', { className: 'discovery-reveal' },
-        e('summary', null, guide.powers), e('p', null, entry.example)),
+      e('p', null, entry.example),
       e('details', { className: 'discovery-reveal' },
         e('summary', null, guide.simpler), e('p', null, mission.story))),
     e('section', { className: 'home-section journey-step', id: 'design-and-time', 'aria-labelledby': 'design-title' },
@@ -124,9 +123,38 @@ export function App() {
     e('details', { className:'home-section discovery-reveal', id:'story', open: true },
       e('summary', {id:'story-title'}, mission.storyTitle), e('p', null, mission.story), e('p', null, mission.design)),
     introduction && e('section', { className: 'watch-lesson', 'aria-labelledby': 'watch-title' },
-      e('div', null, e('h2', { id: 'watch-title' }, 'Watch the Mind Clarity introduction'),
-        e('p', null, 'Explore the core teaching through a simple everyday example, then read and question the philosophy for yourself.')),
-      e('a', { className: 'button secondary', href: introduction.href }, 'Watch the introduction on YouTube')),
+      e('div', { className: 'video-facade-body' },
+        e('h2', { id: 'watch-title' }, 'Watch the Mind Clarity introduction'),
+        e('p', null, 'Explore the core teaching through a simple everyday example, then read and question the philosophy for yourself.'),
+        e('a', {
+          className: 'button primary video-cta-btn',
+          href: introduction.href,
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        }, 'Watch the introduction on YouTube')
+      ),
+      e('a', {
+        className: 'video-facade-poster-wrap',
+        href: introduction.href,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        'aria-label': 'Watch the introduction on YouTube'
+      },
+        e('img', {
+          src: introduction.poster,
+          alt: 'Watch the introduction on YouTube',
+          className: 'video-facade-poster',
+          width: 440,
+          height: 196,
+          loading: 'lazy'
+        }),
+        e('span', { className: 'video-play-icon', 'aria-hidden': 'true' },
+          e('svg', { width: 32, height: 32, viewBox: '0 0 24 24', fill: 'currentColor' },
+            e('path', { d: 'M8 5v14l11-7z' })
+          )
+        )
+      )
+    ),
     e('section', {className:'home-section learning-journey', 'aria-labelledby':'journey-title'},
       e('h2', {id:'journey-title'}, 'Explore at your own pace.'),
       e('ol', {className:'journey-steps'},
